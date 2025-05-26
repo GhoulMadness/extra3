@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		<Class>GD::CDisplaySettler</Class>
+		<Model>CU_BanditLeaderSword1</Model> 
+		<DrawPlayerColor>True</DrawPlayerColor>
+		
+		<Anim>CU_BanditLeaderSword1_Walk</Anim>
+		<Anim>CU_BanditLeaderSword1_Run1</Anim>
+		<Anim>CU_BanditLeaderSword1_Idle1</Anim>
+		<Anim>CU_BanditLeaderSword1_Idle2</Anim>
+		<Anim>CU_BanditLeaderSword1_Idle3</Anim>
+		<Anim>CU_BanditLeaderSword1_Idle4</Anim>
+		<Anim>CU_BanditLeaderSword1_Idle5</Anim>
+		<Anim>CU_BanditLeaderSword1_Idle6</Anim>
+		<Anim>CU_BanditLeaderSword1_IdleAttack1</Anim>
+		<Anim>CU_BanditLeaderSword1_Attack1</Anim>
+		<Anim>CU_BanditLeaderSword1_Attack2</Anim>
+		<Anim>CU_BanditLeaderSword1_Finish</Anim>
+		<Anim>CU_BanditLeaderSword1_Hit</Anim>		
+		<Anim>CU_BanditLeaderSword1_Dying1</Anim>
+	</Display>
+	<Logic classname="GGL::CGLSettlerProps">
+		<Class>GGL::CSettler</Class>
+		<AccessCategory>AccessCategorySettler</AccessCategory>		
+		<MaxHealth> 200 </MaxHealth>
+		<NeedsPlayer>true</NeedsPlayer>
+		<ForceNoPlayer>false</ForceNoPlayer>
+        <Hat></Hat>
+        <Cost>
+			<Silver>100</Silver>
+			<Iron>80</Iron>
+        </Cost>
+<!-- NB: Do we want these categories for battle serfs? -->
+        <Category>Military</Category>
+        <Category>Sword</Category>
+		<Category>Leader</Category>
+		<Category>Melee</Category>
+		<AdjustWalkAnimSpeed>true</AdjustWalkAnimSpeed>
+		<Exploration>14</Exploration>
+		<ArmorClass>ArmorClassLeather</ArmorClass>
+		<ArmorAmount>4</ArmorAmount> 
+		<DodgeChance>0</DodgeChance> 
+    	<IdleTaskList>TL_MILITARY_IDLE</IdleTaskList>
+
+<!-- 
+    NB: I don't think battle serfs should be upgradeable.  In fact, if they are upgraded, 
+    quitting alarm mode will not work.  However, for the program to be happy, we need the
+    category...
+-->
+    	<!--Upgrade>
+            <Type>PU_LeaderSword2</Type> 
+            <Category>BattleSerf</Category>
+        </Upgrade-->
+	</Logic>
+	<Behavior>
+		<Logic classname="GGL::CGLAnimationBehaviorExProps">
+			<Class>GGL::CGLBehaviorAnimationEx</Class>
+			<!-- animation to be used when entity is suspended -->
+			<SuspensionAnimation>CU_BanditLeaderSword1_Idle1</SuspensionAnimation>			
+			<AnimSet>SET_BANDITLEADERSWORD1</AnimSet>
+		</Logic>
+		<Display classname="ED::CBehaviorProps">
+			<Class>ED::CDisplayBehaviorAnimation</Class>
+		</Display>
+	</Behavior>
+	<Behavior>
+		<Logic classname="EGL::CMovementBehaviorProps">
+			<Class>GGL::CLeaderMovement</Class>
+			<Speed>440</Speed>
+			<RotationSpeed>30</RotationSpeed>
+			<MoveTaskList>TL_MILITIA_WALK</MoveTaskList>
+		</Logic>
+		<Display classname="ED::CBehaviorProps">
+			<Class>ED::CDisplayBehaviorMovement</Class>
+		</Display>
+	</Behavior>
+	<Behavior> <!-- this is required so the leader can be told to move around -->
+		<Logic classname="EGL::CGLEBehaviorProps">
+			<Class>GGL::CBehaviorWalkCommand</Class>
+		</Logic>
+	</Behavior>
+
+	<Behavior>
+		  <Logic classname="GGL::CLeaderBehaviorProps">
+			  <Class>GGL::CLeaderBehavior</Class>
+			  <BarrackUpgradeCategory>Mercenary</BarrackUpgradeCategory>
+            <HomeRadius>0</HomeRadius>
+			
+			  <SoldierType>PU_Hero5_OutlawSoldier</SoldierType>
+			
+	        <BattleTaskList>TL_BATTLE</BattleTaskList>
+	        
+	        <NormalAttackAnim1>CU_BanditLeaderSword1_Attack1</NormalAttackAnim1>
+	        <NormalAttackAnim2>CU_BanditLeaderSword1_Attack2</NormalAttackAnim2>
+	        <CounterAttackAnim>CU_BanditLeaderSword1_Finish</CounterAttackAnim>
+	        <FinishingMoveAnim>CU_BanditLeaderSword1_Attack1</FinishingMoveAnim>
+	        <MissAttackAnim>CU_BanditLeaderSword1_Attack1</MissAttackAnim>
+	        <BattleIdleAnim>CU_BanditLeaderSword1_Idle1</BattleIdleAnim>
+	        <BattleWalkAnim>CU_BanditLeaderSword1_Walk</BattleWalkAnim>
+
+	        <DamageClass>DC_Strike</DamageClass>
+	        <DamageAmount>14</DamageAmount>
+	        <MaxRandomDamageBonus>4</MaxRandomDamageBonus>
+	        <BattleWaitUntil>2000</BattleWaitUntil>
+	        <MaxRange>290.0f</MaxRange>
+	        <MinRange>0.0f</MinRange>
+
+	        <AutoAttackRange>2000</AutoAttackRange>
+	        
+			  <HealingPoints>4</HealingPoints>
+	        <HealingSeconds>3</HealingSeconds>
+		  </Logic>
+	</Behavior>
+    
+	<Behavior>
+		  <Logic classname="GGL::CLimitedAttachmentBehaviorProperties">
+			  <Class>GGL::CLimitedAttachmentBehavior</Class>
+            <Attachment>
+                <Type>ATTACHMENT_LEADER_SOLDIER</Type>
+                <Limit>7</Limit>
+            </Attachment>
+		</Logic>
+	</Behavior>
+	
+	<Behavior>
+		<Logic classname="GGL::CGLBehaviorPropsDying">
+			<Class>GGL::CGLBehaviorDying</Class>
+			<DyingTaskList>TL_DIE</DyingTaskList>
+		</Logic>
+	</Behavior>
+
+	<Behavior>
+	    <Logic classname="EGL::CGLEBehaviorProps">
+	        <Class>GGL::CLeaderEvadeBehavior</Class>
+	    </Logic>
+	</Behavior>
+
+	<Behavior>
+	    <Logic classname="GGL::CEvadeExecutionBehaviorProps">
+	        <Class>GGL::CEvadeExecutionBehavior</Class>
+	        <BasePriority>300</BasePriority>
+	    </Logic>
+	</Behavior>
+	
+	<Behavior>
+	    <Logic classname="GGL::CSummonedBehaviorProps">
+	        <Class>GGL::CSummonedBehavior</Class>
+	    </Logic>
+	</Behavior>
+	
+	<Behavior>
+	    <Logic classname="GGL::CLimitedLifespanBehaviorProps">
+	        <Class>GGL::CLimitedLifespanBehavior</Class>
+	        <LifespanSeconds>60</LifespanSeconds>
+	    </Logic>
+	</Behavior>
+	
+</root>

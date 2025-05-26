@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>ao3mapdescription/CM07_01_Journey_name</NameKey>
+ <DescKey>ao3mapdescription/CM07_01_Journey_desc</DescKey>
+ <Name></Name>
+ <Desc></Desc>
+ <SizeX>385</SizeX>
+ <SizeY>385</SizeY>
+ <MPFlag>false</MPFlag>
+ <MPPlayerCount>0</MPPlayerCount>
+ <MPGameOptionFlagSet>0</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\externalmap</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>7cc2f4e8-6c58-4f20-8f56-5df07e14ad9b</Data>
+ </GUID>
+</root>

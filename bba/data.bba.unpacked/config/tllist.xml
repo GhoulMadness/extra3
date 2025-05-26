@@ -1,0 +1,524 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+
+ 	<!-- civil player units -->
+	    <TaskList>TL_SERF_IDLE</TaskList>
+	    <TaskList>TL_SERF_BUILD</TaskList>
+	    <TaskList>TL_SERF_GO_TO_CONSTRUCTION_SITE</TaskList>
+	    <TaskList>TL_SERF_WALK</TaskList>
+	    <TaskList>TL_SERF_GO_TO_RESOURCE</TaskList>
+	    <TaskList>TL_SERF_EXTRACT_RESOURCE</TaskList>
+	    <TaskList>TL_SERF_GO_TO_TREE</TaskList>
+	    <TaskList>TL_SERF_EXTRACT_WOOD</TaskList>
+	    <TaskList>TL_SERF_TURN_INTO_BATTLE_SERF</TaskList>
+	    <TaskList>TL_BATTLE_SERF_TURN_INTO_SERF</TaskList>
+	    <TaskList>TL_LEAVE_KEEP</TaskList>
+	    <TaskList>TL_MILITIA_WALK</TaskList>
+	    
+	    <TaskList>TL_FARMER_WORK</TaskList>
+	    <TaskList>TL_FARMER_WORK_START</TaskList>
+	    <TaskList>TL_FARMER_WORK1</TaskList>
+	    <TaskList>TL_FARMER_WORK_START1</TaskList>
+	    <TaskList>TL_FARMER_IDLE</TaskList>     
+ 	<!-- Miner -->	    
+	    <TaskList>TL_MINER_WORK</TaskList>
+	    <TaskList>TL_MINER_WORK_START</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK_START</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK1</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK1_START</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK2</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK2_START</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK3</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK3_START</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK4</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK4_START</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK5</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK5_START</TaskList>	    
+	    <TaskList>TL_MINER_STONEMINE_WORK6</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK6_START</TaskList>	 
+	    <TaskList>TL_MINER_STONEMINE_WORK7</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK7_START</TaskList>	 
+	    <TaskList>TL_MINER_STONEMINE_WORK8</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK8_START</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK9</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK9_START</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK_INSIDE</TaskList>
+	    <TaskList>TL_MINER_STONEMINE_WORK_INSIDE_START</TaskList>
+	    
+	    <TaskList>TL_MINER_SULFURMINE_WORK</TaskList>
+	    <TaskList>TL_MINER_SULFURMINE_WORK_START</TaskList>
+	    <TaskList>TL_MINER_SULFURMINE_WORK1</TaskList>
+	    <TaskList>TL_MINER_SULFURMINE_WORK1_START</TaskList>
+	    <TaskList>TL_MINER_SULFURMINE_WORK2</TaskList>
+	    <TaskList>TL_MINER_SULFURMINE_WORK2_START</TaskList>
+	    <TaskList>TL_MINER_SULFURMINE_WORK3</TaskList>
+	    <TaskList>TL_MINER_SULFURMINE_WORK3_START</TaskList>	    
+	    <TaskList>TL_MINER_SULFURMINE_WORK4</TaskList>
+	    <TaskList>TL_MINER_SULFURMINE_WORK4_START</TaskList>
+	    <TaskList>TL_MINER_SULFURMINE_WORK_INSIDE</TaskList>
+	    <TaskList>TL_MINER_SULFURMINE_WORK_INSIDE_START</TaskList>
+
+	    <TaskList>TL_MINER_IRONMINE_WORK</TaskList>
+	    <TaskList>TL_MINER_IRONMINE_WORK_START</TaskList>
+	    <TaskList>TL_MINER_IRONMINE_WORK1</TaskList>
+	    <TaskList>TL_MINER_IRONMINE_WORK1_START</TaskList>
+	    <TaskList>TL_MINER_IRONMINE_WORK2</TaskList>
+	    <TaskList>TL_MINER_IRONMINE_WORK2_START</TaskList>
+	    <TaskList>TL_MINER_IRONMINE_WORK3</TaskList>
+	    <TaskList>TL_MINER_IRONMINE_WORK3_START</TaskList>	    
+	    <TaskList>TL_MINER_IRONMINE_WORK4</TaskList>
+	    <TaskList>TL_MINER_IRONMINE_WORK4_START</TaskList>
+	    <TaskList>TL_MINER_IRONMINE_WORK_INSIDE</TaskList>
+	    <TaskList>TL_MINER_IRONMINE_WORK_INSIDE_START</TaskList>
+
+	    <TaskList>TL_MINER_CLAYMINE_WORK_INSIDE</TaskList>
+	    <TaskList>TL_MINER_CLAYMINE_WORK_INSIDE_START</TaskList>
+	    <TaskList>TL_MINER_CLAYMINE_WORK</TaskList>
+	    <TaskList>TL_MINER_CLAYMINE_WORK_START</TaskList>
+	    <TaskList>TL_MINER_CLAYMINE_WORK1</TaskList>
+	    <TaskList>TL_MINER_CLAYMINE_WORK1_START</TaskList>	    
+	    <TaskList>TL_MINER_CLAYMINE_WORK2</TaskList>
+	    <TaskList>TL_MINER_CLAYMINE_WORK2_START</TaskList>	
+		
+		<TaskList>TL_MINER_SILVERMINE_WORK_INSIDE</TaskList>
+	    <TaskList>TL_MINER_SILVERMINE_WORK_INSIDE_START</TaskList>
+	    <TaskList>TL_MINER_SILVERMINE_WORK</TaskList>
+	    <TaskList>TL_MINER_SILVERMINE_WORK_START</TaskList>
+	    <TaskList>TL_MINER_SILVERMINE_WORK1</TaskList>
+	    <TaskList>TL_MINER_SILVERMINE_WORK1_START</TaskList>	    
+	    <TaskList>TL_MINER_SILVERMINE_WORK2</TaskList>
+	    <TaskList>TL_MINER_SILVERMINE_WORK2_START</TaskList>	
+		
+		<TaskList>TL_MINER_GOLDMINE_WORK_INSIDE</TaskList>
+	    <TaskList>TL_MINER_GOLDMINE_WORK_INSIDE_START</TaskList>
+	    <TaskList>TL_MINER_GOLDMINE_WORK</TaskList>
+	    <TaskList>TL_MINER_GOLDMINE_WORK_START</TaskList>
+	    <TaskList>TL_MINER_GOLDMINE_WORK1</TaskList>
+	    <TaskList>TL_MINER_GOLDMINE_WORK1_START</TaskList>	    
+	    <TaskList>TL_MINER_GOLDMINE_WORK2</TaskList>
+	    <TaskList>TL_MINER_GOLDMINE_WORK2_START</TaskList>	
+		
+		<TaskList>TL_MINER_COALMINE_WORK1_START</TaskList>
+		<TaskList>TL_MINER_COALMINE_WORK1</TaskList>
+		<TaskList>TL_MINER_COALMINE_WORK_INSIDE_START</TaskList>
+		<TaskList>TL_MINER_COALMINE_WORK_INSIDE</TaskList>
+		
+	    <TaskList>TL_MINER_IDLE</TaskList>
+	    <TaskList>TL_MINER_IDLE_START</TaskList>
+
+<!--	    <TaskList></TaskList> -->	    
+
+	    <TaskList>TL_PRIEST_IDLE</TaskList>
+	    <TaskList>TL_PRIEST_WORK_INSIDE</TaskList>
+	    <TaskList>TL_PRIEST_WORK</TaskList>
+	    <TaskList>TL_PRIEST_WORK_START</TaskList>
+	    <TaskList>TL_PRIEST_WORK1</TaskList>
+	    <TaskList>TL_PRIEST_WORK1_START</TaskList>
+	    <TaskList>TL_PRIEST_WORK2</TaskList>	    
+	    <TaskList>TL_PRIEST_WORK2_START</TaskList>	    
+	    <TaskList>TL_PRIEST_WORK3</TaskList>	    
+	    <TaskList>TL_PRIEST_WORK3_START</TaskList>
+	    <TaskList>TL_PRIEST_WORK4</TaskList>	    
+	    <TaskList>TL_PRIEST_WORK4_START</TaskList>
+	    <TaskList>TL_PRIEST_WORK5</TaskList>	    
+	    <TaskList>TL_PRIEST_WORK5_START</TaskList>
+	    <TaskList>TL_PRIEST_WORK_INSIDE_START</TaskList>
+	    <TaskList>TL_COINER_WORK</TaskList>
+	    <TaskList>TL_COINER_WORK1</TaskList>
+	    <TaskList>TL_COINER_WORK2</TaskList>
+	    <TaskList>TL_COINER_WORK_INSIDE</TaskList>
+	    <TaskList>TL_COINER_WORK_START</TaskList>
+	    <TaskList>TL_COINER_WORK1_START</TaskList>
+	    <TaskList>TL_COINER_WORK2_START</TaskList>
+	    <TaskList>TL_COINER_WORK_INSIDE_START</TaskList>
+	    
+	    <TaskList>TL_COINER_IDLE</TaskList>
+	    
+	    <TaskList>TL_SMITH_IDLE</TaskList>
+	    <TaskList>TL_SMITH_WORK</TaskList>
+	    <TaskList>TL_SMITH_WORK1</TaskList>
+	    <TaskList>TL_SMITH_WORK2</TaskList>
+	    <TaskList>TL_SMITH_WORK3</TaskList>
+	    <TaskList>TL_SMITH_WORK4</TaskList>
+	    <TaskList>TL_SMITH_WORK5</TaskList>
+		<TaskList>TL_SMITH_WORK_INSIDE</TaskList>    		
+		<TaskList>TL_SMITH_WORK_START</TaskList>
+	    <TaskList>TL_SMITH_WORK1_START</TaskList>
+	    <TaskList>TL_SMITH_WORK2_START</TaskList>
+	    <TaskList>TL_SMITH_WORK3_START</TaskList>
+	    <TaskList>TL_SMITH_WORK4_START</TaskList>
+	    <TaskList>TL_SMITH_WORK5_START</TaskList>
+		<TaskList>TL_SMITH_WORK_INSIDE_START</TaskList>    
+		
+		<TaskList>TL_SILVERSMITH_IDLE</TaskList>
+	    <TaskList>TL_SILVERSMITH_WORK</TaskList>
+	    <TaskList>TL_SILVERSMITH_WORK1</TaskList>
+	    <TaskList>TL_SILVERSMITH_WORK2</TaskList>
+	    <TaskList>TL_SILVERSMITH_WORK3</TaskList>
+	    <TaskList>TL_SILVERSMITH_WORK4</TaskList>
+	    <TaskList>TL_SILVERSMITH_WORK5</TaskList>
+		<TaskList>TL_SILVERSMITH_WORK_INSIDE</TaskList>    		
+		<TaskList>TL_SILVERSMITH_WORK_START</TaskList>
+	    <TaskList>TL_SILVERSMITH_WORK1_START</TaskList>
+	    <TaskList>TL_SILVERSMITH_WORK2_START</TaskList>
+	    <TaskList>TL_SILVERSMITH_WORK3_START</TaskList>
+	    <TaskList>TL_SILVERSMITH_WORK4_START</TaskList>
+	    <TaskList>TL_SILVERSMITH_WORK5_START</TaskList>
+		<TaskList>TL_SILVERSMITH_WORK_INSIDE_START</TaskList>    
+		
+		<TaskList>TL_FORESTER_WORK_START1</TaskList>
+		<TaskList>TL_FORESTER_WORK1</TaskList>
+		
+		<TaskList>TL_WOODCUTTER_WORK1_START</TaskList>
+		<TaskList>TL_WOODCUTTER_WORK1</TaskList>
+		<TaskList>TL_WOODCUTTER_WORK2</TaskList>
+		<TaskList>TL_WOODCUTTER_WORK_INSIDE_START</TaskList>
+		<TaskList>TL_WOODCUTTER_WORK_INSIDE</TaskList>
+		
+		<TaskList>TL_COALMAKER_WORK1_START</TaskList>
+		<TaskList>TL_COALMAKER_WORK1</TaskList>
+		<TaskList>TL_COALMAKER_WORK_INSIDE_START</TaskList>
+		<TaskList>TL_COALMAKER_WORK_INSIDE</TaskList>
+		
+	    <TaskList>TL_SCHOLAR_WORK</TaskList>
+	    <TaskList>TL_SCHOLAR_WORK_START</TaskList>
+	    <TaskList>TL_SCHOLAR_WORK1</TaskList>
+	    <TaskList>TL_SCHOLAR_WORK1_START</TaskList>
+	    <TaskList>TL_SCHOLAR_WORK2</TaskList>
+	    <TaskList>TL_SCHOLAR_WORK2_START</TaskList>
+	    <TaskList>TL_SCHOLAR_WORK3</TaskList>
+	    <TaskList>TL_SCHOLAR_WORK3_START</TaskList>
+	    <TaskList>TL_SCHOLAR_WORK4</TaskList>
+	    <TaskList>TL_SCHOLAR_WORK4_START</TaskList>
+	    <TaskList>TL_SCHOLAR_WORK5</TaskList>
+	    <TaskList>TL_SCHOLAR_WORK5_START</TaskList>
+	    <TaskList>TL_SCHOLAR_IDLE</TaskList>
+		<TaskList>TL_SCHOLAR_WORK_INSIDE_START</TaskList>
+		<TaskList>TL_SCHOLAR_WORK_INSIDE</TaskList>
+	    
+	    <TaskList>TL_WALK</TaskList>    
+	    <TaskList>TL_FARMER_EAT</TaskList>
+	    
+	    <TaskList>TL_TRADER_WORK</TaskList>    
+	    <TaskList>TL_TRADER_WORK1</TaskList>    
+	    <TaskList>TL_TRADER_WORK2</TaskList>    
+	    <TaskList>TL_TRADER_WORK3</TaskList>    
+	    <TaskList>TL_TRADER_WORK4</TaskList>    
+	    <TaskList>TL_TRADER_WORK5</TaskList>    
+	    <TaskList>TL_TRADER_WORK_START</TaskList>    
+	    <TaskList>TL_TRADER_WORK1_START</TaskList>    
+	    <TaskList>TL_TRADER_WORK2_START</TaskList>    
+	    <TaskList>TL_TRADER_WORK3_START</TaskList>    
+	    <TaskList>TL_TRADER_WORK4_START</TaskList>    
+	    <TaskList>TL_TRADER_WORK5_START</TaskList>    
+		<TaskList>TL_TRADER_WORK_INSIDE</TaskList> 
+		<TaskList>TL_TRADER_WORK_INSIDE_START</TaskList>    
+	    <TaskList>TL_TRADER_IDLE</TaskList>
+	    
+	    <TaskList>TL_ALCHEMIST_WORK</TaskList>
+	    <TaskList>TL_ALCHEMIST_WORK_START</TaskList>
+	    <TaskList>TL_ALCHEMIST_WORK_INSIDE</TaskList>
+	    <TaskList>TL_ALCHEMIST_WORK_INSIDE_START</TaskList>
+	    <TaskList>TL_ALCHEMIST_WORK1</TaskList>
+	    <TaskList>TL_ALCHEMIST_WORK1_START</TaskList>
+	    <TaskList>TL_ALCHEMIST_WORK2</TaskList>
+	    <TaskList>TL_ALCHEMIST_WORK2_START</TaskList>
+	    <TaskList>TL_ALCHEMIST_IDLE</TaskList>
+	    
+	    <TaskList>TL_STONECUTTER_WORK</TaskList>
+	    <TaskList>TL_STONECUTTER_WORK_START</TaskList>
+	    <TaskList>TL_STONECUTTER_WORK1</TaskList>
+		<TaskList>TL_STONECUTTER_WORK1_START</TaskList>
+	    <TaskList>TL_STONECUTTER_WORK2</TaskList>
+	    <TaskList>TL_STONECUTTER_WORK2_START</TaskList>
+	    <TaskList>TL_STONECUTTER_WORK3</TaskList>
+		<TaskList>TL_STONECUTTER_WORK3_START</TaskList>
+	    <TaskList>TL_STONECUTTER_WORK_INSIDE</TaskList>
+	    <TaskList>TL_STONECUTTER_WORK_INSIDE_START</TaskList>
+	    <TaskList>TL_STONECUTTER_IDLE</TaskList>
+	    
+	    <TaskList>TL_BRICKMAKER_WORK</TaskList>
+	    <TaskList>TL_BRICKMAKER_WORK_START</TaskList>
+	    <TaskList>TL_BRICKMAKER_WORK1</TaskList>
+	    <TaskList>TL_BRICKMAKER_WORK1_START</TaskList>
+	    <TaskList>TL_BRICKMAKER_WORK2</TaskList>
+	    <TaskList>TL_BRICKMAKER_WORK2_START</TaskList>
+	    <TaskList>TL_BRICKMAKER_WORK3</TaskList>
+	    <TaskList>TL_BRICKMAKER_WORK3_START</TaskList>
+	    <TaskList>TL_BRICKMAKER_WORK4</TaskList>
+	    <TaskList>TL_BRICKMAKER_WORK4_START</TaskList>
+	    <TaskList>TL_BRICKMAKER_WORK_INSIDE</TaskList>	 
+	    <TaskList>TL_BRICKMAKER_WORK_INSIDE_START</TaskList>	    
+	    
+        <TaskList>TL_TREASURER_WORK_INSIDE_START</TaskList>
+        <TaskList>TL_TREASURER_WORK_INSIDE</TaskList>
+	    <TaskList>TL_TREASURER_WORK</TaskList>
+	    <TaskList>TL_TREASURER_WORK_START</TaskList>
+	    <TaskList>TL_TREASURER_WORK1</TaskList>
+	    <TaskList>TL_TREASURER_WORK1_START</TaskList>
+	    <TaskList>TL_TREASURER_IDLE</TaskList>
+
+		<TaskList>TL_ENGINEER_WORK</TaskList>
+	    <TaskList>TL_ENGINEER_WORK_START</TaskList>
+	    <TaskList>TL_ENGINEER_IDLE</TaskList>
+
+		<TaskList>TL_SAWMILLWORKER_WORK</TaskList>
+	    <TaskList>TL_SAWMILLWORKER_WORK_START</TaskList>
+		<TaskList>TL_SAWMILLWORKER_WORK1</TaskList>
+	    <TaskList>TL_SAWMILLWORKER_WORK1_START</TaskList>
+		<TaskList>TL_SAWMILLWORKER_WORK_INSIDE</TaskList>
+		<TaskList>TL_SAWMILLWORKER_WORK_INSIDE_START</TaskList>
+	    <TaskList>TL_SAWMILLWORKER_IDLE</TaskList>
+
+
+	    <TaskList>TL_SMELTER_WORK1_START</TaskList>	    
+	    <TaskList>TL_SMELTER_WORK1</TaskList>
+	    <TaskList>TL_SMELTER_WORK2</TaskList>
+	    <TaskList>TL_SMELTER_WORK3</TaskList>
+	    <TaskList>TL_SMELTER_WORK4</TaskList>
+	    <TaskList>TL_SMELTER_WORK5</TaskList>
+	    <TaskList>TL_SMELTER_WORK6</TaskList>
+	    <TaskList>TL_SMELTER_IDLE</TaskList>
+	    <TaskList>TL_SMELTER_WORK1_WAIT</TaskList>
+
+	    <TaskList>TL_CU_SERF_WORK_START</TaskList>	    
+	    <TaskList>TL_CU_SERF_WORK</TaskList>
+	    <TaskList>TL_CU_SERF_WORK1_START</TaskList>
+	    <TaskList>TL_CU_SERF_WORK1</TaskList>
+	    <TaskList>TL_CU_SERF_WORK2_START</TaskList>
+	    <TaskList>TL_CU_SERF_WORK2</TaskList>
+	    <TaskList>TL_CU_SERF_WORK3_START</TaskList>
+	    <TaskList>TL_CU_SERF_WORK3</TaskList>
+	    <TaskList>TL_CU_SERF_WORK4_START</TaskList>
+	    <TaskList>TL_CU_SERF_WORK4</TaskList>
+	    <TaskList>TL_CU_SERF_WORK5_START</TaskList>
+	    <TaskList>TL_CU_SERF_WORK5</TaskList>
+	    <TaskList>TL_CU_SERF_WORK6_START</TaskList>
+	    <TaskList>TL_CU_SERF_WORK6</TaskList>
+	    <TaskList>TL_CU_SERF_WORK7_START</TaskList>
+	    <TaskList>TL_CU_SERF_WORK7</TaskList>
+	    <TaskList>TL_CU_SERF_WORK8_START</TaskList>
+	    <TaskList>TL_CU_SERF_WORK8</TaskList>
+	    <TaskList>TL_CU_SERF_WORK9_START</TaskList>
+	    <TaskList>TL_CU_SERF_WORK9</TaskList>
+        <TaskList>TL_CU_SERF_IDLE</TaskList>
+
+		    <!-- GENERIC WOKER TL -->
+		      
+        <TaskList>TL_WORKER_IDLE</TaskList>
+        <TaskList>TL_WORKER_IDLE_START</TaskList>
+		<TaskList>TL_WORKER_EAT</TaskList>
+		<TaskList>TL_WORKER_EAT_START</TaskList>
+		<TaskList>TL_WORKER_REST</TaskList>
+		<TaskList>TL_WORKER_REST_START</TaskList>
+		<TaskList>TL_WORKER_LEAVE</TaskList>
+	    <TaskList>TL_JOIN_SETTLEMENT</TaskList>
+	    <TaskList>TL_WORKER_GO_TO_DEFENDABLE_BUILDING</TaskList>
+	    <TaskList>TL_WORKER_FLEE</TaskList>
+	    <TaskList>TL_FEAR_DEFENDER</TaskList>
+
+	   		    
+    <!-- Heroes and associated entities-->
+    	<TaskList>TL_PLACE_BOMB</TaskList>
+    	<TaskList>TL_HAWK_IDLE</TaskList>
+    	<TaskList>TL_HAWK_EXPLORE</TaskList>    	
+    	<TaskList>TL_BUILD_CANNON</TaskList>    	    	
+    	<TaskList>TL_HERO5_SUMMON</TaskList>
+    	<TaskList>TL_NPC_INTERACTION</TaskList>
+    	
+    	<TaskList>TL_BATTLE_SPECIAL</TaskList>
+    	<TaskList>TL_BATTLE_POISON</TaskList>
+    	<TaskList>TL_CONVERT_SETTLERS</TaskList>
+    	
+    
+    <!-- Military units -->
+
+    <!-- General -->
+    	<TaskList>TL_FORMATION</TaskList>
+    	<TaskList>TL_START_BATTLE</TaskList>
+    	<TaskList>TL_BATTLE</TaskList>
+		<TaskList>TL_BATTLE_SWORD</TaskList>
+    	<TaskList>TL_BATTLE_POLEARM</TaskList>
+    	<TaskList>TL_BATTLE_MACE</TaskList>
+    	<TaskList>TL_BATTLE_BOW</TaskList>
+    	<TaskList>TL_BATTLE_CROSSBOW</TaskList>
+    	<TaskList>TL_BATTLE_HEROBOW</TaskList>
+    	<TaskList>TL_BATTLE_VEHICLE</TaskList>
+    	<TaskList>TL_BATTLE_WORKER</TaskList>
+    	<TaskList>TL_BATTLE_STATIONARY_CANNON</TaskList>
+    	<TaskList>TL_BATTLE_BALISTATOWER</TaskList>
+    	<TaskList>TL_BATTLE_CANNONTOWER</TaskList>
+    	<TaskList>TL_BATTLE_TRAP</TaskList>
+		<TaskList>TL_BATTLE_CATAPULT</TaskList>
+		<TaskList>TL_BATTLE_RAM</TaskList>
+		<TaskList>TL_RAM_DRIVE</TaskList>
+    	<TaskList>TL_DIE</TaskList>
+    	<TaskList>TL_DIE_HERO</TaskList>
+	   	<TaskList>TL_MILITARY_WALK</TaskList>
+		<TaskList>TL_MILITARYCAVALRY_WALK</TaskList>
+		<TaskList>TL_MILITARYSWORD_WALK</TaskList>
+		<TaskList>TL_MILITARY_IDLE</TaskList>
+		<TaskList>TL_VEHICLE_DRIVE</TaskList>
+		<TaskList>TL_VEHICLE_IDLE</TaskList>
+	   	<TaskList>TL_LEADER_WALK</TaskList>
+		<TaskList>TL_LEADERCAVALRY_WALK</TaskList>
+		<TaskList>TL_LEADERSWORD_WALK</TaskList>
+		<TaskList>TL_HERO14_WALK</TaskList>
+	   	<TaskList>TL_SOLDIER_LEAVE_BARRACKS</TaskList>	
+	   	
+	   	<TaskList>TL_LEAVE_BARRACKS</TaskList>
+	   	<TaskList>TL_LEAVE_ARCHERY</TaskList>
+	   	<TaskList>TL_LEAVE_STABLES</TaskList>
+	   	<TaskList>TL_LEAVE_FOUNDRY</TaskList>
+
+	   	<TaskList>TL_LEAVE_MERCENARYTOWER</TaskList>
+		
+	   	<TaskList>TL_TRAIN1_BARRACKS1</TaskList>
+	   	<TaskList>TL_TRAIN2_BARRACKS1</TaskList>
+	   	<TaskList>TL_TRAIN3_BARRACKS1</TaskList>
+	   	<TaskList>TL_TRAIN1_BARRACKS2</TaskList>	
+	   	<TaskList>TL_TRAIN2_BARRACKS2</TaskList>	
+	   	<TaskList>TL_TRAIN3_BARRACKS2</TaskList>
+	   		
+	   	<TaskList>TL_TRAIN1_ARCHERY1</TaskList>	
+	   	<TaskList>TL_TRAIN2_ARCHERY1</TaskList>	
+	   	<TaskList>TL_TRAIN3_ARCHERY1</TaskList>	
+	   	<TaskList>TL_TRAIN1_ARCHERY2</TaskList>	
+	   	<TaskList>TL_TRAIN2_ARCHERY2</TaskList>	
+	   	<TaskList>TL_TRAIN3_ARCHERY2</TaskList>	
+	   	
+	   	<TaskList>TL_TRAIN1_STABLES1</TaskList>	
+	   	<TaskList>TL_TRAIN2_STABLES1</TaskList>	
+	   	<TaskList>TL_TRAIN3_STABLES1</TaskList>	
+	   	<TaskList>TL_TRAIN1_STABLES2</TaskList>		   	
+	   	<TaskList>TL_TRAIN2_STABLES2</TaskList>	
+	   	<TaskList>TL_TRAIN3_STABLES2</TaskList>	
+   	
+   		<TaskList>TL_TRAIN1_FOUNDRY1</TaskList>	
+   		
+		<TaskList>TL_TRAIN1_MERCENARYTOWER</TaskList>
+	   	<TaskList>TL_TRAIN2_MERCENARYTOWER</TaskList>
+	   	<TaskList>TL_TRAIN3_MERCENARYTOWER</TaskList>
+   		
+	<!-- animals -->
+		<TaskList>TL_RABBIT_IDLE</TaskList>
+    	<TaskList>TL_WOLF_IDLE</TaskList>
+    	<TaskList>TL_DEER_IDLE</TaskList>
+		<TaskList>TL_SHEEP1_IDLE</TaskList>
+		<TaskList>TL_SHEEP2_IDLE</TaskList>
+		<TaskList>TL_SHEEP3_IDLE</TaskList>
+		<TaskList>TL_ZEBRA_IDLE</TaskList>
+    	<TaskList>TL_ANIMAL_FLEE</TaskList>
+
+	<!-- NPC's -->
+    	<TaskList>TL_JOHANNES_IDLE</TaskList>
+    	<TaskList>TL_NPC_IDLE</TaskList>
+	    <TaskList>TL_NPC_WALK</TaskList>       
+	    
+    	<TaskList>TL_GC_SCHOLAR_TALK1</TaskList>
+    	<TaskList>TL_GC_SCHOLAR_TALK2</TaskList>
+    	<TaskList>TL_GC_SCHOLAR_TALK3</TaskList>
+    	<TaskList>TL_GC_BLACKKNIGHT_ORDER</TaskList>
+	
+	<!-- Extra 1 -->
+	
+	   	<TaskList>TL_TRAIN1_TAVERN1</TaskList>
+	   	<TaskList>TL_TRAIN2_TAVERN1</TaskList>
+	   	<TaskList>TL_TRAIN3_TAVERN1</TaskList>
+	   	<TaskList>TL_TRAIN1_TAVERN2</TaskList>	
+	   	<TaskList>TL_TRAIN2_TAVERN2</TaskList>	
+	   	<TaskList>TL_TRAIN3_TAVERN2</TaskList>   
+	   	<TaskList>TL_LEAVE_TAVERN</TaskList>
+   	
+	<!-- Heroes -->
+    <TaskList>TL_MOTIVATE_SPECIAL</TaskList>
+    <TaskList>TL_SNIPE_SPECIAL</TaskList>
+    <TaskList>TL_SHURIKEN_SPECIAL</TaskList>
+    <TaskList>TL_FIREWORKS_SPECIAL</TaskList>
+
+	<!-- Merchant -->
+		<TaskList>TL_TRADER_INIT</TaskList>
+		<TaskList>TL_TRADER_MOVEIN</TaskList>
+		<TaskList>TL_TRADER_MOVEOUT</TaskList>
+
+  <!-- Master Builder -->
+		<TaskList>TL_MASTER_BUILDER_WORK1_START</TaskList>
+		<TaskList>TL_MASTER_BUILDER_WORK1</TaskList>
+		<TaskList>TL_MASTER_BUILDER_WORK2_START</TaskList>
+		<TaskList>TL_MASTER_BUILDER_WORK2</TaskList>
+		
+	<!-- Gunsmith -->
+		<TaskList>TL_GUNSMITH_WORK_START</TaskList>
+		<TaskList>TL_GUNSMITH_WORK</TaskList>
+		<TaskList>TL_GUNSMITH_WORK1_START</TaskList>
+		<TaskList>TL_GUNSMITH_WORK1</TaskList>
+				
+		<TaskList>TL_GUNSMITH_WORK_INSIDE_START</TaskList>
+		<TaskList>TL_GUNSMITH_WORK_INSIDE</TaskList>
+	
+	<!-- TavernBarkeeper -->
+		<TaskList>TL_TAVERNBARKEEPER_WORK</TaskList>
+		<TaskList>TL_TAVERNBARKEEPER_WORK_START</TaskList>
+		<TaskList>TL_TAVERNBARKEEPER_WORK_START1</TaskList>
+		<TaskList>TL_TAVERNBARKEEPER_WORK1</TaskList>
+		
+	<!-- Rifleman -->
+		<TaskList>TL_BATTLE_RIFLE</TaskList>
+	
+	<!-- Thief -->
+		<TaskList>TL_THIEF_STEAL_GOODS</TaskList>
+		<TaskList>TL_THIEF_SECURE_GOODS</TaskList>
+		<TaskList>TL_THIEF_IDLE</TaskList>
+		<TaskList>TL_THIEF_WALK</TaskList>
+		<TaskList>TL_PLACE_KEG</TaskList>
+		<TaskList>TL_DISARM_KEG</TaskList>
+	    
+	<!-- Scout -->
+		<TaskList>TL_EXPLORE_WITH_BINOCULARS</TaskList>
+		<TaskList>TL_PLACE_TORCH</TaskList>
+		<TaskList>TL_POINT_TO_RESOURCE</TaskList>
+		
+	<!-- Woodcutter -->
+		<TaskList>TL_CUT_TREE</TaskList>
+		<TaskList>TL_CUT_TREE_END</TaskList>
+		
+	<!-- Afraid People-->
+		<TaskList>TL_AFRAID_NPC_IDLE</TaskList>
+
+        <TaskList>TL_BATTLE_CLAW</TaskList>
+        <TaskList>TL_BATTLE_SKIRMISHER</TaskList>
+		
+		<TaskList>TL_BATTLE_GATLING</TaskList>
+		
+		<TaskList>TL_PITCHBURNER_DROPOIL</TaskList>
+		
+		<TaskList>TL_SPIDER_IDLE</TaskList>
+		<TaskList>TL_DONKEY_IDLE</TaskList>
+		
+		<!-- Animals -->
+		<TaskList>TL_ANIMAL_BEAR_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_BUTTERFLY_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_CHICKEN_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_COW_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_DROMEDARY_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_ELEPHANT1_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_ELEPHANT2_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_FROG_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_GAZELLE_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_LION1_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_LION2_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_RABBIT_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_REDDEER_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_REINDEER_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_SCORPION_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_SEAGULL_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_SHEEP_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_SHEEPDOG_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_SQUIRREL_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_WILDBOAR1_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_WILDBOAR2_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_WILDBOAR3_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_WOLF_IDLE</TaskList>
+		<TaskList>TL_ANIMAL_ZEBRA_IDLE</TaskList>
+ </root>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <LanguageElement>
+  <Key>MainMenu_Menu_0</Key>
+  <String><![CDATA[&File]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_0_0</Key>
+  <String><![CDATA[&New]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_0_1</Key>
+  <String><![CDATA[&Open...	Ctrl+O]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_0_11</Key>
+  <String><![CDATA[E&xit]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_0_3</Key>
+  <String><![CDATA[&Save	Ctrl+S]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_0_4</Key>
+  <String><![CDATA[Save &As...]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_0_5</Key>
+  <String><![CDATA[&Enable Autosave]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_0_7</Key>
+  <String><![CDATA[Map Info]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_0_8</Key>
+  <String><![CDATA[Map/Script Wizard]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_0_9</Key>
+  <String><![CDATA[Edit Script	Ctrl+E]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_1</Key>
+  <String><![CDATA[&Tools]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_1_0</Key>
+  <String><![CDATA[&Select	Ctrl+1]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_1_1</Key>
+  <String><![CDATA[&Place Entities	Ctrl+2]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_1_11</Key>
+  <String><![CDATA[&Undo	Ctrl+Z]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_1_2</Key>
+  <String><![CDATA[&Copy/Paste	Ctrl+3]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_1_4</Key>
+  <String><![CDATA[&Texturing Landscape	Ctrl+4]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_1_5</Key>
+  <String><![CDATA[&Modelling Landscape	Ctrl+5]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_1_6</Key>
+  <String><![CDATA[&Vertex Color	Ctrl+6]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_1_7</Key>
+  <String><![CDATA[T&exturing Water	Ctrl+7]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_1_8</Key>
+  <String><![CDATA[M&odelling Water	Ctrl+8]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_1_9</Key>
+  <String><![CDATA[Place &Resources	Ctrl+9]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_2</Key>
+  <String><![CDATA[&Layer]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_2_0</Key>
+  <String><![CDATA[&Entities]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_2_1</Key>
+  <String><![CDATA[&Shadows]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_2_10</Key>
+  <String><![CDATA[S&now]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_2_2</Key>
+  <String><![CDATA[&Terrain]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_2_3</Key>
+  <String><![CDATA[&Water]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_2_4</Key>
+  <String><![CDATA[&Decal]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_2_5</Key>
+  <String><![CDATA[&FOW]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_2_6</Key>
+  <String><![CDATA[E&ffects]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_2_7</Key>
+  <String><![CDATA[S&cript Entity]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_2_9</Key>
+  <String><![CDATA[&Landscape only]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_3</Key>
+  <String><![CDATA[H&elper]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_3_0</Key>
+  <String><![CDATA[Mirror Map]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_3_0_0</Key>
+  <String><![CDATA[Mirror X]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_3_0_1</Key>
+  <String><![CDATA[Mirror Y]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_3_0_2</Key>
+  <String><![CDATA[Mirror X High]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_3_0_3</Key>
+  <String><![CDATA[Mirror Y High]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_3_1</Key>
+  <String><![CDATA[Smooth Map]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_3_2</Key>
+  <String><![CDATA[&Black Circle]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_3_4</Key>
+  <String><![CDATA[Load Heightmap]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_3_5</Key>
+  <String><![CDATA[Load Texturemap]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_3_7</Key>
+  <String><![CDATA[&Align Entities on Grid]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_3_8</Key>
+  <String><![CDATA[R&esources]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_3_9</Key>
+  <String><![CDATA[&Goto Position]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_4</Key>
+  <String><![CDATA[&View]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_4_0</Key>
+  <String><![CDATA[Views]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_4_0_0</Key>
+  <String><![CDATA[Show &Viewbar]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_4_0_1</Key>
+  <String><![CDATA[Show &Statusbar]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_4_1</Key>
+  <String><![CDATA[Show &Data Explorer]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_4_2</Key>
+  <String><![CDATA[Show Selection &Explorer]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_4_3</Key>
+  <String><![CDATA[Show Tool &Container]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_4_4</Key>
+  <String><![CDATA[Toggle &Grid	Ctrl+G]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_4_5</Key>
+  <String><![CDATA[Show &BalloonTips]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_5</Key>
+  <String><![CDATA[&Help]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_5_0</Key>
+  <String><![CDATA[&About...]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_6</Key>
+  <String><![CDATA[Internal]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_6_0</Key>
+  <String><![CDATA[Open Folder]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_6_1</Key>
+  <String><![CDATA[Save Folder]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_6_3</Key>
+  <String><![CDATA[C&utscene Editor]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_6_4</Key>
+  <String><![CDATA[&Get Distance]]></String>
+ </LanguageElement>
+ <LanguageElement>
+  <Key>MainMenu_Menu_6_6</Key>
+  <String><![CDATA[&Validate Map]]></String>
+ </LanguageElement>
+</root>

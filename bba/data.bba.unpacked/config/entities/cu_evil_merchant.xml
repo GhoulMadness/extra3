@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		<Class>GD::CDisplaySettler</Class>
+		<Model>CU_Evil_Queen</Model> <!-- must be changed when proper model available -->
+		<DrawPlayerColor>True</DrawPlayerColor>
+		<Anim>CU_Evil_Queen_Walk</Anim>
+		<Anim>CU_Evil_Queen_Idle1</Anim>
+		<Anim>CU_Evil_Queen_IdleAttack1</Anim>
+		<Anim>CU_Evil_Queen_Attack1</Anim>
+		<Anim>CU_Evil_Queen_Attack2</Anim>
+		<Anim>CU_Evil_Queen_Finish</Anim>
+		<Anim>CU_Evil_Queen_Dying1</Anim>
+		<Anim>CU_Evil_Queen_Run1</Anim>
+		<Anim>CU_Evil_Queen_Hit</Anim>
+		<Anim>CU_Evil_Queen_PoisonAttack</Anim>
+		<Anim>CU_Evil_Queen_PoisonDart</Anim>
+  		<Anim>CU_Evil_Queen_Dead</Anim>
+	</Display>
+	<Logic classname="GGL::CGLSettlerProps">
+		<Class>GGL::CSettler</Class>
+		<AccessCategory>AccessCategorySettler</AccessCategory>
+		<MaxHealth> 50 </MaxHealth>
+		<NeedsPlayer>true</NeedsPlayer>
+		<ForceNoPlayer>false</ForceNoPlayer>
+        <Hat></Hat>
+		<AdjustWalkAnimSpeed>true</AdjustWalkAnimSpeed>
+		<Exploration>10</Exploration>
+		<IdleTaskList>TL_NPC_IDLE</IdleTaskList>
+	</Logic>
+	<Behavior>
+		<Logic classname="GGL::CGLAnimationBehaviorExProps">
+			<Class>GGL::CGLBehaviorAnimationEx</Class>
+			<AnimSet>SET_CU_EVIL_TRADER</AnimSet>
+		</Logic>
+		<Display classname="ED::CBehaviorProps">
+			<Class>ED::CDisplayBehaviorAnimation</Class>
+		</Display>
+	</Behavior>
+	<Behavior>
+		<Logic classname="EGL::CMovementBehaviorProps">
+			<Class>GGL::CSettlerMovement</Class>
+			<Speed>320</Speed>
+			<RotationSpeed>15</RotationSpeed>
+			<MoveTaskList>TL_NPC_WALK</MoveTaskList>
+			<MoveIdleAnim>CU_Evil_Queen_Idle1</MoveIdleAnim>
+		</Logic>
+		<Display classname="ED::CBehaviorProps">
+			<Class>ED::CDisplayBehaviorMovement</Class>
+		</Display>
+	</Behavior>
+<!--	<Behavior>
+		<Logic classname="EGL::CGLEBehaviorProps">
+			<Class>GGL::CBehaviorWalkCommand</Class>
+		</Logic>
+	</Behavior>-->
+	<Behavior>
+		<Logic classname="GGL::CSettlerMerchantBehaviorProps">
+			<Class>GGL::CSettlerMerchantBehavior</Class>
+			<InitTaskList>TL_TRADER_INIT</InitTaskList>
+			<MoveOutTaskList>TL_TRADER_MOVEOUT</MoveOutTaskList>
+			<MoveInTaskList>TL_TRADER_MOVEIN</MoveInTaskList>
+		</Logic>
+	</Behavior>
+</root>

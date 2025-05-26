@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CGLETaskList>
+
+     <PrincipalTask>Work</PrincipalTask>
+	
+ <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+  <TaskType>TASK_CHECK_FEAR</TaskType>
+ </Task>
+ <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+  <TaskType>TASK_RESET_TASK_LIST_TIMER</TaskType>
+ </Task>
+	 <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+		<TaskType>TASK_SET_CARRIER_MODEL</TaskType>
+	 </Task>
+	 <Task classname="EGL::CGLETaskArgsAnimation" classid="0x4d90ecb8">
+	   <TaskType>TASK_SET_ANIM</TaskType>
+        <Category>Walk</Category>
+	   <PlayBackwards>false</PlayBackwards>
+	</Task> 
+	<Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+		<TaskType>TASK_GO_TO_WORK_BUILDING</TaskType>
+	 </Task>
+
+	<Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+	    <TaskType>TASK_CHECK_GO_TO_WORK_BUILDING_SUCCESS</TaskType>
+	</Task>
+	
+	<Task classname="GGL::CGLTaskArgsTargetType" classid="0x9b0b7f68">
+		<TaskType>TASK_ENTER_BUILDING</TaskType>
+		<TargetType>ATTACHMENT_WORKER_WORKPLACE</TargetType>
+	</Task>
+	
+	<Task classname="EGL::CGLETaskArgsThousandths" classid="0x230862d8">
+	  <TaskType>TASK_WAIT_FOR_ANIM</TaskType>
+	  <Thousandths>3000</Thousandths>
+	 </Task>
+	 
+	  <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+		<TaskType>TASK_CHANGE_WORK_TIME_WORK</TaskType>
+	</Task>
+
+	<!--Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+		<TaskType>TASK_LEAVE_BUILDING</TaskType>
+	</Task>
+	
+	<Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+		<TaskType>TASK_LEFT_BUILDING</TaskType>
+	</Task>
+	<Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+	    <TaskType>TASK_SET_DEFAULT_REACTION_TYPE</TaskType>
+	</Task>
+
+	 <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+	  <TaskType>TASK_ADVANCE_IN_CYCLE</TaskType>
+	 </Task-->
+	<Task classname="EGL::CGLETaskArgsTaskListID" classid="6385ea0d">
+        <TaskType>TASK_SET_TASK_LIST</TaskType>
+        <TaskList>TL_WOODCUTTER_WORK2</TaskList>
+    </Task>
+
+</CGLETaskList>

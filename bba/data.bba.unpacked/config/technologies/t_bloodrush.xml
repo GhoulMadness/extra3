@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<root>
+	<TecCategoryType>TC_Technologies</TecCategoryType>
+	<TimeToResearch>50</TimeToResearch>
+	<ResourceCosts>
+		  <Gold>300</Gold>
+		  <Clay/>
+		  <Wood/>
+		  <Stone/>		
+		  <Iron/>
+		  <Sulfur>0</Sulfur>
+		  <Silver>200</Silver>
+	</ResourceCosts>
+	<AutomaticResearch>false</AutomaticResearch>
+	<UseForStatisticsFlag>true</UseForStatisticsFlag>
+	
+	<DamageModifier>
+		<Value>4</Value>
+		<Operation>+</Operation>
+	</DamageModifier>
+	
+	
+	<Conditions>
+	<RequiredEntityConditions>1</RequiredEntityConditions>
+	 			
+		
+		  <EntityCondition>
+			  <EntityType>PB_Silversmith2</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		<TecCondition>
+			  <TecType>T_UnlockBloodrush</TecType>			
+		</TecCondition>		
+		</Conditions>
+</root>

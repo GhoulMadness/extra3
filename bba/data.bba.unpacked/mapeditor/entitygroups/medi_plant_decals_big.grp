@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <Entity>XD_PlantDecalLarge1</Entity>
+ <Entity>XD_PlantDecalLarge2</Entity>
+ <Entity>XD_PlantDecalLarge3</Entity>
+ <Entity>XD_PlantDecalLarge4</Entity>
+ <Entity>XD_PlantDecalLarge5</Entity>
+</root>

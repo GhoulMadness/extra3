@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		<Class>ED::CDisplayStaticEntity</Class>
+		<Model>ZXBox100</Model>
+	</Display>
+	<Logic classname="EGL::CGLEEntityProps">
+		<Class>EGL::CGLEEntity</Class>
+        <AccessCategory>AccessCategoryStatic</AccessCategory>
+		<Exploration>40</Exploration>
+		<DeleteWhenBuiltOn>false</DeleteWhenBuiltOn>
+		<NeedsPlayer>true</NeedsPlayer>
+		<Visible>false</Visible>
+		<DoNotExecute>True</DoNotExecute>
+	</Logic>
+</root>

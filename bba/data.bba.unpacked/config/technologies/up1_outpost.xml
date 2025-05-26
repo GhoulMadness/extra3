@@ -1,0 +1,148 @@
+<root>
+	<TecCategoryType>TC_BuildingUpgrades</TecCategoryType>
+	<TimeToResearch>3</TimeToResearch>
+	<ResourceCosts>
+		<Clay>100</Clay>
+	</ResourceCosts>
+
+	<Conditions>
+			<RequiredEntityConditions>1</RequiredEntityConditions>
+	 	
+		<EntityCondition>
+			  <EntityType>PB_Blacksmith1</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+		<EntityCondition>
+			  <EntityType>PB_Blacksmith2</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+		<EntityCondition>
+			  <EntityType>PB_Blacksmith3</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+		<EntityCondition>
+			  <EntityType>PB_Sawmill1</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+		<EntityCondition>
+			  <EntityType>PB_Sawmill2</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+		<EntityCondition>
+			  <EntityType>PB_Alchemist1</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+		<EntityCondition>
+			  <EntityType>PB_Alchemist2</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+		
+		<EntityCondition>
+			  <EntityType>PB_StoneMason1</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+		<EntityCondition>
+			  <EntityType>PB_StoneMason2</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+		<EntityCondition>
+			  <EntityType>PB_Brickworks1</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+		<EntityCondition>
+			  <EntityType>PB_Brickworks2</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+		<EntityCondition>
+			  <EntityType>PB_GunsmithWorkshop1</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+		<EntityCondition>
+			  <EntityType>PB_GunsmithWorkshop2</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+		<EntityCondition>
+			  <EntityType>PB_Bank1</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+		<EntityCondition>
+			  <EntityType>PB_Bank2</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+		<EntityCondition>
+			  <EntityType>CB_Mint1</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+		<EntityCondition>
+			  <EntityType>PB_Silversmith1</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+		<EntityCondition>
+			  <EntityType>PB_Silversmith2</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		<!--RequiredTecConditions>5</RequiredTecConditions>
+		<TecCondition>
+			<TecType>GT_Mercenaries</TecType>
+			<TecCategoryType>TC_Military</TecCategoryType>
+		</TecCondition>		
+		<TecCondition>
+			<TecType>GT_StandingArmy</TecType>
+			<TecCategoryType>TC_Military</TecCategoryType>
+		</TecCondition>	
+		<TecCondition>
+			<TecType>GT_Construction</TecType>
+			<TecCategoryType>TC_Construction</TecCategoryType>
+		</TecCondition>		
+		<TecCondition>
+			<TecType>GT_GearWheel</TecType>
+			<TecCategoryType>TC_Construction</TecCategoryType>
+		</TecCondition>	
+		<TecCondition>
+			<TecType>GT_Alchemy</TecType>
+			<TecCategoryType>TC_Resources</TecCategoryType>
+		</TecCondition>		
+		<TecCondition>
+			<TecType>GT_Alloying</TecType>
+			<TecCategoryType>TC_Resources</TecCategoryType>
+		</TecCondition>		
+		<TecCondition>
+			<TecType>GT_Taxation</TecType>
+			<TecCategoryType>TC_Trading</TecCategoryType>
+		</TecCondition>
+		<TecCondition>
+			<TecType>GT_Trading</TecType>
+			<TecCategoryType>TC_Trading</TecCategoryType>
+		</TecCondition>
+		<TecCondition>
+			<TecType>GT_Literacy</TecType>
+			<TecCategoryType>TC_Administration</TecCategoryType>
+		</TecCondition>		
+		
+		<TecCondition>
+			<TecType>GT_Literacy</TecType>
+			<TecCategoryType>TC_Administration</TecCategoryType>
+		</TecCondition>		
+		<TecCondition>
+			<TecType>GT_Printing</TecType>
+			<TecCategoryType>TC_Administration</TecCategoryType>
+		</TecCondition-->		
+	</Conditions>
+</root>

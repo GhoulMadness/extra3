@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		<Class>ED::CDisplayBuilding</Class>
+		<Model>XD_Ruin_Claymine</Model>
+	</Display>
+	<Logic classname="GGL::CGLBuildingProps">
+		<Class>GGL::CBuilding</Class>
+		<AccessCategory>AccessCategoryBuilding</AccessCategory>
+
+		<Category>Wall</Category>
+        <NeedsPlayer>false</NeedsPlayer>
+        <ForceNoPlayer>false</ForceNoPlayer>
+		<ArmorClass>ArmorClassFortification</ArmorClass> 
+		<MaxHealth>500</MaxHealth>
+	    <ArmorAmount>100</ArmorAmount>
+		<BuildOn>XD_ClayPit1</BuildOn>
+         <ApproachPos>
+            <X>710</X>
+            <Y>-600</Y>
+        </ApproachPos>
+		  <ApproachR>0</ApproachR>
+        <DoorPos>
+            <X>680</X>
+            <Y>450</Y>			
+        </DoorPos>
+       
+       <Blocked1>
+            <X>-370</X>
+            <Y>520</Y>
+        </Blocked1>
+        <Blocked2>
+            <X>850</X>
+            <Y>-450</Y>
+        </Blocked2>
+		<Exploration>30</Exploration>
+	</Logic>
+	<Behavior>
+		<Logic classname="EGL::CGLEBehaviorProps">
+			<Class>GGL::CBuildingBehavior</Class>
+		</Logic>
+		<Display classname="GD::CBuildingBehaviorProps">
+			<Class>GD::CBuildingBehavior</Class>
+			<Banner>DefaultBend</Banner>
+		  <NumDamageEffects>20</NumDamageEffects>
+		  <NumDestroyEffects>19</NumDestroyEffects>
+		</Display>
+
+	</Behavior>
+</root>
+

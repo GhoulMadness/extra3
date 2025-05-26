@@ -1,0 +1,47 @@
+<root>
+	<Table>Rifle</Table>
+
+	<!--Level 1 -->
+	<Level>
+		<DamageBonus>4</DamageBonus>
+	</Level>
+
+	<!--Level 2 + Exploration + AutoAttackRange + MaxRange -->
+	<Level>
+		<DamageBonus>4</DamageBonus>
+		<Exploration>1</Exploration>
+		<AutoAttackRange>100</AutoAttackRange>
+		<MaxRange>100</MaxRange>
+	</Level>
+
+	<!--Level 3 + HealingPoints -->
+	<Level>
+		<DamageBonus>4</DamageBonus>
+		<Exploration>1</Exploration>
+		<AutoAttackRange>100</AutoAttackRange>
+		<MaxRange>100</MaxRange>
+		<HealingPoints>3</HealingPoints>
+	</Level>
+
+	<!--Level 4 + DamageAmount -->
+	<Level>
+		<DamageBonus>6</DamageBonus>
+		<Exploration>2</Exploration>
+		<AutoAttackRange>200</AutoAttackRange>
+		<MaxRange>200</MaxRange>
+		<HealingPoints>4</HealingPoints>
+		<DamageAmount>1</DamageAmount>
+	</Level>
+
+	<!--Level 5 + MissChance -->
+	<Level>
+		<DamageBonus>8</DamageBonus>
+		<Exploration>2</Exploration>
+		<AutoAttackRange>200</AutoAttackRange>
+		<MaxRange>200</MaxRange>
+		<HealingPoints>5</HealingPoints>
+		<DamageAmount>3</DamageAmount>
+		<MissChance>-2</MissChance>
+	</Level>
+	
+</root>

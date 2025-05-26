@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <NameKey>AO3MapDescription/CM07_03_Keshet_name</NameKey>
+ <DescKey>AO3MapDescription/CM07_03_Keshet_desc</DescKey>
+ <Name></Name>
+ <Desc></Desc>
+ <SizeX>641</SizeX>
+ <SizeY>641</SizeY>
+ <MPFlag>false</MPFlag>
+ <MPPlayerCount>0</MPPlayerCount>
+ <MPGameOptionFlagSet>0</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\externalmap</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>ed7b7480-920b-494f-a440-9d2747adcc7d</Data>
+ </GUID>
+</root>

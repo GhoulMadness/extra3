@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		  <Class>GD::CDisplaySettler</Class>
+		  <Model>U_Woodcutter</Model>
+		  <Model2>U_Woodcutter_Backpack</Model2>
+		  <Anim>U_Woodcutter_Cut_Start</Anim>
+		  <Anim>U_Woodcutter_Cut_End</Anim>
+		  <Anim>U_Woodcutter_Cut</Anim>
+		  <Anim>U_Strong_Normal_Walk</Anim>
+		  <Anim>U_Strong_Normal_Die</Anim>
+		  <Anim>U_Woodcutter_Idle_1</Anim>
+
+	</Display>
+	<Logic classname="GGL::CGLSettlerProps">
+		  <Class>GGL::CSettler</Class>
+		  <AccessCategory>AccessCategorySettler</AccessCategory>
+		  <MaxHealth> 100 </MaxHealth>
+		  <ArmorClass>ArmorClassJerkin</ArmorClass>
+		  <ArmorAmount>1</ArmorAmount>
+		  <NeedsPlayer>true</NeedsPlayer>
+		  <ForceNoPlayer>false</ForceNoPlayer>
+		<AttractionSlots>1</AttractionSlots>
+		<Fearless>true</Fearless>
+		<Convertible>false</Convertible>
+
+		<Category>Leader</Category>
+		  <AdjustWalkAnimSpeed>true</AdjustWalkAnimSpeed>
+		  <Exploration>10</Exploration>
+		  <IdleTaskList>TL_NPC_IDLE</IdleTaskList>
+
+			<!--Armor modifier-->
+        	<ModifyArmor>
+        		<Technology>T_Loom</Technology>
+        	</ModifyArmor>
+        	<!-- Speed Modifier-->
+        	<ModifySpeed>
+        		<Technology>T_Shoes</Technology>
+        	</ModifySpeed>
+	</Logic>
+	<Behavior>
+		  <Logic classname="GGL::CGLAnimationBehaviorExProps">
+			  <Class>GGL::CGLBehaviorAnimationEx</Class>
+
+    <!-- animation to be used when entity is suspended -->
+			  <SuspensionAnimation>U_Woodcutter_Idle_1</SuspensionAnimation>
+
+  <!--Must be changed, when Anims are on the server-->
+			  <AnimSet>SET_WOODCUTTER</AnimSet>
+		  </Logic>
+		  <Display classname="ED::CBehaviorProps">
+			  <Class>ED::CDisplayBehaviorAnimation</Class>
+		</Display>
+	</Behavior>
+	<Behavior>
+		  <Logic classname="EGL::CMovementBehaviorProps">
+			  <Class>GGL::CLeaderMovement</Class>
+			  <Speed>320</Speed>
+			  <RotationSpeed>30</RotationSpeed>
+			  <MoveTaskList>TL_NPC_WALK</MoveTaskList>
+			  <MoveIdleAnim>U_Strong_Normal_Walk</MoveIdleAnim>
+		</Logic>
+        <Display classname="ED::CBehaviorProps">
+			  <Class>ED::CDisplayBehaviorMovement</Class>
+		</Display>
+	</Behavior>
+	<!--Behavior>
+		  <Logic classname="GGL::CWorkerBehaviorProps">
+			  <Class>GGL::CWorkerBehavior</Class>
+
+				  <WorkTaskList>TL_WOODCUTTER_WORK1_START</WorkTaskList>
+				  <WorkIdleTaskList>TL_WORKER_IDLE_START</WorkIdleTaskList>
+				  <WorkWaitUntil>30000</WorkWaitUntil>
+				   <WorkTimeChangeWork>-100</WorkTimeChangeWork>
+				   <ExhaustedWorkMotivationMalus>0.2</ExhaustedWorkMotivationMalus>
+
+				  <EatTaskList>TL_WORKER_EAT_START</EatTaskList>
+				  <EatIdleTaskList>TL_WORKER_IDLE_START</EatIdleTaskList>
+				  <EatWait>2000</EatWait>
+				  <WorkTimeChangeFarm>.7</WorkTimeChangeFarm>
+
+            	<RestTaskList>TL_WORKER_REST_START</RestTaskList>
+            	<RestIdleTaskList>TL_WORKER_IDLE_START</RestIdleTaskList>
+            	<RestWait>3000</RestWait>
+            	<WorkTimeChangeResidence>.5</WorkTimeChangeResidence>
+
+            	<WorkTimeChangeCamp>.1</WorkTimeChangeCamp>
+
+			    <WorkTimeMaxChangeFarm>100</WorkTimeMaxChangeFarm>
+			    <WorkTimeMaxChangeResidence>400</WorkTimeMaxChangeResidence>
+
+            	<LeaveTaskList>TL_WORKER_LEAVE</LeaveTaskList>
+
+				<AmountResearched>2.0</AmountResearched>
+
+				<ResourceToRefine>WoodRaw</ResourceToRefine>
+				<TransportAmount>5</TransportAmount>
+            	<TransportModel>U_Woodcutter_Backpack</TransportModel>
+            	<TransportAnim>U_Strong_Normal_Walk</TransportAnim>
+
+		  </Logic>
+	</Behavior-->
+	<Behavior>
+		  <Logic classname="EGL::CGLEBehaviorProps">
+			  <Class>GGL::CBehaviorWalkCommand</Class>
+		</Logic>
+	</Behavior>
+	<Behavior>
+		  <Logic classname="GGL::CSerfBehaviorProps">
+			  <Class>GGL::CSerfBehavior</Class>
+		</Logic>
+	</Behavior>
+	<Behavior>
+		  <Logic classname="GGL::CLeaderBehaviorProps">
+			  <Class>GGL::CLeaderBehavior</Class>
+			<BattleTaskList>TL_NPC_IDLE</BattleTaskList>
+
+	        <!--NormalAttackAnim1>PU_Scout_Attack1</NormalAttackAnim1>
+	        <NormalAttackAnim2>PU_Scout_Attack1</NormalAttackAnim2>
+	        <CounterAttackAnim>PU_Scout_Attack1</CounterAttackAnim>
+	        <FinishingMoveAnim>PU_Scout_Attack1</FinishingMoveAnim>
+	        <MissAttackAnim>PU_Scout_Attack1</MissAttackAnim>
+	        <BattleIdleAnim>PU_Scout_IdleAttack1</BattleIdleAnim>
+	        <BattleWalkAnim>PU_Scout_Run1</BattleWalkAnim>
+	        <HitAnim>PU_Scout_Hit</HitAnim-->
+
+
+	        <DamageClass>DC_Strike</DamageClass>
+	        <DamageAmount>1</DamageAmount>
+	        <MaxRandomDamageBonus>0</MaxRandomDamageBonus>
+	        <BattleWaitUntil>2400</BattleWaitUntil>
+
+	        <MaxRange>0.0f</MaxRange>
+	        <MinRange>0.0f</MinRange>
+			<AutoAttackRange>0</AutoAttackRange>
+			<HealingPoints>1</HealingPoints>
+	       <HealingSeconds>5</HealingSeconds>
+
+		  </Logic>
+	</Behavior>
+	<Behavior>
+		  <Logic classname="GGL::CGLBehaviorPropsDying">
+			  <Class>GGL::CGLBehaviorDying</Class>
+			  <DyingTaskList>TL_DIE</DyingTaskList>
+		</Logic>
+	</Behavior>
+</root>

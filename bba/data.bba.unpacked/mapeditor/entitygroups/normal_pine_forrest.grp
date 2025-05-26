@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <Entity>XD_Pine1</Entity>
+ <Entity>XD_Pine2</Entity>
+ <Entity>XD_Pine3</Entity>
+ <Entity>XD_Pine3</Entity>
+ <Entity>XD_Pine3</Entity>
+ <Entity>XD_Pine4</Entity>
+ <Entity>XD_Pine5</Entity>
+ <Entity>XD_Pine6</Entity>
+ <Entity>XD_Tree1</Entity>
+ <Entity>XD_Tree1_small</Entity>
+ <Entity>XD_Tree2</Entity>
+ <Entity>XD_Tree2_small</Entity>
+ <Entity>XD_Tree3</Entity>
+ <Entity>XD_Tree3_small</Entity>
+</root>

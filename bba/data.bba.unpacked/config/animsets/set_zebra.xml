@@ -1,0 +1,11 @@
+<AnimSet>
+	<Category classname="EGL::CGLEAnimCategory" classid="0xceb17718">
+		<Name>Walk</Name>
+		<Animation>XA_Zebra_Run</Animation>
+    </Category>
+	<Category classname="EGL::CGLEAnimCategory" classid="0xceb17718">
+		<Name>Die</Name>
+		<Animation>XA_Zebra_Die</Animation>
+    </Category>
+
+</AnimSet>

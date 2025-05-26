@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?><root>
+	<TecCategoryType>TC_Trading</TecCategoryType>
+	<TimeToResearch>80</TimeToResearch>
+	<ResourceCosts>
+		  <Gold>700</Gold>
+		  <Clay/>		
+		  <Wood/>
+		  <Stone/>		
+		  <Iron/>
+		  <Sulfur/>
+	</ResourceCosts>
+	<AutomaticResearch>false</AutomaticResearch>
+	<UseForStatisticsFlag>true</UseForStatisticsFlag>
+	<Conditions>
+		<RequiredTecConditions>6</RequiredTecConditions>
+			
+		<TecCondition>
+			<TecType>GT_Strategies</TecType>
+			<TecCategoryType>TC_Military</TecCategoryType>
+		</TecCondition>
+		
+		<TecCondition>
+			<TecType>GT_Architecture</TecType>
+			<TecCategoryType>TC_Construction</TecCategoryType>
+		</TecCondition>		
+		
+		<TecCondition>
+			<TecType>GT_PulledBarrel</TecType>
+			<TecCategoryType>TC_Inventions</TecCategoryType>
+		</TecCondition>	
+				
+		<TecCondition>
+			<TecType>GT_Chemistry</TecType>
+			<TecCategoryType>TC_Resources</TecCategoryType>
+		</TecCondition>		
+		
+		<TecCondition>
+			<TecType>GT_Library</TecType>
+			<TecCategoryType>TC_Administration</TecCategoryType>
+		</TecCondition>		
+		
+		<TecCondition>
+			  <TecType>GT_Laws</TecType>	
+			<TecCategoryType>TC_Trading</TecCategoryType>
+		</TecCondition>	
+		
+	</Conditions>
+</root>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CGLETaskList>
+ 
+     <PrincipalTask>Work</PrincipalTask>
+ 
+ <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+  <TaskType>TASK_APPEAR</TaskType>
+ </Task>
+ <Task classname="EGL::CGLETaskArgsPosition" classid="0x5cc25f38">
+  <TaskType>TASK_GO_TO_POS</TaskType>
+  <Position>
+   <X>-1.000000e+002</X>
+   <Y>-4.500000e+002</Y>
+  </Position>
+ </Task>
+ <Task classname="EGL::CGLETaskArgsPosition" classid="0x5cc25f38">
+  <TaskType>TASK_GO_TO_POS</TaskType>
+  <Position>
+   <X>-1.300000e+002</X>
+   <Y>0.000000e+000</Y>
+  </Position>
+ </Task>
+  <Task classname="EGL::CGLETaskArgsPosition" classid="0x5cc25f38">
+  <TaskType>TASK_GO_TO_POS</TaskType>
+  <Position>
+   <X>-1.000000e+002</X>
+   <Y>-4.500000e+002</Y>
+  </Position>
+ </Task>
+ <Task classname="EGL::CGLETaskArgsTaskListID" classid="6385ea0d">
+        <TaskType>TASK_SET_TASK_LIST</TaskType>
+        <TaskList>TL_WORKER_IDLE</TaskList>
+    </Task>
+ <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+	<TaskType>TASK_LIST_DONE</TaskType>
+</Task>
+
+</CGLETaskList>

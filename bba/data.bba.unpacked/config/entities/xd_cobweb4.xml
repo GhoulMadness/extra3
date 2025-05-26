@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		<Class>ED::CDisplayStaticEntity</Class>
+		<Model>XD_Cobweb4</Model>
+		<RenderInFoW>false</RenderInFoW>
+	</Display>
+	<Logic classname="GGL::CEntityProperties">
+		<Class>EGL::CGLEEntity</Class>
+		<AccessCategory>AccessCategoryStatic</AccessCategory> 
+		<DoNotExecute>True</DoNotExecute>
+		
+		<ResourceAmount>35</ResourceAmount>
+        <ResourceEntity>XD_ResourceTree</ResourceEntity>
+		
+		<SummerEffect>FXChopTreeDead</SummerEffect>
+        <WinterEffect>FXChopTreeDead</WinterEffect>
+
+        <Models>
+            <Model>XD_Cobweb4</Model>
+			<Model>XD_BlendingFog</Model>
+        </Models>
+		
+	</Logic>
+</root>

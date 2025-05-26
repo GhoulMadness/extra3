@@ -1,0 +1,33 @@
+<root>
+	<Table>Hero</Table>
+	
+	<!--Level 1 + Random Damage Bonus -->
+	<Level>
+		<DamageBonus>3</DamageBonus>
+	</Level>
+
+	<!--Level 2 + Random Damage Bonus -->
+	<Level>
+		<DamageBonus>6</DamageBonus>
+	</Level>
+
+	<!--Level 3 + Random Damage Bonus + DamageAmount -->
+	<Level>
+		<DamageBonus>9</DamageBonus>
+		<DamageAmount>2</DamageAmount>
+	</Level>
+
+	<!--Level 4 + Random Damage Bonus + DamageAmount -->
+	<Level>
+		<DamageBonus>12</DamageBonus>
+		<DamageAmount>4</DamageAmount>
+	</Level>
+
+	<!--Level 5 + Random Damage Bonus + DamageAmount + HealingPoints -->
+	<Level>
+		<DamageBonus>15</DamageBonus>
+		<DamageAmount>6</DamageAmount>
+		<HealingPoints>10</HealingPoints>
+	</Level>
+		
+</root>

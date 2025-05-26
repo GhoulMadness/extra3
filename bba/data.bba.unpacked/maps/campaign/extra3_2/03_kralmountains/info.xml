@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2exMapDescription/CM08_03_Kralmountains_name</NameKey>
+ <DescKey>AO2exMapDescription/CM08_03_Kralmountains_desc</DescKey>
+ <Name></Name>
+ <Desc></Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>false</MPFlag>
+ <MPPlayerCount>1</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\externalmap</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>081ea607-10b0-4d52-8b76-596118376631</Data>
+ </GUID>
+</root>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		<Class>ED::CDisplayStaticEntity</Class>
+		<Model>XD_Ruin_Claymine</Model>
+		<RenderInFoW>false</RenderInFoW>
+	</Display>
+	<Logic classname="EGL::CGLEEntityProps">
+		<Class>EGL::CGLEEntity</Class>
+  		<AccessCategory>AccessCategoryStatic</AccessCategory> 
+		<DoNotExecute>True</DoNotExecute>
+		 <ApproachPos>
+            <X>710</X>
+            <Y>-600</Y>
+        </ApproachPos>
+		  <ApproachR>0</ApproachR>
+        <DoorPos>
+            <X>680</X>
+            <Y>450</Y>			
+        </DoorPos>
+       
+       <Blocked1>
+            <X>-370</X>
+            <Y>520</Y>
+        </Blocked1>
+        <Blocked2>
+            <X>850</X>
+            <Y>-450</Y>
+        </Blocked2>
+	</Logic>
+</root>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+    <Display classname="ED::CDisplayEntityProps">
+        <Class>GD::CDisplaySettler</Class>
+        <Model>XA_Chicken2</Model>
+        <Anim>XA_Chicken_Idle1</Anim>
+        <Anim>XA_Chicken_Idle2</Anim>
+        <Anim>XA_Chicken_Walk</Anim>
+    </Display>
+
+    <Logic classname="GGL::CGLAnimalProps">
+		<Class>GGL::CAnimal</Class>
+		<AccessCategory>AccessCategoryAnimal</AccessCategory>
+		<DefaultTaskList>TL_ANIMAL_CHICKEN_IDLE</DefaultTaskList>
+		<TerritoryRadius>1000</TerritoryRadius>
+		<WanderRangeMin>750</WanderRangeMin>
+		<WanderRangeMax>500</WanderRangeMax>	
+		<NeedsPlayer>false</NeedsPlayer>
+		<MaxHealth>20</MaxHealth>
+		<ShyRange>500</ShyRange>
+		<FleeTaskList>TL_ANIMAL_FLEE</FleeTaskList>
+	</Logic>
+
+    <Behavior>
+		<Logic classname="EGL::CMovementBehaviorProps">
+			<Class>GGL::CBehaviorAnimalMovement</Class>
+			<Speed>150</Speed>
+			<RotationSpeed>30</RotationSpeed>
+		</Logic>
+		<Display classname="ED::CBehaviorProps">
+			<Class>ED::CDisplayBehaviorMovement</Class>
+		</Display>
+	</Behavior>
+
+    <Behavior>
+		<Logic classname="GGL::CGLAnimationBehaviorExProps">
+			<Class>GGL::CGLBehaviorAnimationEx</Class>
+			<SuspensionAnimation>XA_Chicken_Idle1</SuspensionAnimation>
+			<AnimSet>SET_CHICKEN</AnimSet>
+		</Logic>
+		<Display classname="ED::CBehaviorProps">
+			<Class>ED::CDisplayBehaviorAnimation</Class>
+		</Display>
+	</Behavior>
+</root>

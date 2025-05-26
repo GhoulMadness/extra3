@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CGLETaskList>
+ <PrincipalTask>Work</PrincipalTask>
+ <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+  <TaskType>TASK_CHECK_FEAR</TaskType>
+ </Task>
+ <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+  <TaskType>TASK_CHECK_FEAR</TaskType>
+ </Task>
+ <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+  <TaskType>TASK_RESET_TASK_LIST_TIMER</TaskType>
+ </Task>
+ <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+  <TaskType>TASK_APPEAR</TaskType>
+ </Task>
+ <Task classname="EGL::CGLETaskArgsPosAndOrientation" classid="0x2f706fdd">
+  <TaskType>TASK_SET_POS</TaskType>
+  <Position>
+   <X>-1.000000e+002</X>
+   <Y>2.500000e+002</Y>
+  </Position>
+  <Orientation>1.800000e+002</Orientation>
+ </Task>
+  <Task classname="EGL::CGLETaskArgsAnimation" classid="0x4d90ecb8">
+  <TaskType>TASK_SET_ANIM</TaskType>
+  <AnimID>PU_Sawmillworker_Walk</AnimID>
+  <Category></Category>
+  <PlayBackwards>false</PlayBackwards>
+ </Task>
+ <Task classname="EGL::CGLETaskArgsPosition" classid="0x5cc25f38">
+  <TaskType>TASK_GO_TO_POS</TaskType>
+  <Position>
+   <X>-4.000000e+002</X>
+   <Y>4.000000e+002</Y>
+  </Position>
+ </Task>
+  <Task classname="EGL::CGLETaskArgsThousandths" classid="0x230862d8">
+  <TaskType>TASK_WAIT_FOR_ANIM</TaskType>
+  <Thousandths>1000</Thousandths>
+ </Task>
+  <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+	<TaskType>TASK_SET_CARRIER_MODEL</TaskType>
+</Task>
+ <Task classname="EGL::CGLETaskArgsPosition" classid="0x5cc25f38">
+  <TaskType>TASK_GO_TO_POS</TaskType>
+  <Position>
+   <X>-4.000000e+002</X>
+   <Y>1.000000e+002</Y>
+  </Position>
+ </Task>
+   <Task classname="EGL::CGLETaskArgsThousandths" classid="0x230862d8">
+  <TaskType>TASK_WAIT_FOR_ANIM</TaskType>
+  <Thousandths>1000</Thousandths>
+ </Task>
+  <Task classname="EGL::CGLETaskArgsPosition" classid="0x5cc25f38">
+  <TaskType>TASK_GO_TO_POS</TaskType>
+  <Position>
+   <X>-4.000000e+002</X>
+   <Y>-1.000000e+002</Y>
+  </Position>
+ </Task>
+ <Task classname="EGL::CTaskArgsFloat" classid="0xa2787eed">
+  <TaskType>TASK_SET_TARGET_ORIENTATION_RELATIVE</TaskType>
+  <Value>2.700000e+002</Value>
+ </Task>
+ <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+  <TaskType>TASK_TURN_TO_TARGET_ORIENTATION</TaskType>
+ </Task>
+ <Task classname="EGL::CGLETaskArgsThousandths" classid="0x230862d8">
+  <TaskType>TASK_WAIT_FOR_ANIM</TaskType>
+  <Thousandths>3000</Thousandths>
+ </Task>
+  <!--Task classname="EGL::CGLETaskArgsAnimation" classid="0x4d90ecb8">
+  <TaskType>TASK_SET_ANIM</TaskType>
+  <AnimID>PU_Sawmillworker_Walk</AnimID>
+  <Category></Category>
+  <PlayBackwards>false</PlayBackwards>
+ </Task-->
+ <!-- TODO: create fire effects here -->
+ <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+  <TaskType>TASK_CREATE_COALMAKER_FIRE</TaskType>
+ </Task>
+ <Task classname="EGL::CTaskArgsInteger" classid="0xb3f8356d">
+	<TaskType>TASK_INCREASE_PLAYER_COAL</TaskType>
+	<Value>15</Value>
+ </Task>
+ <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+  <TaskType>TASK_CHANGE_WORK_TIME_WORK</TaskType>
+ </Task>
+ <Task classname="EGL::CGLETaskArgsThousandths" classid="0x230862d8">
+  <TaskType>TASK_WAIT_FOR_ANIM</TaskType>
+  <Thousandths>5000</Thousandths>
+ </Task>
+ <Task classname="EGL::CTaskArgsInteger" classid="0xb3f8356d">
+	<TaskType>TASK_INCREASE_PLAYER_COAL</TaskType>
+	<Value>15</Value>
+ </Task>
+   <Task classname="EGL::CGLETaskArgsThousandths" classid="0x230862d8">
+  <TaskType>TASK_WAIT_FOR_ANIM</TaskType>
+  <Thousandths>7000</Thousandths>
+ </Task>
+ <Task classname="EGL::CTaskArgsInteger" classid="0xb3f8356d">
+	<TaskType>TASK_INCREASE_PLAYER_COAL</TaskType>
+	<Value>20</Value>
+ </Task>
+ <Task classname="EGL::CGLETaskArgsPosition" classid="0x5cc25f38">
+  <TaskType>TASK_GO_TO_POS</TaskType>
+  <Position>
+   <X>-4.000000e+002</X>
+   <Y>2.000000e+002</Y>
+  </Position>
+ </Task>
+ <Task classname="EGL::CGLETaskArgsPosition" classid="0x5cc25f38">
+  <TaskType>TASK_GO_TO_POS</TaskType>
+  <Position>
+   <X>-1.000000e+002</X>
+   <Y>2.500000e+002</Y>
+  </Position>
+ </Task>
+ <Task classname="EGL::CTaskArgsFloat" classid="0xa2787eed">
+  <TaskType>TASK_SET_TARGET_ORIENTATION_RELATIVE</TaskType>
+  <Value>0.000000e+000</Value>
+ </Task>
+ <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+  <TaskType>TASK_TURN_TO_TARGET_ORIENTATION</TaskType>
+ </Task>
+
+ <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+  <TaskType>TASK_CHANGE_WORK_TIME_WORK</TaskType>
+ </Task>
+ <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+  <TaskType>TASK_VANISH</TaskType>
+ </Task>
+ <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+  <TaskType>TASK_WORK_WAIT_UNTIL</TaskType>
+ </Task>
+ <Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+  <TaskType>TASK_ADVANCE_IN_CYCLE</TaskType>
+ </Task>
+	<Task classname="EGL::CGLETaskArgsTaskListID" classid="6385ea0d">
+        <TaskType>TASK_SET_TASK_LIST</TaskType> 
+        <TaskList>TL_COALMAKER_WORK1_START</TaskList> 
+    </Task>
+
+
+</CGLETaskList>

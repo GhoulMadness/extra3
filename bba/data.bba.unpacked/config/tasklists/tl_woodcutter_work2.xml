@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CGLETaskList>
+ 
+     <PrincipalTask>Work</PrincipalTask>
+
+	<Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+		<TaskType>TASK_CHECK_FEAR</TaskType>
+	</Task>
+	<Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+		<TaskType>TASK_CHECK_FEAR</TaskType>
+	</Task>
+	<Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+		<TaskType>TASK_RESET_TASK_LIST_TIMER</TaskType>
+	</Task>
+	
+	<Task classname="EGL::CGLETaskArgsAnimation" classid="0x4d90ecb8">
+	   <TaskType>TASK_SET_ANIM</TaskType>
+        <Category>Walk</Category>
+	   <PlayBackwards>false</PlayBackwards>
+	</Task> 
+
+	<Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+		<TaskType>TASK_LEAVE_BUILDING</TaskType>
+	</Task>
+	
+	<Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+		<TaskType>TASK_LEFT_BUILDING</TaskType>
+	</Task>
+	
+	<Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+		<TaskType>TASK_CUT_TREE_START</TaskType>
+	</Task>
+	
+	<Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+		<TaskType>TASK_CHANGE_WORK_TIME_WORK</TaskType>
+	</Task>
+
+	<Task classname="EGL::CGLETaskArgs" classid="0x7ce66308">
+		<TaskType>TASK_LIST_DONE</TaskType>
+	</Task>
+
+</CGLETaskList>

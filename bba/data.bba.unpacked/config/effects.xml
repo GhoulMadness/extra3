@@ -1,0 +1,3232 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<root>
+
+	<Effect id="FXFire">
+		<Logic classname="GGL::CGLEffectFireProps">
+			<Class>GGL::CEffectFire</Class>
+			<SpreadTime>300</SpreadTime>
+			<SpreadDelay>300</SpreadDelay>
+			<SpreadRadius>12500</SpreadRadius>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_HouseFire</Model>
+		</Display>
+	</Effect>
+	<Effect id="FXFireMedium">
+		<Logic classname="GGL::CGLEffectFireProps">
+			<Class>GGL::CEffectFire</Class>
+			<SpreadTime>300</SpreadTime>
+			<SpreadDelay>300</SpreadDelay>
+			<SpreadRadius>12500</SpreadRadius>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_HouseFireMedium</Model>
+		</Display>
+	</Effect>
+	<Effect id="FXFireSmall">
+		<Logic classname="GGL::CGLEffectFireProps">
+			<Class>GGL::CEffectFire</Class>
+			<SpreadTime>300</SpreadTime>
+			<SpreadDelay>300</SpreadDelay>
+			<SpreadRadius>12500</SpreadRadius>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_HouseFireSmall</Model>
+		</Display>
+	</Effect>
+	<Effect id="FXFireLo">
+		<Logic classname="GGL::CGLEffectFireProps">
+			<Class>GGL::CEffectFire</Class>
+			<SpreadTime>300</SpreadTime>
+			<SpreadDelay>300</SpreadDelay>
+			<SpreadRadius>12500</SpreadRadius>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_HouseFireLo</Model>
+		</Display>
+	</Effect>
+
+	<Effect id="FXFireTemp">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>20</Duration>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_HouseFire</Model>
+		</Display>
+	</Effect>
+	<Effect id="FXFireMediumTemp">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>20</Duration>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_HouseFireMedium</Model>
+		</Display>
+	</Effect>
+	<Effect id="FXFireSmallTemp">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>20</Duration>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_HouseFireSmall</Model>
+		</Display>
+	</Effect>
+	<Effect id="FXFireLoTemp">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>20</Duration>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_HouseFireLo</Model>
+		</Display>
+	</Effect>
+
+	<Effect id="FXHero14_Fire">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_Hero14_Fire</Model>
+		</Display>
+	</Effect>
+	<Effect id="FXHero14_FireMedium">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_Hero14_FireMedium</Model>
+		</Display>
+	</Effect>
+	<Effect id="FXHero14_FireSmall">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_Hero14_FireSmall</Model>
+		</Display>
+	</Effect>
+	<Effect id="FXHero14_FireLo">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_Hero14_FireLo</Model>
+		</Display>
+	</Effect>
+
+	<Effect id="FXHero14_Arrow">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1600.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>140.0</HeightOffsetStart>
+            <HeightOffsetTarget>100.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Hero14_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXHero14_Arrow_AtArchersTower">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1600.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>875.0</HeightOffsetStart>
+            <HeightOffsetTarget>100.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Hero14_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXHero14_Arrow_AtBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1600.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>830.0</HeightOffsetStart>
+            <HeightOffsetTarget>100.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Hero14_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXHero14_Arrow_AtDrawBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1600.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>583.0</HeightOffsetStart>
+            <HeightOffsetTarget>100.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Hero14_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXHero14_Arrow_AtFortification2">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1600.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>820.0</HeightOffsetStart>
+            <HeightOffsetTarget>100.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Hero14_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXHero14_Arrow_AtFortification3">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1600.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>1180.0</HeightOffsetStart>
+            <HeightOffsetTarget>100.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Hero14_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXBuildingSmoke">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_BuildingSmoke</Model>
+		</Display>
+	</Effect>
+
+	<Effect id="FXBuildingSmokeMedium">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_BuildingSmokeMedium</Model>
+		</Display>
+	</Effect>
+
+	<Effect id="FXBuildingSmokeLarge">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_BuildingSmokeLarge</Model>
+		</Display>
+	</Effect>
+
+
+	<Effect id="FXCrushBuilding">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_CrushBuilding</Model>
+		</Display>
+	</Effect>
+
+	<Effect id="FXCrushBuildingLarge">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>15</Duration>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_CrushBuilding</Model>
+		</Display>
+	</Effect>
+
+	<Effect id="FXCannonFire">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_CannonFire</Model>
+		</Display>
+	</Effect>
+
+	<Effect id="FXCannonFireShort">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>1</Duration>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_CannonFire</Model>
+		</Display>
+	</Effect>
+
+
+	<Effect id="FXTerrainPointer">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>0</Duration>
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects/XF_HelperArrow</Model>
+			<Anim>XF_HelperArrow</Anim>
+		</Display>
+    </Effect>
+
+	<Effect id="FXDropOil">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>2</Duration>
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects/XF_DropOil</Model>
+			<Anim>XF_DropOil</Anim>
+		</Display>
+    </Effect>
+
+	<Effect id="FXWeathermachineFakeFX">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>0</Duration>
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects/XF_WeathermachineFakeFX</Model>
+			<Anim>XF_WeathermachineFakeFX</Anim>
+		</Display>
+    </Effect>
+
+
+    <Effect id="FXArrow">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>160.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXArrow_AtArchersTower">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>895.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXArrow_AtBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>850.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXArrow_AtDrawBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>603.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXArrow_AtFortification2">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>840.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXArrow_AtFortification3">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>1200.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXArrow_ToArchersTower">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>160.0</HeightOffsetStart>
+            <HeightOffsetTarget>855.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXArrow_ToBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>160.0</HeightOffsetStart>
+            <HeightOffsetTarget>810.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXArrow_ToDrawBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>160.0</HeightOffsetStart>
+            <HeightOffsetTarget>563.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXArrow_ToFortification2">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>160.0</HeightOffsetStart>
+            <HeightOffsetTarget>800.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXArrow_ToFortification3">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>160.0</HeightOffsetStart>
+            <HeightOffsetTarget>1160.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+    <Effect id="FXCrossBowArrow">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>160.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCrossBowArrow_AtArchersTower">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>895.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCrossBowArrow_AtBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>850.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCrossBowArrow_AtDrawBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>603.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCrossBowArrow_AtFortification2">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>840.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCrossBowArrow_AtFortification3">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>1200.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCrossBowArrow_ToArchersTower">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>160.0</HeightOffsetStart>
+            <HeightOffsetTarget>855.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCrossBowArrow_ToBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>160.0</HeightOffsetStart>
+            <HeightOffsetTarget>810.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCrossBowArrow_ToDrawBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>160.0</HeightOffsetStart>
+            <HeightOffsetTarget>563.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCrossBowArrow_ToFortification2">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>160.0</HeightOffsetStart>
+            <HeightOffsetTarget>800.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCrossBowArrow_ToFortification3">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>160.0</HeightOffsetStart>
+            <HeightOffsetTarget>1160.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+    <Effect id="FXCavalryArrow">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>200.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCavalryArrow_AtBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>890.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCavalryArrow_AtDrawBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>643.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCavalryArrow_ToArchersTower">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>200.0</HeightOffsetStart>
+            <HeightOffsetTarget>855.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCavalryArrow_ToBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>200.0</HeightOffsetStart>
+            <HeightOffsetTarget>810.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCavalryArrow_ToDrawBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>200.0</HeightOffsetStart>
+            <HeightOffsetTarget>563.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCavalryArrow_ToFortification2">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>200.0</HeightOffsetStart>
+            <HeightOffsetTarget>800.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCavalryArrow_ToFortification3">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>200.0</HeightOffsetStart>
+            <HeightOffsetTarget>1160.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+    <Effect id="FXCrossBowCavalryArrow">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>200.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCrossBowCavalryArrow_AtBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>890.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCrossBowCavalryArrow_AtDrawBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>643.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCrossBowCavalryArrow_ToArchersTower">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>200.0</HeightOffsetStart>
+            <HeightOffsetTarget>855.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCrossBowCavalryArrow_ToBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>200.0</HeightOffsetStart>
+            <HeightOffsetTarget>810.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCrossBowCavalryArrow_ToDrawBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>200.0</HeightOffsetStart>
+            <HeightOffsetTarget>1160.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCrossBowCavalryArrow_ToFortification2">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>200.0</HeightOffsetStart>
+            <HeightOffsetTarget>800.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCrossBowCavalryArrow_ToFortification3">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>300.0f</GravityFactor>
+            <HeightOffsetStart>200.0</HeightOffsetStart>
+            <HeightOffsetTarget>1160.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_Arrow</Model>
+		</Display>
+    </Effect>
+
+    <Effect id="FXExplosion">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration>
+			<SoundID>Military\SO_Cannon_rnd_1</SoundID>
+			<SoundVolume>127</SoundVolume>
+			<SoundLooped>false</SoundLooped>
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects/XF_Explosion</Model>
+			<Anim>XF_Explosion990</Anim>
+		</Display>
+    </Effect>
+
+
+    <Effect id="FXExplosionPilgrim">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration>
+			<SoundID>Military\SO_Cannon_rnd_1</SoundID>
+			<SoundVolume>127</SoundVolume>
+			<SoundLooped>false</SoundLooped>
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects/XF_ExplosionPilgrim</Model>
+			<Anim>XF_ExplosionPilgrim</Anim>
+		</Display>
+    </Effect>
+
+    <Effect id="FXExplosionShrapnel">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration>
+			<SoundID>Military\SO_Cannon_rnd_1</SoundID>
+			<SoundVolume>127</SoundVolume>
+			<SoundLooped>false</SoundLooped>
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects/XF_ExplosionShrapnel</Model>
+			<Anim>XF_ExplosionShrapnel999</Anim>
+		</Display>
+    </Effect>
+    <Effect id="FXExplosionVolcanic">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration>
+			<SoundID>Military\SO_Cannon_rnd_1</SoundID>
+			<SoundVolume>127</SoundVolume>
+			<SoundLooped>false</SoundLooped>
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects/XF_ExplosionVolcanic</Model>
+			<Anim>XF_ExplosionShrapnel999</Anim>
+		</Display>
+    </Effect>
+    <Effect id="FXDie">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration>
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects/XF_Die</Model>
+			<Anim>XF_Die995</Anim>
+			<UsePlayerID>true</UsePlayerID>
+		</Display>
+    </Effect>
+
+    <Effect id="FXDieHero">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration>
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects/XF_DieHero</Model>
+			<Anim>XF_DieHero996</Anim>
+			<UsePlayerID>true</UsePlayerID>
+		</Display>
+    </Effect>
+
+    <Effect id="FXCannonBall">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>120.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosion</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBall_AtArchersTower">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>855.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosion</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBall_AtBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>810.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosion</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBall_AtDrawBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>563.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosion</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBall_AtFortification2">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>800.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosion</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBall_AtFortification3">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>1160.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosion</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBall_ToArchersTower">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>120.0</HeightOffsetStart>
+            <HeightOffsetTarget>735.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosion</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBall_ToBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>120.0</HeightOffsetStart>
+            <HeightOffsetTarget>690.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosion</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBall_ToDrawBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>120.0</HeightOffsetStart>
+            <HeightOffsetTarget>443.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosion</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBall_ToFortification2">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>120.0</HeightOffsetStart>
+            <HeightOffsetTarget>680.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosion</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBall_ToFortification3">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>120.0</HeightOffsetStart>
+            <HeightOffsetTarget>1040.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosion</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallLarge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>400.0f</GravityFactor>
+            <HeightOffsetStart>320.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionPilgrim</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall_Large</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallLarge_AtArchersTower">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>400.0f</GravityFactor>
+            <HeightOffsetStart>1055.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionPilgrim</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall_Large</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallLarge_AtBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>400.0f</GravityFactor>
+            <HeightOffsetStart>1010.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionPilgrim</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall_Large</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallLarge_AtDrawBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>400.0f</GravityFactor>
+            <HeightOffsetStart>763.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionPilgrim</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall_Large</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallLarge_AtFortification2">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>400.0f</GravityFactor>
+            <HeightOffsetStart>1000.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionPilgrim</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall_Large</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallLarge_AtFortification3">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>400.0f</GravityFactor>
+            <HeightOffsetStart>1360.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionPilgrim</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall_Large</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallLarge_ToArchersTower">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>400.0f</GravityFactor>
+            <HeightOffsetStart>320.0</HeightOffsetStart>
+            <HeightOffsetTarget>735.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionPilgrim</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall_Large</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallLarge_ToBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>400.0f</GravityFactor>
+            <HeightOffsetStart>320.0</HeightOffsetStart>
+            <HeightOffsetTarget>690.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionPilgrim</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall_Large</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallLarge_ToDrawBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>400.0f</GravityFactor>
+            <HeightOffsetStart>320.0</HeightOffsetStart>
+            <HeightOffsetTarget>443.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionPilgrim</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall_Large</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallLarge_ToFortification2">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>400.0f</GravityFactor>
+            <HeightOffsetStart>320.0</HeightOffsetStart>
+            <HeightOffsetTarget>680.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionPilgrim</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall_Large</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallLarge_ToFortification3">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>400.0f</GravityFactor>
+            <HeightOffsetStart>320.0</HeightOffsetStart>
+            <HeightOffsetTarget>1040.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionPilgrim</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall_Large</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCatapultStone">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>200.0f</GravityFactor>
+            <HeightOffsetStart>550.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+			<ImpactEffectID>FXExplosionVolcanic</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+    <Effect id="FXCannonTowerBall">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>680.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosion</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonTowerBall</Model>
+		</Display>
+    </Effect>
+
+    <Effect id="FXBalistaTowerArrow">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>600.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosion</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BalistaTowerArrow</Model>
+		</Display>
+    </Effect>
+
+    <Effect id="FXCannonBallShrapnel">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>120.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionShrapnel</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallShrapnel_AtArchersTower">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>855.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionShrapnel</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallShrapnel_AtBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>810.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionShrapnel</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallShrapnel_AtDrawBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>563.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionShrapnel</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallShrapnel_AtFortification2">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>800.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionShrapnel</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallShrapnel_AtFortification3">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>1160.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionShrapnel</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallShrapnel_ToArchersTower">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>120.0</HeightOffsetStart>
+            <HeightOffsetTarget>735.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionShrapnel</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallShrapnel_ToBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>120.0</HeightOffsetStart>
+            <HeightOffsetTarget>690.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionShrapnel</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallShrapnel_ToDrawBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>120.0</HeightOffsetStart>
+            <HeightOffsetTarget>443.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionShrapnel</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallShrapnel_ToFortification2">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>120.0</HeightOffsetStart>
+            <HeightOffsetTarget>680.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionShrapnel</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallShrapnel_ToFortification3">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1800.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>800.0f</GravityFactor>
+            <HeightOffsetStart>120.0</HeightOffsetStart>
+            <HeightOffsetTarget>1040.0</HeightOffsetTarget>
+            <ImpactEffectID>FXExplosionShrapnel</ImpactEffectID>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_CannonBall</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>120.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+	<Effect id="FXCannonBallGatling_Barrel1">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>190.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel1_AtArchersTower">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>925.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel1_AtBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>880.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel1_AtDrawBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>633.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel1_AtFortification2">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>870.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel1_AtFortification3">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>1230.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel1_ToArchersTower">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>190.0</HeightOffsetStart>
+            <HeightOffsetTarget>735.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel1_ToBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>190.0</HeightOffsetStart>
+            <HeightOffsetTarget>690.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel1_ToDrawBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>190.0</HeightOffsetStart>
+            <HeightOffsetTarget>443.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel1_ToFortification2">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>190.0</HeightOffsetStart>
+            <HeightOffsetTarget>680.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel1_ToFortification3">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>190.0</HeightOffsetStart>
+            <HeightOffsetTarget>1040.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel2">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>150.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel2_AtArchersTower">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>885.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel2_AtBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>840.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel2_AtDrawBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>593.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel2_AtFortification2">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>830.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel2_AtFortification3">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>1190.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel2_ToArchersTower">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>150.0</HeightOffsetStart>
+            <HeightOffsetTarget>735.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel2_ToBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>150.0</HeightOffsetStart>
+            <HeightOffsetTarget>690.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel2_ToDrawBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>150.0</HeightOffsetStart>
+            <HeightOffsetTarget>443.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel2_ToFortification2">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>150.0</HeightOffsetStart>
+            <HeightOffsetTarget>680.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel2_ToFortification3">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>150.0</HeightOffsetStart>
+            <HeightOffsetTarget>1040.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel3">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>110.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel3_AtArchersTower">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>845.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel3_AtBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>800.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel3_AtDrawBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>553.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel3_AtFortification2">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>790.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel3_AtFortification3">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>1150.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel3_ToArchersTower">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>110.0</HeightOffsetStart>
+            <HeightOffsetTarget>735.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel3_ToBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>110.0</HeightOffsetStart>
+            <HeightOffsetTarget>690.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel3_ToDrawBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>110.0</HeightOffsetStart>
+            <HeightOffsetTarget>443.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel3_ToFortification2">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>110.0</HeightOffsetStart>
+            <HeightOffsetTarget>680.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXCannonBallGatling_Barrel3_ToFortification3">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2500.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>1200.0f</GravityFactor>
+            <HeightOffsetStart>110.0</HeightOffsetStart>
+            <HeightOffsetTarget>1040.0</HeightOffsetTarget>
+            <!--ImpactEffectID>FXExplosionShrapnel</ImpactEffectID-->
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+    <Effect id="FXLightning">
+		<Logic classname="GGL::CGLEffectLightningProps">
+			<Class>GGL::CEffectLightning</Class>
+			<IgniteDelay>1</IgniteDelay>
+			<DestructionDelay>5</DestructionDelay>
+			<SpawnRadius>500</SpawnRadius>
+		</Logic>
+		<Display classname="ED::CEffectProps">
+			<Class>GD::CDisplayEffectLightning</Class>
+			<Texture>Effects/Lightning_A1</Texture>
+			<Texture>Effects/Lightning_A2</Texture>
+			<Texture>Effects/Lightning_B1</Texture>
+			<Texture>Effects/Lightning_B2</Texture>
+			<Texture>Effects/Lightning_C1</Texture>
+			<Texture>Effects/Lightning_C2</Texture>
+		</Display>
+	</Effect>
+	<Effect id="FXLightning_PerformanceMode">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>1</Duration>
+		</Logic>
+		<Display classname="ED::CEffectProps">
+			<Class>GD::CDisplayEffectLightning</Class>
+			<Texture>Effects/Lightning_A1</Texture>
+			<Texture>Effects/Lightning_A2</Texture>
+			<Texture>Effects/Lightning_B1</Texture>
+			<Texture>Effects/Lightning_B2</Texture>
+			<Texture>Effects/Lightning_C1</Texture>
+			<Texture>Effects/Lightning_C2</Texture>
+		</Display>
+	</Effect>
+	<Effect id="FXHero14_Lightning">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>1</Duration>
+		</Logic>
+		<Display classname="ED::CEffectProps">
+			<Class>GD::CDisplayEffectLightning</Class>
+			<Texture>Effects/Hero14_Lightning_A1</Texture>
+			<Texture>Effects/Hero14_Lightning_A2</Texture>
+			<Texture>Effects/Hero14_Lightning_A3</Texture>
+			<Texture>Effects/Hero14_Lightning_B1</Texture>
+			<Texture>Effects/Hero14_Lightning_B2</Texture>
+			<Texture>Effects/Hero14_Lightning_C1</Texture>
+			<Texture>Effects/Hero14_Lightning_C2</Texture>
+		</Display>
+	</Effect>
+	<Effect id="FXRain">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>GGL::CEffectRain</Class>
+			<Global>True</Global>
+		</Logic>
+		<Display classname="GD::CDisplayEffectRainProps">
+			<Class>GD::CDisplayEffectRain</Class>
+			<MaxParticlesNumber>1500</MaxParticlesNumber>
+			<NewParticlesPerSecond>300</NewParticlesPerSecond>
+			<MinLength>70</MinLength>
+			<MaxLength>200</MaxLength>
+			<FallSpeed>500</FallSpeed>
+			<HeadColor>
+				<R>162</R>
+				<G>192</G>
+				<B>220</B>
+				<A>80</A>
+			</HeadColor>
+			<TailColor>
+				<R>70</R>
+				<G>140</G>
+				<B>218</B>
+				<A>0</A>
+			</TailColor>
+			<DirectionRandomRatio>0.03</DirectionRandomRatio>
+			<CylinderRadius>500</CylinderRadius>
+			<CylinderHeightUp>30</CylinderHeightUp>
+			<CylinderHeightDown>800</CylinderHeightDown>
+		</Display>
+	</Effect>
+	<Effect id="FXAshRain">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>GGL::CEffectRain</Class>
+			<Global>True</Global>
+		</Logic>
+		<Display classname="GD::CDisplayEffectRainProps">
+			<Class>GD::CDisplayEffectRain</Class>
+			<MaxParticlesNumber>800</MaxParticlesNumber>
+			<NewParticlesPerSecond>100</NewParticlesPerSecond>
+			<MinLength>30</MinLength>
+			<MaxLength>70</MaxLength>
+			<FallSpeed>150</FallSpeed>
+			<HeadColor>
+				<R>80</R>
+				<G>80</G>
+				<B>80</B>
+				<A>170</A>
+			</HeadColor>
+			<TailColor>
+				<R>110</R>
+				<G>110</G>
+				<B>110</B>
+				<A>110</A>
+			</TailColor>
+			<DirectionRandomRatio>0.03</DirectionRandomRatio>
+			<CylinderRadius>700</CylinderRadius>
+			<CylinderHeightUp>30</CylinderHeightUp>
+			<CylinderHeightDown>500</CylinderHeightDown>
+		</Display>
+	</Effect>
+	<Effect id="FXSnow">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>GGL::CEffectRain</Class>
+			<Global>True</Global>
+		</Logic>
+		<Display classname="GD::CEffectSnowProps">
+			<Class>GD::CEffectSnow</Class>
+			<Texture>Effects/SnowFlake</Texture>
+			<MaxParticlesNum>3000</MaxParticlesNum>
+			<NewParticlesPerSecond>50</NewParticlesPerSecond>
+			<DeletedParticlesPerSecond>500</DeletedParticlesPerSecond>
+			<ParticleSize>12</ParticleSize>
+			<ParticleZSpeedMin>-100</ParticleZSpeedMin>
+			<ParticleZSpeedMax>-150</ParticleZSpeedMax>
+			<CylinderRadius>2000</CylinderRadius>
+			<CylinderZMin>-2000</CylinderZMin>
+			<CylinderZMax>250</CylinderZMax>
+			<FlowSimulationDeltaTime>0.1</FlowSimulationDeltaTime>
+			<FlowSimulationTimeScale>0.25</FlowSimulationTimeScale>
+			<WindSpeedScale>1500</WindSpeedScale>
+			<WindViscosity>0.15</WindViscosity>
+			<AppliedForceMin>2000</AppliedForceMin>
+			<AppliedForceMin>3000</AppliedForceMin>
+			<ForceTimeMin>8</ForceTimeMin>
+			<ForceTimeMax>12</ForceTimeMax>
+		</Display>
+	</Effect>
+	<Effect id="FXAshFlakes">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>GGL::CEffectRain</Class>
+			<Global>True</Global>
+		</Logic>
+		<Display classname="GD::CEffectSnowProps">
+			<Class>GD::CEffectSnow</Class>
+			<Texture>Effects/AshFlake</Texture>
+			<MaxParticlesNum>4000</MaxParticlesNum>
+			<NewParticlesPerSecond>200</NewParticlesPerSecond>
+			<DeletedParticlesPerSecond>400</DeletedParticlesPerSecond>
+			<ParticleSize>22</ParticleSize>
+			<ParticleZSpeedMin>-60</ParticleZSpeedMin>
+			<ParticleZSpeedMax>-90</ParticleZSpeedMax>
+			<CylinderRadius>3000</CylinderRadius>
+			<CylinderZMin>-1500</CylinderZMin>
+			<CylinderZMax>350</CylinderZMax>
+			<FlowSimulationDeltaTime>0.1</FlowSimulationDeltaTime>
+			<FlowSimulationTimeScale>0.25</FlowSimulationTimeScale>
+			<WindSpeedScale>1900</WindSpeedScale>
+			<WindViscosity>0.35</WindViscosity>
+			<AppliedForceMin>1000</AppliedForceMin>
+			<AppliedForceMax>4000</AppliedForceMax>
+			<ForceTimeMin>2</ForceTimeMin>
+			<ForceTimeMax>8</ForceTimeMax>
+		</Display>
+	</Effect>
+	<Effect id="FXEmbers">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>GGL::CEffectRain</Class>
+			<Global>True</Global>
+		</Logic>
+		<Display classname="GD::CEffectSnowProps">
+			<Class>GD::CEffectSnow</Class>
+			<Texture>Effects/Embers</Texture>
+			<MaxParticlesNum>200</MaxParticlesNum>
+			<NewParticlesPerSecond>10</NewParticlesPerSecond>
+			<DeletedParticlesPerSecond>150</DeletedParticlesPerSecond>
+			<ParticleSize>12</ParticleSize>
+			<ParticleZSpeedMin>-230</ParticleZSpeedMin>
+			<ParticleZSpeedMax>-280</ParticleZSpeedMax>
+			<CylinderRadius>3000</CylinderRadius>
+			<CylinderZMin>-1500</CylinderZMin>
+			<CylinderZMax>350</CylinderZMax>
+			<FlowSimulationDeltaTime>0.1</FlowSimulationDeltaTime>
+			<FlowSimulationTimeScale>0.25</FlowSimulationTimeScale>
+			<WindSpeedScale>3600</WindSpeedScale>
+			<WindViscosity>0.05</WindViscosity>
+			<AppliedForceMin>1000</AppliedForceMin>
+			<AppliedForceMax>6000</AppliedForceMax>
+			<ForceTimeMin>4</ForceTimeMin>
+			<ForceTimeMax>12</ForceTimeMax>
+		</Display>
+	</Effect>
+	<Effect id="FXDestroyTree">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>2</Duration>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_ChopTree</Model>
+		</Display>
+	</Effect>
+
+	<Effect id="FXChopTree">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration>
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects\XF_TreeCollapse</Model>
+			<Anim>XF_CollapseTree991</Anim>
+		</Display>
+	</Effect>
+
+	<Effect id="FXChopTreeInWinter">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration>
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects/XF_TreeCollapseWinter</Model>
+			<Anim>XF_TreeCollapseWinter992</Anim>
+		</Display>
+
+	</Effect>
+		<Effect id="FXChopTreeDead">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration>
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects/XF_TreeCollapseDead</Model>
+			<Anim>XF_TreeCollapseDead990</Anim>
+		</Display>
+	</Effect>
+
+	<Effect id="FXExtractStone">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>1</Duration>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_ExtractStone</Model>
+		</Display>
+	</Effect>
+
+    <Effect id="FXSalimHeal">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>2</Duration><!-- 4.25 -->
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects/XF_SalimHeal</Model>
+			<Anim>XF_SalimHeal</Anim>
+		</Display>
+    </Effect>
+
+    <Effect id="FXMaryPoison">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration><!-- 4.25 -->
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_MaryPoison</Model>
+		</Display>
+    </Effect>
+
+    <Effect id="FXMaryDemoralize">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>4</Duration><!-- 4.25 -->
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects/XF_MaryDemoralize</Model>
+			<Anim>XF_MaryDemoralize</Anim>
+		</Display>
+    </Effect>
+
+    <Effect id="FXKerberosFear">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>4.7</Duration><!-- 4.25 -->
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_KerberosFear</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXHero14_Fear">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>3.25</Duration>
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_Hero14_Fear</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXHero14_Poison">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>10.0</Duration><!-- 4.25 -->
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_Hero14_Poison</Model>
+		</Display>
+    </Effect>
+
+    <Effect id="FXDarioFear">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>4.7</Duration><!-- 4.25 -->
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_DarioFear</Model>
+		</Display>
+    </Effect>
+
+    <!--AddOn-->
+
+     <Effect id="FXBulletRifleman">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>70.0</HeightOffsetStart>
+            <HeightOffsetTarget>70.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_Bullet</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXBulletRifleman_AtArchersTower">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>805.0</HeightOffsetStart>
+            <HeightOffsetTarget>70.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_Bullet</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXBulletRifleman_AtBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>760.0</HeightOffsetStart>
+            <HeightOffsetTarget>70.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_Bullet</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXBulletRifleman_AtDrawBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>513.0</HeightOffsetStart>
+            <HeightOffsetTarget>70.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_Bullet</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXBulletRifleman_AtFortification2">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>750.0</HeightOffsetStart>
+            <HeightOffsetTarget>70.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_Bullet</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXBulletRifleman_AtFortification3">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>1110.0</HeightOffsetStart>
+            <HeightOffsetTarget>70.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_Bullet</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXBulletRifleman_ToArchersTower">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>70.0</HeightOffsetStart>
+            <HeightOffsetTarget>805.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_Bullet</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXBulletRifleman_ToBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>70.0</HeightOffsetStart>
+            <HeightOffsetTarget>760.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_Bullet</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXBulletRifleman_ToDrawBridge">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>70.0</HeightOffsetStart>
+            <HeightOffsetTarget>513.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_Bullet</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXBulletRifleman_ToFortification2">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>70.0</HeightOffsetStart>
+            <HeightOffsetTarget>750.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_Bullet</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXBulletRifleman_ToFortification3">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>70.0</HeightOffsetStart>
+            <HeightOffsetTarget>1110.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_Bullet</Model>
+		</Display>
+    </Effect>
+
+     <Effect id="FXShotRifleman">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>70.0</HeightOffsetStart>
+            <HeightOffsetTarget>70.0</HeightOffsetTarget>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXShotRifleman_AtArchersTower">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>805.0</HeightOffsetStart>
+            <HeightOffsetTarget>70.0</HeightOffsetTarget>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXShotRifleman_AtBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>760.0</HeightOffsetStart>
+            <HeightOffsetTarget>70.0</HeightOffsetTarget>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXShotRifleman_AtDrawBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>513.0</HeightOffsetStart>
+            <HeightOffsetTarget>70.0</HeightOffsetTarget>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXShotRifleman_AtFortification2">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>750.0</HeightOffsetStart>
+            <HeightOffsetTarget>70.0</HeightOffsetTarget>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXShotRifleman_AtFortification3">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>1110.0</HeightOffsetStart>
+            <HeightOffsetTarget>70.0</HeightOffsetTarget>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXShotRifleman_ToArchersTower">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>70.0</HeightOffsetStart>
+            <HeightOffsetTarget>805.0</HeightOffsetTarget>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXShotRifleman_ToBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>70.0</HeightOffsetStart>
+            <HeightOffsetTarget>760.0</HeightOffsetTarget>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXShotRifleman_ToDrawBridge">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>70.0</HeightOffsetStart>
+            <HeightOffsetTarget>513.0</HeightOffsetTarget>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXShotRifleman_ToFortification2">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>70.0</HeightOffsetStart>
+            <HeightOffsetTarget>750.0</HeightOffsetTarget>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+
+	<Effect id="FXShotRifleman_ToFortification3">
+        <Logic classname="GGL::CCannonBallEffectProps">
+            <Class>GGL::CCannonBallEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>4000.0</Speed>
+            <Radius>0</Radius>
+            <Damage>0</Damage>
+            <GravityFactor>5.0f</GravityFactor>
+            <HeightOffsetStart>70.0</HeightOffsetStart>
+            <HeightOffsetTarget>1110.0</HeightOffsetTarget>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>XD_BulletBig</Model>
+		</Display>
+    </Effect>
+	<Effect id="FXAnni20Fireworks">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>20</Duration><!-- 4.25 -->
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects/XF_Anni20Fireworks</Model>
+			<Anim>XF_FireworksAnniversary20</Anim>
+		</Display>
+    </Effect>
+    <Effect id="FXYukiFireworksFear">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>20</Duration><!-- 4.25 -->
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects/XF_YukiFireworksFear</Model>
+			<Anim>XF_YukiFireworksFear</Anim>
+		</Display>
+    </Effect>
+
+    <Effect id="FXYukiFireworksJoy">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>20</Duration><!-- 4.25 -->
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects/XF_YukiFireworksJoy</Model>
+			<Anim>XF_YukiFireworksJoy</Anim>
+		</Display>
+    </Effect>
+
+    <Effect id="FXYukiShuriken">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>2000.0</Speed>
+            <GravityFactor>0.0f</GravityFactor>
+            <HeightOffsetStart>0.0</HeightOffsetStart>
+            <HeightOffsetTarget>0.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects/XF_YukiShuriken</Model>
+			<Anim>XF_YukiShuriken</Anim>
+		</Display>
+    </Effect>
+
+    <Effect id="FXKalaPoison">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>5</Duration><!-- 4.25 -->
+		</Logic>
+		<Display classname="ED::CEffectParticleSystemProps">
+			<Class>ED::CEffectParticleSystem</Class>
+			<Model>Effects\XF_KalaPoison</Model>
+		</Display>
+    </Effect>
+
+    <Effect id="FXKalaArrow">
+        <Logic classname="GGL::CArrowEffectProps">
+            <Class>GGL::CArrowEffect</Class>
+            <Global>false</Global>
+            <Duration>0</Duration>
+            <Speed>1200.0</Speed>
+            <GravityFactor>600.0f</GravityFactor>
+            <HeightOffsetStart>160.0</HeightOffsetStart>
+            <HeightOffsetTarget>120.0</HeightOffsetTarget>
+            <Damage>0</Damage>
+        </Logic>
+		<Display classname="ED::CFlyingEffectProps">
+			<Class>ED::CFlyingEffect</Class>
+			<Model>Effects\XF_KalaArrow</Model>
+		</Display>
+    </Effect>
+
+    <Effect id="FXTemplarAltarEffect">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>0</Duration><!-- 4.25 -->
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects/XF_TemplarAltarEffect</Model>
+			<Anim>XF_TemplarAltarEffect</Anim>
+		</Display>
+    </Effect>
+
+	<Effect id="FXNephilimFlowerDestroy">
+		<Logic classname="EGL::CGLEEffectProps">
+			<Class>EGL::CEffect</Class>
+			<Duration>2</Duration>
+		</Logic>
+		<Display classname="ED::CHAnimEffectProps">
+			<Class>ED::CHAnimEffect</Class>
+			<Model>Effects\XF_NephilimFlowerDestroy</Model>
+			<Anim>XF_NephilimFlowerDestroy</Anim>
+		</Display>
+	</Effect>
+
+
+</root>

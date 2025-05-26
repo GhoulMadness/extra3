@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?><root>
+	<TecCategoryType>TC_Technologies</TecCategoryType>
+	<TimeToResearch>60</TimeToResearch>
+	<ResourceCosts>
+		  <Gold>500</Gold>
+		  <Clay/>
+		  <Wood/>
+		  <Stone/>		
+		  <Iron/>
+		  <Sulfur/>
+		  <Silver>100</Silver>
+	</ResourceCosts>	
+	<AutomaticResearch>true</AutomaticResearch>
+	<UseForStatisticsFlag>true</UseForStatisticsFlag>
+	<ArmorModifier>
+		  <Value>5</Value>
+		  <Operation>+</Operation>
+	</ArmorModifier>
+	<HitpointModifier>
+		<Value>50</Value>
+		<Operation>+</Operation>
+	</HitpointModifier>
+	<Conditions>	
+		  <TecCondition>
+			  <TecType>T_Agility</TecType>			
+		</TecCondition>	
+		  <EntityCondition>
+			  <EntityType>PB_Tavern2</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+	</Conditions>
+</root>

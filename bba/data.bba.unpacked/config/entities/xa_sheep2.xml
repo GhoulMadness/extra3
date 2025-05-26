@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		<Class>GD::CDisplaySettler</Class>
+		<Model>CU_Sheep2</Model> <!-- must be changed when proper model available -->
+                <Anim>CU_Sheep2_Walk</Anim>
+                <DrawPlayerColor>True</DrawPlayerColor>
+                <Anim>CU_Sheep2_Idle1</Anim> 
+                <Anim>CU_Sheep2_Idle2</Anim> 
+                <Anim>CU_Sheep2_Idle3</Anim> 
+                <Anim>CU_Sheep2_Idle4</Anim> 
+	</Display>
+	<Logic classname="GGL::CGLAnimalProps">
+		<Class>GGL::CAnimal</Class>
+		<AccessCategory>AccessCategoryAnimal</AccessCategory>
+		<DefaultTaskList>TL_SHEEP2_IDLE</DefaultTaskList> <!-- Data checker should check that this is not hunt -->
+		<TerritoryRadius>15000</TerritoryRadius>
+		<WanderRangeMin>300</WanderRangeMin>
+		<WanderRangeMax>700</WanderRangeMax>		
+		<NeedsPlayer>false</NeedsPlayer>
+		<MaxHealth>20</MaxHealth> 
+		<ShyRange>500</ShyRange>
+		<FleeTaskList>TL_ANIMAL_FLEE</FleeTaskList>
+	</Logic>
+	<Behavior>
+		<Logic classname="GGL::CGLAnimationBehaviorExProps">
+			<Class>GGL::CGLBehaviorAnimationEx</Class>
+		<!-- animation to be used when entity is suspended -->
+			<SuspensionAnimation>CU_Sheep2_Idle1</SuspensionAnimation>
+			<AnimSet>SET_SHEEP</AnimSet>
+		</Logic>
+		<Display classname="ED::CBehaviorProps">
+			<Class>ED::CDisplayBehaviorAnimation</Class>
+		</Display>
+	</Behavior>
+	<Behavior>
+		<Logic classname="EGL::CMovementBehaviorProps">
+			<Class>GGL::CBehaviorAnimalMovement</Class>
+			<Speed>120</Speed>
+			<RotationSpeed>25</RotationSpeed>
+		</Logic>
+		<Display classname="ED::CBehaviorProps">
+			<Class>ED::CDisplayBehaviorMovement</Class>
+		</Display>
+	</Behavior>		
+	
+</root>

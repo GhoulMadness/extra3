@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?><root>
+	<Display classname="ED::CDisplayEntityProps">
+		  <Class>GD::CDisplaySettler</Class>
+		  <Model>CU_BlackKnight_SoldierSword3</Model> 
+		  <DrawPlayerColor>True</DrawPlayerColor>
+		  <Anim>PU_LeaderSword1_Walk</Anim>
+		  <Anim>PU_LeaderSword1_Run1</Anim>
+		  <Anim>PU_LeaderSword1_Idle1</Anim>
+		  <Anim>PU_LeaderSword1_Idle2</Anim>
+		  <Anim>PU_LeaderSword1_Idle3</Anim>
+		  <Anim>PU_LeaderSword1_Idle4</Anim>
+		  <Anim>PU_LeaderSword1_Idle5</Anim>
+		  <Anim>PU_LeaderSword1_Idle6</Anim>
+		  <Anim>PU_LeaderSword1_IdleAttack1</Anim>
+		  <Anim>PU_LeaderSword1_Attack1</Anim>
+		  <Anim>PU_LeaderSword1_Attack2</Anim>
+		  <Anim>PU_LeaderSword1_Finish</Anim>
+		  <Anim>PU_LeaderSword1_Hit</Anim>
+		  <Anim>PU_LeaderSword1_Dying1</Anim>
+	</Display>
+	<Logic classname="GGL::CGLSettlerProps">
+		  <Class>GGL::CSettler</Class>
+		  <AccessCategory>AccessCategorySettler</AccessCategory>		
+		  <MaxHealth>250</MaxHealth>
+		  <NeedsPlayer>true</NeedsPlayer>
+		  <ForceNoPlayer>false</ForceNoPlayer>
+        <Hat/>
+        <Cost>
+			  <Gold>320</Gold>
+			  <Iron>140</Iron>
+			  <Wood/>
+        </Cost>
+        <!--Armor modifier-->
+        <ModifyArmor>
+        	<Technology>T_LeatherMailArmor</Technology>
+        </ModifyArmor>
+        
+        <ModifyArmor>
+        	<Technology>T_ChainMailArmor</Technology>
+        </ModifyArmor>
+        
+        <ModifyArmor>
+        	<Technology>T_PlateMailArmor</Technology>
+        </ModifyArmor>
+        <ModifyArmor>
+        	<Technology>T_SilverPlateArmor</Technology>
+        </ModifyArmor>
+
+    
+
+    
+
+    <!-- Damage Modifier-->
+         <ModifyDamage>
+        	<Technology>T_MasterOfSmithery</Technology>
+        </ModifyDamage>
+         <ModifyDamage>
+        	<Technology>T_IronCasting</Technology>
+        </ModifyDamage>
+        <ModifyDamage>
+        	<Technology>T_SilverSwords</Technology>
+        </ModifyDamage>
+        <ModifyDamage>
+        	<Technology>T_BloodRush</Technology>
+        </ModifyDamage>
+
+    
+
+    
+<!-- Speed Modifier-->
+        <ModifySpeed>
+        	<Technology>T_BetterTrainingBarracks</Technology>
+        </ModifySpeed>
+        <Upgrade>                       
+    	   <Category>BlackKnightLeaderSword3</Category>    	    
+        </Upgrade>
+        
+        <Category>Military</Category>
+        <Category>Leader</Category>
+        <Category>Sword</Category>
+        <Category>Melee</Category>
+		  <AdjustWalkAnimSpeed>true</AdjustWalkAnimSpeed>
+		  <Exploration>20</Exploration>
+		  <ArmorClass>ArmorClassLeather</ArmorClass>
+		  <ArmorAmount>9</ArmorAmount> 
+		  <DodgeChance>0</DodgeChance> 
+    	<IdleTaskList>TL_MILITARY_IDLE</IdleTaskList>
+    	<ExperiencePoints>0</ExperiencePoints>
+
+	</Logic>
+	<Behavior>
+		  <Logic classname="GGL::CGLAnimationBehaviorExProps">
+			  <Class>GGL::CGLBehaviorAnimationEx</Class>
+			  <SuspensionAnimation>PU_LeaderSword1_Idle1</SuspensionAnimation>
+			  <AnimSet>SET_LEADERSWORD1</AnimSet>
+		  </Logic>
+		  <Display classname="ED::CBehaviorProps">
+			  <Class>ED::CDisplayBehaviorAnimation</Class>
+		</Display>
+	</Behavior>
+	<Behavior>
+		  <Logic classname="EGL::CMovementBehaviorProps">
+			  <Class>GGL::CLeaderMovement</Class>
+			  <Speed>360</Speed>
+			  <RotationSpeed>30</RotationSpeed>
+			  <MoveTaskList>TL_LEADER_WALK</MoveTaskList>
+			  <MoveIdleAnim>PU_LeaderSword1_Idle1</MoveIdleAnim>
+		</Logic>
+		  <Display classname="ED::CBehaviorProps">
+			  <Class>ED::CDisplayBehaviorMovement</Class>
+		</Display>
+	</Behavior>
+	<Behavior> 
+		  <Logic classname="EGL::CGLEBehaviorProps">
+			  <Class>GGL::CBehaviorWalkCommand</Class>
+		</Logic>
+	</Behavior>
+	<Behavior>
+		  <Logic classname="GGL::CLeaderBehaviorProps">
+			  <Class>GGL::CLeaderBehavior</Class>
+			  <BarrackUpgradeCategory>Mercenary</BarrackUpgradeCategory>
+            <HomeRadius>1500</HomeRadius>
+			
+			  <SoldierType>CU_BlackKnight_SoldierSword3</SoldierType>
+	        
+	        <BattleTaskList>TL_BATTLE_SWORD</BattleTaskList>
+	        
+	        <NormalAttackAnim1>PU_LeaderSword1_Attack1</NormalAttackAnim1>
+	        <NormalAttackAnim2>PU_LeaderSword1_Attack2</NormalAttackAnim2>
+	        <CounterAttackAnim>PU_LeaderSword1_Finish</CounterAttackAnim>
+	        <FinishingMoveAnim>PU_LeaderSword1_Attack1</FinishingMoveAnim>
+	        <MissAttackAnim>PU_LeaderSword1_Attack1</MissAttackAnim>
+	        <BattleIdleAnim>PU_LeaderSword1_IdleAttack1</BattleIdleAnim>
+	        <BattleWalkAnim>PU_LeaderSword1_Run1</BattleWalkAnim>
+	        <HitAnim>PU_LeaderSword1_Hit</HitAnim>
+
+	        <DamageClass>DC_Strike</DamageClass>
+	        <DamageAmount>24</DamageAmount>
+	        <MaxRandomDamageBonus>7</MaxRandomDamageBonus>
+	        
+	        <BattleWaitUntil>2000</BattleWaitUntil>
+	        
+	        <MaxRange>240</MaxRange>
+	        <MinRange>0.0f</MinRange>
+	        <AutoAttackRange>2000</AutoAttackRange>
+	        
+			  <HealingPoints>5</HealingPoints>
+	        <HealingSeconds>3</HealingSeconds>
+		  </Logic>
+	</Behavior>
+    
+	<Behavior>
+		  <Logic classname="GGL::CLimitedAttachmentBehaviorProperties">
+			  <Class>GGL::CLimitedAttachmentBehavior</Class>
+            <Attachment>
+                <Type>ATTACHMENT_LEADER_SOLDIER</Type>
+                <Limit>6</Limit>
+            </Attachment>
+		</Logic>
+	</Behavior>
+	
+	<Behavior>
+		  <Logic classname="GGL::CGLBehaviorPropsDying">
+			  <Class>GGL::CGLBehaviorDying</Class>
+			  <DyingTaskList>TL_DIE</DyingTaskList>
+		</Logic>
+	</Behavior>
+
+	<Behavior>
+	    <Logic classname="EGL::CGLEBehaviorProps">
+	        <Class>GGL::CLeaderEvadeBehavior</Class>
+	    </Logic>
+	</Behavior>
+
+	<Behavior>
+	    <Logic classname="GGL::CEvadeExecutionBehaviorProps">
+	        <Class>GGL::CEvadeExecutionBehavior</Class>
+	        <BasePriority>400</BasePriority>
+	    </Logic>
+	</Behavior>
+    <Behavior>
+        <Logic classname="GGL::CReplaceableEntityBehaviorProperties">
+            <Class>GGL::CReplaceableEntityBehavior</Class>
+            <EntityType>XD_DroppedSwordShield</EntityType>
+        </Logic>
+    </Behavior>
+</root>

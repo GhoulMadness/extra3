@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		<Class>GD::CDisplaySettler</Class>
+		<Model>XA_Zebra</Model>
+		<Anim>XA_Zebra_Walk</Anim>
+		<Anim>XA_Zebra_Run</Anim>
+		<Anim>XA_Zebra_Idle1</Anim>
+		<Anim>XA_Zebra_Idle2</Anim>
+		<Anim>XA_Zebra_Die</Anim>
+	</Display>
+	<Logic classname="GGL::CGLAnimalProps">
+		<Class>GGL::CAnimal</Class>
+		<AccessCategory>AccessCategoryAnimal</AccessCategory>
+		<DefaultTaskList>TL_ZEBRA_IDLE</DefaultTaskList> <!-- Data checker should check that this is not hunt -->
+		<TerritoryRadius>5000</TerritoryRadius>
+		<WanderRangeMin>1000</WanderRangeMin>
+		<WanderRangeMax>2000</WanderRangeMax>
+		<NeedsPlayer>false</NeedsPlayer>
+		<MaxHealth>20</MaxHealth>
+		<ShyRange>600</ShyRange>
+		<FleeTaskList>TL_ANIMAL_FLEE</FleeTaskList>
+	</Logic>
+	<Behavior>
+		<Logic classname="GGL::CGLAnimationBehaviorExProps">
+			<Class>GGL::CGLBehaviorAnimationEx</Class>
+		<!-- animation to be used when entity is suspended -->
+			<SuspensionAnimation>XA_Zebra_Idle1</SuspensionAnimation>
+			<AnimSet>SET_ZEBRA</AnimSet>
+		</Logic>
+		<Display classname="ED::CBehaviorProps">
+			<Class>ED::CDisplayBehaviorAnimation</Class>
+		</Display>
+	</Behavior>
+	<Behavior>
+		<Logic classname="EGL::CMovementBehaviorProps">
+			<Class>GGL::CBehaviorAnimalMovement</Class>
+			<Speed>150</Speed>
+			<RotationSpeed>20</RotationSpeed>
+		</Logic>
+		<Display classname="ED::CBehaviorProps">
+			<Class>ED::CDisplayBehaviorMovement</Class>
+		</Display>
+	</Behavior>
+</root>

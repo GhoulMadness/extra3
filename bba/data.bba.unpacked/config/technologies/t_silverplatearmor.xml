@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?><root>
+	<TecCategoryType>TC_Technologies</TecCategoryType>
+	<TimeToResearch>40</TimeToResearch>
+	<ResourceCosts>
+		  <Gold>0</Gold>
+		  <Clay/>
+		  <Wood/>
+		  <Stone/>		
+		  <Iron>500</Iron>
+		  <Sulfur/>
+		  <Silver>600</Silver>
+	</ResourceCosts>	
+	<AutomaticResearch>false</AutomaticResearch>
+	<UseForStatisticsFlag>true</UseForStatisticsFlag>
+	<ArmorModifier>
+		  <Value>4</Value>
+		  <Operation>+</Operation>
+	</ArmorModifier>
+	<Conditions>	
+		 
+		  <RequiredEntityConditions>1</RequiredEntityConditions>
+	 			
+		
+		  <EntityCondition>
+			  <EntityType>PB_Silversmith2</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+	
+	</Conditions>
+</root>

@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		  <Class>GD::CDisplaySettler</Class>
+		  <Model>PV_Cannon6</Model>
+		  <DrawPlayerColor>True</DrawPlayerColor>
+		  <Anim>PV_Cannon4_Drive</Anim>
+		  <Anim>PV_Cannon4_Shoot</Anim>
+		  <Anim>PV_Cannon4_Destroyed</Anim>
+		  <Anim>PV_Cannon4_Idle</Anim>
+	</Display>
+	<Logic classname="GGL::CGLSettlerProps">
+		  <Class>GGL::CSettler</Class>
+		  <AccessCategory>AccessCategorySettler</AccessCategory>
+		  <NeedsPlayer>true</NeedsPlayer>
+		  <ForceNoPlayer>false</ForceNoPlayer>
+        <Hat/>
+        <Cost>
+			  <Knowledge>500</Knowledge>
+			  <Iron>300</Iron>
+			  <Sulfur>1250</Sulfur>
+			  <Silver>150</Silver>
+        </Cost>
+        <Category>Military</Category>
+        <Category>Cannon</Category>
+		  <AdjustWalkAnimSpeed>true</AdjustWalkAnimSpeed>
+		  <MaxHealth>300</MaxHealth>
+		  <Exploration>70</Exploration>
+		  <ArmorClass>ArmorClassNone</ArmorClass>
+		  <ArmorAmount>2</ArmorAmount>
+		  <DodgeChance>0</DodgeChance>
+    	<IdleTaskList>TL_VEHICLE_IDLE</IdleTaskList>
+    	<ExperiencePoints>80</ExperiencePoints>
+    	<AttractionSlots>20</AttractionSlots>
+
+
+
+
+
+
+<!-- Damage Modifier-->
+         <ModifyDamage>
+        	<Technology>T_EnhancedGunPowder</Technology>
+        </ModifyDamage>
+         <ModifyDamage>
+        	<Technology>T_BlisteringCannonballs</Technology>
+        </ModifyDamage>
+		<ModifyDamage>
+        	<Technology>T_SilverMissiles</Technology>
+        </ModifyDamage>
+    	<!-- Speed Modifier-->
+
+		  <ModifySpeed>
+        	<Technology>T_BetterChassis</Technology>
+        </ModifySpeed>
+	</Logic>
+	<Behavior>
+		  <Logic classname="GGL::CGLAnimationBehaviorExProps">
+			  <Class>GGL::CGLBehaviorAnimationEx</Class>
+			  <SuspensionAnimation>PV_Cannon4_Drive</SuspensionAnimation>
+			  <AnimSet>SET_CANNON4</AnimSet>
+		  </Logic>
+		  <Display classname="ED::CBehaviorProps">
+			  <Class>ED::CDisplayBehaviorAnimationNoBlending</Class>
+		</Display>
+	</Behavior>
+	<Behavior>
+		  <Logic classname="EGL::CMovementBehaviorProps">
+			  <Class>GGL::CLeaderMovement</Class>
+			  <Speed>40</Speed>
+			  <RotationSpeed>10</RotationSpeed>
+			  <MoveTaskList>TL_VEHICLE_DRIVE</MoveTaskList>
+		</Logic>
+		  <Display classname="ED::CBehaviorProps">
+			  <Class>ED::CDisplayBehaviorMovement</Class>
+		</Display>
+	</Behavior>
+	<Behavior>
+		  <Logic classname="EGL::CGLEBehaviorProps">
+			  <Class>GGL::CBehaviorWalkCommand</Class>
+		</Logic>
+	</Behavior>
+	<Behavior>
+		  <Logic classname="GGL::CLeaderBehaviorProps">
+			  <Class>GGL::CLeaderBehavior</Class>
+			  <BarrackUpgradeCategory>Foundry</BarrackUpgradeCategory>
+
+            <HomeRadius>1500</HomeRadius>
+
+	        <BattleTaskList>TL_BATTLE_VEHICLE</BattleTaskList>
+
+	        <NormalAttackAnim1>PV_Cannon4_Shoot</NormalAttackAnim1>
+	        <NormalAttackAnim2>PV_Cannon4_Shoot</NormalAttackAnim2>
+	        <CounterAttackAnim>PV_Cannon4_Shoot</CounterAttackAnim>
+	        <FinishingMoveAnim>PV_Cannon4_Shoot</FinishingMoveAnim>
+	        <MissAttackAnim>PV_Cannon4_Shoot</MissAttackAnim>
+	        <BattleIdleAnim>PV_Cannon4_Idle</BattleIdleAnim>
+	        <BattleWalkAnim>PV_Cannon4_Drive</BattleWalkAnim>
+
+	        <DamageClass>DC_Siege</DamageClass>
+	        <DamageAmount>500</DamageAmount>
+	        <MaxRandomDamageBonus>90</MaxRandomDamageBonus>
+	        <DamageRange>550</DamageRange>
+	        <BattleWaitUntil>8000</BattleWaitUntil>
+
+	        <ProjectileEffectID>FXCannonBallLarge</ProjectileEffectID>
+	        <MaxRange>6800</MaxRange>
+	        <MinRange>2200</MinRange>
+
+	        <AutoAttackRange>6800</AutoAttackRange>
+
+	        <UpkeepCost>100</UpkeepCost>
+
+		  </Logic>
+	</Behavior>
+
+
+	<Behavior>
+		  <Logic classname="GGL::CGLBehaviorPropsDying">
+			  <Class>GGL::CGLBehaviorDying</Class>
+			  <DyingTaskList>TL_DIE</DyingTaskList>
+		</Logic>
+	</Behavior>
+
+	<Behavior>
+		  <Logic classname="EGL::CGLEBehaviorProps">
+			  <Class>EGL::CParticleEffectAttachmentBehavior</Class>
+		</Logic>
+		  <Display classname="ED::CBehaviorProps">
+			  <Class>ED::CParticleEffectAttachmentBehavior</Class>
+		</Display>
+	</Behavior>
+
+
+
+
+
+</root>

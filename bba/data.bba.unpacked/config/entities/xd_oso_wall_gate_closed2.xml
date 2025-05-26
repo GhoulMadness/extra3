@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		  <Class>ED::CDisplayBuilding</Class>
+		<Model>XD_OSO_Wall_Gate_Closed2</Model>
+	</Display>
+	<Logic classname="GGL::CGLBuildingProps">
+        <Class>GGL::CBuilding</Class>
+        <AccessCategory>AccessCategoryBuilding</AccessCategory>
+        <MaxHealth>500</MaxHealth>
+	    <ArmorAmount>3</ArmorAmount>
+		
+        <Category>Wall</Category>
+        <ForceNoPlayer>false</ForceNoPlayer>
+        <IsWall>true</IsWall>
+        <ApproachPos>
+            <X>50</X>
+            <Y>0</Y>
+        </ApproachPos>
+        <ApproachR>0</ApproachR>
+        <Blocked1>
+            <X>-500</X> 
+            <Y>800</Y> 
+        </Blocked1>
+        <Blocked2>
+            <X>500</X> 
+            <Y>-800</Y> 
+        </Blocked2>
+        <TerrainPos1>
+            <X>-600</X>
+            <Y>900</Y>
+        </TerrainPos1>
+        <TerrainPos2>
+            <X>600</X>
+            <Y>-900</Y>
+        </TerrainPos2>        
+    </Logic>
+	<Behavior>
+        <Logic classname="EGL::CGLEBehaviorProps">
+		    <Class>GGL::CBuildingBehavior</Class>
+		</Logic>
+		<Display classname="GD::CBuildingBehaviorProps">
+		    <Class>GD::CBuildingBehavior</Class>
+			<NumDamageEffects>5</NumDamageEffects>
+			<NumDestroyEffects>0</NumDestroyEffects>
+		</Display>
+	</Behavior>
+</root>

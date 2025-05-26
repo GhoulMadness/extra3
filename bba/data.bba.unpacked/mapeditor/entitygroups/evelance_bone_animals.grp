@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <Entity>XD_BoneAnimal1</Entity>
+ <Entity>XD_BoneAnimal2</Entity>
+ <Entity>XD_BoneAnimal3</Entity>
+ <Entity>XD_BoneAnimal4</Entity>
+ <Entity>XD_BoneAnimal5</Entity>
+ <Entity>XD_BoneAnimal6</Entity>
+</root>

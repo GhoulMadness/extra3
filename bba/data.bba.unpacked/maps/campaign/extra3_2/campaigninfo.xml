@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<Desc></Desc>
+	<Map>
+		<ID>1</ID>
+		<Name>01_Nuamyr</Name>
+		<NextMapID>0</NextMapID>
+	</Map>
+	<Name>Extra3_2</Name>
+</root>

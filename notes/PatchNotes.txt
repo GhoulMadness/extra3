@@ -1,0 +1,41 @@
+PatchNotizen Balancing Stuff
+
+--- Version 0.772
+
+Die Siegerstatue des Osterturniers 2025 ist nun verfügbar. Herzlichen Glückwunsch an die Sieger Zork/Manu und Lash!
+
+--- Version 0.771
+
+Es wurde ein Fehler behoben, der in bestimmten Konstellationen mit dem Beschwören von Vargs Wölfen auftreten konnte.
+
+QoL für Zuschauer: Ihr könnt nun im selektierten Söldnerquartier die Truppenangebote einsehen.
+
+Der Zuschauer erhält nun in regelmäßigen Abständen Angriffssymbole auf der MiniMap, wenn eine Spielereinheit stirbt.
+
+Die Musik für den Zuschauer wechselt nun in zufällige Kampfmusik, wenn in der Nähe der Kamera-Position des Zuschauers Spielereinheiten sterben.
+
+Fehlende EMS-Technology-Buttons beim Forschen für die Zuschauer wurden hinzugefügt.
+
+--- Version 0.770
+
+Ihr könnt Militäreinheiten nun nur noch upgraden, wenn das entsprechende nahe Militärgebäude über die benötigte Ausbaustufe verfügt.
+
+Es wurde ein Fehler im Zusammenhang mit zerstörten Militärgebäuden der KI und rekrutierten Truppen, die auf Rekrutierung weiterer Soldaten warteten, behoben.
+
+--- Version 0.769
+
+Varg Plünderung: geplünderte Ressourcen/Treffer:
+5 für alle Ressourcentypen -> 2 für Silber und Rohsilber, 5 für andere Ressourcentypen
+
+Workarond für eine nach Laden eines "echten" MP-saves nicht mehr wie erwartet reagierende Funktion
+(dies sollte einige nach Laden von "echten" MP-saves auftretenden Problemen beheben)
+
+--- Version 0.768
+
+Es wurde ein Fehler behoben, durch den in bestimmten Konstellationen Dovbars Fähigkeiten nicht mehr verfügbar waren.
+
+Vorbereitungen für das kommende Osterturnier.
+Eine erste Version der neuen Turniermap "Im Zeichen Ostaras" ist ab sofort verfügbar. Bitte bedenkt, dass die Map sich noch in Veränderung befindet und in aktueller Version noch keine etwaigen versteckten EasterEggs hinzugefügt sind.
+Euer Feedback zur Map ist erwünscht und wird zur Optimierung benötigt.
+
+Es wurden GUI-Fehler im Zusammenhang mit den Angeboten in Söldnerlagern behoben.

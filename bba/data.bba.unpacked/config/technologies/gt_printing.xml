@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?><root>
+	<TecCategoryType>TC_Administration</TecCategoryType>
+	<TimeToResearch>40</TimeToResearch>
+	<ResourceCosts>
+		  <Gold>350</Gold>
+		  <Clay/>		
+		  <Wood>200</Wood>
+		  <Stone/>		
+		  <Iron>50</Iron>
+		  <Sulfur/>
+	</ResourceCosts>
+	<AutomaticResearch>false</AutomaticResearch>
+	<UseForStatisticsFlag>true</UseForStatisticsFlag>
+	<Conditions>
+		  <TecCondition>
+			  <TecType>GT_Trading</TecType>								
+		</TecCondition>	
+		  <RequiredEntityConditions>1</RequiredEntityConditions>
+		  <EntityCondition>
+			  <EntityType>PB_Headquarters2</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		  <EntityCondition>
+			  <EntityType>PB_Headquarters3</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		<EntityCondition>
+			  <EntityType>PB_Outpost2</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		<EntityCondition>
+			  <EntityType>PB_Outpost3</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		
+	</Conditions>
+</root>

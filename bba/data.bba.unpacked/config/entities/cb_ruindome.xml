@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		<Class>ED::CDisplayBuilding</Class>
+		<Model>XD_Ruin_Dome</Model>
+	</Display>
+	<Logic classname="GGL::CGLBuildingProps">
+		<Class>GGL::CBuilding</Class>
+		<AccessCategory>AccessCategoryBuilding</AccessCategory>
+
+		<NeedsPlayer>true</NeedsPlayer>
+		<ForceNoPlayer>false</ForceNoPlayer>
+		<MaxHealth>1000</MaxHealth>
+	        <ArmorAmount>50</ArmorAmount>
+			<KegEffectFactor>0.1</KegEffectFactor>
+        <ApproachPos>
+            <X>-1000</X>
+            <Y>300</Y>
+        </ApproachPos>
+		<ApproachR>0</ApproachR>
+        <Blocked1>
+            <X>-2100</X>
+            <Y>2000</Y>
+        </Blocked1>
+        <Blocked2>
+            <X>2300</X>
+            <Y>-1650</Y>
+        </Blocked2>
+        <TerrainPos1>
+            <X>-2200</X>
+            <Y>2100</Y>
+        </TerrainPos1>
+        <TerrainPos2>
+            <X>2400</X>
+            <Y>-1750</Y>
+        </TerrainPos2>  
+		<Exploration>40</Exploration>
+	</Logic>
+	<Behavior>
+		<Logic classname="EGL::CGLEBehaviorProps">
+			<Class>GGL::CBuildingBehavior</Class>
+		</Logic>
+		<Display classname="GD::CBuildingBehaviorProps">
+			<Class>GD::CBuildingBehavior</Class>
+			<Banner>DefaultBend</Banner>
+		  <NumDamageEffects>4</NumDamageEffects>
+		  <NumDestroyEffects>5</NumDestroyEffects>
+		</Display>
+
+	</Behavior>
+</root>

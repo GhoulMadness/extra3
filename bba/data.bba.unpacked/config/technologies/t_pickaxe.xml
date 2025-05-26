@@ -1,0 +1,16 @@
+<root>
+	<TecCategoryType>TC_Technologies</TecCategoryType>
+	<TimeToResearch>50</TimeToResearch>
+	<UseForStatisticsFlag>true</UseForStatisticsFlag>
+	<AutomaticResearch>false</AutomaticResearch>
+	<ResourceCosts>
+		<Clay>800</Clay>
+	</ResourceCosts>
+
+	<Conditions>	
+		 <EntityCondition>
+			  <EntityType>PB_ClayMine3</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+	</Conditions>
+</root>

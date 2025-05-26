@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO3MapDescription/CM07_02_Kafarna_name</NameKey>
+ <DescKey>AO3MapDescription/CM07_02_Kafarna_desc</DescKey>
+ <Name></Name>
+ <Desc></Desc>
+ <SizeX>321</SizeX>
+ <SizeY>321</SizeY>
+ <MPFlag>false</MPFlag>
+ <MPPlayerCount>0</MPPlayerCount>
+ <MPGameOptionFlagSet>0</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\externalmap</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>afebbe6e-c6d8-4459-81cc-29369a9c6da3</Data>
+ </GUID>
+</root>

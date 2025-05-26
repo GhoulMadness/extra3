@@ -1,0 +1,40 @@
+<root>
+	<Table>Spear</Table>
+	<!--Level 1-->
+	<Level>		
+		<DamageBonus>6</DamageBonus>	
+	</Level>
+	
+	<!--Level 2 + Exploration & AutoAttackRange -->
+	<Level>
+		<DamageBonus>7</DamageBonus>	
+		<Exploration>3</Exploration>		
+		<AutoAttackRange>300</AutoAttackRange>			
+	</Level>
+	
+	<!--Level 3 + HealingPoints -->
+	<Level>
+		<DamageBonus>8</DamageBonus>	
+		<Exploration>3</Exploration>		
+		<AutoAttackRange>300</AutoAttackRange>			
+		<HealingPoints>10</HealingPoints>		
+	</Level>
+	
+	<!--Level 4 + DamageAmount -->
+	<Level>
+		<DamageBonus>9</DamageBonus>	
+		<Exploration>3</Exploration>		
+		<AutoAttackRange>300</AutoAttackRange>			
+		<HealingPoints>12</HealingPoints>		
+		<DamageAmount>2</DamageAmount>	
+	</Level>
+	
+	<!--Level 5 -->
+	<Level>
+		<DamageBonus>10</DamageBonus>	
+		<Exploration>3</Exploration>		
+		<AutoAttackRange>300</AutoAttackRange>			
+		<HealingPoints>14</HealingPoints>		
+		<DamageAmount>5</DamageAmount>	
+	</Level>
+</root>

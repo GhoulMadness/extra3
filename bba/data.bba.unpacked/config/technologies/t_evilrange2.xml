@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?><root>
+	<TecCategoryType>TC_Technologies</TecCategoryType>
+	<TimeToResearch>20</TimeToResearch>
+	<ResourceCosts>
+		  <Gold>100</Gold>
+		  <Clay/>
+		  <Wood/>
+		  <Stone/>		
+		  <Iron/>
+		  <Sulfur/>
+	</ResourceCosts>
+	<AutomaticResearch>true</AutomaticResearch>
+	<UseForStatisticsFlag>true</UseForStatisticsFlag>
+	
+
+	
+	<MaxRangeModifier>
+		<Value>600</Value>
+		<Operation>+</Operation>
+	</MaxRangeModifier>
+	
+	<ExplorationModifier>
+		<Value>6</Value>
+		<Operation>+</Operation>	
+	</ExplorationModifier>
+	
+	<Conditions>	
+		  
+		
+	
+	</Conditions>
+</root>

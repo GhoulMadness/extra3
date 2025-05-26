@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+    <Display classname="ED::CDisplayEntityProps">
+        <Class>GD::CDisplaySettler</Class>
+        <Model>XA_Frog3</Model>
+        <Anim>XA_Frog_Idle1</Anim>
+        <Anim>XA_Frog_Walk1</Anim>
+    </Display>
+
+    <Logic classname="GGL::CGLAnimalProps">
+		<Class>GGL::CAnimal</Class>
+		<AccessCategory>AccessCategoryAnimal</AccessCategory>
+		<DefaultTaskList>TL_ANIMAL_FROG_IDLE</DefaultTaskList>
+		<TerritoryRadius>1000</TerritoryRadius>
+		<WanderRangeMin>750</WanderRangeMin>
+		<WanderRangeMax>500</WanderRangeMax>	
+		<NeedsPlayer>false</NeedsPlayer>
+		<MaxHealth>20</MaxHealth>
+		<ShyRange>500</ShyRange>
+		<FleeTaskList>TL_ANIMAL_FLEE</FleeTaskList>
+	</Logic>
+
+    <Behavior>
+		<Logic classname="EGL::CMovementBehaviorProps">
+			<Class>GGL::CBehaviorAnimalMovement</Class>
+			<Speed>100</Speed>
+			<RotationSpeed>30</RotationSpeed>
+		</Logic>
+		<Display classname="ED::CBehaviorProps">
+			<Class>ED::CDisplayBehaviorMovement</Class>
+		</Display>
+	</Behavior>
+
+    <Behavior>
+		<Logic classname="GGL::CGLAnimationBehaviorExProps">
+			<Class>GGL::CGLBehaviorAnimationEx</Class>
+			<SuspensionAnimation>XA_Frog_Idle1</SuspensionAnimation>
+			<AnimSet>SET_FROG</AnimSet>
+		</Logic>
+		<Display classname="ED::CBehaviorProps">
+			<Class>ED::CDisplayBehaviorAnimation</Class>
+		</Display>
+	</Behavior>
+</root>

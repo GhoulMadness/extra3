@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		  <Class>ED::CDisplayBuilding</Class>
+		  <Model>PB_Archers_Tower</Model>
+		  <Model2>PB_Archers_Tower1</Model2>
+		  <Model3>PB_Archers_Tower2</Model3>
+		  <Model4>PB_Archers_Tower3</Model4>
+	</Display>
+	<Logic classname="GGL::CBridgeProperties">
+        <Class>GGL::CBridgeEntity</Class>
+        <AccessCategory>AccessCategoryBuilding</AccessCategory>
+        <Category>Bridge</Category>
+        <NeedsPlayer>true</NeedsPlayer>
+        <ForceNoPlayer>false</ForceNoPlayer>
+        <MaxHealth>1500</MaxHealth>
+        <ArmorClass>ArmorClassFortification</ArmorClass>
+        <ArmorAmount>5</ArmorAmount>
+		<!-- Armor -->
+		  <ModifyArmor>
+		  	<Technology>T_Masonry</Technology>		  
+		</ModifyArmor>     
+			
+  <!-- Exploration-->
+		  <ModifyExploration>
+        	<Technology>T_CityGuard</Technology>
+        </ModifyExploration>					
+		<Exploration>30</Exploration>		 
+		
+        <Upgrade>
+            <Category>Archers_Tower</Category>
+        </Upgrade>
+        <Height>
+            735
+        </Height>
+
+		<ApproachPos>
+            <X>-10</X>
+            <Y>-700</Y>
+        </ApproachPos>
+		<ApproachR>0</ApproachR>
+        <DoorPos>
+            <X>0</X>
+            <Y>-650</Y>			
+        </DoorPos>			  
+        <Blocked1>
+            <X>-600</X>
+            <Y>-600</Y>
+        </Blocked1>
+        <Blocked2>
+            <X>600</X>
+            <Y>600</Y>
+        </Blocked2>
+		
+		<TerrainPos1>
+            <X>-700</X>
+            <Y>700</Y>
+        </TerrainPos1>
+        <TerrainPos2>
+            <X>700</X>
+            <Y>-700</Y>
+        </TerrainPos2>        
+
+        <BridgeArea>
+            <Blocked1>
+                <X>-300</X>
+                <Y>-100</Y>
+            </Blocked1>
+            <Blocked2>
+                <X>300</X>
+                <Y>300</Y>
+            </Blocked2>
+        </BridgeArea>
+		
+		<ConstructionModel0>PB_Archers_Tower1</ConstructionModel0>
+        <ConstructionModel1>PB_Archers_Tower2</ConstructionModel1>
+        <ConstructionModel2>PB_Archers_Tower3</ConstructionModel2>
+		
+        <ConstructionInfo>
+            <Time>80</Time>
+            <Cost>
+			    <Clay></Clay>
+			    <Wood>500</Wood>
+			    <Stone>750</Stone>
+			    <Gold/>
+			    <Iron/>
+			    <Sulfur/>
+            </Cost>
+            <BuilderSlot>
+            	<Position>
+	                <X>650</X>
+	            	<Y>-400</Y>
+            	</Position>
+            	<Orientation>180</Orientation>
+            </BuilderSlot>
+	        	<BuilderSlot>
+	            	<Position>
+		                <X>650</X>
+		            	<Y>400</Y>
+	            	</Position>
+	           	<Orientation>180</Orientation>
+	       	</BuilderSlot>
+
+
+			<BuilderSlot>
+            	<Position>
+	                <X>-670</X>
+	            	<Y>-400</Y>
+            	</Position>
+            	<Orientation>0</Orientation>
+            </BuilderSlot>
+	        	<BuilderSlot>
+	            	<Position>
+		                <X>-670</X>
+		            	<Y>400</Y>
+	            	</Position>
+	           	<Orientation>0</Orientation>
+	       	</BuilderSlot>
+
+            <ConstructionSite>ZB_ConstructionSite2</ConstructionSite>
+        </ConstructionInfo>
+	</Logic>
+	<Behavior>
+		  <Logic classname="EGL::CGLEBehaviorProps">
+			  <Class>EGL::GLEBehaviorMultiSubAnims</Class>
+		</Logic>
+		  <Display classname="ED::CBehaviorProps">
+			  <Class>ED::CDisplayBehaviorBuildingAnimation</Class>
+		</Display>
+	</Behavior>
+    <Behavior>
+		  <Logic classname="EGL::CGLEBehaviorProps">
+			  <Class>GGL::CBuildingBehavior</Class>
+		</Logic>
+		  <Display classname="GD::CBuildingBehaviorProps">
+			  <Class>GD::CBuildingBehavior</Class>
+			  <Banner>Default</Banner>
+			  <NumDamageEffects>17</NumDamageEffects>
+			  <NumDestroyEffects>15</NumDestroyEffects>
+		</Display>
+	</Behavior>
+</root>

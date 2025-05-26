@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <Entity>XD_MiscBarrel1</Entity>
+ <Entity>XD_MiscBarrel1</Entity>
+ <Entity>XD_MiscBarrel2</Entity>
+ <Entity>XD_MiscBox1</Entity>
+ <Entity>XD_MiscBox1</Entity>
+ <Entity>XD_MiscBox2</Entity>
+ <Entity>XD_MiscChest1</Entity>
+ <Entity>XD_MiscChest2</Entity>
+ <Entity>XD_MiscChest3</Entity>
+ <Entity>XD_MiscPile1</Entity>
+ <Entity>XD_MiscSack1</Entity>
+ <Entity>XD_MiscSack2</Entity>
+</root>

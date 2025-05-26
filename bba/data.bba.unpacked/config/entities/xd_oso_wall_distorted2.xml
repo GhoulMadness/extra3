@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		  <Class>ED::CDisplayBuilding</Class>
+		<Model>XD_OSO_Wall_Distorted2</Model>
+	</Display>
+	<Logic classname="GGL::CBridgeProperties">
+        <Class>GGL::CBridgeEntity</Class>
+        <AccessCategory>AccessCategoryBuilding</AccessCategory>
+        <Category>Bridge</Category>
+        <Category>Wall</Category>
+        <ForceNoPlayer>false</ForceNoPlayer>
+        <IsWall>true</IsWall>
+        <MaxHealth>500</MaxHealth>
+        <ArmorClass>ArmorClassFortification</ArmorClass>
+        <ArmorAmount>15</ArmorAmount>
+		<!-- Armor -->
+		  <ModifyArmor>
+		  	<Technology>T_Masonry</Technology>		  
+		</ModifyArmor>     
+			
+  <!-- Exploration-->
+		  <ModifyExploration>
+        	<Technology>T_CityGuard</Technology>
+        </ModifyExploration>					
+		<Exploration>10</Exploration>		 
+		
+        <Height>
+            750
+        </Height>
+
+		<ApproachPos>
+            <X>-100</X>
+            <Y>-100</Y>
+        </ApproachPos>
+		<ApproachR>0</ApproachR>			  
+        <BlockingArea> 
+      	  	<Blocked1>
+	            <X>-240</X> 
+	            <Y>170</Y> 
+	        </Blocked1>
+	        <Blocked2>
+	            <X>-10</X> 
+	            <Y>63</Y> 
+	        </Blocked2>
+        </BlockingArea> 
+        <BlockingArea>
+	        <Blocked1>
+	            <X>-75</X> 
+	            <Y>17</Y> 
+	        </Blocked1>
+	        <Blocked2>
+	            <X>85</X> 
+	            <Y>-42</Y> 
+	        </Blocked2>
+        </BlockingArea>        
+        <BlockingArea>
+	        <Blocked1>
+	            <X>34</X> 
+	            <Y>-100</Y> 
+	        </Blocked1>
+	        <Blocked2>
+	            <X>236</X> 
+	            <Y>-160</Y> 
+	        </Blocked2>
+        </BlockingArea>        
+		
+		<TerrainPos1>
+            <X>-200</X>
+            <Y>400</Y>
+        </TerrainPos1>
+        <TerrainPos2>
+            <X>200</X>
+            <Y>-400</Y>
+        </TerrainPos2>        
+
+        <BridgeArea>
+            <Blocked1>
+                <X>-100</X>
+                <Y>-300</Y>
+            </Blocked1>
+            <Blocked2>
+                <X>100</X>
+                <Y>300</Y>
+            </Blocked2>
+        </BridgeArea>
+		
+        <ConstructionInfo>
+            <Time>80</Time>
+            <Cost>
+			    <Clay></Clay>
+			    <Wood>200</Wood>
+			    <Stone>1000</Stone>
+			    <Gold/>
+			    <Iron/>
+			    <Sulfur/>
+            </Cost>
+            <BuilderSlot>
+            	<Position>
+	                <X>150</X>
+	            	<Y>-400</Y>
+            	</Position>
+            	<Orientation>180</Orientation>
+            </BuilderSlot>
+	        	<BuilderSlot>
+	            	<Position>
+		                <X>150</X>
+		            	<Y>400</Y>
+	            	</Position>
+	           	<Orientation>180</Orientation>
+	       	</BuilderSlot>
+
+
+			<BuilderSlot>
+            	<Position>
+	                <X>-170</X>
+	            	<Y>-400</Y>
+            	</Position>
+            	<Orientation>0</Orientation>
+            </BuilderSlot>
+	        	<BuilderSlot>
+	            	<Position>
+		                <X>-170</X>
+		            	<Y>400</Y>
+	            	</Position>
+	           	<Orientation>0</Orientation>
+	       	</BuilderSlot>
+
+            <ConstructionSite>ZB_ConstructionSite2</ConstructionSite>
+        </ConstructionInfo>
+	</Logic>
+    <Behavior>
+        <Logic classname="EGL::CGLEBehaviorProps">
+         <Class>GGL::CBuildingBehavior</Class>
+        </Logic>
+        <Display classname="GD::CBuildingBehaviorProps">
+         <Class>GD::CBuildingBehavior</Class>
+         <NumDamageEffects>26</NumDamageEffects>
+         <NumDestroyEffects>18</NumDestroyEffects>
+        </Display>
+    </Behavior>
+</root>

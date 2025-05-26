@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <Entity>XD_BoneHuman1</Entity>
+ <Entity>XD_BoneHuman2</Entity>
+ <Entity>XD_BoneHuman3</Entity>
+ <Entity>XD_BoneHuman4</Entity>
+ <Entity>XD_BoneHuman5</Entity>
+ <Entity>XD_BoneHuman6</Entity>
+ <Entity>XD_BoneHuman7</Entity>
+ <Entity>XD_BoneHuman8</Entity>
+</root>

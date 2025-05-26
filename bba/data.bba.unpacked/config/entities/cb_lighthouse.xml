@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		<Class>ED::CDisplayBuilding</Class>
+		<Model>CB_Lighthouse</Model>
+	</Display>
+	<Logic classname="GGL::CGLBuildingProps">
+		<Class>GGL::CBuilding</Class>
+		<AccessCategory>AccessCategoryBuilding</AccessCategory>
+
+		<NeedsPlayer>true</NeedsPlayer>
+		<ForceNoPlayer>false</ForceNoPlayer>
+		<Category>DefendableBuilding</Category>
+		 <BuildOn>XD_Lighthouse_Ruin</BuildOn>
+		 <HideBase>true</HideBase>
+		<MaxHealth>3600</MaxHealth>
+		<ArmorClass>ArmorClassFortification</ArmorClass>
+		<ArmorAmount>11</ArmorAmount>
+		<CanBeSold>true</CanBeSold>
+		<!-- Armor -->
+		  <ModifyArmor>
+		  	<Technology>T_Masonry</Technology>
+		</ModifyArmor>
+
+  <!-- Exploration-->
+		  <ModifyExploration>
+        	<Technology>T_CityGuard</Technology>
+        </ModifyExploration>
+
+		<Exploration>70</Exploration>
+		<UpgradeSite>ZB_UpgradeSiteResidence1</UpgradeSite>
+        <Upgrade>
+            <Time>90.0</Time>
+            <Cost>
+				    <Clay>0</Clay>
+				    <Wood>500</Wood>
+				    <Stone>0</Stone>
+				    <Gold>200</Gold>
+				    <Iron/>
+				    <Sulfur/>
+            </Cost>
+            <Type>CB_LighthouseActivated</Type>
+            <Category>Lighthouse</Category>
+        </Upgrade>
+		<ConstructionInfo>
+        <Time>90</Time>
+            <Cost>
+				    <Wood>500</Wood>
+				    <Clay>300</Clay>
+				    <Stone>2000</Stone>
+				    <Gold/>
+				    <Iron/>
+				    <Sulfur/>
+            </Cost>
+
+		 <BuilderSlot>
+                <Position>
+                    <X>200</X>
+                    <Y>-400</Y>
+                </Position>
+                <Orientation>90</Orientation>
+            </BuilderSlot>
+            <BuilderSlot>
+                <Position>
+                    <X>-300</X>
+                    <Y>-400</Y>
+                </Position>
+                <Orientation>90</Orientation>
+            </BuilderSlot>
+            <BuilderSlot>
+                <Position>
+                    <X>-200</X>
+                    <Y>400</Y>
+                </Position>
+                <Orientation>270</Orientation>
+            </BuilderSlot>
+            <BuilderSlot>
+                <Position>
+                    <X>150</X>
+                    <Y>400</Y>
+                </Position>
+                <Orientation>270</Orientation>
+            </BuilderSlot>
+<ConstructionSite>ZB_ConstructionSiteResidence1</ConstructionSite>
+        </ConstructionInfo>
+			<ApproachPos>
+            <X>-10</X>
+            <Y>-600</Y>
+        </ApproachPos>
+		<ApproachR>0</ApproachR>
+        <DoorPos>
+            <X>43</X>
+            <Y>412</Y>
+        </DoorPos>
+
+        <Blocked1>
+            <X>-600</X>
+            <Y>-400</Y>
+        </Blocked1>
+        <Blocked2>
+            <X>400</X>
+            <Y>500</Y>
+        </Blocked2>
+	</Logic>
+	<Behavior>
+		<Logic classname="EGL::CGLEBehaviorProps">
+			<Class>EGL::GLEBehaviorMultiSubAnims</Class>
+		</Logic>
+		<Display classname="ED::CBehaviorProps">
+			<Class>ED::CDisplayBehaviorBuildingAnimation</Class>
+		</Display>
+	</Behavior>
+	<Behavior>
+		<Logic classname="EGL::CGLEBehaviorProps">
+			<Class>GGL::CBuildingBehavior</Class>
+		</Logic>
+		<Display classname="GD::CBuildingBehaviorProps">
+			<Class>GD::CBuildingBehavior</Class>
+			<Banner>DefaultBend</Banner>
+			  <NumDamageEffects>21</NumDamageEffects>
+			  <NumDestroyEffects>21</NumDestroyEffects>
+		</Display>
+
+	</Behavior>
+	<Behavior>
+		  <Logic classname="GGL::CLimitedAttachmentBehaviorProperties">
+			  <Class>GGL::CLimitedAttachmentBehavior</Class>
+            <Attachment>
+                <Type>ATTACHMENT_DEFENDER_BUILDING</Type>
+                <Limit>10</Limit>
+            </Attachment>
+		</Logic>
+	</Behavior>
+	<Behavior>
+	    <Logic classname="GGL::CDefendableBuildingBehaviorProps">
+	        <Class>GGL::CDefendableBuildingBehavior</Class>
+	    </Logic>
+	</Behavior>
+</root>

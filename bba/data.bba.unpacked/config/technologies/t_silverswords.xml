@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<root>
+	<TecCategoryType>TC_Technologies</TecCategoryType>
+	<TimeToResearch>40</TimeToResearch>
+	<ResourceCosts>
+		  <Gold>0</Gold>
+		  <Clay/>
+		  <Wood>0</Wood>
+		  <Stone/>		
+		  <Iron>750</Iron>
+		  <Sulfur>0</Sulfur>
+		  <Silver>750</Silver>
+	</ResourceCosts>
+	<AutomaticResearch>false</AutomaticResearch>
+	<UseForStatisticsFlag>true</UseForStatisticsFlag>
+	
+	<DamageModifier>
+		<Value>4</Value>
+		<Operation>+</Operation>
+	</DamageModifier>
+	
+	
+	<Conditions>
+	<RequiredEntityConditions>1</RequiredEntityConditions>
+	 			
+		
+		  <EntityCondition>
+			  <EntityType>PB_Silversmith2</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		</Conditions>
+</root>

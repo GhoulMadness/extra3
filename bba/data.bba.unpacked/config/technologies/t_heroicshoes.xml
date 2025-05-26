@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<root>
+	<TecCategoryType>TC_Technologies</TecCategoryType>
+	<TimeToResearch>60</TimeToResearch>
+	<ResourceCosts>
+		  <Gold>2500</Gold>
+		  <Clay/>
+		  <Wood>0</Wood>
+		  <Stone/>		
+		  <Iron>0</Iron>
+		  <Sulfur>0</Sulfur>
+		  <Silver>0</Silver>
+	</ResourceCosts>
+	<AutomaticResearch>true</AutomaticResearch>
+	<UseForStatisticsFlag>true</UseForStatisticsFlag>
+	
+	<SpeedModifier>
+		<Value>1.2</Value>
+		<Operation>*</Operation>
+	</SpeedModifier>
+	
+	
+	<Conditions>
+	<RequiredEntityConditions>1</RequiredEntityConditions>
+	 			
+		
+		  <EntityCondition>
+			  <EntityType>PB_Castle5</EntityType>
+			  <Amount>1</Amount>
+		</EntityCondition>	
+		</Conditions>
+</root>

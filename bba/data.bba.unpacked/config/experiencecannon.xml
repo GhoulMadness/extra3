@@ -1,0 +1,35 @@
+<root>
+	
+	<Table>Cannon</Table>
+	
+	<!--Level 1 + Random Damage Bonus -->
+	<Level>
+		<DamageBonus>5</DamageBonus>
+	</Level>
+
+	<!--Level 2 + Random Damage Bonus -->
+	<Level>
+		<DamageBonus>10</DamageBonus>
+	</Level>
+
+	<!--Level 3 + Random Damage Bonus + DamageAmount -->
+	<Level>
+		<DamageBonus>10</DamageBonus>
+		<DamageAmount>4</DamageAmount>
+	</Level>
+
+	<!--Level 4 + Random Damage Bonus + DamageAmount -->
+	<Level>
+		<DamageBonus>15</DamageBonus>
+		<DamageAmount>8</DamageAmount>
+	</Level>
+
+	<!--Level 5 + Random Damage Bonus + DamageAmount + Exploration + AutoAttackRange + MaxRange -->
+	<Level>
+		<DamageBonus>15</DamageBonus>
+		<DamageAmount>8</DamageAmount>
+		<Exploration>3</Exploration>
+		<AutoAttackRange>300</AutoAttackRange>
+		<MaxRange>300</MaxRange>
+	</Level>
+</root>

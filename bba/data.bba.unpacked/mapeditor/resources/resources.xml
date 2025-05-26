@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <Resource>
+  <File>ClayPit_normal.bin</File>
+  <Name>Clay Pit (normal)</Name>
+ </Resource>
+ <Resource>
+  <File>ClayPit_closed.bin</File>
+  <Name>Clay Pit (Closed)</Name>
+ </Resource>
+ <Resource>
+  <File>IronPit_normal.bin</File>
+  <Name>Iron Pit (normal)</Name>
+ </Resource>
+ <Resource>
+  <File>IronPit_closed.bin</File>
+  <Name>Iron Pit (closed)</Name>
+ </Resource> 
+ <Resource>
+  <File>StonePit_normal.bin</File>
+  <Name>Stone Pit (normal)</Name>
+ </Resource> 
+  <Resource>
+  <File>StonePit_closed.bin</File>
+  <Name>Stone Pit (closed)</Name>
+ </Resource> 
+ <Resource>
+  <File>StonePit_med_normal.bin</File>
+  <Name>Stone Pit Mediterranean(normal)</Name>
+ </Resource> 
+ <Resource>
+  <File>SulfurPit_normal.bin</File>
+  <Name>Sulfur Pit (normal)</Name>
+ </Resource> 
+  <Resource>
+  <File>SulfurPit_closed.bin</File>
+  <Name>Sulfur Pit (closed)</Name>
+ </Resource> 
+ <Resource>
+  <File>GoldPit_normal.bin</File>
+  <Name>Gold Pit (normal)</Name>
+ </Resource>
+ <Resource>
+  <File>SilverPit_normal.bin</File>
+  <Name>Silver Pit (normal)</Name>
+ </Resource>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO3MapDescription/CM07_03_Keshet_name</NameKey>
+ <DescKey>AO3MapDescription/CM07_03_Keshet_desc</DescKey>
+ <Name>04_Dunnotar</Name>
+ <Desc></Desc>
+ <SizeX>513</SizeX>
+ <SizeY>513</SizeY>
+ <MPFlag>false</MPFlag>
+ <MPPlayerCount>1</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\externalmap</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>7aad3372-8502-451c-a7e2-609d3603e967</Data>
+ </GUID>
+</root>

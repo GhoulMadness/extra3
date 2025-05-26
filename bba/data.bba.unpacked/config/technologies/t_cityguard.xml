@@ -1,0 +1,17 @@
+<root>
+	<TecCategoryType>TC_Technologies</TecCategoryType>
+	<TimeToResearch>1</TimeToResearch>
+	<ResourceCosts>
+		<Gold>100</Gold>
+	</ResourceCosts>
+	
+	<ExplorationModifier>
+		<Value>7</Value>
+		<Operation>+</Operation>
+	</ExplorationModifier>
+	<UseForStatisticsFlag>true</UseForStatisticsFlag>
+
+	<Conditions>	
+		
+	</Conditions>
+</root>

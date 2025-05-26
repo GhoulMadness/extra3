@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><root>
+	<TecCategoryType>TC_Technologies</TecCategoryType>
+	<TimeToResearch>75</TimeToResearch>
+	<ResourceCosts>
+		  <Gold>0</Gold>
+		  <Clay/>
+		  <Wood/>
+		  <Stone/>		
+		  <Iron/>
+		  <Sulfur>0</Sulfur>
+	</ResourceCosts>
+	
+	<Conditions>	
+		<TecCondition>
+			  <TecType>T_Thunderstorm</TecType>			
+		</TecCondition>
+	</Conditions>
+</root>

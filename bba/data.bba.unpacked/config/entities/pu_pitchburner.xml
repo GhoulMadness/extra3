@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		  <Class>GD::CDisplaySettler</Class>
+		  <Model>PU_PitchBurner</Model> 
+		  <DrawPlayerColor>True</DrawPlayerColor>		
+		  <Anim>PU_PitchBurner_Walk</Anim>
+		  <Anim>PU_PitchBurner_DropOil</Anim>
+		  <Anim>PU_PitchBurner_Idle</Anim>
+		  <Anim>PU_PitchBurner_Dying</Anim>
+		  
+	</Display>
+	<Logic classname="GGL::CGLSettlerProps">
+		  <Class>GGL::CSettler</Class>
+		  <AccessCategory>AccessCategorySettler</AccessCategory>		
+		  <MaxHealth>200</MaxHealth>
+		  <NeedsPlayer>true</NeedsPlayer>
+		  <ForceNoPlayer>false</ForceNoPlayer>
+		  <Fearless>true</Fearless>
+		  <Convertible>false</Convertible>
+        <Hat/>
+        <Cost>
+			  <Gold>100</Gold>
+			  <Iron>50</Iron>
+			  <Wood/>
+        </Cost>
+       
+        
+        <Category>Military</Category>
+        <Category>Leader</Category>        
+        <Category>Melee</Category>
+		  <AdjustWalkAnimSpeed>true</AdjustWalkAnimSpeed>
+		  <Exploration>18</Exploration>
+		  <ArmorClass>ArmorClassNone</ArmorClass>
+		  <ArmorAmount>0</ArmorAmount> 
+		  <DodgeChance>0</DodgeChance> 
+    	<IdleTaskList>TL_MILITARY_IDLE</IdleTaskList>
+    	<ExperiencePoints>40</ExperiencePoints>
+    	
+	</Logic>
+	<Behavior>
+		  <Logic classname="GGL::CGLAnimationBehaviorExProps">
+			  <Class>GGL::CGLBehaviorAnimationEx</Class>
+			  <SuspensionAnimation>PU_PitchBurner_Idle</SuspensionAnimation>
+			  <AnimSet>SET_PITCHBURNER</AnimSet>
+		  </Logic>
+		  <Display classname="ED::CBehaviorProps">
+			  <Class>ED::CDisplayBehaviorAnimation</Class>
+		</Display>
+	</Behavior>
+	<Behavior>
+		  <Logic classname="EGL::CMovementBehaviorProps">
+			  <Class>GGL::CLeaderMovement</Class>
+			  <Speed>360</Speed>
+			  <RotationSpeed>30</RotationSpeed>
+			  <MoveTaskList>TL_LEADER_WALK</MoveTaskList>
+			  <MoveIdleAnim>PU_PitchBurner_Idle</MoveIdleAnim>
+		</Logic>
+		  <Display classname="ED::CBehaviorProps">
+			  <Class>ED::CDisplayBehaviorMovement</Class>
+		</Display>
+	</Behavior>
+	<Behavior> 
+		  <Logic classname="EGL::CGLEBehaviorProps">
+			  <Class>GGL::CBehaviorWalkCommand</Class>
+		</Logic>
+	</Behavior>
+	<Behavior>
+		  <Logic classname="GGL::CLeaderBehaviorProps">
+			  <Class>GGL::CLeaderBehavior</Class>
+			  <BarrackUpgradeCategory>Barracks</BarrackUpgradeCategory>
+            <HomeRadius>2000</HomeRadius>
+			
+	        <BattleTaskList>TL_MILITARY_IDLE</BattleTaskList>
+	        
+	        <NormalAttackAnim1>PU_PitchBurner_Idle</NormalAttackAnim1>
+	        <NormalAttackAnim2>PU_PitchBurner_Idle</NormalAttackAnim2>
+	        <CounterAttackAnim>PU_PitchBurner_Idle</CounterAttackAnim>
+	        <FinishingMoveAnim>PU_PitchBurner_Idle</FinishingMoveAnim>
+	        <MissAttackAnim>PU_PitchBurner_Idle</MissAttackAnim>
+	        <BattleIdleAnim>PU_PitchBurner_Idle</BattleIdleAnim>
+	        <BattleWalkAnim>PU_PitchBurner_Idle</BattleWalkAnim>
+	        <HitAnim>PU_PitchBurner_Idle</HitAnim>
+
+	        <DamageClass>DC_Strike</DamageClass>
+	        <DamageAmount>0</DamageAmount>
+	        <MaxRandomDamageBonus>0</MaxRandomDamageBonus>
+	        
+	        <BattleWaitUntil>1500</BattleWaitUntil>
+	        
+	        <MaxRange>1</MaxRange>
+	        <MinRange>0.0f</MinRange>
+	        <AutoAttackRange>0</AutoAttackRange>
+	        
+            <HealingPoints>4</HealingPoints>
+	        <HealingSeconds>3</HealingSeconds>
+	        
+		  </Logic>
+	</Behavior>
+    
+
+	
+	<Behavior>
+		  <Logic classname="GGL::CGLBehaviorPropsDying">
+			  <Class>GGL::CGLBehaviorDying</Class>
+			  <DyingTaskList>TL_DIE</DyingTaskList>
+		</Logic>
+	</Behavior>
+
+	<Behavior>
+	    <Logic classname="EGL::CGLEBehaviorProps">
+	        <Class>GGL::CLeaderEvadeBehavior</Class>
+	    </Logic>
+	</Behavior>
+
+	<Behavior>
+	    <Logic classname="GGL::CEvadeExecutionBehaviorProps">
+	        <Class>GGL::CEvadeExecutionBehavior</Class>
+	        <BasePriority>400</BasePriority>
+	    </Logic>
+	</Behavior>
+
+</root>
+

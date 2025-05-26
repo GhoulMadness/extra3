@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		<Class>GD::CDisplaySettler</Class>
+		<Model>XA_Rabbit_Evil</Model>
+		<Anim>XA_Rabbit_Hoop</Anim>
+	</Display>
+	<Logic classname="GGL::CGLAnimalProps">
+		<Class>GGL::CAnimal</Class>
+		<AccessCategory>AccessCategoryAnimal</AccessCategory>
+		<DefaultTaskList>TL_RABBIT_IDLE</DefaultTaskList> <!-- Data checker should check that this is not hunt -->
+		<TerritoryRadius>6000</TerritoryRadius>
+		<WanderRangeMin>2000</WanderRangeMin>
+		<WanderRangeMax>4000</WanderRangeMax>		
+		<NeedsPlayer>false</NeedsPlayer>
+		<DeleteWhenBuiltOn>false</DeleteWhenBuiltOn>
+		<MaxHealth>20</MaxHealth> 
+		<ShyRange>800</ShyRange>
+		<FleeTaskList>TL_ANIMAL_FLEE</FleeTaskList>
+	</Logic>
+	<Behavior>
+		<Logic classname="GGL::CGLAnimationBehaviorExProps">
+			<Class>GGL::CGLBehaviorAnimationEx</Class>
+		<!-- animation to be used when entity is suspended -->
+			<SuspensionAnimation>XA_Rabbit_Hoop</SuspensionAnimation>
+			<AnimSet>SET_RABBIT</AnimSet>
+		</Logic>
+		<Display classname="ED::CBehaviorProps">
+			<Class>ED::CDisplayBehaviorAnimation</Class>
+		</Display>
+	</Behavior>
+	<Behavior>
+		<Logic classname="EGL::CMovementBehaviorProps">
+			<Class>GGL::CBehaviorAnimalMovement</Class>
+			<Speed>120</Speed>
+			<RotationSpeed>20</RotationSpeed>
+		</Logic>
+		<Display classname="ED::CBehaviorProps">
+			<Class>ED::CDisplayBehaviorMovement</Class>
+		</Display>
+	</Behavior>		
+</root>

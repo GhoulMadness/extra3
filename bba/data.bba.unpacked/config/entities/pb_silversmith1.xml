@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		  <Class>ED::CDisplayBuilding</Class>
+		  <Model>PB_Silversmith1</Model>
+	</Display>
+	<Logic classname="GGL::CGLBuildingProps">
+		  <Class>GGL::CBuilding</Class>
+		  <AccessCategory>AccessCategoryBuilding</AccessCategory>
+		  <NeedsPlayer>true</NeedsPlayer>
+		  <ForceNoPlayer>false</ForceNoPlayer>
+		  <UpgradeSite>ZB_UpgradeSiteIronMine1</UpgradeSite>
+      <Category>Workplace</Category>
+      <Category>DefendableBuilding</Category>  
+		  <MaxHealth>1700</MaxHealth>
+		  <ArmorClass>ArmorClassFortification</ArmorClass> 
+		  <ArmorAmount>5</ArmorAmount> 
+		  
+		<!-- Armor -->
+		<ModifyArmor>
+		  	<Technology>T_Masonry</Technology>		  
+		</ModifyArmor>     
+		   		
+		<!-- Exploration-->
+		<ModifyExploration>
+        	<Technology>T_CityGuard</Technology>
+        </ModifyExploration>   
+		 
+        <Worker>PU_Silversmith</Worker>
+        <MaxWorkers>3</MaxWorkers>
+        <InitialMaxWorkers>3</InitialMaxWorkers>
+        <WorkTaskList>
+            <Start>TL_SILVERSMITH_WORK_START</Start> 
+            <Work>TL_SILVERSMITH_WORK</Work> 
+        </WorkTaskList>
+        <WorkTaskList>
+            <Start>TL_SILVERSMITH_WORK1_START</Start> 
+            <Work>TL_SILVERSMITH_WORK1</Work> 
+        </WorkTaskList>
+        <WorkTaskList>
+            <Start>TL_SILVERSMITH_WORK_INSIDE_START</Start> 
+            <Work>TL_SILVERSMITH_WORK_INSIDE</Work> 
+        </WorkTaskList>
+         <Upgrade>
+            <Category>Silversmith</Category>
+            <Time>60.0</Time>  
+            <Cost>
+			    <Clay>250</Clay>
+			    <Wood>300</Wood>
+				    <Stone>700</Stone>
+					<Silver>150</Silver>
+				    <Gold/>
+				    <Iron/>
+				    <Sulfur/>
+            </Cost>
+            <Type>PB_Silversmith2</Type>
+        </Upgrade>
+        <ConstructionInfo>
+        	<Time>110</Time>
+            <Cost>
+			    <Clay>0</Clay>
+			    <Wood>350</Wood>
+				    <Stone>550</Stone>
+					<Silver>100</Silver>
+				    <Gold/>
+				    <Iron/>
+				    <Sulfur/>
+            </Cost>
+           <BuilderSlot>
+                <Position>
+                    <X>300</X>
+                    <Y>-500</Y>
+                </Position>
+                <Orientation>90</Orientation>
+            </BuilderSlot>
+           <BuilderSlot>
+                <Position>
+                    <X>-200</X>
+                    <Y>-500</Y>
+                </Position>
+                <Orientation>90</Orientation>
+            </BuilderSlot>
+            <BuilderSlot>
+                <Position>
+                    <X>-600</X>
+                    <Y>-200</Y>
+                </Position>
+                <Orientation>0</Orientation>
+            </BuilderSlot>            
+            <BuilderSlot>
+                <Position>
+                    <X>-600</X>
+                    <Y>100</Y>
+                </Position>
+                <Orientation>0</Orientation>
+            </BuilderSlot>             
+            <ConstructionSite>ZB_ConstructionSiteIronMine1</ConstructionSite>
+        </ConstructionInfo>       
+		  <Exploration>30</Exploration>
+		  <ApproachPos>
+            <X>-600</X>
+            <Y>300</Y>
+           </ApproachPos>
+		  <ApproachR>0</ApproachR>
+        <DoorPos>
+            <X>400</X>
+            <Y>20</Y>			
+        </DoorPos>
+        
+        
+       <Blocked1>
+            <X>-700</X>
+            <Y>400</Y>
+        </Blocked1>
+        <Blocked2>
+            <X>800</X>
+            <Y>-400</Y>
+        </Blocked2>
+        <TerrainPos1>
+            <X>-800</X>
+            <Y>500</Y>
+        </TerrainPos1>
+        <TerrainPos2>
+            <X>900</X>
+            <Y>-500</Y>
+        </TerrainPos2>
+        
+        
+	</Logic>
+	
+   <Behavior>
+        <Logic classname="GGL::CResourceRefinerBehaviorProperties">
+            <Class>GGL::CResourceRefinerBehavior</Class>
+            <ResourceType>Silver</ResourceType>
+            <InitialFactor>1</InitialFactor>
+			<SupplierCategory>IronSupplier</SupplierCategory>
+        </Logic>
+    </Behavior>
+    
+    
+
+<!--AnSu: I will test if it is better to have all buildings as defender buildings-->
+    <Behavior>
+		  <Logic classname="GGL::CLimitedAttachmentBehaviorProperties">
+			  <Class>GGL::CLimitedAttachmentBehavior</Class>           
+            <Attachment>
+                <Type>ATTACHMENT_DEFENDER_BUILDING</Type>
+                <Limit>10</Limit>
+            </Attachment>
+		</Logic>		 
+	</Behavior>
+    <Behavior>
+		  <Logic classname="EGL::CGLEBehaviorProps">
+			  <Class>EGL::GLEBehaviorMultiSubAnims</Class>
+		</Logic>
+		  <Display classname="ED::CBehaviorProps">
+			  <Class>ED::CDisplayBehaviorBuildingAnimation</Class>
+		</Display>
+	</Behavior>
+	<Behavior>
+		  <Logic classname="EGL::CGLEBehaviorProps">
+			  <Class>GGL::CBuildingBehavior</Class>
+		</Logic>
+		  <Display classname="GD::CBuildingBehaviorProps">
+			  <Class>GD::CBuildingBehavior</Class>
+			  <Banner>Default</Banner>
+			  <NumDamageEffects>14</NumDamageEffects>
+			  <NumDestroyEffects>15</NumDestroyEffects>
+		</Display>
+	</Behavior>
+	
+	
+	<Behavior>
+	    <Logic classname="GGL::CDefendableBuildingBehaviorProps">
+	        <Class>GGL::CDefendableBuildingBehavior</Class>
+	    </Logic>
+	</Behavior>
+
+
+
+</root>

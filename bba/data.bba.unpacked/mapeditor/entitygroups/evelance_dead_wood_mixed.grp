@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <Entity>XD_DeadBush1</Entity>
+ <Entity>XD_DeadBush2</Entity>
+ <Entity>XD_DeadBush3</Entity>
+ <Entity>XD_DeadBush4</Entity>
+ <Entity>XD_DeadBush5</Entity>
+ <Entity>XD_DeadBush6</Entity>
+ <Entity>XD_DeadTreeEvelance1</Entity>
+ <Entity>XD_DeadTreeEvelance2</Entity>
+ <Entity>XD_DeadTreeEvelance3</Entity>
+</root>

@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		  <Class>GD::CDisplaySettler</Class>
+		  <Model>PV_Catapult</Model> 
+		  <DrawPlayerColor>True</DrawPlayerColor>
+		  <Anim>PV_Catapult_Move</Anim>
+		  <Anim>PV_Catapult_Shoot</Anim>
+		  <Anim>PV_Catapult_Stand</Anim>
+		  <Anim>PV_Catapult_Collapse</Anim>
+	</Display>
+	<Logic classname="GGL::CGLSettlerProps">
+		  <Class>GGL::CSettler</Class>	
+		  <AccessCategory>AccessCategorySettler</AccessCategory>			
+		  <NeedsPlayer>true</NeedsPlayer>
+		  <ForceNoPlayer>false</ForceNoPlayer>
+        <Hat/>
+        <Cost>
+			  <Gold>800</Gold>
+			  <Iron>300</Iron>
+			  <Wood>1500</Wood>
+			  <Stone>2000</Stone>
+        </Cost>
+        <Category>Military</Category>
+		<Category>Cannon</Category>
+		  <AdjustWalkAnimSpeed>true</AdjustWalkAnimSpeed>
+		  <MaxHealth>400</MaxHealth>
+		  <Exploration>40</Exploration>
+		  <ArmorClass>ArmorClassNone</ArmorClass> 
+		  <ArmorAmount>2</ArmorAmount>
+		  <DodgeChance>0</DodgeChance> 
+    	<IdleTaskList>TL_VEHICLE_IDLE</IdleTaskList>
+    	<ExperiencePoints>100</ExperiencePoints>
+    	<AttractionSlots>15</AttractionSlots>
+    	
+    	
+
+    
+
+    
+<!-- Damage Modifier-->
+         <ModifyDamage>
+        	<Technology>T_EnhancedGunPowder</Technology>
+        </ModifyDamage>
+         <ModifyDamage>
+        	<Technology>T_BlisteringCannonballs</Technology>
+        </ModifyDamage>
+    	<ModifyDamage>
+        	<Technology>T_SilverMissiles</Technology>
+        </ModifyDamage>
+    	<!-- Speed Modifier-->
+        
+		  <ModifySpeed>
+        	<Technology>T_BetterChassis</Technology>
+        </ModifySpeed>
+	</Logic>
+	<Behavior>
+		  <Logic classname="GGL::CGLAnimationBehaviorExProps">
+			  <Class>GGL::CGLBehaviorAnimationEx</Class>
+			  <SuspensionAnimation>PV_Catapult_Move</SuspensionAnimation>
+			  <AnimSet>SET_CATAPULT</AnimSet>
+		  </Logic>
+		  <Display classname="ED::CBehaviorProps">
+			  <Class>ED::CDisplayBehaviorAnimationNoBlending</Class>
+		</Display>
+	</Behavior>
+	<Behavior>
+		  <Logic classname="EGL::CMovementBehaviorProps">
+			  <Class>GGL::CLeaderMovement</Class>
+			  <Speed>80</Speed>
+			  <RotationSpeed>10</RotationSpeed>
+			  <MoveTaskList>TL_VEHICLE_DRIVE</MoveTaskList>
+		</Logic>
+		  <Display classname="ED::CBehaviorProps">
+			  <Class>ED::CDisplayBehaviorMovement</Class>
+		</Display>
+	</Behavior>
+	<Behavior> 
+		  <Logic classname="EGL::CGLEBehaviorProps">
+			  <Class>GGL::CBehaviorWalkCommand</Class>
+		</Logic>
+	</Behavior>
+	<Behavior>
+		  <Logic classname="GGL::CLeaderBehaviorProps">
+			  <Class>GGL::CLeaderBehavior</Class>
+			  <BarrackUpgradeCategory>Foundry</BarrackUpgradeCategory>
+			
+            <HomeRadius>1500</HomeRadius>
+
+	        <BattleTaskList>TL_BATTLE_CATAPULT</BattleTaskList>
+	        
+	        <NormalAttackAnim1>PV_Catapult_Shoot</NormalAttackAnim1>
+	        <NormalAttackAnim2>PV_Catapult_Shoot</NormalAttackAnim2>
+	        <CounterAttackAnim>PV_Catapult_Shoot</CounterAttackAnim>
+	        <FinishingMoveAnim>PV_Catapult_Shoot</FinishingMoveAnim>
+	        <MissAttackAnim>PV_Catapult_Shoot</MissAttackAnim>
+	        <BattleIdleAnim>PV_Catapult_Stand</BattleIdleAnim>
+	        <BattleWalkAnim>PV_Catapult_Move</BattleWalkAnim>
+	        
+	        <DamageClass>DC_Siege</DamageClass>
+	        <DamageAmount>250</DamageAmount>
+	        <MaxRandomDamageBonus>30</MaxRandomDamageBonus>
+	        <DamageRange>200</DamageRange>
+	        
+	        <BattleWaitUntil>5000</BattleWaitUntil>
+	        
+	        <ProjectileEffectID>FXCatapultStone</ProjectileEffectID>
+	        <MaxRange>3800</MaxRange>
+	        <MinRange>2000</MinRange>
+	        
+	        <AutoAttackRange>3800</AutoAttackRange>
+	        
+	        <UpkeepCost>100</UpkeepCost>
+	        
+	        <!--HealingPoints>4</HealingPoints>
+	        <HealingSeconds>4</HealingSeconds-->
+	        
+		  </Logic>
+	</Behavior>
+
+	
+	<Behavior>
+		  <Logic classname="GGL::CGLBehaviorPropsDying">
+			  <Class>GGL::CGLBehaviorDying</Class>
+			  <DyingTaskList>TL_DIE</DyingTaskList>
+		</Logic>
+	</Behavior>
+
+	<Behavior>
+		  <Logic classname="EGL::CGLEBehaviorProps">
+			  <Class>EGL::CParticleEffectAttachmentBehavior</Class>
+		</Logic>
+		  <Display classname="ED::CBehaviorProps">
+			  <Class>ED::CParticleEffectAttachmentBehavior</Class>
+		</Display>
+	</Behavior>
+
+
+
+
+
+</root>

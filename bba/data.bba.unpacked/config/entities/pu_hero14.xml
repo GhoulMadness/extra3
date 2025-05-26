@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<root>
+	<Display classname="ED::CDisplayEntityProps">
+		  <Class>GD::CDisplaySettler</Class>
+		  <Model>PU_Hero14</Model>
+		  <DrawPlayerColor>True</DrawPlayerColor>
+		  <Anim>CU_Evil_LeaderSkirmisher1_Walk</Anim>
+		  <Anim>CU_Evil_LeaderSkirmisher1_Run1</Anim>
+		  <Anim>CU_Evil_LeaderSkirmisher1_Idle1</Anim>
+		  <Anim>CU_Evil_LeaderSkirmisher1_Idle2</Anim>
+		  <Anim>CU_Evil_LeaderSkirmisher1_Idle3</Anim>
+		  <Anim>CU_Evil_LeaderSkirmisher1_Idle4</Anim>
+		  <Anim>CU_Evil_LeaderSkirmisher1_Idle5</Anim>
+		  <Anim>CU_Evil_LeaderSkirmisher1_Idle6</Anim>
+		  <Anim>CU_Evil_LeaderSkirmisher1_IdleAttack1</Anim>
+		  <Anim>CU_Evil_LeaderSkirmisher1_Attack1</Anim>
+		  <Anim>CU_Evil_LeaderSkirmisher1_Hit</Anim>		
+		  <Anim>CU_Evil_LeaderSkirmisher1_Dying1</Anim>	
+		  <Anim>PU_Hero14_Dead</Anim>
+	</Display>
+	<Logic classname="GGL::CGLSettlerProps">
+		  <Class>GGL::CSettler</Class>	
+		  <AccessCategory>AccessCategorySettler</AccessCategory>			
+		  <MaxHealth>600</MaxHealth>
+		  <NeedsPlayer>true</NeedsPlayer>
+		  <ForceNoPlayer>false</ForceNoPlayer>
+		  <Fearless>true</Fearless>
+		  <Convertible>false</Convertible>
+        <Hat/>
+        <Cost>
+			  <Money>1</Money>			  
+        </Cost>
+         <Convertible>false</Convertible>
+        <Category>Military</Category>
+        <Category>EvilLeader</Category>        
+        <Category>Hero</Category>
+		  <AdjustWalkAnimSpeed>true</AdjustWalkAnimSpeed>
+		  <Exploration>28</Exploration>
+		  <ArmorClass>ArmorClassHero</ArmorClass>
+		  <ArmorAmount>0</ArmorAmount> 
+		  <DodgeChance>0</DodgeChance> 
+        <IdleTaskList>TL_MILITARY_IDLE</IdleTaskList>
+        <ExperiencePoints>50</ExperiencePoints>
+		<Fearless>true</Fearless>
+	<!--Armor modifier-->
+        <ModifyArmor>
+        	<Technology>T_HeroicArmor</Technology>
+        </ModifyArmor>
+
+     <!-- Damage Modifier-->
+         <ModifyDamage>
+        	<Technology>T_HeroicWeapon</Technology>
+        </ModifyDamage>
+  
+	<!-- Speed Modifier-->
+        <ModifySpeed>
+        	<Technology>T_HeroicShoes</Technology>
+        </ModifySpeed>
+	</Logic>
+	<Behavior>
+		  <Logic classname="GGL::CGLAnimationBehaviorExProps">
+			  <Class>GGL::CGLBehaviorAnimationEx</Class>			
+			  <SuspensionAnimation>CU_Evil_LeaderSkirmisher1_Idle1</SuspensionAnimation>			
+			  <AnimSet>SET_HERO14</AnimSet>
+		  </Logic>
+		  <Display classname="ED::CBehaviorProps">
+			  <Class>ED::CDisplayBehaviorAnimation</Class>
+		</Display>
+	</Behavior>
+	<Behavior>
+		  <Logic classname="EGL::CMovementBehaviorProps">
+			  <Class>GGL::CSettlerMovement</Class>
+			  <Speed>350</Speed>
+			  <RotationSpeed>30</RotationSpeed>
+			  <MoveTaskList>TL_HERO14_WALK</MoveTaskList>
+			  <MoveIdleAnim>CU_Evil_LeaderSkirmisher1_Idle1</MoveIdleAnim>
+		</Logic>
+		  <Display classname="ED::CBehaviorProps">
+			  <Class>ED::CDisplayBehaviorMovement</Class>
+		</Display>
+	</Behavior>
+	<Behavior> 
+		  <Logic classname="EGL::CGLEBehaviorProps">
+			  <Class>GGL::CBehaviorWalkCommand</Class>
+		</Logic>
+	</Behavior>
+	<Behavior>
+		  <Logic classname="GGL::CLeaderBehaviorProps">
+			  <Class>GGL::CLeaderBehavior</Class>			
+			
+	        <BattleTaskList>TL_BATTLE_SKIRMISHER</BattleTaskList>
+	        
+	        <NormalAttackAnim1>CU_Evil_LeaderSkirmisher1_Attack1</NormalAttackAnim1>
+	        <NormalAttackAnim2>CU_Evil_LeaderSkirmisher1_Attack1</NormalAttackAnim2>
+	        <CounterAttackAnim>CU_Evil_LeaderSkirmisher1_Attack1</CounterAttackAnim>
+	        <FinishingMoveAnim>CU_Evil_LeaderSkirmisher1_Attack1</FinishingMoveAnim>
+	        <MissAttackAnim>CU_Evil_LeaderSkirmisher1_Attack1</MissAttackAnim>
+	        <BattleIdleAnim>CU_Evil_LeaderSkirmisher1_IdleAttack1</BattleIdleAnim>
+	        <BattleWalkAnim>CU_Evil_LeaderSkirmisher1_Run1</BattleWalkAnim>
+	        <HitAnim>CU_Evil_LeaderSkirmisher1_Hit</HitAnim>
+	        
+	        <DamageClass>DC_Hero</DamageClass>
+	        <DamageAmount>38</DamageAmount>
+	        <MaxRandomDamageBonus>16</MaxRandomDamageBonus>
+	        
+	        <BattleWaitUntil>2100</BattleWaitUntil>
+	        
+	        <MissChance>1</MissChance>
+	        
+	        <ProjectileEffectID>FXHero14_Arrow</ProjectileEffectID>
+	        <MaxRange>2700</MaxRange>
+	        <MinRange>0.0f</MinRange>	        
+	        <AutoAttackRange>2700</AutoAttackRange>
+	        
+			  <HealingPoints>1</HealingPoints>
+	        <HealingSeconds>5</HealingSeconds>
+	     
+	        
+		  </Logic>
+	</Behavior>
+	
+	<Behavior>
+		  <Logic classname="GGL::CGLBehaviorPropsDying">
+			  <Class>GGL::CGLBehaviorDying</Class>
+			  <DyingTaskList>TL_DIE_HERO</DyingTaskList>
+		</Logic>
+	</Behavior>
+
+	<Behavior>
+	    <Logic classname="GGL::CHeroBehaviorProps">
+	        <Class>GGL::CHeroBehavior</Class>
+	    </Logic>
+	</Behavior>
+	
+	<Behavior>
+	    <Logic classname="GGL::CRangedEffectAbilityProps">
+	        <Class>GGL::CRangedEffectAbility</Class>
+	        <RechargeTimeSeconds>90</RechargeTimeSeconds>
+	        <AffectsOwn>true</AffectsOwn>
+			  <AffectsMilitaryOnly>true</AffectsMilitaryOnly>
+			  <Range>800.0</Range>
+			  <DurationInSeconds>45</DurationInSeconds>
+			  <DamageFactor>1.0</DamageFactor>
+	    </Logic>
+	</Behavior>
+	
+	<Behavior>
+	    <Logic classname="GGL::CEvadeExecutionBehaviorProps">
+	        <Class>GGL::CEvadeExecutionBehavior</Class>
+	        <BasePriority>400</BasePriority>
+	    </Logic>
+	</Behavior>
+
+</root>

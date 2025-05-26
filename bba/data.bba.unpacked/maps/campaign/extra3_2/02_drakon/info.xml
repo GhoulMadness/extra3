@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2exMapDescription/CM08_02_Drakon_name</NameKey>
+ <DescKey>AO2exMapDescription/CM08_02_Drakon_desc</DescKey>
+ <Name></Name>
+ <Desc></Desc>
+ <SizeX>577</SizeX>
+ <SizeY>577</SizeY>
+ <MPFlag>false</MPFlag>
+ <MPPlayerCount>0</MPPlayerCount>
+ <MPGameOptionFlagSet>0</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\externalmap</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>0fc710d6-50b3-4e47-bd87-55f5bbedbbfa</Data>
+ </GUID>
+</root>

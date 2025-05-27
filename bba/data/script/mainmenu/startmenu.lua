@@ -4,7 +4,13 @@
 -- Table
 Ex3 = {Version = 0.772}
 StartMenu = {}
-
+-- only high tex quality supported
+if GDB.IsKeyValid( "Config\\Display\\TextureResolution" ) then
+	if GDB.GetValue( "Config\\Display\\TextureResolution" ) ~= 0 then
+		GDB.SetValue( "Config\\Display\\TextureResolution", 0 )
+		Framework.ExitGame()
+	end
+end
 
 ----------------------------------------------------------------------------------------------------
 -- Start main menu
@@ -14,7 +20,7 @@ function StartMenu.Start( _StartVideoFlag )
 	-- Make page active
 	XGUIEng.ShowAllSubWidgets("Screens", 0)
 	XGUIEng.ShowWidget("StartMenu00", 1)
-	
+
 	if (XGUIEng.GetStringTableText("MainMenu/StartOnlineGame") == "DISABLE") then
 	    XGUIEng.ShowWidget( "StartMenu00_StartOnline", 0 )
 	end
@@ -34,7 +40,7 @@ function StartMenu.DoInitStuff(_StartVideoFlag)
 
 	local MusicPath = "music\\"
 	local SongNumber = XGUIEng.GetRandom(22)
-	
+
 	if SongNumber == 0 then
 		MusicPath = MusicPath .. "01_Main_Theme1.mp3"
 	elseif SongNumber == 1 then
@@ -82,16 +88,16 @@ function StartMenu.DoInitStuff(_StartVideoFlag)
 	elseif SongNumber == 22 then
 		MusicPath = MusicPath .. "64_Main_Theme23.mp3"
 	end
-	
+
 	Music.Start(MusicPath  , 170, 1)
-	
+
 	Mouse.CursorSet(10)
-	
+
 	-- Init frame counter
 	StartMenu.GEN_FrameCounter = 0
 	StartMenu.GEN_StartVideoFlag = _StartVideoFlag
 	StartMenu.GEN_VideoRunning = 0
-	
+
 end
 
 
@@ -102,7 +108,7 @@ end
 
 function StartMenu.S00_ToSingleplayerMenu()
 	XGUIEng.ShowAllSubWidgets( "Screens", 0 )
-	XGUIEng.ShowWidget("SPMenu00", 1)	
+	XGUIEng.ShowWidget("SPMenu00", 1)
 	-- Kampagnenschwierigkeit
 	if not GDB.IsKeyValid("Game\\Extra3\\CampaignDifficulty") then
 		GDB.SetValue("Game\\Extra3\\CampaignDifficulty", 2 )
@@ -154,14 +160,14 @@ function StartMenu.GEN_Update()
 
 	-- Increment frame counter
 	StartMenu.GEN_FrameCounter = StartMenu.GEN_FrameCounter + 1
-	
-	
+
+
 	-- Start video
 	if StartMenu.GEN_FrameCounter == 2 then
 		if StartMenu.GEN_StartVideoFlag == 1 then
 			if StartMenu.GEN_VideoRunning == 0 then
-				XGUIEng.StartVideoPlayback("StartMenu_BG_Video", "data\\graphics\\videos\\Menu\\FightScene.bik", 1)	
-				StartMenu.GEN_VideoRunning = 1 
+				XGUIEng.StartVideoPlayback("StartMenu_BG_Video", "data\\graphics\\videos\\Menu\\FightScene.bik", 1)
+				StartMenu.GEN_VideoRunning = 1
 			end
 			StartMenu.GEN_StartVideoFlag = 0
 		end
@@ -174,9 +180,9 @@ end
 
 function StartMenu.S00_Update_VersionInformation()
 
-	--[[ Init text	
+	--[[ Init text
 	local Text = "@center"
-		
+
 	-- Add version string
 	-- orig:Text = Text .. " " .. Framework.GetVName() -> liefert nur einen leeren string
 	-- Set text
@@ -184,19 +190,19 @@ function StartMenu.S00_Update_VersionInformation()
 	]]
 end
 
-	
+
 ----------------------------------------------------------------------------------------------------
 -- Update version widget
 
 function StartMenu.S00_Update_VersionNumber()
 
-	-- Init text	
+	-- Init text
 	local Text = "@ra"
-		
+
 	-- Add version string
 	--Framework.GetProgramVersion()
 	Text = Text .. " " .. Ex3.Version .. " Extra3"
-	
+
 	-- Set text
 	XGUIEng.SetText(XGUIEng.GetCurrentWidgetID(), Text)
 
@@ -206,7 +212,7 @@ end
 
 function StartMenu.UpdateNetworkButtons()
 
-	
+
 	--[[local CurrentWidgetID = XGUIEng.GetCurrentWidgetID()
 
 	local GetVersion = Framework.GetVersion()
@@ -215,7 +221,7 @@ function StartMenu.UpdateNetworkButtons()
 	else
 		XGUIEng.DisableButton(CurrentWidgetID,1)
 	end]]
-	
+
 end
 
 ----------------------------------------------------------------------------------------------------
@@ -224,7 +230,7 @@ end
 -- Quit
 
 function StartMenu_KeyBindings_AltFFour()
-	
+
 	XGUIEng.ShowWidget("QuitGameOverlayScreen", 1)
 
 end

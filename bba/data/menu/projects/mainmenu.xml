@@ -19132,7 +19132,7 @@
                           <ForceToHandleMouseEventsFlag>False</ForceToHandleMouseEventsFlag>
                           <ForceToNeverBeFoundFlag>False</ForceToNeverBeFoundFlag>
                           <ButtonHelper>
-                            <DisabledFlag>False</DisabledFlag>
+                            <DisabledFlag>True</DisabledFlag>
                             <HighLightedFlag>False</HighLightedFlag>
                             <ActionFunction>
                               <LuaCommand>OptionsDisplay_Menu.S30_SetTextureRes( 2 )</LuaCommand>
@@ -19398,7 +19398,7 @@
                           <ForceToHandleMouseEventsFlag>False</ForceToHandleMouseEventsFlag>
                           <ForceToNeverBeFoundFlag>False</ForceToNeverBeFoundFlag>
                           <ButtonHelper>
-                            <DisabledFlag>False</DisabledFlag>
+                            <DisabledFlag>True</DisabledFlag>
                             <HighLightedFlag>False</HighLightedFlag>
                             <ActionFunction>
                               <LuaCommand>OptionsDisplay_Menu.S30_SetTextureRes( 1 )</LuaCommand>

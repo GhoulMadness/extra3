@@ -1285,7 +1285,7 @@ end
 function chestCallbackTruhe()
     Message("@color:0,255,255 " .. UserTool_GetPlayerName(1) ..  " " .. ChestRandomPositions.TypeToPretext["Gold"] .. " Inhalt: " .. round(3000*gvDiffLVL) .. " Taler.")
 	AddGold(round(3000*gvDiffLVL))
-	ChestSurprise(8, GetPosition("TrBan"), round(4/gvDiffLVL))
+	ChestSurprise(8, GetPosition("Truhe"), round(4/gvDiffLVL))
 end
 function chestCallbackZ()
 	Message("@color:0,255,255 " .. UserTool_GetPlayerName(1) ..  " " .. ChestRandomPositions.TypeToPretext["Gold"] .. " Inhalt: " .. round(5000*gvDiffLVL) .. " Taler.")

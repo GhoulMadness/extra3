@@ -972,7 +972,7 @@ function CheckForMilitaryBuildingNearKrathos()
 				army.rodeLength	= Logic.WorldGetSize()
 				army.strength	= round(3*gvDiffLVL)
 				army.building 	= id
-				army.trooptypes = P5ArmyTypesByBuildingType[Logic.GetEntityType(eID)]
+				army.trooptypes = P5ArmyTypesByBuildingType[Logic.GetEntityType(id)]
 				SetupArmy(army)
 				--
 				for i = 1, army.strength do

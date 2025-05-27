@@ -2596,22 +2596,25 @@ function IsNighttime()
 	return found ~= 0
 end
 
--- overrides internal clipping limit maximum (Display.SetFarClipPlaneMinAndMax(_min, _max) is internally capped at some values)
+-- overrides internal clipping limit maximum for cutscenes (Display.SetFarClipPlaneMinAndMax(_min, _max) is internally capped at 20k per default)
 ---@param _val integer new clipping limit maximum
-function SetInternalClippingLimitMax(_val)
-
+function SetInternalClippingLimitCutscene(_val)
 	assert(type(_val) == "number", "Clipping Limit needs to be a number")
 	CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[0]:SetFloat(_val)
-
 end
 
--- overrides internal clipping limit minimum (Display.SetFarClipPlaneMinAndMax(_min, _max) is internally capped at some values)
----@param _val integer new clipping limit minimum
-function SetInternalClippingLimitMin(_val)
-
+-- overrides internal clipping limit maximum for global map (internally capped at 100k per default)
+---@param _val integer new clipping limit maximum
+function SetInternalClippingLimitGlobal(_val)
 	assert(type(_val) == "number", "Clipping Limit needs to be a number")
-	CUtilMemory.GetMemory(tonumber("0x77A7F0", 16))[0]:SetFloat(_val)
+	CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[1]:SetFloat(_val)
+end
 
+-- overrides internal clipping used when not specified or resetted back to default (12.5k per default)
+---@param _val integer new clipping fallback value
+function SetInternalClippingResetValue(_val)
+	assert(type(_val) == "number", "Clipping fallback value needs to be a number")
+	CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[2]:SetFloat(_val)
 end
 
 -- returns the weather movement speed modifier

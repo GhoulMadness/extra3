@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/CM04_05_EmeraldFields_name</NameKey>
+ <DescKey>AO2MapDescription/CM04_05_EmeraldFields_desc</DescKey>
+ <Name>(8) Smaragdinseln</Name>
+ <Desc>Der Moment der Entscheidung ist gekommen. @cr Die Freunde ziehen vereinigt und mit der Hilfe der Bergkrieger in die finale Schlacht gegen den großen Barbarenführer Scorillo und seine mächtige Armee.</Desc>
+ <SizeX>641</SizeX>
+ <SizeY>641</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>8</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(8) Smaragdinseln</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>c5f68da9-f88a-4ed1-bd30-7f615ab535bf</Data>
+ </GUID>
+</root>

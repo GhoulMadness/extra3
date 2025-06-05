@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(4) @color:255,255,51 Koop @color:255,255,255 Kalas Giftnebel</Name>
+ <Desc>Kala und ihre Truppen werden immer stärker. Halte sie gemeinsam mit Freunden in ihrem Vormarsch auf. Doch Achtung: Sie ist sehr stark geworden. @cr @cr @color:230,100,0 Diese Map ist sowohl im Multiplayer als auch im Singleplayer spielbar!</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) koop kalas Giftnebel</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>bd332100-a020-47b5-a14f-7695a2d728f5</Data>
+ </GUID>
+</root>

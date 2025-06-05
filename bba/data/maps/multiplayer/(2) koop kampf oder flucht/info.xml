@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AOMapDescription/CM02_07_FleeOrFight_name</NameKey>
+ <DescKey>AOMapDescription/CM02_07_FleeOrFight_desc</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Kampf oder Flucht</Name>
+ <Desc>Die Krieger des Nebelvolkes überrennen das Land.  @cr Rettet Eure Leute und bewahrt sie vor einem grausamen Tod.  @cr Dann überlegt Euch eine Möglichkeit, diese Monster in die Flucht zu schlagen.</Desc>
+ <SizeX>641</SizeX>
+ <SizeY>641</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop kampf oder flucht</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>9571dafc-2706-45cc-ac14-e5f09393f3f6</Data>
+ </GUID>
+</root>

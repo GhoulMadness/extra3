@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(4) Verschneites Moor</Name>
+ <Desc>Ihr Findet euch in einem stinkenden, dreckigen aber üppig bewachsenen Sumpflandschaft wieder.
+ Rohstoffe findet ihr auf den Bergen, auch DZ sind dort versteckt.
+Empfohlene Teams:
+Team 1: Spieler 1 und Spieler 2
+Team 2: Spieler 3 und Spieler 4
+Viel Spass beim Spielen!! @cr @cr Mapdesign by: fuzi238 @cr überarbeitet von: Ghoul</Desc>
+ <SizeX>705</SizeX>
+ <SizeY>705</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Verschneites Moor</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>2de24754-b39e-444d-ad39-73f2344f3fa1</Data>
+ </GUID>
+</root>

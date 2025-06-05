@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/CM03_04_WolfsLair_name</NameKey>
+ <DescKey>AO2MapDescription/CM03_04_WolfsLair_desc</DescKey>
+ <Name>(4) Magic Circle </Name>
+ <Desc>Der fleißige Holzhacker hat auf dieser Map einen klaren Vorteil. Doch der Gegner kann das entstandene Schlupfloch genauso nutzen. Doch Vorsicht, es gibt auch einen schmalen Geheimweg.
+
+Hinweis: Wenns mal wieder länger dauert, schnapp dir den Berg in der Mitte ;) Es gibt keine periodischen Wetterveränderungen
+
+Empfohlene Teams:
+Team 1: Spieler 1 und Spieler 2
+Team 2: Spieler 3 und Spieler 4 @cr @cr Mapdesign by: Rushki</Desc>
+ <SizeX>513</SizeX>
+ <SizeY>513</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>9</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Magic Circle</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>5503e700-b34b-4ad9-847a-c0480648461e</Data>
+ </GUID>
+</root>

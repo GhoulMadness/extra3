@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(4) Gezeiten</Name>
+ <Desc>@color:135,205,255 von RobbiTheFox @cr @cr @color:205,255,135 Karte für das Winterturnier 2023 @color:255,255,255 @cr @cr Auf dieser Karte startet ihr auf einer Insellandschaft, die jedes Mal anders aussieht, wobei die Grundaufteilung gleich bleibt. Lehm, Stein und ein DZ findet ihr auf der Startinsel. Eisen, Schwefel, Gold und ein weiters DZ auf der Nachbarinsel. Ein weiters DZ und einen Leutturm findet ihr auf einer Insel weiter mittig, zu der ihr erst eine Brücke errichten müsst. Mit der Zeit sinkt der Wasserspiegel und gibt neues Bauland frei. Nach ungefähr 40 min wird auch die Mitte passierbar, über die ihr das gegnerische Team und 2 Silberminen erreicht. @cr @cr Teams: 1, 2 vs 3, 4</Desc>
+ <SizeX>609</SizeX>
+ <SizeY>609</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Gezeiten</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>9af78436-8234-492f-9dee-d77225b17f05</Data>
+ </GUID>
+</root>

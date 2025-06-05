@@ -1539,7 +1539,7 @@ function CreateMilitaryGroup(_player,_entity,_soldiers,_position,_name,_lookAt)
 
 end
 
-function InitGeneralAchivementsCheck()
+function InitGeneralAchievementsCheck()
 	StartSimpleJob("CheckForSilverChestsOpened")
 	StartSimpleJob("CheckForSilverArmor")
 	StartSimpleJob("CheckForSilverWeapons")

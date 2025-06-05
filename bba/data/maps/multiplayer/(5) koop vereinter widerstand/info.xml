@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(5) @color:255,255,51 Koop @color:255,255,255 Vereinter Widerstand</Name>
+ <Desc>Ihr habt euer Lager zusammen mit vier benachbarten Siedlungen in den Highlands aufgeschlagen. Die Gegend ist sehr reich an Rohstoffen. Die umliegenden Städte neiden euch und wollen sich mit Gewalt euerer Rohstoffe habhaft machen. Nun liegt es an den Helden, gemeinsam die Dörfer zu verteidigen und die Gegner zu vertreiben. @cr Hinweis: Man munkelt, Varg und Kerberos stecken hinter den finsteren Machenschaften.</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>5</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(5) Koop Vereinter Widerstand</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>1cde5f59-03d0-4efc-85ed-a66e0cf29e18</Data>
+ </GUID>
+</root>

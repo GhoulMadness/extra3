@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/CM03_04_WolfsLair_name</NameKey>
+ <DescKey>AO2MapDescription/CM03_04_WolfsLair_desc</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Verloren in Evelance</Name>
+ <Desc>Die dunklen Wälder von Evelance bieten erstklassigen Schutz für Räuberbanden und andere gefährliche Gestalten. Kein Gescheiter würde dort eine Siedlung aufbauen wollen... @cr @cr Kartenmodus: Kooperation @cr Viel Spaß! @cr @color:166,212,35 Autor: Play4FuN @cr Version 1.1 @cr @cr @color:255,255,255 Hinweis: Die Farbe schwarz ist bereits vergeben. Auch im Einzelspielermodus spielbar (mit verbündeter KI).</Desc>
+ <SizeX>577</SizeX>
+ <SizeY>577</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop verloren in evelance</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>aff35321-2a71-4ae5-b939-1c07d3191e5c</Data>
+ </GUID>
+</root>

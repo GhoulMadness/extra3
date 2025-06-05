@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) Leichenfledderer</Name>
+ <Desc>Inmitten eines großen Moorgebietes schlagt ihr euer Lager auf, um die naheliegenden Ruinen zu untersuchen. Überall findet ihr Gräber und antike Tempel aus längst vergessenen Zeiten. Doch als einige eurer Kundschafter den schaurigen Ritualplatz im Zentrum der vergessenen Stadt untersuchen wollen, ertönen grelle Schreie. Seitdem habt ihr nichts mehr von den Kundschaftern erfahren, sie scheinen wie vom Erdboden verschluckt worden zu sein. Am Altar klebt frisches Blut, aber von den Leichen fehlt jede Spur...Gebt auf euch Acht, denn diese antike Grabstätte birgt wahrhaft böse Geheimnisse</Desc>
+ <SizeX>417</SizeX>
+ <SizeY>417</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) leichenfledderer</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>b5d9ba8a-895b-4e77-9dcf-fcfc5dabaa7a</Data>
+ </GUID>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Winterplateau</Name>
+ <Desc>Ihr seht Euch in mitteleuropäischer Umgebung mit mehreren Gegnern konfrontiert. Je weiter Ihr expandieren wollt, desto härter werden Eure Gegner gegen Euch vorgehen! @cr @cr Kartenmodus: Kooperation @cr Spielerzahl: 2 @cr Viel Spaß! @cr @color:166,212,35 Autor: P4F @cr @cr @color:255,255,255 Hinweis: Die Farben rot und lila sind bereits vergeben!</Desc>
+ <SizeX>577</SizeX>
+ <SizeY>577</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop winterplateau</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>b4c72991-5793-422c-88b9-6fb756ae948b</Data>
+ </GUID>
+</root>

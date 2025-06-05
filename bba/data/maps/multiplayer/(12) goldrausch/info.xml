@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/CM04_05_EmeraldFields_name</NameKey>
+ <DescKey>AO2MapDescription/CM04_05_EmeraldFields_desc</DescKey>
+ <Name>@color:255,255,255 (12) Goldrausch</Name>
+ <Desc>Gold! Gold! Gold! @cr Eure Geologen haben inmitten dieser düsteren Gegend eine ergiebige Golderzader entdeckt.</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>12</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(12) Goldrausch</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>7f355ead-d0ce-4e9f-9b26-2b130f86fee9</Data>
+ </GUID>
+</root>

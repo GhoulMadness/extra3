@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>MapDescription/CM01_12_Kaloix_name</NameKey>
+ <DescKey>MapDescription/CM01_12_Kaloix_desc</DescKey>
+ <Name>(4) Kaloix</Name>
+ <Desc>Der schlechte Ruf der Comtesse de Mortfichet ist ihr bereits weit vorausgeeilt. Doch was wird die Gemeinschaft in ihren Ländereien tatsächlich vorfinden?</Desc>
+ <SizeX>0</SizeX>
+ <SizeY>0</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Kaloix</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>d4da2e73-6159-4446-83f8-4ceca11e2628</Data>
+ </GUID>
+</root>

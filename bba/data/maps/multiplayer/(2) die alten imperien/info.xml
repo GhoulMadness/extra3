@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/CM03_04_WolfsLair_name</NameKey>
+ <DescKey>AO2MapDescription/CM03_04_WolfsLair_desc</DescKey>
+ <Name>(2) Die alten Imperien</Name>
+ <Desc>Eine Große Karte mit vielen Siedlungsplätzen. Die Karte läd zu großen Schlachten ein und man kann die Gegend bestaunen. Also, Blleibt nur noch viel Spaß und Glück zu wünschen! @cr @cr Mapdesign by: a4fDracke92 @cr überarbeitet von: Ghoul</Desc>
+ <SizeX>609</SizeX>
+ <SizeY>609</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) die alten imperien</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>d0a2b78e-4ae8-406d-a825-64d944c428ec</Data>
+ </GUID>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Vargs Bergfestung</Name>
+ <Desc>Endlich wurde der flüchtende Kerberos entdeckt.. Er verschanzt sich in Varg´s Festung. Stürmt in einem finalen Kampf die Festungsanlagen und beendet damit die Invasion im Norden des Reiches.</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop vargs bergfestung</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>e9d9e542-69dd-4300-bff0-1eae868ecfdd</Data>
+ </GUID>
+</root>

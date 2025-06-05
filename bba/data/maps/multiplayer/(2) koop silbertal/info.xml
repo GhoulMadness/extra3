@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Silbertal</Name>
+ <Desc>In dem weiten Tal findet ihr reichlich Rohstoffe. Genau diese gilt es gegen die näherrückenden Gegner zu schützen! @cr @cr Kartenmodus: Kooperation @cr Spielerzahl: 2 @cr Viel Spaß! @cr @color:166,212,35 Autor: P4F @cr @cr @color:255,255,255 Hinweis: Die Farben gelb, orange, hellblau und lila sind bereits vergeben! Auch im Einzelspielermodus spielbar!</Desc>
+ <SizeX>577</SizeX>
+ <SizeY>577</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop silbertal</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>5105782c-eede-4914-bd4e-28bea558a5e6</Data>
+ </GUID>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) Dunkelforst</Name>
+ <Desc>Ein wahrhaft finsterer Wald, in dem ihr euer Lager aufschlagt, um neue Territorien zu erkunden. Der Wald liegt sehr abgelegen und soll das eine oder andere Geheimnis verbergen. Legenden zufolge ist nie jemand zurückgekehrt, der den Wald betreten hat. Seid mutig und erforscht den Wald und ihr werdet den ein oder anderen Vorteil gegenüber eure Feinde haben.</Desc>
+ <SizeX>577</SizeX>
+ <SizeY>577</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>41</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) dunkelforst</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>b033a521-70c2-4403-ba5d-354bb8ddaf5f</Data>
+ </GUID>
+</root>

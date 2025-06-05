@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AOMapDescription/Antrium_name</NameKey>
+ <DescKey>AOMapDescription/Antrium_desc</DescKey>
+ <Name>(6) @color:255,255,51 Koop @color:255,255,255 Pfad der Flammen</Name>
+ <Desc>Stirling Castle ist ein Schloss in Schottland. @cr Es liegt über der Altstadt von Stirling auf dem Schlossberg („Castle Hill“), einem steil aufragenden Hügel vulkanischen Ursprungs. @cr Das Schloss spielte aufgrund seiner strategisch günstigen Lage am Fluss Forth eine wichtige Rolle in der Geschichte Schottlands und wurde mindestens sechzehnmal belagert oder angegriffen. In unmittelbarer Nähe fanden drei Schlachten statt, eine vierte wenige Kilometer weiter nördlich. @cr Von etwa 1100 bis 1685 war Stirling Castle eine der Hauptresidenzen der schottischen Könige, danach bis 1964 Hauptquartier des Regiments Argyll and Sutherland Highlanders.</Desc>
+ <SizeX>417</SizeX>
+ <SizeY>417</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>6</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(6) Koop Pfad der Flammen</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>98c2f427-8b05-46b0-b376-0fbeae585e60</Data>
+ </GUID>
+</root>

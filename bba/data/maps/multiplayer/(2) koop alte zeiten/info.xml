@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Alte Zeiten</Name>
+ <Desc>Pilgrim und Salim begegnen sich nach langer Zeit in einer rohstoffreichen südeuropäischen Gegend wieder. Doch das Geplauder muss warten, denn ohne Vorwarnung werden die Siedlungen der beiden angegriffen ... @cr @cr Kartenmodus: Kooperation @cr Spieler 1 (Pilgrim) --> Team 1 @cr Spieler 2 (Salim) --> Team 2 @cr Viel Spaß! @cr @color:166,212,35 Autor: P4F</Desc>
+ <SizeX>673</SizeX>
+ <SizeY>673</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop alte zeiten</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>3e602fa9-4d0f-49c8-984b-461a98041537</Data>
+ </GUID>
+</root>

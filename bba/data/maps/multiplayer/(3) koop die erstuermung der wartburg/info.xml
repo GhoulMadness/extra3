@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AOMapDescription/Antrium_name</NameKey>
+ <DescKey>AOMapDescription/Antrium_desc</DescKey>
+ <Name>(3) @color:255,255,51 Koop @color:255,255,255 Die Erstürmung der Wartburg</Name>
+ <Desc>Die Wartburg liegt in fast 400 Metern Höhe inmitten des nordwestlichen Thüringischen Waldes auf dem Wartberg. @cr Die im Jahre 1067 errichtete Burg hat im Laufe der Jahrhunderte viele Berühmtheiten beherbergt. In den Jahren 1521/22 fand Martin Luther hier zehn Monate lang Zuflucht und übersetzte das Alte Testament. Auch Johann Wolfgang von Goethe und die heilige Elizabeth von Ungarn, die Frau Ludwigs des IV., residierte hier.</Desc>
+ <SizeX>289</SizeX>
+ <SizeY>289</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>3</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(3) koop die erstuermung der wartburg</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>4b41fb61-ecdf-4db6-977a-7f12497a0928</Data>
+ </GUID>
+</root>

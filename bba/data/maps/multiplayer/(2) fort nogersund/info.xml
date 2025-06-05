@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/CM03_02_Patrol_name</NameKey>
+ <DescKey>AO2MapDescription/CM03_02_Patrol_desc</DescKey>
+ <Name>(2) Fort Nogersund</Name>
+ <Desc>Das mächtige Fort Nogersund wird von Barbaren belagert. @cr Die Helden müssen einen Weg finden, wie sie die feindlichen Aktivitäten stoppen können.</Desc>
+ <SizeX>513</SizeX>
+ <SizeY>513</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) fort nogersund</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>15cb4546-1e00-4a3e-af47-6a1990381020</Data>
+ </GUID>
+</root>

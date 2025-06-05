@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AOMapDescription/Castrum_name</NameKey>
+ <DescKey>AOMapDescription/Castrum_desc</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Castrum</Name>
+ <Desc>Ihr befindet Euch im Krieg! @cr  @cr Schafft Ihr es, Eure Festung über 90 Minuten lang gegen die wütenden Angriffe Eurer Feinde zu verteidigen?  @cr Schneller Aufbau - im vor Angriffen geschützten Teil des Landes - muss hier mit kluger Verteidigung der Festung kombiniert werden.</Desc>
+ <SizeX>641</SizeX>
+ <SizeY>641</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop castrum</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>e2e04c17-fa19-4954-bf02-f888007afa54</Data>
+ </GUID>
+</root>

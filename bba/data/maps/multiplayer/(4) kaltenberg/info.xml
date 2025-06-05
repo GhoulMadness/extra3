@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>MapDescription/CM01_12_Kaloix_name</NameKey>
+ <DescKey>MapDescription/CM01_12_Kaloix_desc</DescKey>
+ <Name>(4) Kaltenberg</Name>
+ <Desc>Seit dem Ausbruch des Vulkans laufen die Dinge für unsere Freunde sehr schlecht: Ihr sitzt auf einer Insel fest und die Eruptionen erschüttern immer wieder die Erde. Ihr müsst einen Weg finden, um diesen Wahnsinn zu stoppen.</Desc>
+ <SizeX>641</SizeX>
+ <SizeY>641</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Kaltenberg</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>7510e33b-8183-48c9-967f-c7b2b70379b0</Data>
+ </GUID>
+</root>

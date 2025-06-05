@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/CM03_04_WolfsLair_name</NameKey>
+ <DescKey>AO2MapDescription/CM03_04_WolfsLair_desc</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Die letzte Hoffnung</Name>
+ <Desc>Eine gemütliche europäische Gegend, Gesetzlose, die ihr Unwesen treiben, konkurrierende Städte und zahlreiche Siedler, die Aufgaben für Euch haben. Genau der richtige Stoff für Kampf und Quest für 2 Spieler... @cr @cr Kartenmodus: Kooperation @cr Viel Spaß! @cr @color:166,212,35 Autor: P4F @cr @cr @color:255,255,255 Hinweis: Die Farben hellblau, schwarz, lila und pink sind bereits vergeben.</Desc>
+ <SizeX>641</SizeX>
+ <SizeY>641</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop die letzte hoffnung</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>b39dfb25-619a-4d00-9eea-a5e65b3ffcbf</Data>
+ </GUID>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(5) Feste Nuamyr</Name>
+ <Desc>Die Umgebung entspricht der von "Die Invasion Im Norden - Prolog: Feste Nuamyr". Spieler 1+2 schlüpfen in die Rolle von Kerberos und den aufgestachelten Dörfern und müssen Spieler 3,4+5 besiegen, die Dario und die Feste Nuamyr verkörpern!</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>5</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(5) Feste Nuamyr</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>dc1d9a50-f771-4321-9320-8699fe8164eb</Data>
+ </GUID>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey></NameKey>
+ <DescKey></DescKey>
+ <Name>@color:255,255,255 (10) Küstenlandschaft</Name>
+ <Desc>Erkundet die sonnigen Küstenstreifen und die düsteren Wälder in den Bergen um Rohstoffe zu finden. Ihr könnt kämpfen oder handeln um sie zu bekommen. Nehmt Euch in der Mitte Eurer Mission Zeit, um für einige Augenblicke, die sonnendurchflutete Landschaft von der Spitze des Leuchtturmes zu genießen oder geht ein Stück am Strand entlang und füttert die Seemöven...</Desc>
+ <SizeX>993</SizeX>
+ <SizeY>993</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>10</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(10) kuestenlandschaft</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>82e6b26b-f366-454e-8ad5-47da34a935a5</Data>
+ </GUID>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) Skal</Name>
+ <Desc>In dieser nordeuropäischen Winterlandschaft herrscht fast ganzjährige klirrende Kälte. Schaltet eure Feinde schnell aus, bevor euch der eisige Wind den Rest gibt.</Desc>
+ <SizeX>545</SizeX>
+ <SizeY>545</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) skal</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>0db96b47-6dc2-4941-9a0d-21be5aeb7f51</Data>
+ </GUID>
+</root>

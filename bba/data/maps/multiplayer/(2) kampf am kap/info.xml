@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/CM03_03_Neighborhood_name</NameKey>
+ <DescKey>AO2MapDescription/CM03_03_Neighborhood_desc</DescKey>
+ <Name>(2) Kampf am Kap</Name>
+ <Desc>Zwei konkurrierende Burgherren thronen hoch oben an gegenüberliegenden eiskalten Fjorden. Seid ihr der überlegene Nordkrieger?</Desc>
+ <SizeX>513</SizeX>
+ <SizeY>513</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>0</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) kampf am kap</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>62a38753-4a91-43d1-baa7-a7debec907f3</Data>
+ </GUID>
+</root>

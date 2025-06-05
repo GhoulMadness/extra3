@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(3) Der lachende Dritte</Name>
+ <Desc>Drei Festungsanlagen kämpfen um die Vorherrschaft in dieser Steppenregion. Es liegt an dir, ob du ein mutiger Känpfer bist oder doch eher der, der die beiden Gegner kämpfen lässt und den richtigen Moment abwartet! Viel Glück und vor allem, Viel Spaß! </Desc>
+ <SizeX>673</SizeX>
+ <SizeY>673</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>3</MPPlayerCount>
+ <MPGameOptionFlagSet>41</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(3) der lachende dritte</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>3797641c-219d-4672-bdab-14406603ae12</Data>
+ </GUID>
+</root>

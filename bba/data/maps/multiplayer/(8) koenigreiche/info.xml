@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(8) Königreiche</Name>
+ <Desc>Jeder Spieler hat 3 DZs, 2 Eisen-, 1 Lehm-, 1 Stein-, 1 Schwefelmine/-n, Minen. @cr Brückenbau ist erst nach WS Ende möglich, Zugbrücken werden nach WS Ende passierbar. @cr 4 Inseln im Fluss, auf jeder ein zusätzliches DZ. (2 durch Zugbrücken erreichbar, 2 durch baubare Brücken). Viel Spaß! @cr @cr Mapdesign by: Anarki + a4f_twinking92</Desc>
+ <SizeX>609</SizeX>
+ <SizeY>609</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>8</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(8) Koenigreiche</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>ba127e7e-58ad-438d-bc87-cb858976768d</Data>
+ </GUID>
+</root>

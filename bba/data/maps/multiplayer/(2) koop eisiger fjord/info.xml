@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>MapDescription/Frozen_Fjord_name</NameKey>
+ <DescKey>MapDescription/Frozen_Fjord_desc</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Eisiger Fjord</Name>
+ <Desc>In nordischen Landschaftsgefilden steht Euch ein beeindruckender Gegner gegenüber: Die Nordfeste, regiert von Kerberos und Mortfichet. Doch Ihr könnt auch Verbündete gewinnen... </Desc>
+ <SizeX>0</SizeX>
+ <SizeY>0</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop eisiger fjord</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>3c832bda-e8a0-4d1a-9e06-85587da9eb2c</Data>
+ </GUID>
+</root>

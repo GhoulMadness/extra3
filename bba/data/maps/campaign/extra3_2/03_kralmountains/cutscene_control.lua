@@ -5,7 +5,7 @@
 -- Author: 	Ghoul
 -- Status: 	done
 ----------------------------------
-
+SetAdvancedCutsceneClipping()
 -----------------------------------------------------------------------------------------------------------------------
 --
 --	CUTSCENE: "INTRO"
@@ -45,9 +45,9 @@ function Cutscene_Intro_Cancel()
 end
 -------------------------------------------------------------------------------------------------------------------------
 function Cutscene_Intro_SetView()
-    Display.SetFogColor (152,172,182)
-    Display.SetFogStartAndEnd (5000, 10000)
-    Display.SetRenderFog (1)
+    --Display.SetFogColor (152,172,182)
+	--Display.SetFogStartAndEnd (5000, 10000)
+    --Display.SetRenderFog (1)
 end
 -------------------------------------------------------------------------------------------------------------------------
 function Cutscene_Intro_End()
@@ -75,7 +75,10 @@ function Cutscene_FiresOn_Text1()
 	Sound.PauseAll()
 	--Music.Start("music\\lotr_lighting_the_fires.mp3"  , 120, 0)
 	Stream.Start("music\\lotr_lighting_the_fires.mp3"  , 120)
-	StartCountdown(3, function() ReplaceEntity("fire4", Entities.XD_SingnalFireOn) end, false)
+	StartCountdown(2, function() ReplaceEntity("fire1", Entities.XD_SingnalFireOn) end, false)
+	StartCountdown(5, function() ReplaceEntity("fire4", Entities.XD_SingnalFireOn) end, false)
+	Move("fire_guard1", "fire1")
+	StartCountdown(2, function() Move("fire_guard4", "fire4") end, false)
 end
 function Cutscene_FiresOn_Text2()
 	GUIAction_DisplayCinematicText("CM08_03_Kralmountains/Cutscene_FiresOn_Text1")
@@ -107,7 +110,7 @@ function Cutscene_FiresOn_Text8()
 	GUIAction_DisplayCinematicText("CM08_03_Kralmountains/Cutscene_FiresOn_Text1")
 end
 function Cutscene_FiresOn_Text9()
-	GUIAction_DisplayCinematicText("CM08_03_Kralmountains/Cutscene_FiresOn_Text1")	
+	GUIAction_DisplayCinematicText("CM08_03_Kralmountains/Cutscene_FiresOn_Text1")
 end
 function Cutscene_FiresOn_Text10()
 	GUIAction_DisplayCinematicText("CM08_03_Kralmountains/Cutscene_FiresOn_Text1")
@@ -171,21 +174,23 @@ end
 --*********************************************************************************************
 function Mission_InitMovie()
 
-	--[[SetInternalClippingLimitMax(40000)
-	normales Limit liegt bei 20.000
-	Display.SetFogStartAndEnd (35000, 40000)
-	Display.SetRenderFog (1)]]
-	Display.SetFarClipPlaneMinAndMax(0, 20000)
-	Display.GfxSetSetFogParams(7, 0.0, 1.0, 1, 152,172,182, 2500,22000)
-	Display.GfxSetSetFogParams(1, 0.0, 1.0, 1, 152,172,182, 2500,22000)
+	--local currGFX = GetCurrentWeatherGfxSet()
+	--local dummyGFX = 99
+	--Display.GfxSetCloneFogParams(dummyGFX, currGFX)
+	Display.SetRenderUseGfxSets(0)
+	--Display.SetRenderFog(0)
+	Display.SetFogStartAndEnd(500, 60000)
+	Display.SetFarClipPlaneMinAndMax(0, 60000)
 	Interface_SetCinematicMode(1)
 
 end
 function Mission_EndMovie()
 
+	--local currGFX = GetCurrentWeatherGfxSet()
+	--local dummyGFX = 99
+	--Display.GfxSetCloneFogParams(currGFX, dummyGFX)
 	Display.SetRenderUseGfxSets(1)
-	Display.GfxSetSetFogParams(1, 0.0, 1.0, 1, 152,172,182, 5000,32000)
-	Display.GfxSetSetFogParams(7, 0.0, 1.0, 1, 152,172,182, 3500,32000)
+	--Display.SetRenderFog(1)
 	Interface_SetCinematicMode(0)
 	Display.SetFarClipPlaneMinAndMax(0, 0)
 

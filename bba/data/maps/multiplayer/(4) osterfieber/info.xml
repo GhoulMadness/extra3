@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(4) Osterfieber</Name>
+ <Desc>In deutschsprachigen Ländern und den Niederlanden suchen die Kinder bunt bemalte versteckte Hühnereier und Süßigkeiten, die vom „Osterhasen“ versteckt wurden. Es gibt auch den Brauch, Zweige in Vasen oder auf Bäumen im Garten mit bunt bemalten Ostereiern zu schmücken. Als Ostergebäck gibt es einen Kuchen in Hasen- oder Lammform. Bräuche zum Osterei sind das Ostereiertitschen, Ostereierschieben, Ostereierwerfen, Stüpen und Eierschibbeln. @cr @cr @color:180,0,240 Hinweis: Das Wechseln des Wetters kann sich als nützlich erweisen.</Desc>
+ <SizeX>607</SizeX>
+ <SizeY>607</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Osterfieber</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>3137f7d2-2519-4e40-841c-bcf1074c77cf</Data>
+ </GUID>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Vereinter Widerstand</Name>
+ <Desc>Ihr habt euer Lager zusammen mit einem Freund in den Highlands aufgeschlagen. Die Gegend ist sehr reich an Rohstoffen. Die umliegenden Dörfer neiden euch und wollen sich mit Gewalt euerer Rohstoffe habhaft machen. Nun liegt es an den Helden, gemeinsam die Dörfer zu verteidigen und die Gegner zu vertreiben.</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop vereinter widerstand</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>96aed4d5-20b5-47f3-b3e7-3a728a95c904</Data>
+ </GUID>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(3) @color:255,255,51 Koop @color:255,255,255 Die Großen Drei</Name>
+ <Desc>In diesem wäldlichen Gebiet treiben drei der berüchtigsten Schurken ihr Unwesen - haltet sie auf! Die Umgebung entspricht der von Wald der Großen Drei. @cr @cr Kartenmodus: Kooperation @cr Spieler: bis zu 3 @cr  Viel Spaß! @cr @color:166,212,35 Autor: Play4FuN @cr @cr @color:255,255,255 Hinweis: Die Farben hellblau, orange und lila sind bereits vergeben! Auch zu zweit oder alleine spielbar (+KI)!</Desc>
+ <SizeX>673</SizeX>
+ <SizeY>673</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>3</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(3) koop die grossen drei</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>6523c2b8-b7cd-432a-b3b0-841d86820262</Data>
+ </GUID>
+</root>

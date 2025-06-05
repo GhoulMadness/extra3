@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(3) @color:255,255,51 Koop @color:255,255,255 Kalas Zorn</Name>
+ <Desc>Wieder einmal werden die Helden von Kala, der Hexe der Sümpfe, bedroht. Erwehrt Euch ihrer Angriffe und schlagt dann zurück. Vertreibt Kala aus dieser Moorgegend!</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>3</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(3) koop kalas zorn</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>7efa80d5-50c8-4a1e-af2f-1af78dbcc6a5</Data>
+ </GUID>
+</root>

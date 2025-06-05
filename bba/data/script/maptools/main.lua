@@ -110,15 +110,18 @@ function GameCallback_OnGameStart()
 	-- Call first action
 	if Mission_FirstMapAction ~= nil then
 		Mission_FirstMapAction()
-	else
+	elseif FirstMapAction ~= nil then
 		FirstMapAction()
 	end
-	local tab = ChestRandomPositions.CreateChests()
-	Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "ChestRandomPositions_ChestControl",1,{},{unpack(tab)})
+
 	if not CNetwork then
 		math.randomseed(Game.RealTimeGetMs())
+		local tab = ChestRandomPositions.CreateChests()
+		Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "ChestRandomPositions_ChestControl",1,{},{unpack(tab)})
 	end
-	InitGeneralAchivementsCheck()
+	if not gvTestFlag then
+		InitGeneralAchievementsCheck()
+	end
 end
 
 function Mission_OnSaveGameLoaded()

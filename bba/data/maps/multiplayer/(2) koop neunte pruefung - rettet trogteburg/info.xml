@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) @color:255,255,51.9 Koop @color:255,255,255 Neunte Prüfung - Rettet Trogteburg</Name>
+ <Desc>Die riesige Stadt Trogteburg liegt inmitten eines nordeuropäischen Waldgebietes. Überall lauern Barbaren und plündern regelmäßig Menschen auf der Durchreise. Sie werden immer aggressiver und scheinen sich zu sammeln. Während sie früher einzeln in Clans kämpften, scheinen sie sich zusammenzuraufen, um die Stadt dem Erdboden gleichzumachen. Ari hat sich auf dem Weg gemacht, mit den Barbaren zu verhandeln und die Stadt vor ihrem grausamen Schicksal zu bewahren. @cr @cr Achtung, auf der Herausforderungs-Stufe ist diese Karte extrem schwer!</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop neunte pruefung - rettet trogteburg</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>8a55200c-0443-40e2-b977-49a02543e26d</Data>
+ </GUID>
+</root>

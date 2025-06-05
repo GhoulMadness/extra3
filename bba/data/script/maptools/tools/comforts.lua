@@ -340,6 +340,21 @@ CutsceneDone = function()
 
 end
 
+function SetAdvancedCutsceneClipping()
+	local Dist = 0
+	if GDB.IsKeyValid( "Config\\Display\\ClippingDistance" ) then
+		Dist = GDB.GetValue( "Config\\Display\\ClippingDistance" )
+	end
+	if Dist > 0 then
+		if not S5Hook then
+			IncludeGlobals("tools\\s5hook")
+			InstallS5Hook()
+		end
+		-- needs s5hook instead of CUtilMemory since adress is read-only
+		SetInternalClippingLimitCutscene(60000)
+	end
+end
+
 -- get difficulty string to translate diff lvl (sp campaign) to shown string
 ---@param _lvl integer
 ---@return string
@@ -2600,21 +2615,33 @@ end
 ---@param _val integer new clipping limit maximum
 function SetInternalClippingLimitCutscene(_val)
 	assert(type(_val) == "number", "Clipping Limit needs to be a number")
-	CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[0]:SetFloat(_val)
+	if S5Hook then
+		S5Hook.GetRawMem(tonumber("0x77A7E8", 16))[0]:SetFloat(_val)
+	else
+		CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[0]:SetFloat(_val)
+	end
 end
 
 -- overrides internal clipping limit maximum for global map (internally capped at 100k per default)
 ---@param _val integer new clipping limit maximum
 function SetInternalClippingLimitGlobal(_val)
 	assert(type(_val) == "number", "Clipping Limit needs to be a number")
-	CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[1]:SetFloat(_val)
+	if S5Hook then
+		S5Hook.GetRawMem(tonumber("0x77A7E8", 16))[1]:SetFloat(_val)
+	else
+		CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[1]:SetFloat(_val)
+	end
 end
 
 -- overrides internal clipping used when not specified or resetted back to default (12.5k per default)
 ---@param _val integer new clipping fallback value
 function SetInternalClippingResetValue(_val)
 	assert(type(_val) == "number", "Clipping fallback value needs to be a number")
-	CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[2]:SetFloat(_val)
+	if S5Hook then
+		S5Hook.GetRawMem(tonumber("0x77A7E8", 16))[2]:SetFloat(_val)
+	else
+		CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[2]:SetFloat(_val)
+	end
 end
 
 -- returns the weather movement speed modifier

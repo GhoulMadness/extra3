@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>MapDescription/Peaceful_Land_name</NameKey>
+ <DescKey>MapDescription/Peaceful_Land_desc</DescKey>
+ <Name>(4) Sparrowdale</Name>
+ <Desc>@color:135,205,255 von totalwarANGEL @color:255,255,255 @cr @cr In den Ruinen der einst mächtigen Festung Sparrowdale kämpfen zwei verfeindete Parteien um die Vormachtstellung im englischen Morast. Doch die Rohstoffe sind rar. Hoheit über die Provinzen könnte der Schlüssel zum Sieg sein. Aber vielleicht führen unlautere Mittel eher zum Ziel?</Desc>
+ <SizeX>705</SizeX>
+ <SizeY>705</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Sparrowdale</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>ce1c2c5b-c38c-469a-91ba-305d3657ed6d</Data>
+ </GUID>
+</root>

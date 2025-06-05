@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(4) Winterzauber</Name>
+ <Desc>@color:135,205,255 von MadShadow @cr @cr @color:255,255,255 Beißende kälte bei Nacht und gefrierender Atem über Tag. Die winterlichen Vorboten geheißen den Menschen sich in ihre Häusschen zurückzuziehen und Ruhe einkehren zu lassen. Stattdessen jedoch liegen sich zwei benachbarte Dörfer im Argen. In einem erbitterten Kampf mit jeglichen Mitteln wird versucht dem Gegenüber eins auszuwischen und als hätte es schlimmer nicht kommen können machen zudem Barbaren die Wälder unsicher. (Weihnachtsevent 2022)</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Winterzauber</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>17291328-5b19-46a5-89dd-a50308e2b9e0</Data>
+ </GUID>
+</root>

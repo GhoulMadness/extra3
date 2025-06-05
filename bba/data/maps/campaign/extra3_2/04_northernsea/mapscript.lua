@@ -124,9 +124,9 @@ function FirstMapAction()
 	TagNachtZyklus(24,0,1,(2-gvDiffLVL),1)
 end
 function FarbigeNamen()
-	orange 	= "@color:255,127,0 "
-	lila 	= "@color:250,0,240 "
-	weiss   = "@color:255,255,255 "
+	orange 	= " @color:255,127,0 "
+	lila 	= " @color:250,0,240 "
+	weiss   = " @color:255,255,255 "
 
 	ker  	= ""..orange.." Kerberos "..lila..""
 	var	 	= ""..orange.." Varg "..lila..""

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) @color:255,255,51.2 Koop @color:255,255,255 Zweite Prüfung - Taktische Finesse</Name>
+ <Desc>Diese Karte verlangt von Euch Höchstleistungen ab. @cr Schafft Ihr es, die feindliche Stadt mit einer begrenzten Anzahl von Truppen zu erobern? @cr Die Anzahl und die Typen von Truppen legt ihr dabei selbst fest! @cr Nach einer gewissen Zeit erhält der Gegner massive Verstärkungstruppen. Ihr müsst vor Ablauf dieser Zeit alle feindlichen Militärgebäude zerstören und alle feindlichen Truppen besiegen. @cr @cr Achtung, auf der Herausforderungs-Stufe ist diese Karte extrem schwer!</Desc>
+ <SizeX>289</SizeX>
+ <SizeY>289</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop zweite pruefung - taktische finesse</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>903f7c28-8ae0-4f2e-8b28-01a4e02d7686</Data>
+ </GUID>
+</root>

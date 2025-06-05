@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/CM03_04_WolfsLair_name</NameKey>
+ <DescKey>AO2MapDescription/CM03_04_WolfsLair_desc</DescKey>
+ <Name>(3) @color:255,255,51 Koop @color:255,255,255 Die schwarze Festung</Name>
+ <Desc>Schließt euch zusammen um den gefürchteten Herrscher der schwarzen Festung zu stürzen. @cr @cr Kartenmodus: Kooperation @cr Viel Spaß! @cr @color:166,212,35 Autor: P4F @cr Version 1.1 @cr @cr @color:255,255,255 Hinweis: Die Farben schwarz und dunkelgrau sind bereits vergeben! Auch zu zweit oder alleine spielbar (Plätze mit KI aufgefüllt)</Desc>
+ <SizeX>609</SizeX>
+ <SizeY>609</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>3</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(3) koop die schwarze festung</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>cc19ce85-182b-4380-90a4-d2216d41aa64</Data>
+ </GUID>
+</root>

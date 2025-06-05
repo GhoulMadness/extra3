@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(7) @color:255,255,51 Koop @color:255,255,255 Vargs Raubzug</Name>
+ <Desc>Nach Ewigkeiten des Krieges habt ihr endlich die Bergfeste des Barbarenkönigs und Schreckens des Nordens, Varg, gefunden. Ihr habt zusammen mit euren Freunden euren Stützpunkt am Rande der Berge aufgeschlagen. @cr Beeilt Euch, der Winter naht bereits und in diesen nordischen Gefilden kann er ewig dauern. Unterschätzt Varg nicht! Ihr müsst klug zusammenarbeiten, um Varg besiegen zu können! @cr Hinweis: Position 1 MUSS besetzt werden!</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>7</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(7) koop Vargs Raubzug</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>45966287-a0ce-4e8a-9621-0532d60e6aa2</Data>
+ </GUID>
+</root>

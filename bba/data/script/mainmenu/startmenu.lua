@@ -31,6 +31,14 @@ function StartMenu.Start( _StartVideoFlag )
 	-- Keys
 	Input.KeyBindDown(Keys.ModifierAlt + Keys.F4, "StartMenu_KeyBindings_AltFFour()",2)
 
+	if CNetwork then
+		XGUIEng.ShowWidget("StartMenu00_StartOnline", 1)
+		XGUIEng.ShowWidget("StartMenu00_StartSinglePlayer", 0)
+	else
+		XGUIEng.ShowWidget("StartMenu00_StartOnline", 0)
+		XGUIEng.ShowWidget("StartMenu00_StartSinglePlayer", 1)
+	end
+
 end
 
 ----------------------------------------------------------------------------------------------------
@@ -112,14 +120,21 @@ function StartMenu.S00_ToSingleplayerMenu()
 	-- Kampagnenschwierigkeit
 	if not GDB.IsKeyValid("Game\\Extra3\\CampaignDifficulty") then
 		GDB.SetValue("Game\\Extra3\\CampaignDifficulty", 2 )
-		XGUIEng.HighLightButton("SPM00_DifficultyButtonEasy",1)
+		XGUIEng.HighLightButton("SPM00_DifficultyButtonEasy",0)
+		XGUIEng.HighLightButton("SPM00_DifficultyButtonNormal",1)
 		XGUIEng.HighLightButton("SPM00_DifficultyButtonHard",0)
 		else
 		if GDB.GetValue("Game\\Extra3\\CampaignDifficulty") == 1 then
 			XGUIEng.HighLightButton("SPM00_DifficultyButtonEasy",0)
+			XGUIEng.HighLightButton("SPM00_DifficultyButtonNormal",0)
 			XGUIEng.HighLightButton("SPM00_DifficultyButtonHard",1)
+		elseif GDB.GetValue("Game\\Extra3\\CampaignDifficulty") == 2 then
+			XGUIEng.HighLightButton("SPM00_DifficultyButtonEasy",0)
+			XGUIEng.HighLightButton("SPM00_DifficultyButtonNormal",1)
+			XGUIEng.HighLightButton("SPM00_DifficultyButtonHard",0)
 		else
 			XGUIEng.HighLightButton("SPM00_DifficultyButtonEasy",1)
+			XGUIEng.HighLightButton("SPM00_DifficultyButtonNormal",0)
 			XGUIEng.HighLightButton("SPM00_DifficultyButtonHard",0)
 		end
 	end

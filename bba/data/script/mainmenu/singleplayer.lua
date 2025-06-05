@@ -21,7 +21,35 @@ function SPMenu.S00_ToCustomMap()
 
 	-- Show screen
 	XGUIEng.ShowAllSubWidgets( "Screens", 0 )
+	XGUIEng.ShowWidget("SPMenu19", 1)
+end
+function SPMenu.S00_ToCustomMapSP()
+	SelectedCustomMapsMode = 1
+	LoadMap.Init()
+	-- Show screen
+	XGUIEng.ShowAllSubWidgets( "Screens", 0 )
 	XGUIEng.ShowWidget("SPMenu20", 1)
+end
+function SPMenu.S00_ToCustomMapMPPvP()
+	SelectedCustomMapsMode = 2
+	LoadMap.Init()
+	-- Show screen
+	XGUIEng.ShowAllSubWidgets( "Screens", 0 )
+	XGUIEng.ShowWidget("SPMenu20", 1)
+end
+function SPMenu.S00_ToCustomMapMPPvE()
+	SelectedCustomMapsMode = 3
+	LoadMap.Init()
+	-- Show screen
+	XGUIEng.ShowAllSubWidgets( "Screens", 0 )
+	XGUIEng.ShowWidget("SPMenu20", 1)
+end
+--
+function SPMenu.S00_ToSingleplayerMenuS19()
+	
+	-- Show screen
+	XGUIEng.ShowAllSubWidgets( "Screens", 0 )
+	XGUIEng.ShowWidget("SPMenu19", 1)
 end
 
 ----------------------------------------------------------------------------------------------------

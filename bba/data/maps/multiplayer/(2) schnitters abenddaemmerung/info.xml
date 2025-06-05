@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) Schnitters Abenddämmerung</Name>
+ <Desc>Eine sehr düstere Map, die nicht gerade einladend wirkt. Achtet immer auf die Schatten, denn dort lauert der Sensenmann bereits auf sein nächstes Opfer...</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) schnitters abenddaemmerung</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>9ba094a6-fe84-45c4-b6f2-41f0a19bd984</Data>
+ </GUID>
+</root>

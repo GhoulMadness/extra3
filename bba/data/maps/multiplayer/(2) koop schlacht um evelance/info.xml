@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Schlacht um Evelance</Name>
+ <Desc>Vernichtet gemeinsam die dunkle Festungsanlage von Evelance. Doch Achtung, sie ist sehr stark befestigt! Hinweis: Die Umgebung entspricht der von "Brennendes Evelance". @cr Wichtig: Spieler 1 sollte der erfahrenste Spieler sein, da dieser die meisten Angriffe einstecken muss. Auch die Kontrolle über das Wetter kann sehr hilfreich sein!</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop schlacht um evelance</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>ef0bfffc-b131-4ca2-8ede-95a3fca5aa23</Data>
+ </GUID>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Die dunklen Pyramiden</Name>
+ <Desc>In einer düsteren aber faszinierenden Umwelt müsst ihr bestehen und Euch gegen drei mächtige Gegner zur Wehr setzen. Ihr habt Euch früh zu verteidigen, behaltet dabei aber auch Eure Rohstoffversorgung im Blick. Kampf, Aufbau und Forschung werden Euch über weite Strecken des Spiels fesseln. Nutzt Diebe und die Beeinflussung des Wetters, bis ihr im finalen Kampf endlich die beiden Pyramiden stürmen und die drei dunklen Festungen erobern könnt.</Desc>
+ <SizeX>417</SizeX>
+ <SizeY>417</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>9</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop die dunklen pyramiden</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>1040dbb0-d86c-41d0-b373-371ffbebb0e3</Data>
+ </GUID>
+</root>

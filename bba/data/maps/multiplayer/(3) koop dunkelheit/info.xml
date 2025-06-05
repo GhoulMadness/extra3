@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/CM05_03_DarknessUprise_name</NameKey>
+ <DescKey>AO2MapDescription/CM05_03_DarknessUprise_desc</DescKey>
+ <Name>(3) @color:255,255,51 Koop @color:255,255,255 Dunkelheit</Name>
+ <Desc>Regen und Schnee bedecken das Land nach Darios Tod. @cr Der Winter bringt Blut und Elend über das Königreich. @cr Kerberos Armeen marschieren in alle wichtigen Städte ein und bekämpfen den aufflackernden Widerstand.</Desc>
+ <SizeX>545</SizeX>
+ <SizeY>545</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>3</MPPlayerCount>
+ <MPGameOptionFlagSet>0</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(3) koop dunkelheit</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>2290d428-f6d9-451f-81fd-bd546b2a9613</Data>
+ </GUID>
+</root>

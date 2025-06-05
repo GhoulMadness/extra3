@@ -186,9 +186,9 @@ function FirstMapAction()
 	InitAchievementChecks()
 end
 function FarbigeNamen()
-	orange 	= "@color:255,127,0 "
-	lila 	= "@color:250,0,240 "
-	weiss	= "@color:255,255,255 "
+	orange 	= " @color:255,127,0 "
+	lila 	= " @color:250,0,240 "
+	weiss	= " @color:255,255,255 "
 
   	ment 	= ""..orange.." Mentor "..lila..""
 	dario	= ""..orange.." Dario "..lila..""

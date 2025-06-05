@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(6) Hochland</Name>
+ <Desc>Im Hochland kämpfen 6 Spieler um die Vorherrschaft. Jeder Spieler besitzt 2 Schwefel-/Eisenminen und 1 Lehm-/Steinmine. Jeder Spieler hat 3 DZ. In der Mitte kann nach WS Ende eine Dorfhalle erobert werden. FFA, 2v2v2 oder 3v3 möglich. @cr Gegenüber sind Spieler 1/4, 2/5, 3/6</Desc>
+ <SizeX>513</SizeX>
+ <SizeY>513</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>6</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(6) Hochland</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>76ecb26a-9626-4615-9413-90a4ca0fabad</Data>
+ </GUID>
+</root>

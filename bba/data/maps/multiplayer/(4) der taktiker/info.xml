@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO3MapDescription/CM07_02_Kafarna_name</NameKey>
+ <DescKey>AO3MapDescription/CM07_02_Kafarna_desc</DescKey>
+ <Name>(4) Der Taktiker</Name>
+ <Desc>Beweist Eurem Gegner, wer der stärkere ist! @cr In einem einzigen Krieg muss der Gegner von der Weidegegend, auf der euer beider Truppen stationiert sind, vertrieben werden! @cr @cr Möge der Bessere gewinnen! @cr @cr Besiegt alle Feinde oder verursacht binnen 10 Minuten den höchsten Schaden an der mysteriösen Statue im Zentrum der Karte, um siegreich zu sein!</Desc>
+ <SizeX>225</SizeX>
+ <SizeY>225</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) der taktiker</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>27ff1e9b-e406-4f14-8515-e04ee5a60530</Data>
+ </GUID>
+</root>

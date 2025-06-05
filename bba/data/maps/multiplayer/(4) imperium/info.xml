@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(4) Imperium</Name>
+ <Desc>Ihr seid in einer wunderschönen mediterranen Landschaft gelandet. Team 1 sollte aus Spieler 1 und Spieler 2 bestehen. Team 2 aus Spieler 3 und 4. @cr @cr Mapdesign by: a4f_mastersettl                                                                                                                                                       Viel Spaß wünscht a4f_mastersettl</Desc>
+ <SizeX>609</SizeX>
+ <SizeY>609</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Imperium</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>942251ba-6a85-4a32-bc90-6820a4f9443c</Data>
+ </GUID>
+</root>

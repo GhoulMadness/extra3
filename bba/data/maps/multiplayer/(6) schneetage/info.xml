@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/CM03_04_WolfsLair_name</NameKey>
+ <DescKey>AO2MapDescription/CM03_04_WolfsLair_desc</DescKey>
+ <Name>(6) Schneetage</Name>
+ <Desc>Zwei gegenüberliegende Bergdörfer im kalten hohen Norden konkurrieren um Macht und Einfluss. @cr @cr Raubt Eurem Gegner alle seine Geschenke unter seinem Weihnachtsbaum und legt sie unter euren eigenen, um die Partie für euch zu entscheiden!</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>6</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(6) Schneetage</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>3d1fdd8d-35ad-42ea-badc-1801ea73dffd</Data>
+ </GUID>
+</root>

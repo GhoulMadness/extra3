@@ -120,6 +120,7 @@ function FirstMapAction()
 	ActivateBriefingsExpansion()
 	StartSimpleJob("Gewonnen")
 	StartSimpleJob("Verloren")
+	--
 	SetFriendly(1,7)
     Start()
     Truhen()
@@ -128,9 +129,9 @@ function FirstMapAction()
 	TagNachtZyklus(32,1,1,(0-gvDiffLVL))
 end
 function FarbigeNamen()
-	orange 	= "@color:255,127,0 "
-	lila 	= "@color:250,0,240 "
-	weiss	= "@color:255,255,255 "
+	orange 	= " @color:255,127,0 "
+	lila 	= " @color:250,0,240 "
+	weiss	= " @color:255,255,255 "
 
 	sc     	= ""..orange.." Leo, drakonischer Kundschafter "..lila..""
 	bi     	= ""..orange.." Priester "..lila..""
@@ -174,7 +175,7 @@ function Start()
 	end
 	WikTroopTypes = {Entities.CU_Barbarian_LeaderClub2, Entities["PU_LeaderSword" .. 5 - gvDiffLVL], Entities["PU_LeaderBow" .. 5 - gvDiffLVL], Entities.PV_Cannon1}
 	if gvDiffLVL < 2 then
-		table.insert(KerbTroopTypes, Entities.CU_VeteranLieutenant)
+		table.insert(WikTroopTypes, Entities.CU_VeteranLieutenant)
 	end
 
 	ArmyData = {[2] = {{id = 0, position = GetPosition("KerberosTr"), building = GetID("KerbTower1"),

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>@color:255,255,255 (12) Völkerschlacht</Name>
+ <Desc>Eine Große Karte mit vielen Feldern und Wiesen. Die Karte läd zu großen Schlachten ein und man kann die Gegend bestaunen. @cr @cr Ausgelegt für 3vs3vs3vs3. @cr @cr Besiegt alle Feinde, um siegreich zu sein!</Desc>
+ <SizeX>513</SizeX>
+ <SizeY>513</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>12</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(12) voelkerschlacht</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>1bafd21e-5efc-496f-aee2-12e8ece39763</Data>
+ </GUID>
+</root>

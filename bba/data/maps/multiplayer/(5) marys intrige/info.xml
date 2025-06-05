@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(5) Marys Intrige</Name>
+ <Desc>Mary und einige Ihrer Verbündeten versuchen Eure Siedlung zu vernichten. Kämpft klug zusammen, um Ihre Truppen besiegen zu können. @cr Wichtig: Team1: Spieler 1,2,3,4 Team2: Spieler 5</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>5</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(5) Marys Intrige</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>e2005481-e258-4597-924b-d54db3dd9b14</Data>
+ </GUID>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(5) Predominance</Name>
+ <Desc>Auf dieser Karte muss ein Spieler ganz alleine gleich vier Gegnern entgegentreten. @cr Team 1: Spieler 1,2,3,4; Team 2: Spieler 5</Desc>
+ <SizeX>545</SizeX>
+ <SizeY>545</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>5</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(5) Predominance</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>b357065c-6a22-42be-8c47-708a819b31b5</Data>
+ </GUID>
+</root>

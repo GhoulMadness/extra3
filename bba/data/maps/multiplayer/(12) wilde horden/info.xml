@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>@color:255,255,255 (12) Wilde Horden</Name>
+ <Desc>ffa, 6v6, 4v4v4, 3v3v3v3 und 2v2v2v2v2v2 möglich! Spieler 1-8 befinden sich außen, Spieler 9-12 innen. Die inneren Positionen haben weniger Bauplatz, liegen dafür näher an der Silbermine.</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>12</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(12) Wilde Horden</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>dcf15919-b824-4793-9f1a-fe80211c8b07</Data>
+ </GUID>
+</root>

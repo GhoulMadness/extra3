@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/CM03_04_WolfsLair_name</NameKey>
+ <DescKey>AO2MapDescription/CM03_04_WolfsLair_desc</DescKey>
+ <Name>(2) Der Taktiker</Name>
+ <Desc>Beweist Eurem Gegner, wer der stärkere ist! @cr In einem einzigen Krieg muss der Gegner von der gemeinsamen Insel, auf der euer beider Truppen stationiert sind, vertrieben werden! @cr @cr Möge der Bessere gewinnen : ) @cr @cr Mapdesign by: Mordred + Keron</Desc>
+ <SizeX>289</SizeX>
+ <SizeY>289</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) der taktiker.png</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>ac6b1f94-807a-46ec-9781-06a7bbd7717c</Data>
+ </GUID>
+</root>

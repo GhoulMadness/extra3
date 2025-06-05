@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(4) Großer Wald des Dämmerlichts</Name>
+ <Desc>In dieser Karte wird eure Siedlung von einem schier undurchdringlichen Wald eingegrenzt. Doch die Erkundung des Waldes lohnt sich: Die ein oder andere Siedlung soll früher einmal inmitten dieses Waldes gestanden haben und wurde dann von der Vegetation eingeholt. Hinweis: Wichtige Rohstoffe findet ihr in den Berggebieten am Rande des Waldes. Empfohlene Teams: Team1: Spieler1+2, Team2: Spieler3+4</Desc>
+ <SizeX>577</SizeX>
+ <SizeY>577</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) grosser wald des daemmerlichts</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>b22f7fd6-1c7a-425f-87a4-adebe36a7e83</Data>
+ </GUID>
+</root>

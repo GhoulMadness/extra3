@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) Schwefelwahn</Name>
+ <Desc>Zwei gegenüberliegende Bergfesten kämpfen um die reichen Eisen- und Schwefelvorkommen in dieser wenig einladenden Moorgegend. @cr Verteidigt stategische Punkte geschickt, um Euch einen Vorteil in dieser Map zu verschaffen!</Desc>
+ <SizeX>641</SizeX>
+ <SizeY>641</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) schwefelwahn</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>53b3ec31-e06f-4191-9944-e2e9f3e3e1bd</Data>
+ </GUID>
+</root>

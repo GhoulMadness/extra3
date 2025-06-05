@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(7) Blutmoor</Name>
+ <Desc>Im Blutmoor müssen sich zwei Spieler gleich 5 Gegnern zur Wehr setzen. @cr Team1: Spieler 1+2, Team2: Spieler 3,4,5,6+7 @cr Das kleinere Zweierteam kann sich mächtige Nebelkrieger zur Unterstützung rufen.</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>7</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(7) Blutmoor</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>5ce435d2-5ca6-411c-84ac-67baba7c77f7</Data>
+ </GUID>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(8) Die Kralberge</Name>
+ <Desc>Die Kralberge: schroffe Felsformationen und reiche Eisenvorkommen sind typisch für diese Gegend. @cr Tipp: Schnappt Euch die zusätzlichen Schwefelminen und Dorfzentren in der Mitte der Karte und verteidigt sie geschickt! @cr Gegenüber sind Spieler 1-8, 2-7, 3-6, 4-5</Desc>
+ <SizeX>609</SizeX>
+ <SizeY>609</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>8</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(8) die Kralberge</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>4b145036-0aaf-4f99-b1ea-9b64af5714ef</Data>
+ </GUID>
+</root>

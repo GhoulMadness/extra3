@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/CM03_04_WolfsLair_name</NameKey>
+ <DescKey>AO2MapDescription/CM03_04_WolfsLair_desc</DescKey>
+ <Name>(4) Winterliche Bergpässe</Name>
+ <Desc>Gegenüberliegende Bergdörfer zweier verfeindeter Clans im kalten hohen Norden konkurrieren um Macht und Einfluss. @cr @cr Raubt Eurem verfeindetem Clan alle seine Geschenke unter seinem Weihnachtsbaum und legt sie unter Euren eigenen, um die Partie für Euch zu entscheiden! @cr @cr @color:135,135,135 Tipps und Tricks: @cr Ein Blick ins Tributmenü ist wärmstens zu empfehlen. @cr Pilgrims Fähigkeiten könnten sich als nützlich erweisen, bieten jedoch auch Eurem Feind weitere Möglichkeiten. @cr Auch die Kontrolle über das Wetter kann sich als nützlich erweisen! @cr Es sind insgesamt 7 Schatztruhen versteckt, die die verschiedensten hilfreichen Dinge beinhalten können.</Desc>
+ <SizeX>609</SizeX>
+ <SizeY>609</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Winterliche Bergpaesse</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>af3475bf-58cf-4681-a27a-34db063594f6</Data>
+ </GUID>
+</root>

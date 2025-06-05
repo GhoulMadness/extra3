@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/CM06_02_DefendingTheDryMoat_name</NameKey>
+ <DescKey>AO2MapDescription/CM06_02_DefendingTheDryMoat_desc</DescKey>
+ <Name>(2) Grabenkampf</Name>
+ <Desc>Die Stadt Torfalas wird angegriffen und Dario eilt herbei, um der Verteidigung beizustehen. @cr Alle Hoffnung ruht auf den Ordensrittern, die mit Verstärkung anrücken. @cr Doch die Frage ist, ob es noch etwas zu verteidigen gibt, wenn sie eintreffen.</Desc>
+ <SizeX>513</SizeX>
+ <SizeY>513</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) grabenkampf</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>cbb44d1d-3f8d-49e6-8b81-73e469da76e7</Data>
+ </GUID>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(3) Eingekesselt</Name>
+ <Desc>In nordischen Landschaftsgefilden wird ein Dorf in einem kleinen Tal von zwei Feinden eingekesselt. Könnt ihr euch alleine gleich zwei Gegnern zur Wehr setzen? @color:230,100,0 Empfohlene Teams: Team1: Spieler 1, Team2: Spieler 2+3 </Desc>
+ <SizeX>417</SizeX>
+ <SizeY>417</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>3</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(3) eingekesselt</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>044d6d83-79fa-4be0-aca4-db4bb25c9afd</Data>
+ </GUID>
+</root>

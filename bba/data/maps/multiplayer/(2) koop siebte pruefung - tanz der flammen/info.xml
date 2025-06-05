@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AOMapDescription/Antrium_name</NameKey>
+ <DescKey>AOMapDescription/Antrium_desc</DescKey>
+ <Name>(2) @color:255,255,51.7 Koop @color:255,255,255 Siebte Prüfung - Tanz der Flammen</Name>
+ <Desc>Schloss Glücksburg ist komplett von einem See umgeben und gilt als wichtigstes Renaissance-Bauwerk Schleswig-Holsteins. Die Burg wurde von 1583 bis 1587 von Nikolaus Karies errichtet, einem Baumeister aus dem nahegelegenen Flensburg. @cr Im Jahre 1848 verwüsteten die Dänen zwar die Burg, doch König Friedrich VII erkor sie einige Jahre später zu seiner Sommerresidenz aus und ließ sie wieder aufbauen. @cr @cr Achtung, auf der Herausforderungs-Stufe ist diese Karte extrem schwer!</Desc>
+ <SizeX>225</SizeX>
+ <SizeY>225</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop siebte pruefung - tanz der flammen</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>9f33698c-3150-47f8-843e-57b5fa9f00a0</Data>
+ </GUID>
+</root>

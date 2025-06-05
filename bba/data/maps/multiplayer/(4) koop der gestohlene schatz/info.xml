@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(4) @color:255,255,51 Koop @color:255,255,255 Der gestohlene Schatz</Name>
+ <Desc>Eduard der Ehrgeizige beschuldigt Euch seine wertvolle Sammlung an kunstvoll verzierten Waffen gestohlen zu haben und will sie mit aller Gewalt zurückholen. Dabei weiß jeder, dass Sven Schlitzohr der Übeltäter ist - nehmt Sven die Kunstwerke ab um Eduard zu besänftigen! @cr @cr Kartenmodus: Kooperation @cr Viel Spaß! @cr @color:166,212,35 Autor: Play4FuN @cr Version 1.0 @cr @cr @color:255,255,255 Hinweis: Blitzpartie an = Standardeinstellungen verwenden; Blitzpartie aus = Schwierigkeit + Optionen zu Spielbeginn wählen.</Desc>
+ <SizeX>673</SizeX>
+ <SizeY>673</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) koop der gestohlene Schatz</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>35106914-7f15-47f2-a78c-dec2e3f886c9</Data>
+ </GUID>
+</root>

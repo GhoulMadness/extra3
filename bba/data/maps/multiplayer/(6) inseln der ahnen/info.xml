@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(6) Inseln der Ahnen</Name>
+ <Desc>Auf diesen Inseln haben bereits unsere Ahnen gewohnt und gelebt. Wir dürfen nicht zulassen, dass irgendwelche Fremden uns dieses Land streitig machen.    @color:230,100,0  Empfohlene Teams: Team1: Spieler 1,2+3; Team2: Spieler 4,5+6</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>6</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(6) Inseln der Ahnen</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>ab2ae0f2-626d-47c6-a344-9666733cd0d2</Data>
+ </GUID>
+</root>

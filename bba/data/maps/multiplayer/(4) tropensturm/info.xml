@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(4) Tropensturm</Name>
+ <Desc>Ihr befindet Euch in tropischen Gefilden. Nach Ablauf des WS setzt die Trockenzeit ein und die Flüsse werden austrocknen. @cr Jeder Spieler besitzt 3 DZ, je 2 Schwefel-/Eisenminen und je 1 Lehm-/Stein-/Goldmine/Leuchtturm. </Desc>
+ <SizeX>641</SizeX>
+ <SizeY>641</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Tropensturm</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>59f29ddb-9682-4d36-8fb9-b63090fc7d0a</Data>
+ </GUID>
+</root>

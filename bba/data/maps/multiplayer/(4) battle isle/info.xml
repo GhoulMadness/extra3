@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>MapDescription/(4)BattleIsle_name</NameKey>
+ <DescKey>MapDescription/(4)BattleIsle_desc</DescKey>
+ <Name>(4) Battle Isle</Name>
+ <Desc>Liefert Euch erbitterte Kämpfe und versucht die Kontrolle über das Wetter zu behalten, dann ist der Sieg Euer auf dieser finsteren, unfreundlichen 4 Spieler-Karte, auf der die Gegner und die Ressourcen verstreut auf Inseln zu finden sind.   @cr  @cr Hinweis: Es gibt keine wechselnden Jahreszeiten.</Desc>
+ <SizeX>0</SizeX>
+ <SizeY>0</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>63</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) battle isle</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>7a21d3fa-01ee-460b-8b0e-f75c49ff71fe</Data>
+ </GUID>
+</root>

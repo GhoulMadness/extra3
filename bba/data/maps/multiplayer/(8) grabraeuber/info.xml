@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>@color:255,255,255 (8) Grabräuber</Name>
+ <Desc>Eine wahrlich düstere Gegend in die ihr da geraten seid. @cr Spinnweben hängen Euren Siedlern im Gesicht und das üble Wetter wird Euch noch weiter zermürben.</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>8</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(8) grabraeuber</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>497075fa-9b33-4181-8bf1-6e0280f8d5fb</Data>
+ </GUID>
+</root>

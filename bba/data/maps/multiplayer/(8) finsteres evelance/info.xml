@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(8) Finsteres Evelance</Name>
+ <Desc>In dieser düsteren Evelance-Region gilt es, mehrere Feinde auszuschalten. Kontrolliert die reichen Rohstoffressourcen in der Mitte der Map, um einen entscheidenden Vorteil gegenüber euren Kontrahenten zu haben. @color:230,100,0 Empfohlene Teams: Team1: Spieler 1+2, Team2: Spieler 3+4, Team3: Spieler 5+6, Team4: Spieler 7+8</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>8</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(8) Finsteres Evelance</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>4a21670f-edb9-4312-be78-ee38e207780a</Data>
+ </GUID>
+</root>

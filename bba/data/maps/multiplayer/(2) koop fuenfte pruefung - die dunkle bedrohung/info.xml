@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/Lightridge_name</NameKey>
+ <DescKey>AO2MapDescription/Lightridge_desc</DescKey>
+ <Name>(2) @color:255,255,51.5 Koop @color:255,255,255 Fünfte Prüfung - Die dunkle Bedrohung</Name>
+ <Desc>In einem Gebiet indem die natürlichen Rohstoffe fast völlig verbraucht sind, sorgen ein böser Adliger und rohstoffhungrige Barbaren für weiteren Ärger durch ihre Angriffspläne. Erec wird um Hilfe gerufen, aber benötigt unbedingt Gold, um die Hilfe auf die Beine zu stellen. Der einzige Weg, den Erec nehmen kann um die Siedlung zu erreichen, führt über eine Brücke, die unter Angriffen liegt. Seid Ihr all diesen Problemen gewachsen? @cr @cr Achtung, auf der Herausforderungs-Stufe ist diese Karte extrem schwer!</Desc>
+ <SizeX>545</SizeX>
+ <SizeY>545</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop fuenfte pruefung - die dunkle bedrohung</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>b8af32cf-3fa4-40ef-b3d9-d7277ced5ba0</Data>
+ </GUID>
+</root>

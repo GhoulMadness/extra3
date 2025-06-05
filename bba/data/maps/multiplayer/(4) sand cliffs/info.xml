@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(4) Sand Cliffs</Name>
+ <Desc>Einigen Spielern wird die Map vielleicht aus Spellforce 2 bekannt vorkommen. Die Map hat mir so gut gefallen, dass ich sie bis auf ein paar Ausnahmen nachgebaut habe. Sie stammt noch vom Dezember 05, aber erst jetzt habe ich sie wieder entstaubt und hochgeladen. Das wird meine letzte S5 Map gewesen sein, jetzt geht es mit S2 weiter. Schaut mal vorbei. Aber wer weiß, sag niemals nie ;) Viel Spaß damit.
+Es gibt keine periodischen Wetterveränderungen
+
+Empfohlene Teams:
+Team 1: Spieler 1, 2
+Team 2: Spieler 3, 4 @cr @cr Mapdesign by: Rushki</Desc>
+ <SizeX>609</SizeX>
+ <SizeY>609</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>9</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) sand Cliffs</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>9cfad2fb-c8aa-436d-89a3-1870c37e9d05</Data>
+ </GUID>
+</root>

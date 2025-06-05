@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>MapDescription/CM01_08_Barmecia_name</NameKey>
+ <DescKey>MapDescription/CM01_08_Barmecia_desc</DescKey>
+ <Name>(2) @color:255,255,51.3 Koop @color:255,255,255 Dritte Prüfung - Gesandter des Himmels</Name>
+ <Desc>Nun gilt es sich mit der zweiten der kontrahierenden Städte auseinander zu setzen: Barmecia! Nach bisherigen Informationen scheinen sie sehr daran interessiert zu sein, einen Dom zu errichten. Doch kamen sie bisher damit kaum voran. @cr @cr Schafft Ihr es, trotz aller Widrigkeiten innerhalb eines Zeitlimits ihr Anliegen zu erfüllen? @cr @cr Achtung, auf der Herausforderungs-Stufe ist diese Karte extrem schwer!</Desc>
+ <SizeX>673</SizeX>
+ <SizeY>673</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop dritte pruefung - gesandter des himmels</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>226bf5d6-3349-4b59-89a5-cea3b1fe538c</Data>
+ </GUID>
+</root>

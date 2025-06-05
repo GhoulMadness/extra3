@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(8) Verrat</Name>
+ <Desc>Einige unsererer benachbarten Stämme haben uns verraten. Vernichten wir sie! </Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>8</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(8) Verrat</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>4e5ad51e-8d29-4384-946a-30e1551102bb</Data>
+ </GUID>
+</root>

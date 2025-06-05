@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Heldenjagd</Name>
+ <Desc>Dario und seinen Freunden ist es gelungen Evelance zu erobern und Kerberos Truppen in die Knie zu zwingen. Doch niemand hat je seine Leiche geunden - wie auch, da der mächtige Ritter noch am Leben ist! Gemeinsam mit Mary beginnt eine gnadenlose Jagd auf Darios Freunde! @cr @cr Kartenmodus: Kooperation @cr @color:166,212,35 @cr Autor: Play4FuN</Desc>
+ <SizeX>673</SizeX>
+ <SizeY>673</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop heldenjagd</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>198d6f8a-8234-4181-838f-1bc032927051</Data>
+ </GUID>
+</root>

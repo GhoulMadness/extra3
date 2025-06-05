@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Kerberos dunkle Horden</Name>
+ <Desc>Spione haben eine riesige Festungsanlage hoch in den nördlichen Bergen ausgemacht. Kerberos ist nicht tot. Er versucht von dort oben aus, seine Macht auszuweiten. Ihr habt zusammen mit euren Freunden euren Stützpunkt unterhalb der Berge aufgeschlagen. @cr Beeilt Euch, der Winter naht bereits und in diesen kalten Gefilden kann er ewig dauern. Unterschätzt Kerberos und seine Hinterlistigkeit nicht! Mit Varg und Mary hat er mächtige Verbündete an seiner Seite! @cr Hinweis: Position 1 MUSS besetzt werden!</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop kerberos dunkle horden</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>e6b866cf-9918-43ed-8da8-8f1dc03dd98d</Data>
+ </GUID>
+</root>

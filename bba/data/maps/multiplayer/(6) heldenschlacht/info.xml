@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(6) Heldenschlacht</Name>
+ <Desc>Sechs Spieler mit jeweils bis zu acht Helden? @cr Wird das chaotisch? Vielleicht..</Desc>
+ <SizeX>641</SizeX>
+ <SizeY>641</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>6</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(6) Heldenschlacht</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>fb57f41c-953d-4fdf-90ca-5ca2604415d0</Data>
+ </GUID>
+</root>

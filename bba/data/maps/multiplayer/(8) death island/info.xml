@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(8) Death Island</Name>
+ <Desc>Willkommen in der Einöde. Auf dieser Insel werdet ihr euch recht schnell einsam fühlen, denn es gibt kein Leben. Lediglich ein paar Zypressen wachsen noch am Friedhof. Es sei denn ihr habt einen Teampartner oder gar einen Gegner, der vielleicht schon eine Abkürzung zu euch gefunden hat. Hört ihr es schon explodieren? Es gibt keine periodischen Wetterveränderungen
+
+Empfohlene Teams:
+Team 1: Spieler 1, 2, 3, 4
+Team 2: Spieler 5, 6, 7, 8. @cr @cr Mapdesign by: Rushki</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>8</MPPlayerCount>
+ <MPGameOptionFlagSet>9</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(8) Death Island</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>52dcfdac-0120-4e40-af6c-2ea9dabc484c</Data>
+ </GUID>
+</root>

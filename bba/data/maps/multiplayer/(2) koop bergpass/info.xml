@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/CM03_04_WolfsLair_name</NameKey>
+ <DescKey>AO2MapDescription/CM03_04_WolfsLair_desc</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Bergpass</Name>
+ <Desc>Mary De Mortfichet ist es gelungen eine riesige Armee aufzustellen, indem sie ein paar der großen Kriegstreiber um sich gesammelt hat. Bald wird sie den Bergpass in Richtung Darios Königreich passieren - es sei denn jemand schafft es, sie aufzuhalten... @cr @cr Kartenmodus: Kooperation @cr Spielerzahl: 2 @cr Viel Spaß! @cr @color:166,212,35 Autor: P4F</Desc>
+ <SizeX>609</SizeX>
+ <SizeY>609</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop bergpass</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>c1230874-7660-4eef-948d-793fd6465e31</Data>
+ </GUID>
+</root>

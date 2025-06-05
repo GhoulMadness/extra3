@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/EvelanceAssault_name</NameKey>
+ <DescKey>AO2MapDescription/EvelanceAssault_desc</DescKey>
+ <Name>(4) @color:255,255,51 Koop @color:255,255,255 Belagerung von Velborg</Name>
+ <Desc>Velborg... Eine von Vargs stark befestigten Bergsiedlungen. @cr @cr Wählt Eure Armee und vernichtet die Siedlung!</Desc>
+ <SizeX>289</SizeX>
+ <SizeY>289</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) koop Belagerung von Velborg</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>d260f9ff-3475-49aa-8ff5-f8aa920d5833</Data>
+ </GUID>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(4) Nebelberge</Name>
+ <Desc>In diesen nordischen Gefilden kämpfen vier Spieler um die Vorherrschaft. ffa oder 2vs2 möglich.</Desc>
+ <SizeX>513</SizeX>
+ <SizeY>513</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Nebelberge</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>18532449-bc7b-48e7-9f7c-d892e79977b5</Data>
+ </GUID>
+</root>

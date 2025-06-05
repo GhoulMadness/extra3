@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO3MapDescription/CM07_02_Kafarna_name</NameKey>
+ <DescKey>AO3MapDescription/CM07_02_Kafarna_desc</DescKey>
+ <Name>(4) Die Zusammenkunft</Name>
+ <Desc>Es war ein langer und schwieriger Weg bis hierhin. Wir haben große Verluste gehabt, dennoch haben wir es geschafft. Nun steht uns der letzte  und  sehr starke Gegner gegenüber. Wir haben schon viel von ihm gehört. Nun wird sich zeigen, wer der bessere ist. Denn es kann nur einen Sieger geben!               Teams 1+2 und 3+4 @cr @cr Mapdesign by: Magic of the Resuscitate</Desc>
+ <SizeX>65</SizeX>
+ <SizeY>65</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>9</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) die zusammenkunft</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>c4580667-3f5b-4e06-aaf3-aa6fe809abab</Data>
+ </GUID>
+</root>

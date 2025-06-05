@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Eingekesselt</Name>
+ <Desc>In einem von Gegnern umzingelten Gebiet seht Ihr Euch zu zweit in einer kniffligen Lage. Nutzt Eure Rohstoffe geschickt, sonst ziehen Eure Feinde die bereits enge Schlinge um Euch zu! @cr @cr Kartenmodus: Kooperation (+ wählbare Heldenanzahl) @cr Viel Spaß! @cr @color:166,212,35 Autor: P4F @cr @cr @color:255,255,255 Hinweis: Die Farben grau, schwarz, grün und gelb sind bereits vergeben. Auch im Einzelspielermodus spielbar.</Desc>
+ <SizeX>577</SizeX>
+ <SizeY>577</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop eingekesselt</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>f65458c3-a6f6-4270-b936-144760f206a4</Data>
+ </GUID>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/CM04_05_EmeraldFields_name</NameKey>
+ <DescKey>AO2MapDescription/CM04_05_EmeraldFields_desc</DescKey>
+ <Name>(4) @color:255,255,51 Koop @color:255,255,255 Die Smaragdebene</Name>
+ <Desc>Der Moment der Entscheidung ist gekommen. @cr Die Freunde ziehen vereinigt und mit der Hilfe der Bergkrieger in die finale Schlacht gegen den großen Barbarenführer Scorillo und seine mächtige Armee.</Desc>
+ <SizeX>641</SizeX>
+ <SizeY>641</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) koop die Smaragdebene</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>5e50108c-4f63-4847-8d6f-3437b5d4bca7</Data>
+ </GUID>
+</root>

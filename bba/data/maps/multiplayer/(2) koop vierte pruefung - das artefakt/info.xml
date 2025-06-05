@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>MapDescription/CM01_02_VillageAttack_name</NameKey>
+ <DescKey>MapDescription/CM01_02_VillageAttack_desc</DescKey>
+ <Name>(2) @color:255,255,51.4 Koop @color:255,255,255 Vierte Prüfung - Das Artefakt</Name>
+ <Desc>Auch andere Dörfer in der näheren Umgebung blieben von den Überfällen der schwarzen Reiter nicht verschont. So auch das Dorf von Darios Mutter... @cr @cr Achtung, auf der Herausforderungs-Stufe ist diese Karte extrem schwer!</Desc>
+ <SizeX>609</SizeX>
+ <SizeY>609</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop vierte pruefung - das artefakt</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>a4300c77-6be5-4e66-8bfe-57fdc7f197d4</Data>
+ </GUID>
+</root>

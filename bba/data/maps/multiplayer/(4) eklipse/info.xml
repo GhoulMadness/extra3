@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>MapDescription/CM01_08_Barmecia_name</NameKey>
+ <DescKey>MapDescription/CM01_08_Barmecia_desc</DescKey>
+ <Name>(4) Eklipse</Name>
+ <Desc>Zwei Teams ringen in dieser düsteren Evelance-Landschaft um die Vorherrschaft.</Desc>
+ <SizeX>449</SizeX>
+ <SizeY>449</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Eklipse</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>7d70280c-e3c1-438e-a086-be6f31b16f13</Data>
+ </GUID>
+</root>

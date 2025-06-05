@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(8) Inferno</Name>
+ <Desc>Einige unsererer benachbarten Stämme haben uns verraten. Vernichten wir sie!</Desc>
+ <SizeX>577</SizeX>
+ <SizeY>577</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>8</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(8) Inferno</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>f57269ba-a3aa-4414-aa9d-f0d226ad19c7</Data>
+ </GUID>
+</root>

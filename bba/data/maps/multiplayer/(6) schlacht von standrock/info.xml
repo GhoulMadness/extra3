@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO3MapDescription/CM07_02_Kafarna_name</NameKey>
+ <DescKey>AO3MapDescription/CM07_02_Kafarna_desc</DescKey>
+ <Name>(6) Schlacht von Standrock</Name>
+ <Desc>Beweist Eurem Gegner, wer der stärkere ist! @cr In einem einzigen Krieg muss der Gegner von der Wald- und Wiesengegend, auf der euer beider Truppen stationiert sind, vertrieben werden! @cr @cr Möge der Bessere gewinnen! @cr @cr Besiegt alle Feinde, um siegreich zu sein!</Desc>
+ <SizeX>481</SizeX>
+ <SizeY>481</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>6</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(6) Schlacht von Standrock</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>a0ee4b8d-f8a6-4bc5-9356-f27f5915f651</Data>
+ </GUID>
+</root>

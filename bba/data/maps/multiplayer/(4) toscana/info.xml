@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(4) Toscana</Name>
+ <Desc>Für jeden Spieler 3 DZ, 2 Schwefel-/Eisenminen und 1Stein-/Lehmmine.  Brückenbau ist nach abgelaufenem WS möglich. Map by Vision_SFC @cr @cr Gegenueber stehen sich: 1-4 2-3. </Desc>
+ <SizeX>609</SizeX>
+ <SizeY>609</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Toscana</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>a999f8d9-863f-41bd-b53e-bbf560abc020</Data>
+ </GUID>
+</root>

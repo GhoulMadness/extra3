@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>MapDescription/(3)Mediterranean_name</NameKey>
+ <DescKey>MapDescription/(3)Mediterranean_desc</DescKey>
+ <Name>(3) Gestrandet</Name>
+ <Desc>In dieser wunderschönen mediterranen Region liegen die Startpositionen der drei möglichen Spieler eng beieinander und einige Ressourcen sind rar.</Desc>
+ <SizeX>0</SizeX>
+ <SizeY>0</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>3</MPPlayerCount>
+ <MPGameOptionFlagSet>63</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(3) gestrandet</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>cfda7eff-e0a7-4cdc-88a7-74f9252715a2</Data>
+ </GUID>
+</root>

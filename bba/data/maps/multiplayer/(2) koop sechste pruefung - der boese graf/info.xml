@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AOMapDescription/Antrium_name</NameKey>
+ <DescKey>AOMapDescription/Antrium_desc</DescKey>
+ <Name>(2) @color:255,255,51.6 Koop @color:255,255,255 Sechste Prüfung - Der böse Graf</Name>
+ <Desc>Die Stadt Antrium benötigt Hilfe:  @cr  @cr Die Kathedrale der Stadt und die Burg sind voneinander abgeschnitten.  @cr Nur, wenn beide Teile Antriums gut zusammen arbeiten, wird die Stadt überleben.  @cr  @cr Achtung: Der Winter kommt bestimmt... @cr @cr Achtung, auf der Herausforderungs-Stufe ist diese Karte extrem schwer!</Desc>
+ <SizeX>65</SizeX>
+ <SizeY>65</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop sechste pruefung - der boese graf</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>b42ace40-3ebe-454a-89f3-5835476de607</Data>
+ </GUID>
+</root>

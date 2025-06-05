@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(4) Nachtmahr</Name>
+ <Desc>In dieser düsteren Moorgegend ringen vier Spieler um die Vorherrschaft. Teams oder ffa möglich</Desc>
+ <SizeX>513</SizeX>
+ <SizeY>513</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Nachtmahr</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>025feb63-5674-4759-9162-f77bb3b436da</Data>
+ </GUID>
+</root>

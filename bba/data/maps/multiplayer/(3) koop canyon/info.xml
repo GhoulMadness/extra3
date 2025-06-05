@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(3) @color:255,255,51 Koop @color:255,255,255 Canyon</Name>
+ <Desc>In mediterranen Landschaftsgefilden baut ihr zusammen mit zwei Freunden eure Siedlung auf. Platz zum Bauen ist im schmalen Canyon wenig vorhanden und macht das Siedeln so zur echten Herausforderung, aber der Rohstoffreichtum der Gegend und die schöne Landschaft entschädigen euch vollkommen. Reiche Rohstoffvorkommen befinden sich vor allem in der Mitte der Map. Leider aber auch der Weg zum Feind.</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>3</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(3) koop canyon</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>6eb0bea1-fcdd-4a2d-9f52-3c101a338e29</Data>
+ </GUID>
+</root>

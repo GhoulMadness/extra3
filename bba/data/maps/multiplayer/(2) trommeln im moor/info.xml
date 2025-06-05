@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) Trommeln im Moor</Name>
+ <Desc>Stammestruppen des Nebelvolk kontrollieren diese Moorregion! Seid also auf der Hut! Ihr müsst zuerst das Nebelvolk beseitigen, um zu Eurem Feind vorrücken zu können. @cr Jeder Spieler besitzt jeweils 2 Lehm-/Schwefelminen, 1 Steinmine, 3 Eisenminen sowie 4 DZ. Im vom Nebelvolk kontrollierten Bereich befinden sich zusätzliche DZ!</Desc>
+ <SizeX>545</SizeX>
+ <SizeY>545</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) trommeln im moor</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>fe73f8b6-0953-455b-8596-9702d4380672</Data>
+ </GUID>
+</root>

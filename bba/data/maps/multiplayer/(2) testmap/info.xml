@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO3MapDescription/CM07_02_Kafarna_name</NameKey>
+ <DescKey>AO3MapDescription/CM07_02_Kafarna_desc</DescKey>
+ <Name>(2) Testmap</Name>
+ <Desc>Testkarte für die Extra3-Mythen-Modifikation. @cr @cr Testmap for the Extra3-Myths-modification</Desc>
+ <SizeX>481</SizeX>
+ <SizeY>481</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) testmap</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>fb8f39bc-2b8f-406a-b2c3-f93ad6a541dc</Data>
+ </GUID>
+</root>

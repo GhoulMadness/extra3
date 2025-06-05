@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Wettlauf mit der Zeit</Name>
+ <Desc>Auch andere Dörfer in der näheren Umgebung blieben von den Überfällen der schwarzen Reiter nicht verschont. So auch das Dorf von Darios Mutter... @cr @cr Achtung, auf der Herausforderungs-Stufe ist diese Karte extrem schwer!</Desc>
+ <SizeX>673</SizeX>
+ <SizeY>673</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop wettlauf mit der zeit</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>63baee0a-c4b2-457b-9376-dee2992318c2</Data>
+ </GUID>
+</root>

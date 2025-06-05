@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/EvelanceAssault_name</NameKey>
+ <DescKey>AO2MapDescription/EvelanceAssault_desc</DescKey>
+ <Name>(4) @color:255,255,51 Koop @color:255,255,255 Angriff auf Evelance</Name>
+ <Desc>Eine mächtige Festungsanlage thront auf den Bergen von Evelance.  @cr  @cr Gewinnt die Schlacht gegen Eure Gegner indem Ihr Euch die Vorteile der Wettertechnologie zu nutze macht.  @cr Während des Winters könnten vereiste Flüsse den Zugang zum Feind ermöglichen. @cr  @cr Der Kampf gegen die Truppen von Evelance könnte ebenfalls hilfreich sein, um neue Rohstoffe zu erbeuten und Eure Gegner zu erreichen.</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>63</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) koop Angriff auf Evelance</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>81481682-cb0d-44d5-ad4b-539258db4115</Data>
+ </GUID>
+</root>

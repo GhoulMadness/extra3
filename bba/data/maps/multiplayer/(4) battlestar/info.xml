@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>MapDescription/CM01_08_Barmecia_name</NameKey>
+ <DescKey>MapDescription/CM01_08_Barmecia_desc</DescKey>
+ <Name>(4) Battlestar</Name>
+ <Desc>Euer Schiff ging bei einem großen Sturm unter. Ihr seit der einzigste überlebende des Unglücks. Als ihr erwacht seit fandet ihr euch auf einer wunderschönen und ruhigen Insel wieder. Der Schein trügt. Ihr seit nicht alleine.... 
+Team1: Spieler1 und Spieler2  
+Team2: Spieler3 und Spieler4 
+Viel spaß bei dieser Map und bei der GC wünschen a4f_Dracke und a4f_twinking @cr @cr Überarbeitet von: Ghoul</Desc>
+ <SizeX>673</SizeX>
+ <SizeY>673</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Battlestar</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>c37ee250-1f26-41c3-bb61-06b36b242251</Data>
+ </GUID>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(3) Hochland</Name>
+ <Desc>Im Hochland kämpfen 3 Spieler um die Vorherrschaft. Jeder Spieler besitzt 2 Schwefel-/Eisenminen und 2 Lehm-/Steinminen. Jeder Spieler hat 4 DZ. In der Mitte kann nach WS Ende 1 weiteres DZ erobert werden.</Desc>
+ <SizeX>513</SizeX>
+ <SizeY>513</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>3</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(3) hochland.png</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>5616e294-8a03-48f6-8393-fb9a1e467d61</Data>
+ </GUID>
+</root>

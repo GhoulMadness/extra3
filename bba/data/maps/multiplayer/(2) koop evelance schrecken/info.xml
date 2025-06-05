@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/CM03_04_WolfsLair_name</NameKey>
+ <DescKey>AO2MapDescription/CM03_04_WolfsLair_desc</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Evelance Schrecken</Name>
+ <Desc>Die dunklen Wälder von Evelance bieten erstklassigen Schutz für Räuberbanden und treue Anhänger des gefürchteten Kerberos... @cr @cr Kartenmodus: Kooperation @cr Spieler: 2 @cr  Viel Spaß! @cr @color:166,212,35 Autor: Play4FuN @cr @cr @color:255,255,255 Hinweis: Die Farbe schwarz ist bereits vergeben! Auch im Einzelspielermodus spielbar!</Desc>
+ <SizeX>577</SizeX>
+ <SizeY>577</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop evelance schrecken</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>d98f8199-c763-4360-ad5f-66148515ba90</Data>
+ </GUID>
+</root>

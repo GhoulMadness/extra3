@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) Zerklüftete Inseln</Name>
+ <Desc>Mein Kopf dröhnt... Ich wache auf... Wo bin ich da nur gelandet.?... Ich erinnere mich nur noch, dass wir vor einer kleinen Insel gestrandet sind... Ich scheine de einzige Überlebende zu sein... Trotzdem ist in der Ferne Rauch zu erkennen...... Ich sollte wohl vorsichtig bleiben........</Desc>
+ <SizeX>481</SizeX>
+ <SizeY>481</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) zerklueftete inseln</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>eeff7608-ee02-4627-b99a-1d6946521a2f</Data>
+ </GUID>
+</root>

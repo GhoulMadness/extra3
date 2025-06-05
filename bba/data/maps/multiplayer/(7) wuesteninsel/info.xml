@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(7) Wüsteninsel</Name>
+ <Desc>Eine Wüsteninsel, altdeutsch für Oase, ist ein Vegetationsfleck in der Wüste, üblicherweise an einer Quelle, Wasserstelle oder einem Wadi gelegen. Oasen können in der Größe und im Charakter erheblich variieren, vom kleinen, von Dattelpalmen umgebenen Teich bis hin zu ganzen Städten mit angesiedelten Industrie- und Landwirtschaftsbetrieben.Die traditionelle Wirtschaftsform, bei der verschiedene Kulturen kombiniert werden, ist die Oasenwirtschaft. Eine Sonderform zur Wassergewinnung sind die Qanate. Geografisch werden Oasen als Siedlungsinseln in ansonsten unbesiedelten Räumen der Erdoberfläche der sogenannten Periökumene zugeordnet.</Desc>
+ <SizeX>705</SizeX>
+ <SizeY>705</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>7</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(7) wuesteninsel</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>5cf4a6a2-06b0-4739-befe-719020187f16</Data>
+ </GUID>
+</root>

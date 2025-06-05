@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(6) Riffe </Name>
+ <Desc>Eine rohstoffreiche Gegend. Perfekt um eine neue Siedlung zu gründen!? Hier Spielt ihr 3 vs.3  @cr @cr Team 1: Spieler 1,2 und 3 @cr Team 2: Spieler 4,5 und 6 @cr @cr Mapdesign by: a4f_twinking92</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>6</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(6) Riffe</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>b2fae89a-1dfb-4363-9d26-ee4dd00ea559</Data>
+ </GUID>
+</root>

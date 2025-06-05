@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Unter feindlicher Kontrolle</Name>
+ <Desc>Nachdem mehrere Städte unter feindliche Kontrolle geraten sind, verbündet ihr euch mit dem letzten standhaften Anführer, um die Besatzer zu vertreiben. @cr @cr Kartenmodus: Kooperation @cr Viel Spaß! @cr @color:166,212,35 Autor: P4F @cr Version 1</Desc>
+ <SizeX>577</SizeX>
+ <SizeY>577</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop unter feindlicher kontrolle</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>2a7c673b-833c-44d6-a5da-e6a3ecbcfaaa</Data>
+ </GUID>
+</root>

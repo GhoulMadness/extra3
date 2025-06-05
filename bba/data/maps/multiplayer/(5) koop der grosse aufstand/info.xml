@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/StandrockBattle_name</NameKey>
+ <DescKey>AO2MapDescription/StandrockBattle_desc</DescKey>
+ <Name>(5) @color:255,255,51 Koop @color:255,255,255 Der große Aufstand</Name>
+ <Desc>Die Unterdrückung der Siedlungen hat die Bevölkerung über so viele Jahre immer wütender gemacht. Die Saat des Krieges wächst jeden Tag, mit jedem Angriff, mit jeder Beleidigung und jeder Grausamkeit die das Volk erleiden muss. Diesmal ist wieder eine der Siedlungen eingenommen worden. Ist dies der letzte Tropfen, der das Fass zum überlaufen bringt ?</Desc>
+ <SizeX>641</SizeX>
+ <SizeY>641</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>5</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(5) Koop der grosse Aufstand</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>28bd5957-2e53-499e-ac6a-bb3de57ce8d7</Data>
+ </GUID>
+</root>

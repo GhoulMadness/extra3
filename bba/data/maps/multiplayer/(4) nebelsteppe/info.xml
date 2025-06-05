@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(4) Nebelsteppe</Name>
+ <Desc>In dieser Steppe gab es vor einigen Jahren einen riesigen Steppenbrand. Seitdem herrscht überall der Rauch, Nebel und die Trostlosigkeit. Alles ist verbrannt und einige Büsche brennen noch immer. Jeder vernünftige Mensch hat diese Gegend verlassen und Geisterstädte hinterlassen. Aber menschenleer ist die Gegend dennoch nicht. Gebt Acht: Die wenigen, die hier geblieben sind - warum auch immer - sind nicht sehr gastfreundlich.</Desc>
+ <SizeX>673</SizeX>
+ <SizeY>673</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Nebelsteppe</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>d13fda73-0740-4bc3-976f-438c77f94e26</Data>
+ </GUID>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Sturm auf Etaqa</Name>
+ <Desc>Diese Karte verlangt von Euch Höchstleistungen ab. @cr Schafft Ihr es, die feindliche Stadt mit einer begrenzten Anzahl von Truppen zu erobern? @cr Die Anzahl und die Typen von Truppen legt ihr dabei selbst fest! @cr Nach einer gewissen Zeit erhält der Gegner massive Verstärkungstruppen. Ihr müsst vor Ablauf dieser Zeit alle feindlichen Militärgebäude zerstören und alle feindlichen Truppen besiegen.</Desc>
+ <SizeX>385</SizeX>
+ <SizeY>385</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop sturm auf etaqa</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>e036e047-c68e-4b6a-a40a-ab23a92d4c86</Data>
+ </GUID>
+</root>

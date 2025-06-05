@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>MapDescription/CM01_08_Barmecia_name</NameKey>
+ <DescKey>MapDescription/CM01_08_Barmecia_desc</DescKey>
+ <Name>(4) Easterville</Name>
+ <Desc>Easterville ist eine nicht rechtsfähige Gemeinde in der kanadischen Provinz Manitoba, die als nördliche Gemeinde bezeichnet wird. Es liegt 200 Kilometer südöstlich von The Pas und 100 Kilometer westlich von Grand Rapids am Südufer des Cedar Lake. Seine Höhe über dem Meeresspiegel beträgt 265 Meter. @cr @cr Hinweis: Die Kontrolle über das Wetter wird sich als nützlich erweisen.</Desc>
+ <SizeX>673</SizeX>
+ <SizeY>673</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Easterville</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>30c125ef-8ac5-472b-b79d-685e921951b4</Data>
+ </GUID>
+</root>

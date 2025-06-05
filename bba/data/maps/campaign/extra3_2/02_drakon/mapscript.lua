@@ -141,8 +141,8 @@ function KerberosReachable()
 end
 --**
 function FarbigeNamen()
-	orange 	= "@color:255,127,0 "
-	weiss 	= "@color:255,255,255 "
+	orange 	= " @color:255,127,0 "
+	weiss 	= " @color:255,255,255 "
 
 	men 	= ""..orange.." Erzähler "..weiss..""
 	kdA		= ""..orange.." Kommandant der drakonischen Armee "..weiss..""

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) @color:255,255,51.8 Koop @color:255,255,255 Achte Prüfung - Shering in Gefahr</Name>
+ <Desc>Hoch im Norden werden mehrere Grafschaften Dario´s Bekannter von Banditen und Barbaren attackiert. Steht ihnen militärisch bei, bevor sie aufgerieben werden. @cr @cr Achtung, auf der Herausforderungs-Stufe ist diese Karte extrem schwer!</Desc>
+ <SizeX>641</SizeX>
+ <SizeY>641</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop achte pruefung - shering in gefahr</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>893a9de6-1c57-43ae-b833-5012087c85f2</Data>
+ </GUID>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/CM04_05_EmeraldFields_name</NameKey>
+ <DescKey>AO2MapDescription/CM04_05_EmeraldFields_desc</DescKey>
+ <Name>(4) @color:255,255,51 Koop @color:255,255,255 Oasenschlacht</Name>
+ <Desc>Eine wahrlich karge Steppengegend, in die ihr Euch begeben habt. @cr Zu allem Übel wird die einzige Oase weit und breit seit geraumer Zeit von einem machthungrigen Despoten kontrolliert. Seidem liegen die Brunnen der umliegenden Dörfer trocken. @cr @cr Nun liegt es an den Helden, den Despoten aus diesen Landen zu vertreiben und die Misere der Dörfler zu beenden!</Desc>
+ <SizeX>641</SizeX>
+ <SizeY>641</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) koop Oasenschlacht</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>43dd8899-2b38-4eb6-97a6-7cdb4c81924f</Data>
+ </GUID>
+</root>

@@ -5,7 +5,7 @@
 -- Author: 	Ghoul
 -- Status: 	done
 ----------------------------------
-
+SetAdvancedCutsceneClipping()
 -----------------------------------------------------------------------------------------------------------------------
 --
 --	CUTSCENE: "INTRO"
@@ -48,9 +48,7 @@ function Cutscene_Intro_Cancel()
 end
 -------------------------------------------------------------------------------------------------------------------------
 function Cutscene_Intro_SetView()
-    Display.SetFogColor (152,172,182)
-    Display.SetFogStartAndEnd (5000, 10000)
-    Display.SetRenderFog (1)
+
 end
 -------------------------------------------------------------------------------------------------------------------------
 function Cutscene_Intro_End()
@@ -61,21 +59,23 @@ end
 --*********************************************************************************************
 function Mission_InitMovie()
 
-	--[[SetInternalClippingLimitMax(40000)
-	normales Limit liegt bei 20.000
-	Display.SetFogStartAndEnd (35000, 40000)
-	Display.SetRenderFog (1)]]
-	Display.SetFarClipPlaneMinAndMax(0, 20000)
-	Display.GfxSetSetFogParams(7, 0.0, 1.0, 1, 152,172,182, 2500,22000)
-	Display.GfxSetSetFogParams(1, 0.0, 1.0, 1, 152,172,182, 2500,22000)
+	--local currGFX = GetCurrentWeatherGfxSet()
+	--local dummyGFX = 99
+	--Display.GfxSetCloneFogParams(dummyGFX, currGFX)
+	Display.SetRenderUseGfxSets(0)
+	--Display.SetRenderFog(0)
+	Display.SetFogStartAndEnd(500, 60000)
+	Display.SetFarClipPlaneMinAndMax(0, 60000)
 	Interface_SetCinematicMode(1)
 
 end
 function Mission_EndMovie()
 
+	--local currGFX = GetCurrentWeatherGfxSet()
+	--local dummyGFX = 99
+	--Display.GfxSetCloneFogParams(currGFX, dummyGFX)
 	Display.SetRenderUseGfxSets(1)
-	Display.GfxSetSetFogParams(1, 0.0, 1.0, 1, 152,172,182, 5000,32000)
-	Display.GfxSetSetFogParams(7, 0.0, 1.0, 1, 152,172,182, 3500,32000)
+	--Display.SetRenderFog(1)
 	Interface_SetCinematicMode(0)
 	Display.SetFarClipPlaneMinAndMax(0, 0)
 

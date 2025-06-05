@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(4) Im Zeichen Ostaras</Name>
+ <Desc>Ostara ist der von Jacob Grimm (17851863) durch philologischen Vergleich hergeleitete Name für eine vermutete germanische Frühlingsgöttin. Als Quelle bezog sich Grimm dabei auf den angelsächsischen Mönch und Kirchenhistoriker Beda, der die Herkunft des Wortes Easter (Ostern) mit einer früheren germanischen Göttin namens Eostrae erklärte. In der Romantik fand Grimms Annahme einer Ostara starken Anklang, wurde seither oft für die Erklärung von Osterbräuchen herangezogen und fand so bis in die jüngste Vergangenheit Eingang in Lexika und Schulbücher.</Desc>
+ <SizeX>609</SizeX>
+ <SizeY>609</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) im Zeichen Ostaras</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>abb28e13-421f-41a3-96db-74d781a5591a</Data>
+ </GUID>
+</root>

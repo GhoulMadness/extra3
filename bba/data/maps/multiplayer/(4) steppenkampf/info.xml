@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>MapDescription/(6)WinterRealm_name</NameKey>
+ <DescKey>MapDescription/(6)WinterRealm_desc</DescKey>
+ <Name>(4) Steppenkampf</Name>
+ <Desc>In dieser Steppengegend kämpfen vier Spieler um die Vorherrschaft. @cr Teams oder ffa möglich!</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>63</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Steppenkampf</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>65cc6170-dc36-40fb-a71c-67520e85b1f9</Data>
+ </GUID>
+</root>

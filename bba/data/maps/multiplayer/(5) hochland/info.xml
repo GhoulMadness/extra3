@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(5) Hochland</Name>
+ <Desc>Im Hochland kämpfen 5 Spieler um die Vorherrschaft. Jeder Spieler aus Team 1 besitzt 3 Schwefel-/Eisenminen und 1 Lehm-/Steinmine. Jeder Spieler aus diesem Team hat 4 DZ. Jeder Spieler aus Team 2 besitzt 2 Schwefel-/Eisenminen und 1 Lehm-/Steinmine. Jeder Spieler aus diesem Team hat 3 DZ.  In der Mitte kann nach WS Ende ein Leuchtturm erobert werden. Team 1: Spieler 1+2, Team 2: Spieler 3+4+5 </Desc>
+ <SizeX>513</SizeX>
+ <SizeY>513</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>5</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(5) Hochland</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>33c538af-7dfb-45ed-85c5-cb8cc7c3fee0</Data>
+ </GUID>
+</root>

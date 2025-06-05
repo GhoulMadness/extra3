@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(6) Die zwei Burgherrn</Name>
+ <Desc>Spieler 1 und 4 kämpfen in der Mitte erbittert gegeneinander und sind auf ihre Teampartner angewiesen, die Rohstoffe und Soldaten schicken können! @cr Team 1: Spieler 1,2,3 Team 2: Spieler 4,5,6</Desc>
+ <SizeX>673</SizeX>
+ <SizeY>673</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>6</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(6) die zwei Burgherrn</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>ecce01d8-db49-4bd3-975b-b5287d531256</Data>
+ </GUID>
+</root>

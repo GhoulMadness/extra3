@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(4) Im Graben der Verdammnis</Name>
+ <Desc>@color:135,205,255 von totalwarANGEL @cr @cr @color:255,255,255 Das Team welches Kerberos mehr Schaden zufügt, gewinnt. Regeln: Kerberos nimmt nur Schaden, wenn die Angreifer innerhalb seiner Arena stehen. Jede Dariostatue innerhalb der Arena erhöht den Schaden jedes Angreifers um +1. Auf den äußeren befindlichen Kreisen lässt sich jeweils eine Kapelle bauen. Eine Kapelle=doppelter Schaden, zwei Kapellen=dreifacher Schaden. @cr @cr @color:135,205,255 Skript von @color:255,255,255 Napo und Mad @cr @cr @color:180,0,240 BS - Anpassungen von: @color:255,255,255 Ghoul @cr @color:180,0,240 Jeder Spieler erhält Silber (im gewissen Verhältnis roh/veredelt) in Abhängigkeit vom verursachten Schaden an Kerberos. @cr Auch lohnt sich ein Blick auf die äußeren Vulkangegenden! @cr In der Mitte kann nichts außer Dario - Statuen gebaut werden.</Desc>
+ <SizeX>705</SizeX>
+ <SizeY>705</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) im Graben der Verdammnis</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>9970d1d5-d81e-4d35-94f6-dd687858ab06</Data>
+ </GUID>
+</root>

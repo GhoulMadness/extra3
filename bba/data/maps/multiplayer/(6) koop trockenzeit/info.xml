@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(6) @color:255,255,51 Koop @color:255,255,255 Trockenzeit</Name>
+ <Desc>Zwei starke KI Gegner in trockener europäischer Landschaft... @cr @cr Kartenmodus: Kooperation @cr Spieler: bis zu 6 @cr Viel Spaß! @cr @color:166,212,35 Autor: Play4FuN @cr Version: 1.2 @cr @cr @color:255,255,255 Hinweis: Die Farbe schwarz ist bereits vergeben! Die KI ist stärker, je mehr menschliche Spieler dabei sind.</Desc>
+ <SizeX>577</SizeX>
+ <SizeY>577</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>6</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(6) Koop Trockenzeit</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>4b18e038-154e-4786-b3d7-25a7723a6d7e</Data>
+ </GUID>
+</root>

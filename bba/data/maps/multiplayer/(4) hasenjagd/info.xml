@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO3MapDescription/CM07_02_Kafarna_name</NameKey>
+ <DescKey>AO3MapDescription/CM07_02_Kafarna_desc</DescKey>
+ <Name>(4) Hasenjagd</Name>
+ <Desc>Der Osterhase ist im Osterbrauchtum ein vorgestellter Hase, der zu Ostern Eier bemalt und im Garten versteckt. Die Ostereier werden am Morgen des Ostersonntags von den Kindern gesucht. Das Motiv des Osterhasen hat sich in neuerer Zeit in der populären Kultur des Osterfestes auch durch seine kommerzielle Verwendung ausgebreitet und frühere Überbringer des Ostereies weithin verdrängt. @cr @cr Hinweise: Die Tore der großen Mauer sind nach Ende des Waffenstillstandes über das Tributmenü zu öffnen und zu schließen. Brücken sowie das Wechseln des Wetters können sich als nützlich erweisen.</Desc>
+ <SizeX>641</SizeX>
+ <SizeY>641</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) Hasenjagd</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>921aef7e-f9d8-4525-89b6-6467bdd436f4</Data>
+ </GUID>
+</root>

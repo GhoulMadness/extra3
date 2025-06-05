@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(2) @color:255,255,51 Koop @color:255,255,255 Trockenzeit</Name>
+ <Desc>Nun, da die meisten Flüsse ausgetrocknet sind, haben zahlreiche Räuberbanden wieder Zugang zu umliegenden Siedlungen. Gebt Acht, dass sie nicht zu stark werden und auch Eure Dörfer angreifen! @cr @cr Kartenmodus: Kooperation @cr Spieler: 2 @cr  Viel Spaß! @cr @color:166,212,35 Autor: Play4FuN @cr @cr @color:255,255,255 Hinweis: Die Farbe schwarz ist bereits vergeben! Auch im Einzelspielermodus spielbar!</Desc>
+ <SizeX>577</SizeX>
+ <SizeY>577</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop trockenzeit</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>a09f4c19-c072-4149-b90e-bede0dd3c9bc</Data>
+ </GUID>
+</root>

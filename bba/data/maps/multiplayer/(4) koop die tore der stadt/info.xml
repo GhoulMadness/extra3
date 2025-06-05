@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>MapDescription/CM01_08_Barmecia_name</NameKey>
+ <DescKey>MapDescription/CM01_08_Barmecia_desc</DescKey>
+ <Name>(4) @color:255,255,51 Koop @color:255,255,255 Die Tore der Stadt</Name>
+ <Desc>Eine wunderschöne Stadt liegt inmitten einer Wüsten-Oase unter Belagerung. Wieder einmal solltet Ihr Eure Fähigkeiten beweisen und die feindlichen Nomaden besiegen.</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) koop die tore der Stadt</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>31260d05-803b-4bda-b058-d361f86a688d</Data>
+ </GUID>
+</root>

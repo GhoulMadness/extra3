@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(4) @color:255,255,51 Koop @color:255,255,255 Marys Intrige </Name>
+ <Desc>Mary und einige Ihrer Verbündeten versuchen Eure Siedlung zu vernichten. Kämpft klug zusammen, um Ihre Truppen besiegen zu können.</Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) koop marys Intrige</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>2b392cf5-0c06-477f-a1e8-0740fe62e4bb</Data>
+ </GUID>
+</root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2MapDescription/WinterAssault_name</NameKey>
+ <DescKey>AO2MapDescription/WinterAssault_desc</DescKey>
+ <Name>(2) @color:255,255,51.1 Koop @color:255,255,255 Erste Prüfung - Kampfgeschick</Name>
+ <Desc>Diese Karte verlangt von Euch Höchstleistungen ab. @cr Seid Ihr trotz begrenztem Platz, Ressourcen und Technologien all Euren Gegnern gewachsen? @cr Schafft Ihr es, Eure Burgen 60 Minuten lang vor allen einfallenden Feinden zu schützen? @cr @cr Achtung, auf der Herausforderungs-Stufe ist diese Karte extrem schwer!</Desc>
+ <SizeX>417</SizeX>
+ <SizeY>417</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>2</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop erste pruefung - kampfgeschick</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>b0f58be7-f434-470e-88ec-f2b9029b1fa3</Data>
+ </GUID>
+</root>

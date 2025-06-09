@@ -61,7 +61,7 @@ function SPMenu.S80_UpdateCampaign2exMaps()
 			local HideCampaignContainerNamer = "AO2ex_" .. SPMenu.AO2exCampaignMaps[i] .. "_flag"
 			XGUIEng.ShowWidget( HideCampaignContainerNamer , 0 )
 		else
-			local GDBKeyName = 	"Game\\Campaign04\\WonMap_" .. SPMenu.AO2exCampaignMaps[i-1]
+			local GDBKeyName = 	"Game\\Extra3_2\\WonMap_" .. string.lower(SPMenu.AO2exCampaignMaps[i-1])
 			if GDB.GetValue( GDBKeyName) == 1 then
 
 				local CampaignBG = "AO2ex_" .. SPMenu.AO2exCampaignMaps[i] .. "_BG"
@@ -139,7 +139,7 @@ function SPMenu.S80_CheckMapCheat( _Message, _MapName )
 		return
 	end
 
-	local GDBKeyName = 	"Game\\Campaign04\\WonMap_" .. _MapName
+	local GDBKeyName = 	"Game\\Extra3_2\\WonMap_" .. string.lower(_MapName)
 	GDB.SetValue( GDBKeyName, 1 )
 	SPMenu.S80_UpdateCampaign2exMaps()
 

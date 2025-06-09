@@ -15,8 +15,8 @@ do
 		for i = 1,20 do
 			Logic.DestroyEntity(Logic.GetEntityIDByName("delete"..i))
 		end
-		Script.Load("maps/externalmap/middle_leftside.lua")
-		Script.Load("maps/externalmap/middle_rightside.lua")
+		IncludeLocals("middle_leftside")
+		IncludeLocals("middle_rightside")
 	end
 	--LuaDebugger.Log(num)
 end
@@ -61,7 +61,7 @@ EMS_CustomMapConfig =
 	Script.Load( "Data\\Script\\MapTools\\Counter.lua" )
 
 	IncludeGlobals("Tools\\BSinit")
-	Script.Load("maps/externalmap/bridgeright_terrain.lua")
+	IncludeLocals("bridgeright_terrain")
 	-- custom Map Stuff
 	Mission_InitLocalResources()
 	AddPeriodicSummer(10)
@@ -285,21 +285,6 @@ end
 
 
 function Mission_InitLocalResources()
-
--- Initial Resources
-	local InitGoldRaw 		= 100000
-	local InitClayRaw 		= 100000
-	local InitWoodRaw 		= 100000
-	local InitStoneRaw 		= 100000
-	local InitIronRaw 		= 100000
-	local InitSulfurRaw		= 100000
-
-
-	--Add Players Resources
-	for i = 5,16 do
-		Tools.GiveResouces(i, InitGoldRaw , InitClayRaw,InitWoodRaw, InitStoneRaw,InitIronRaw,InitSulfurRaw)
-
-   end
 end
 function InitMerchants()
 	local mercenaryId1 = Logic.GetEntityIDByName("mercenary1")

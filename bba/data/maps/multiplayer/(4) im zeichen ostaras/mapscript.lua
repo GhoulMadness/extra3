@@ -236,7 +236,7 @@ function ShowArmyCreatorGUI()
 	end
 end
 function InitializeArmySelection()
-	Script.Load("maps\\user\\Balancing_Stuff_in_Dev\\ArmyCreator.lua")
+	IncludeGlobals("Tools\\ArmyCreator")
 	ArmyCreator.TroopLimit = 3
 	ArmyCreator.BasePoints = 75
 	ArmyCreator.PlayerPoints = 75

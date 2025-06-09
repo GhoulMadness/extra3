@@ -57,7 +57,7 @@ end
 
 function StartInitialize()
 
-	Script.Load("maps\\user\\Balancing_Stuff_in_Dev\\ArmyCreator.lua")
+	IncludeGlobals("Tools\\ArmyCreator")
 
 	StartCountdown(3,ShowArmyCreatorGUI,false)
 

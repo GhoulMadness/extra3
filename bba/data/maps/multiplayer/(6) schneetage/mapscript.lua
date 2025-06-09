@@ -54,6 +54,10 @@ EMS_CustomMapConfig =
 
 	--[[cnTable = { ["XmasTree1"] = "Weihnachtsbaum", ["XmasTree2"] = "Weihnachtsbaum" }
 	S5Hook.SetCustomNames(cnTable)]]
+	if CNetwork then
+		ChangePlayer("XmasTree1", 9)
+		ChangePlayer("XmasTree2", 10)
+	end
 	gvPresent.Init()
 	SetHostile(1,10)
 	SetHostile(2,10)
@@ -97,7 +101,7 @@ EMS_CustomMapConfig =
 	Logic.SetModelAndAnimSet(GetEntityId("XmasTree2"),Models.XD_Xmastree1)
 
 	for eID in S5Hook.EntityIterator(Predicate.OfAnyType(Entities.XD_WallStraight,Entities.XD_WallStraightGate,Entities.XD_WallDistorted,Entities.XD_WallCorner,Entities.XD_DarkWallStraight,Entities.XD_DarkWallStraightGate,Entities.XD_DarkWallDistorted,Entities.XD_DarkWallCorner)) do
-		ChangePlayer(eID, 16);
+		ChangePlayer(eID, 0);
 	end
 	end,
 
@@ -170,21 +174,6 @@ end
 
 
 function Mission_InitLocalResources()
-
--- Initial Resources
-	local InitGoldRaw 		= 1000000
-	local InitClayRaw 		= 1000000
-	local InitWoodRaw 		= 1000000
-	local InitStoneRaw 		= 1000000
-	local InitIronRaw 		= 1000000
-	local InitSulfurRaw		= 1000000
-
-
-	--Add Players Resources
-	for i = 7,16 do
-		Tools.GiveResouces(i, InitGoldRaw , InitClayRaw,InitWoodRaw, InitStoneRaw,InitIronRaw,InitSulfurRaw)
-
-   end
 end
 function InitBanditTroops()
 	gvBandpos1 = {}

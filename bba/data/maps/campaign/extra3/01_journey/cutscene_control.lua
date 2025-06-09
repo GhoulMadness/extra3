@@ -109,6 +109,82 @@ end
 function Cutscene_Larina_End()
 	Mission_EndMovie()
 end
+-----------------------------------------------------------------------------------------------------------------------
+--
+--	CUTSCENE: "EASTERNSIDE"
+--
+-----------------------------------------------------------------------------------------------------------------------
+function Cutscene_EasternSide_Init()
+	Mission_InitMovie()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_EasternSide_Start()
+	Cutscene_Larina_Init()
+end
+------------------------------------------------------------------------------------
+------------------------------ Cutscene Data ---------------------------------------
+function Cutscene_EasternSide_Text1()
+	GUIAction_DisplayCinematicText("CM09_01_Journey/Cutscene_EasternSide_Text1")
+end
+function Cutscene_EasternSide_Text2()
+	GUIAction_DisplayCinematicText("CM09_01_Journey/Cutscene_EasternSide_Text2")
+end
+function Cutscene_EasternSide_Text3()
+	GUIAction_DisplayCinematicText("CM09_01_Journey/Cutscene_EasternSide_Text2")
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_EasternSide_Finished()
+	Cutscene_EasternSide_End()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_EasternSide_Cancel()
+	Cutscene_EasternSide_End()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_EasternSide_SetView()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_EasternSide_End()
+	Mission_EndMovie()
+end
+-----------------------------------------------------------------------------------------------------------------------
+--
+--	CUTSCENE: "OUTRO"
+--
+-----------------------------------------------------------------------------------------------------------------------
+function Cutscene_Outro_Init()
+	Mission_InitMovie()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Outro_Start()
+	Cutscene_Larina_Init()
+end
+------------------------------------------------------------------------------------
+------------------------------ Cutscene Data ---------------------------------------
+function Cutscene_Outro_Text1()
+	GUIAction_DisplayCinematicText("CM09_01_Journey/Cutscene_Outro_Text1")
+end
+function Cutscene_Outro_Text2()
+	GUIAction_DisplayCinematicText("CM09_01_Journey/Cutscene_Outro_Text2")
+end
+function Cutscene_Outro_Text3()
+	GUIAction_DisplayCinematicText("CM09_01_Journey/Cutscene_Outro_Text2")
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Outro_Finished()
+	Cutscene_Outro_End()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Outro_Cancel()
+	Cutscene_Outro_End()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Outro_SetView()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Outro_End()
+	Mission_EndMovie()
+end
 -------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------
 --*********************************************************************************************

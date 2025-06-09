@@ -650,8 +650,8 @@ function WT21.CalculateDarioBonus()
 end
 
 function WT21.UnlimitedArmies()
-	Script.Load("maps\\user\\EMS\\tools\\s5CommunityLib\\packer\\devLoad.lua");
-	mcbPacker.Paths[1][1] = "maps\\user\\EMS\\tools\\"
+	Script.Load("extra2\\shr\\maps\\user\\EMS\\tools\\s5CommunityLib\\packer\\devLoad.lua");
+	mcbPacker.Paths[1][1] = "extra2\\shr\\maps\\user\\EMS\\tools\\"
 
 	mcbPacker.require("s5CommunityLib/comfort/other/FrameworkWrapperLight")
 	mcbPacker.require("s5CommunityLib/lib/UnlimitedArmy")

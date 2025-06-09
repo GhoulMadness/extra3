@@ -89,7 +89,11 @@ function FarbigeNamen()
 	gu1     = ""..orange.." Mürrischer Torwächter Kafarnas"..lila..""
 	gu2		= ""..orange.." Träger Torwächter Kafarnas"..lila..""
 	myn     = ""..orange.." Rätselmeister Mhüs - Thikk "..lila..""
+	hwa		= ""..orange.." Eremit "..lila..""
 	tra		= ""..orange.." Einstmaliger Handelsvorsitzender von Larina "..lila..""
+	p3tr	= ""..orange.." Verschleppter Händler Kafarnas "..lila..""
+	p3al	= ""..orange.." Verschleppter Alchemist Kafarnas "..lila..""
+	p3se	= ""..orange.." verschleppter Siedler Kafarnas "..lila..""
 end
 
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -366,6 +370,7 @@ function WandererBrief()
 			BridgeDestroyTribute()
 			EnableNpcMarker(GetID("Weirdo"))
 			Myst_NPC1()
+			StartSimpleJob("ArrivedAtOtherKingdownJob")
 		end
 		StartBriefing(briefing)
 	end
@@ -461,34 +466,10 @@ function NewBridgeBuilt()
 		local AP, ASP = AddPages(briefing)
 		ASP("yeoldbridge", ment, "Sehr gut. @cr Der Bau der neuen Brücke wurde in Auftrag gegeben. @cr Ihr solltet nun schleunigst weiter nach Osten aufbrechen. @cr Doch gebt Acht: Das Land jenseits dieses Flusses gehört bereits zu einem fremden Königreich.", false)
 		briefing.finished = function()
-			EnableNpcMarker(GetID("guard1"))
-			Guard1()
 		end
 		StartBriefing(briefing)
 		return true
 	end
-end
-function Guard1()
-	local BeiGu1 = {
-	--EntityName = "Dario",
-	Heroes = true,
-    TargetName = "guard1",
-    Distance = 300,
-    Callback = function()
-		local posX, posY = Logic.GetEntityPosition(GetID("guard1"))
-		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-		LookAt("guard1",id);LookAt(id,"guard1")
-		DisableNpcMarker(GetEntityId("guard1"))
-		local briefing = {}
-		local AP, ASP = AddPages(briefing)
-		ASP("guard1",gu1,"Der Zutritt nach Kafarna ist Fremden untersagt! @cr Wer seid ihr und was wollt ihr hier?", true)
-		briefing.finished = function()
-			KafarnaDiscovered()
-		end
-		StartBriefing(briefing)
-	end
-	}
-	SetupExpedition(BeiGu1)
 end
 function LarinaDiscovered()
 	StartCountdown((2+math.random(1,4)/gvDiffLVL)*60, LarinaMajorBrief2, false)
@@ -533,6 +514,8 @@ function LarinaToPlayer()
 	AddIron(round(baseamount * 0.20))
 	--
 	EndJob(HeroesDeadJob)
+	--
+	LarinaFreed = true
 end
 function TraderBrief()
 	local BeiTr = {
@@ -634,6 +617,7 @@ function SpawnCaravans()
 		end}
 		SetupCaravan(questcaravan)
 		--
+		StartCountdown(25, CreateCaravanArmy, false, nil, caravan_step)
 		if caravan_step == round(2.5*gvDiffLVL) then
 			local briefing = {}
 			local AP, ASP = AddPages(briefing)
@@ -649,10 +633,511 @@ function KafarnaDiscovered()
 	SetPlayerName(3, "Kafarna")
 end
 function Myst_NPC1()
+	local BeiMyst = {
+	--EntityName = "Dario",
+	Heroes = true,
+    TargetName = "Weirdo",
+    Distance = 300,
+    Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID("Weirdo"))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt("Weirdo",id);LookAt(id,"Weirdo")
+		DisableNpcMarker(GetEntityId("Weirdo"))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP("Weirdo",weir,"Ah, neue Herausforderer... @cr Hereinspaziert, hereinspaziert.", false)
+		ASP("Weirdo",weir,"Löst meine Rätsel und es soll Euer Schaden nicht sein.", true)
+		briefing.finished = function()
+			QuestRiddle1()
+			SetEntityVisibility(GetID("Weirdo"), 0)
+			StartSimpleJob("ControlRiddle1Job")
+		end;
+		StartBriefing(briefing)
+	end}
+	SetupExpedition(BeiMyst)
+end
+function QuestRiddle1()
+	local quest	= {
+	id		= GetQuestId(),
+	type	= SUBQUEST_OPEN,
+	title	= "Das erste Rätsel",
+	text	= "Der Tolle des Wüstensands gab Euch eine Schriftrolle mit, damit ihr das aufgetragene Rätsel nicht wieder vergesst. @cr @cr Zu Ersuchen ihr mich müsst mit Dreien. @cr Befinden vor der Hütt im Freien. @cr Formend, denn imitierend einer lunarischen Sichel. @cr Royal gen Nordwest, ärmlich doch beherzt gen West, kühn gen Süd.",
+	}
+	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
+	Riddle1QID = quest.id
+end
+function ControlRiddle1Job()
+	if IsNighttime() then
+		if IsNear("dario", "waypoint1", 500) and IsNear("ari", "waypoint2") and IsNear("erec", "waypoint3") then
+			SetEntityVisibility(GetID("Weirdo"), 1)
+			local briefing = {}
+			local AP, ASP = AddPages(briefing)
+			ASP("Weirdo",weir,"Oh, ihr habt das Rätsel gelöst. @cr Ich bin beeindruckt.", false)
+			ASP("Weirdo",weir,"Nun, das nächste Rätsel wird nicht so leicht werden...", true)
+			ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Das nächste Rätsel? @cr Wie viele Rätsel werden es denn, bevor ihr uns weiterhelft? @cr Ohje, und ich dachte, wir wären hier schnell fertig...", true)
+			briefing.finished = function()
+				Logic.RemoveQuest(1, Riddle1QID)
+				QuestRiddle2()
+				SetEntityVisibility(GetID("Weirdo"), 0)
+				StartSimpleHiResJob("ControlRiddle2Job")
+			end;
+			StartBriefing(briefing)
+			return true
+		end
+	end
+end
+function QuestRiddle2()
+	local quest	= {
+	id		= GetQuestId(),
+	type	= SUBQUEST_OPEN,
+	title	= "Ein weiteres Rätsel...",
+	text	= "Der Tolle des Wüstensands gab Euch erneut eine Schriftrolle mit, damit ihr das aufgetragene Rätsel nicht wieder vergesst." ..
+		" @cr @cr Diesmal nicht vor der Hütt. @cr Ein Gefährt, es war einst so lütt. @cr Nun so riesig und doch am falschen Ort, @cr mit tosendem Donner bringt es hinfort. @cr Ich warte auf Euch dort.",
+	}
+	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
+	Riddle2QID = quest.id
+end
+function ControlRiddle2Job()
+	if GetCurrentWeatherGfxSet() == 11 then
+		archMoveSteps = archMoveSteps or 0
+		local posX, posY = 17000, 32000
+		local posX2, posY2 = 19000, 29000
+		local dX, dY = (posX2 - posX) / 100, (posY2 - posY) / 100
+		posX, posY = posX + (dX * archMoveSteps), posY + (dY * archMoveSteps)
+		IDs = IDs or {}
+		if table.getn(IDs) == 0 then
+			for eID in CEntityIterator.Iterator(CEntityIterator.InCircleFilter(posX, posY, 1000), CEntityIterator.OfPlayerFilter(0)) do
+				table.insert(IDs, eID)
+			end
+		end
+		newIDs = {}
+		for i = 1, table.getn(IDs) do
+			local etype = Logic.GetEntityType(IDs[i])
+			local rot = Logic.GetEntityOrientation(IDs[i])
+			local X, Y = Logic.GetEntityPosition(IDs[i])
+			local size = GetEntitySize(IDs[i])
+			DestroyEntity(IDs[i])
+			local id = Logic.CreateEntity(etype, X + dX, Y + dY, rot, 0)
+			SetEntitySize(id, size)
+			table.insert(newIDs, id)
+		end
+		IDs = newIDs
+		archMoveSteps = archMoveSteps + 1
+		if archMoveSteps >= 100 then
+			DestroyEntity("Weirdo")
+			local id = Logic.CreateEntity(Entities.CU_Thief, 18600, 28900, 150, 7)
+			Riddle2DoneBrief()
+			EnableNpcMarker(id)
+			--
+			archMoveSteps = nil
+			posX, posY = nil, nil
+			IDs = nil
+			return true
+		end
+	end
+end
+function Riddle2DoneBrief()
+	local BeiMyst = {
+	--EntityName = "Dario",
+	Heroes = true,
+    TargetName = "Weirdo",
+    Distance = 300,
+    Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID("Weirdo"))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt("Weirdo",id);LookAt(id,"Weirdo")
+		DisableNpcMarker(GetEntityId("Weirdo"))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP("Weirdo",weir,"Ihr habt auch dieses Rätsel erfolgreich absolviert. @cr Herzlichen Glückwunsch.", false)
+		ASP("Weirdo",weir,"Als Belohnung übergebe ich Euch die Weisheit, den Winter kommen zu lassen. @cr Besucht auch meinen Meister auf der anderen Flussseite. @cr Er wird sich irgendwo verstecken und hat sicherlich ebenfalls das ein oder andere Rätsel für Euch parat.", true)
+		briefing.finished = function()
+			Logic.RemoveQuest(1, Riddle2QID)
+			AllowTechnology(Technologies.T_MakeSnow)
+			DestroyEntity("Weirdo")
+			WesternRiddlesSolved = true
+		end;
+		StartBriefing(briefing)
+	end}
+	SetupExpedition(BeiMyst)
+end
 
+function ArrivedAtOtherKingdownJob()
+	local posX, posY = Logic.GetEntityPosition(GetID("eastern_side"))
+	if Logic.GetPlayerEntitiesInArea(1, 0, posX, posY, 1200, 1) > 0 then
+		StartCutscene("EasternSide", ArrivedAtOtherKingdownBrief)
+		return true
+	end
+end
+function ArrivedAtOtherKingdownBrief()
+	local briefing = {}
+	local AP, ASP = AddPages(briefing)
+	ASP("eastern_side",ment,"Die Helden hatten es tatsächlich geschafft. @cr Die andere Flussseite und damit auch das benachbarte Königreich waren erreicht.", false)
+	ASP("BanditSpawn5",ment,"Doch auch wenn das Reich fremd ist... @cr Auch hier treiben Räuber ihr Unwesen. @cr Ihr werdet Euch zunächst um dieses Problem kümmern müssen, bevor ihr weiterreisen könnt...", false)
+	briefing.finished = function()
+		EnableNpcMarker(GetID("guard1"))
+		EnableNpcMarker(GetID("hiddenwanderer"))
+		Guard1()
+		HiddenWanderer()
+		ArrivedAtEasternShore = true
+	end;
+	StartBriefing(briefing)
+end
+function Guard1()
+	local BeiGu1 = {
+	--EntityName = "Dario",
+	Heroes = true,
+    TargetName = "guard1",
+    Distance = 300,
+    Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID("guard1"))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt("guard1",id);LookAt(id,"guard1")
+		DisableNpcMarker(GetEntityId("guard1"))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP("guard1",gu1,"Der Zutritt nach Kafarna ist Fremden untersagt! @cr Wer seid ihr und was wollt ihr hier?", true)
+		briefing.finished = function()
+			KafarnaDiscovered()
+			StartCountdown(30, function() EnableNpcMarker(GetID("guard2")) end, false)
+			Guard2()
+		end
+		StartBriefing(briefing)
+	end
+	}
+	SetupExpedition(BeiGu1)
+end
+function Guard2()
+	local BeiGu2 = {
+	--EntityName = "Dario",
+	Heroes = true,
+    TargetName = "guard2",
+    Distance = 300,
+    Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID("guard2"))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt("guard2",id);LookAt(id,"guard2")
+		DisableNpcMarker(GetEntityId("guard2"))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP("guard2",gu2,"Ihr kommt hier nicht durch. @cr Das wäre viel zu gefährlich, das Tor zu öffnen.", true)
+		ASP("guard2",gu2,"Räuber haben letztes Mal, als wir dieses Tor öffneten, einige unserer Stadtbewohner entführt. @cr Das riskieren wir sicherlich nicht erneut!", true)
+		briefing.finished = function()
+			SettlersFreedQuest()
+			StartSimpleJob("SettlersFreedJob")
+		end
+		StartBriefing(briefing)
+	end
+	}
+	SetupExpedition(BeiGu2)
+end
+function SettlersFreedQuest()
+	local quest	= {
+	id		= GetQuestId(),
+	type	= MAINQUEST_OPEN,
+	title	= "Die verschleppten Städter",
+	text	= "Einige Stadtbewohner Kafarnas wurden von Räubern gefangen genommen. @cr Es scheint, als würde die Torwache das Tor nicht öffnen, weil diese Gegend so gefährlich ist. @cr @cr Vielleicht öffnet sie Euch ja das Tor, sobald die Städter gerettet und die Räuber vertrieben wurden.",
+	}
+	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
+	SettlersFreedQID = quest.id
+end
+function SettlersFreedJob()
+	local posX, posY = Logic.GetEntityPosition(GetID("BanditSpawn4"))
+	if IsDestroyed("tower4") and Logic.GetPlayerEntitiesInArea(2, 0, posX, posY, 4500, 1, 2) == 0 then
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP("p3trader",p3tr,"Endlich sind diese fiesen Räuber Geschichte.", false)
+		ASP("PrisonRuin",p3tr,"Bitte seid doch so gut und zerstört diese Ruine. Dann kommen wir endlich hier raus und können wieder in unsere Heimat zurück.", false)
+		ASP("PrisonRuin",p3al,"Eure Schwerter werden dagegen wohl nichts ausrichten... @cr Aber mit etwas Sprengstoff oder ein wenig Kanonenfeuer sollte die Ruine in Schutt und Asche zu legen sein...", false)
+		briefing.finished = function()
+			Logic.RemoveQuest(1, SettlersFreedQID)
+			ReplaceEntity("PrisonRuin", Entities.CB_DestroyAbleRuinResidence1)
+			StartSimpleJob("PrisonRuinDestroyedJob")
+			PrisonRuinSulfurTribute()
+			Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_HURT_ENTITY,"","PrisonRuinOnlyCannons",1,{},{GetID("PrisonRuin")})
+			PrisonRuinDestroyedQuest()
+		end
+		StartBriefing(briefing)
+		return true
+	end
+end
+function PrisonRuinOnlyCannons(_id)
+	if IsDestroyed(_id) then
+		return true
+	end
+	local attacker = Event.GetEntityID1()
+	local target = Event.GetEntityID2()
+	if target == _id then
+		if not IsCannonType(Logic.GetEntityType(attacker)) then
+			CEntity.TriggerSetDamage(0)
+		end
+	end
+end
+function PrisonRuinSulfurTribute()
+	local tribute =  {}
+	tribute.playerId = 1;
+	tribute.text = "Zahlt " .. 4500 - round(500*gvDiffLVL) .. " Schwefel und " .. 2000 - round(500*gvDiffLVL) .. " Kohle, um die alte Gefängnisruine mit Sprengstoff zu beseitigen.";
+	tribute.cost = {Sulfur = 4500 - round(500*gvDiffLVL), Knowledge = 2000 - round(500*gvDiffLVL)};
+	tribute.Callback = PrisonRuinSulfurTributePayed
+	PrisonRuinSulfurTID = AddTribute( tribute )
+end
+function PrisonRuinSulfurTributePayed()
+	local posX, posY = Logic.GetEntityPosition(GetID("PrisonRuin"))
+	for i = 1, 5 do
+		Logic.CreateEffect(GGL_Effects.FXExplosion, posX + (i*100), posY + (i*100))
+		Logic.CreateEffect(GGL_Effects.FXExplosion, posX - (i*100), posY - (i*100))
+		for j = 5, 1, -1 do
+			Logic.CreateEffect(GGL_Effects.FXExplosion, posX - (i*100), posY + (j*100))
+			Logic.CreateEffect(GGL_Effects.FXExplosion, posX + (j*100), posY - (i*100))
+		end
+	end
+	StartCountdown(1, function() SetHealth(GetID("PrisonRuin"), 0) end, false)
+end
+function PrisonRuinDestroyedQuest()
+	local quest	= {
+	id		= GetQuestId(),
+	type	= MAINQUEST_OPEN,
+	title	= "Die Gefängnisruine",
+	text	= "Eine alte Ruine versperrt den geretteten Städtern Kafarnas den Heimweg. @cr Ihr solltet sie mit Kanonenfeuer oder Sprengstoff beseitigen.",
+	}
+	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
+	PrisonRuinDestroyedQID = quest.id
+end
+function PrisonRuinDestroyedJob()
+	if IsDestroyed("PrisonRuin") then
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP("p3settler",p3se,"Habt Dank. @cr Nun können wir endlich zurück in die Heimat. @cr Wir werden beim Torwächter ein gutes Wort für Euch einlegen.", false)
+		briefing.finished = function()
+			Logic.RemoveQuest(1, PrisonRuinDestroyedQID)
+			Logic.RemoveTribute(1, PrisonRuinSulfurTID)
+			Move("p3settler", "guard2")
+			Move("p3alchemist", "guard2")
+			Move("p3scout", "guard2")
+			Move("p3serf", "guard1")
+			Move("p3trader", "guard1")
+			Move("p3smelter", "guard1")
+			StartSimpleJob("HostagesBackInTownJob")
+		end
+		StartBriefing(briefing)
+		return true
+	end
+end
+function HostagesBackInTownJob()
+	if IsNear("p3settler", "gate_kafarna", 600) or IsNear("p3alchemist", "gate_kafarna", 600) or IsNear("p3scout", "gate_kafarna", 600)
+	or IsNear("p3serf", "gate_kafarna", 600) or IsNear("p3trader", "gate_kafarna", 600) or IsNear("p3smelter", "gate_kafarna", 600) then
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP("gate_kafarna",p3se,"Hey Dieter. @cr Wir sind dank diesen Fremden unbeschadet zurück. @cr Nun macht auf, das Tor!", false)
+		ASP("guard2",gu2,"Peter? @cr Bist du es, Peter? @cr ... @cr Ist gut, ich mache das Tor auf. Einen Moment bitte...", false)
+		ASP("guard2",gu2,"Und ihr Fremdlinge... @cr Ihr dürft natürlich auch passieren. @cr Danke für Eure Hilfe. @cr Ich hatte schon keine Hoffnung mehr...", false)
+		ASP("dario",dario,"Nun gut, meine Freunde. @cr Wir sollten schleunigst das Tor passieren und weiter gen Osten reisen.", false)
+		briefing.finished = function()
+			ReplaceEntity("gate_kafarna", Entities.XD_WallStraightGate)
+			DestroyEntity("p3settler")
+			DestroyEntity("p3alchemist")
+			DestroyEntity("p3scout")
+			DestroyEntity("p3serf")
+			DestroyEntity("p3trader")
+			DestroyEntity("p3smelter")
+			--
+			ReachEndPosQuest()
+			StartSimpleJob("ReachedEndPosJob")
+		end
+		StartBriefing(briefing)
+		return true
+	end
+end
+function ReachEndPosQuest()
+	local quest	= {
+	id		= GetQuestId(),
+	type	= MAINQUEST_OPEN,
+	title	= "Eine fremde Stadt",
+	text	= "Durchquert mit Euren Helden das Tor nach Kafarna, um die Reise nach Osten fortzusetzen.",
+	}
+	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
+	ReachEndPosQID = quest.id
+end
+function ReachedEndPosJob()
+	local posX, posY = Logic.GetEntityPosition(GetID("gate_kafarna"))
+	if Logic.GetPlayerEntitiesInArea(1, 0, posX, posY, 500, 1) > 0 then
+		Logic.RemoveQuest(1, ReachEndPosQID)
+		StartCutscene("Outro", Victory)
+		return true
+	end
+end
+function HiddenWanderer()
+
+	local BeiHWa = {
+	--EntityName = "Dario",
+	Heroes = true,
+	TargetName = "hiddenwanderer",
+	Distance = 300,
+	Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID("hiddenwanderer"))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt("hiddenwanderer",id);LookAt(id,"hiddenwanderer")
+		DisableNpcMarker(GetEntityId("hiddenwanderer"))
+		if WesternRiddlesSolved then
+			local briefing = {}
+			local AP, ASP = AddPages(briefing)
+			ASP("hiddenwanderer",hwa,"Nun gut, so habt ihr mich wohl gefunden... @cr Mein Schüler war wohl noch nicht so weit.", false)
+			ASP("hiddenwanderer",hwa,"Denkt noch nicht, ihr hättet es geschafft. @cr Meine Rätsel werden ein wenig schwieriger sein.", false)
+			briefing.finished = function()
+				QuestRiddle3()
+				StartSimpleJob("ControlRiddle3Job")
+				SetEntityVisibility(GetID("hiddenwanderer"), 0)
+			end
+			StartBriefing(briefing)
+		else
+			local briefing = {}
+			local AP, ASP = AddPages(briefing)
+			ASP("hiddenwanderer",hwa,"Ihr habt die Rätsel meines Schülers noch nicht lösen können. @cr Nun, so seid ihr meines nicht würdig...", false)
+			briefing.finished = function()
+				StartCountdown(60, function() EnableNpcMarker(GetID("hiddenwanderer")); HiddenWanderer() end, false)
+			end
+			StartBriefing(briefing)
+		end
+	end
+	}
+	SetupExpedition(BeiHWa)
+end
+function QuestRiddle3()
+	local quest	= {
+	id		= GetQuestId(),
+	type	= SUBQUEST_OPEN,
+	title	= "Das Rätsel des Rätselmeisters",
+	text	= "Ihr habt den Rätselmeister gefunden. @cr Er ist direkt nach dem Gespräch verschwunden und gab Euch ein neues Rätsel auf, wie er gefunden werden kann." ..
+		" @cr @cr Rueschen du musst an ersinnet Krise.",
+	}
+	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
+	Riddle3QID = quest.id
+end
+function ControlRiddle3Job()
+	local posX, posY = Logic.GetEntityPosition(GetID("mistrock"))
+	if Logic.IsPlayerEntityOfCategoryInArea(1, posX, posY, 1200, "Hero") == 1 then
+		DestroyEntity("hiddenwanderer")
+		Logic.CreateEffect(GGL_Effects.FXExplosion, posX, posY)
+		Logic.CreateEffect(GGL_Effects.FXMaryPoison, posX, posY)
+		Logic.CreateEffect(GGL_Effects.FXMaryDemoralize, posX, posY)
+		DestroyEntity("mistrock")
+		local id = Logic.CreateEntity(Entities.CU_Wanderer, posX, posY, 90, 7)
+		Logic.SetEntityName(id, "hiddenwanderer")
+		EnableNpcMarker(id)
+		HiddenWanderer2()
+		Logic.RemoveQuest(1, Riddle3QID)
+		return true
+	end
+end
+function HiddenWanderer2()
+	local BeiHWa = {
+	--EntityName = "Dario",
+	Heroes = true,
+	TargetName = "hiddenwanderer",
+	Distance = 300,
+	Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID("hiddenwanderer"))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt("hiddenwanderer",id);LookAt(id,"hiddenwanderer")
+		DisableNpcMarker(GetEntityId("hiddenwanderer"))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		local riddle, answer = randomRiddle(GetNPCDefaultNameByID(id))
+		ASP("hiddenwanderer",hwa,"Nun, ich habe Euch wohl unterschätzt.", false)
+		ASP("hiddenwanderer",hwa,"Hier ist ein letztes Rätsel für Euch. @cr Löst es, und ich werde Euch auf Euren kommenden Missionen den einen oder anderen Vorteil verschaffen.", false)
+		ASP("hiddenwanderer",hwa,"Ich gebe Euch hierfür ".. round(30 * gvDiffLVL) .." Sekunden Zeit. @cr @cr Hinweis: Gebt Zahlen NICHT ausgeschrieben an!", true)
+		ASP("hiddenwanderer",hwa, riddle, false)
+		briefing.finished = function()
+			LastRiddle_Fail_CD = StartCountdown(30 * gvDiffLVL, LastRiddle_Failed_Brief, true)
+			XGUIEng.ShowWidget("ChatInput", 1)
+			function GameCallback_GUI_ChatStringInputDone(_Message, _WidgetID)
+				StopCountdown(LastRiddle_Fail_CD)
+				if _Message == answer or string.find(string.lower(_Message), string.lower(answer)) ~= nil then
+					--success
+					LastRiddle_Solved_Brief()
+				else
+					LastRiddle_Failed_Brief()
+				end
+				XGUIEng.ShowWidget("ChatInput", 0)
+			end
+		end
+		StartBriefing(briefing)
+	end
+	}
+	SetupExpedition(BeiHWa)
+end
+function LastRiddle_Failed_Brief()
+	XGUIEng.ShowWidget("ChatInput", 0)
+	local briefing = {}
+	local AP, ASP = AddPages(briefing);
+	AP{
+		title = hwa,
+		text = "Die richtige Antwort ward gesucht, die falsch ward gegeben. @cr Eine Wiederkehr? Wird sie kommen?",
+		position = GetPosition("hiddenwanderer"),
+		dialogCamera = false,
+		action = function()
+			local posX, posY = Logic.GetEntityPosition(Logic.GetEntityIDByName("hiddenwanderer"))
+			Logic.CreateEffect(GGL_Effects.FXBuildingSmokeMedium, posX, posY)
+			Logic.CreateEffect(GGL_Effects.FXMaryPoison, posX, posY)
+			Logic.CreateEffect(GGL_Effects.FXKalaPoison, posX, posY)
+			DestroyEntity("hiddenwanderer")
+		end}
+	ASP("dario",dario, "Och nö, dieser schräge Kauz ist schon wieder verschwunden...", false)
+	briefing.finished = function()
+	end
+	StartBriefing(briefing)
+end
+function LastRiddle_Solved_Brief()
+	XGUIEng.ShowWidget("ChatInput", 0)
+	local briefing = {}
+	local AP, ASP = AddPages(briefing);
+	AP{
+		title = myn,
+		text = "Ich habe Euch schon wieder unterschätzt. @cr Nun, wir werden uns sicherlich erneut begegnen...",
+		position = GetPosition("mystic_npc"),
+		dialogCamera = false,
+		action = function()
+			local posX, posY = Logic.GetEntityPosition(Logic.GetEntityIDByName("mystic_npc"))
+			Logic.CreateEffect(GGL_Effects.FXBuildingSmokeMedium, posX, posY)
+			Logic.CreateEffect(GGL_Effects.FXMaryPoison, posX, posY)
+			Logic.CreateEffect(GGL_Effects.FXKalaPoison, posX, posY)
+			DestroyEntity("mystic_npc")
+		end}
+	briefing.finished = function()
+		GDB.SetValue("myths\\journeyriddlessolved", 1)
+	end
+	StartBriefing(briefing)
+end
+function randomRiddle(_hero)
+	local count = 5
+	local rand = math.random(1, count)
+	local quest = XGUIEng.GetStringTableText("cm09_01_journey/Riddle_" .. _hero .. "_Quest_".. rand)
+	local answer = XGUIEng.GetStringTableText("cm09_01_journey/Riddle_" .. _hero .. "_Answer_".. rand)
+	return quest, answer
 end
 function InitAchievementChecks()
-
+	StartSimpleJob("CheckForLarinaAllBuildingsIntact")
+	StartSimpleJob("CheckForBridgeRuinStillThere")
+end
+function CheckForLarinaAllBuildingsIntact()
+	if LarinaFreed then
+		if IsValid("tower1") and IsValid("tower2") and IsValid("sawmill") and IsValid("stonemason") and IsValid("university")
+		and IsValid("farm1") and IsValid("farm2") and IsValid("residence1") and IsValid("residence2") and IsValid("beauty")
+		and IsValid("HQP1") and IsValid("VCP1") then
+			Message("Ihr habt alle Gebäude Larinas vor der Vernichtung bewahrt. Herzlichen Glückwunsch!")
+			GDB.SetValue("achievements\\journeylarinaallbuildings", 1)
+		end
+		return true
+	end
+end
+function CheckForBridgeRuinStillThere()
+	if ArrivedAtEasternShore then
+		if Logic.GetEntities(Entities.PB_Bridge3, 1) == 0 then
+			Message("Ihr habt das östliche Ufer betreten, ohne die unter Denkmalschutz stehende Brückenruine zu verändern. Herzlichen Glückwunsch!")
+			GDB.SetValue("achievements\\journeybridgeruinstillthere", 1)
+		end
+		return true
+	end
 end
 --**********Abschnitt  Comfortfunctionen:**********--
 function GetQuestId()

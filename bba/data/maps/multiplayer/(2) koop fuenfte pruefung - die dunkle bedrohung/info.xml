@@ -9,9 +9,9 @@
  <MPFlag>true</MPFlag>
  <MPPlayerCount>2</MPPlayerCount>
  <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
- <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop fuenfte pruefung - die dunkle bedrohung</MiniMapTextureName>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\externalmap</MiniMapTextureName>
  <Key>3</Key>
  <GUID>
-  <Data>b8af32cf-3fa4-40ef-b3d9-d7277ced5ba0</Data>
+  <Data>02bb112b-40d0-47ba-b12b-98aba6833dd6</Data>
  </GUID>
 </root>

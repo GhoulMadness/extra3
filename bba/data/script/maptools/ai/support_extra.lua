@@ -47,7 +47,7 @@ function SetGDBFlagForExtraCampaign()
 		local nummaps
 		if CName == "Extra3_2" then
 			nummaps = 5
-		elseif CName == "Extra" then
+		elseif CName == "Extra3" then
 			nummaps = 11
 		end
 		local mapnames = {Framework.GetMapNames(0, nummaps, MapType, CName)}

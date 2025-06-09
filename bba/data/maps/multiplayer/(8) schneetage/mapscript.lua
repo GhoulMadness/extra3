@@ -34,72 +34,84 @@ EMS_CustomMapConfig =
 
 	Callback_OnMapStart = function()
 
-	Script.Load(Folders.MapTools.."Ai\\Support.lua")
-	Script.Load( "Data\\Script\\MapTools\\MultiPlayer\\MultiplayerTools.lua" )
-	Script.Load( "Data\\Script\\MapTools\\Tools.lua" )
-	Script.Load( "Data\\Script\\MapTools\\WeatherSets.lua" )
-	IncludeGlobals("Comfort")
-	Script.Load( Folders.MapTools.."Main.lua" )
-	IncludeGlobals("MapEditorTools")
-	Script.Load( "Data\\Script\\MapTools\\Counter.lua" )
+		Script.Load(Folders.MapTools.."Ai\\Support.lua")
+		Script.Load( "Data\\Script\\MapTools\\MultiPlayer\\MultiplayerTools.lua" )
+		Script.Load( "Data\\Script\\MapTools\\Tools.lua" )
+		Script.Load( "Data\\Script\\MapTools\\WeatherSets.lua" )
+		IncludeGlobals("Comfort")
+		Script.Load( Folders.MapTools.."Main.lua" )
+		IncludeGlobals("MapEditorTools")
+		Script.Load( "Data\\Script\\MapTools\\Counter.lua" )
 
-	IncludeGlobals("Tools\\BSinit")
+		IncludeGlobals("Tools\\BSinit")
 
-	-- custom Map Stuff
+		-- custom Map Stuff
 
-	Mission_InitLocalResources()
-	AddPeriodicSummer(10)
+		Mission_InitLocalResources()
+		AddPeriodicSummer(10)
 
-	MultiplayerTools.InitCameraPositionsForPlayers()
+		MultiplayerTools.InitCameraPositionsForPlayers()
 
-	--[[cnTable = { ["XmasTree1"] = "Weihnachtsbaum", ["XmasTree2"] = "Weihnachtsbaum" }
-	S5Hook.SetCustomNames(cnTable)]]
-	gvPresent.Init()
-	SetHostile(1,10)
-	SetHostile(2,10)
-	SetHostile(3,10)
-	SetHostile(4,9)
-	SetHostile(5,9)
-	SetHostile(6,9)
-	for i = 1,6 do
-		CreateWoodPile("Holz"..i,10000000)
-	end
-	for i = 1,8 do
-		Display.SetPlayerColorMapping(i, XNetwork.GameInformation_GetLogicPlayerColor(i));
-	end
-	for i = 9,16,1 do
-		Display.SetPlayerColorMapping(i, 10);
-	end
-	Display.SetPlayerColorMapping(15,14)
-	LocalMusic.UseSet = DARKMOORMUSIC
-
-	if XNetwork.Manager_DoesExist() == 0 then
-		for i=1,8,1 do
-			MultiplayerTools.DeleteFastGameStuff(i)
+		if CNetwork then
+			ChangePlayer("XmasTree1", 9)
+			ChangePlayer("XmasTree2", 10)
+			for eID in CEntityIterator.Iterator(CEntityIterator.OfPlayerFilter(8), CEntityIterator.OfAnyTypeFilter(Entities.CU_VeteranMajor, Entities.CB_Bastille1)) do
+				ChangePlayer(eID, 15)
+			end
+			for i = 9,16,1 do
+				Display.SetPlayerColorMapping(i, 10)
+			end
+			Display.SetPlayerColorMapping(15,14)
+			--
+			SetHostile(1,10)
+			SetHostile(2,10)
+			SetHostile(3,10)
+			SetHostile(4,9)
+			SetHostile(5,9)
+			SetHostile(6,9)
+		else
+			SetHostile(1,8)
 		end
-		local PlayerID = GUI.GetPlayerID()
-		Logic.PlayerSetIsHumanFlag( PlayerID, 1 )
-		Logic.PlayerSetGameStateToPlaying( PlayerID )
-	end
+		--[[cnTable = { ["XmasTree1"] = "Weihnachtsbaum", ["XmasTree2"] = "Weihnachtsbaum" }
+		S5Hook.SetCustomNames(cnTable)]]
+		gvPresent.Init()
 
-	CreateEntity(0,Entities.XD_Present1,GetPosition("T1Present1"),"T1_Present1")
-	CreateEntity(0,Entities.XD_Present2,GetPosition("T1Present2"),"T1_Present2")
-	CreateEntity(0,Entities.XD_Present3,GetPosition("T1Present3"),"T1_Present3")
-	CreateEntity(0,Entities.XD_Present1,GetPosition("T2Present1"),"T2_Present1")
-	CreateEntity(0,Entities.XD_Present2,GetPosition("T2Present2"),"T2_Present2")
-	CreateEntity(0,Entities.XD_Present3,GetPosition("T2Present3"),"T2_Present3")
+		for i = 1,6 do
+			CreateWoodPile("Holz"..i,10000000)
+		end
+		for i = 1,8 do
+			Display.SetPlayerColorMapping(i, XNetwork.GameInformation_GetLogicPlayerColor(i));
+		end
 
-	MakeInvulnerable("XmasTree1")
-	MakeInvulnerable("XmasTree2")
-	for i = 1,2 do CUtil.SetEntityDisplayName(Logic.GetEntityIDByName("XmasTree"..i), "Weihnachtsbaum")	end
-	InitBanditTroops()
-	StartSimpleJob("BanditRespawn")
-	Logic.SetModelAndAnimSet(GetEntityId("XmasTree1"),Models.XD_Xmastree1)
-	Logic.SetModelAndAnimSet(GetEntityId("XmasTree2"),Models.XD_Xmastree1)
+		LocalMusic.UseSet = DARKMOORMUSIC
 
-	for eID in S5Hook.EntityIterator(Predicate.OfAnyType(Entities.XD_WallStraight,Entities.XD_WallStraightGate,Entities.XD_WallDistorted,Entities.XD_WallCorner,Entities.XD_DarkWallStraight,Entities.XD_DarkWallStraightGate,Entities.XD_DarkWallDistorted,Entities.XD_DarkWallCorner)) do
-		ChangePlayer(eID, 16);
-	end
+		if XNetwork.Manager_DoesExist() == 0 then
+			for i=1,8,1 do
+				MultiplayerTools.DeleteFastGameStuff(i)
+			end
+			local PlayerID = GUI.GetPlayerID()
+			Logic.PlayerSetIsHumanFlag( PlayerID, 1 )
+			Logic.PlayerSetGameStateToPlaying( PlayerID )
+		end
+
+		CreateEntity(0,Entities.XD_Present1,GetPosition("T1Present1"),"T1_Present1")
+		CreateEntity(0,Entities.XD_Present2,GetPosition("T1Present2"),"T1_Present2")
+		CreateEntity(0,Entities.XD_Present3,GetPosition("T1Present3"),"T1_Present3")
+		CreateEntity(0,Entities.XD_Present1,GetPosition("T2Present1"),"T2_Present1")
+		CreateEntity(0,Entities.XD_Present2,GetPosition("T2Present2"),"T2_Present2")
+		CreateEntity(0,Entities.XD_Present3,GetPosition("T2Present3"),"T2_Present3")
+
+		MakeInvulnerable("XmasTree1")
+		MakeInvulnerable("XmasTree2")
+		for i = 1,2 do CUtil.SetEntityDisplayName(Logic.GetEntityIDByName("XmasTree"..i), "Weihnachtsbaum")	end
+		InitBanditTroops()
+		StartSimpleJob("BanditRespawn")
+		Logic.SetModelAndAnimSet(GetEntityId("XmasTree1"),Models.XD_Xmastree1)
+		Logic.SetModelAndAnimSet(GetEntityId("XmasTree2"),Models.XD_Xmastree1)
+
+		for eID in CEntityIterator.Iterator(CEntityIterator.OfCategoryFilter(EntityCategories.Wall)) do
+			MapTools.ReplaceEntity(eID, Entities[string.gsub(Logic.GetEntityTypeName(Logic.GetEntityType(eID)), "Dark", "")], 0)
+		end
 	end,
 
 	Callback_OnGameStart = function()
@@ -108,7 +120,9 @@ EMS_CustomMapConfig =
 		StartCountdown(60*60,SuddenDeath,false)
 		for i = 1,8,1 do
 			MakeInvulnerable("HQP"..i)
-			SetHostile(i,15)
+			if CNetwork then
+				SetHostile(i,15)
+			end
 		end
 
 		gvXmasChestActive = false
@@ -171,21 +185,6 @@ end
 
 
 function Mission_InitLocalResources()
-
--- Initial Resources
-	local InitGoldRaw 		= 1000000
-	local InitClayRaw 		= 1000000
-	local InitWoodRaw 		= 1000000
-	local InitStoneRaw 		= 1000000
-	local InitIronRaw 		= 1000000
-	local InitSulfurRaw		= 1000000
-
-
-	--Add Players Resources
-	for i = 9,16 do
-		Tools.GiveResouces(i, InitGoldRaw , InitClayRaw,InitWoodRaw, InitStoneRaw,InitIronRaw,InitSulfurRaw)
-
-   end
 end
 function InitBanditTroops()
 	gvBandpos1 = {}
@@ -195,14 +194,18 @@ function InitBanditTroops()
 	gvBandpos2.X,gvBandpos2.Y = Logic.GetEntityPosition(Logic.GetEntityIDByName("BanditSpawn2"))
 	gvBandPatPo.X,gvBandPatPo.Y = Logic.GetEntityPosition(Logic.GetEntityIDByName("BanditPatrolCenter"))
 
-	troop1 = CreateGroup(15, Entities.CU_VeteranLieutenant, 3, gvBandpos1.X , gvBandpos1.Y ,0 )
-	troop2 = CreateGroup(15, Entities.CU_VeteranLieutenant, 3, gvBandpos1.X , gvBandpos1.Y ,0 )
-	troop3 = CreateGroup(15, Entities.CU_VeteranLieutenant, 3, gvBandpos1.X , gvBandpos1.Y ,0 )
-	troop4 = CreateGroup(15, Entities.CU_VeteranLieutenant, 3, gvBandpos1.X , gvBandpos1.Y ,0 )
-	troop5 = CreateGroup(15, Entities.CU_VeteranLieutenant, 3, gvBandpos2.X , gvBandpos2.Y ,0 )
-	troop6 = CreateGroup(15, Entities.CU_VeteranLieutenant, 3, gvBandpos2.X , gvBandpos2.Y ,0 )
-	troop7 = CreateGroup(15, Entities.CU_VeteranLieutenant, 3, gvBandpos2.X , gvBandpos2.Y ,0 )
-	troop8 = CreateGroup(15, Entities.CU_VeteranLieutenant, 3, gvBandpos2.X , gvBandpos2.Y ,0 )
+	local player = 8
+	if CNetwork then
+		player = 15
+	end
+	troop1 = CreateGroup(player, Entities.CU_VeteranLieutenant, 3, gvBandpos1.X , gvBandpos1.Y ,0 )
+	troop2 = CreateGroup(player, Entities.CU_VeteranLieutenant, 3, gvBandpos1.X , gvBandpos1.Y ,0 )
+	troop3 = CreateGroup(player, Entities.CU_VeteranLieutenant, 3, gvBandpos1.X , gvBandpos1.Y ,0 )
+	troop4 = CreateGroup(player, Entities.CU_VeteranLieutenant, 3, gvBandpos1.X , gvBandpos1.Y ,0 )
+	troop5 = CreateGroup(player, Entities.CU_VeteranLieutenant, 3, gvBandpos2.X , gvBandpos2.Y ,0 )
+	troop6 = CreateGroup(player, Entities.CU_VeteranLieutenant, 3, gvBandpos2.X , gvBandpos2.Y ,0 )
+	troop7 = CreateGroup(player, Entities.CU_VeteranLieutenant, 3, gvBandpos2.X , gvBandpos2.Y ,0 )
+	troop8 = CreateGroup(player, Entities.CU_VeteranLieutenant, 3, gvBandpos2.X , gvBandpos2.Y ,0 )
 	Logic.GroupPatrol(troop1, gvBandPatPo.X, gvBandPatPo.Y)
 	Logic.GroupPatrol(troop2, gvBandPatPo.X, gvBandPatPo.Y)
 	Logic.GroupPatrol(troop3, gvBandPatPo.X, gvBandPatPo.Y)
@@ -216,27 +219,31 @@ function BanditRespawn()
 	if not IsExisting("BanditTower") then
 		return true
 	end
+	local player = 8
+	if CNetwork then
+		player = 15
+	end
 	if IsDestroyed(troop1) and IsDestroyed(troop2) then
-		troop1 = CreateGroup(15, Entities.CU_VeteranLieutenant, 3, gvBandpos1.X , gvBandpos1.Y ,0 )
-		troop2 = CreateGroup(15, Entities.CU_VeteranLieutenant, 3, gvBandpos1.X , gvBandpos1.Y ,0 )
+		troop1 = CreateGroup(player, Entities.CU_VeteranLieutenant, 3, gvBandpos1.X , gvBandpos1.Y ,0 )
+		troop2 = CreateGroup(player, Entities.CU_VeteranLieutenant, 3, gvBandpos1.X , gvBandpos1.Y ,0 )
 		Logic.GroupPatrol(troop1, gvBandPatPo.X, gvBandPatPo.Y)
 		Logic.GroupPatrol(troop2, gvBandPatPo.X, gvBandPatPo.Y)
 	end
 	if IsDestroyed(troop3) and IsDestroyed(troop4) then
-		troop3 = CreateGroup(15, Entities.CU_VeteranLieutenant, 3, gvBandpos1.X , gvBandpos1.Y ,0 )
-		troop4 = CreateGroup(15, Entities.CU_VeteranLieutenant, 3, gvBandpos1.X , gvBandpos1.Y ,0 )
+		troop3 = CreateGroup(player, Entities.CU_VeteranLieutenant, 3, gvBandpos1.X , gvBandpos1.Y ,0 )
+		troop4 = CreateGroup(player, Entities.CU_VeteranLieutenant, 3, gvBandpos1.X , gvBandpos1.Y ,0 )
 		Logic.GroupPatrol(troop3, gvBandPatPo.X, gvBandPatPo.Y)
 		Logic.GroupPatrol(troop4, gvBandPatPo.X, gvBandPatPo.Y)
 	end
 	if IsDestroyed(troop5) and IsDestroyed(troop6) then
-		troop3 = CreateGroup(15, Entities.CU_VeteranLieutenant, 3, gvBandpos2.X , gvBandpos2.Y ,0 )
-		troop4 = CreateGroup(15, Entities.CU_VeteranLieutenant, 3, gvBandpos2.X , gvBandpos2.Y ,0 )
+		troop3 = CreateGroup(player, Entities.CU_VeteranLieutenant, 3, gvBandpos2.X , gvBandpos2.Y ,0 )
+		troop4 = CreateGroup(player, Entities.CU_VeteranLieutenant, 3, gvBandpos2.X , gvBandpos2.Y ,0 )
 		Logic.GroupPatrol(troop3, gvBandPatPo.X, gvBandPatPo.Y)
 		Logic.GroupPatrol(troop4, gvBandPatPo.X, gvBandPatPo.Y)
 	end
 	if IsDestroyed(troop7) and IsDestroyed(troop8) then
-		troop7 = CreateGroup(15, Entities.CU_VeteranLieutenant, 3, gvBandpos2.X , gvBandpos2.Y ,0 )
-		troop8 = CreateGroup(15, Entities.CU_VeteranLieutenant, 3, gvBandpos2.X , gvBandpos2.Y ,0 )
+		troop7 = CreateGroup(player, Entities.CU_VeteranLieutenant, 3, gvBandpos2.X , gvBandpos2.Y ,0 )
+		troop8 = CreateGroup(player, Entities.CU_VeteranLieutenant, 3, gvBandpos2.X , gvBandpos2.Y ,0 )
 		Logic.GroupPatrol(troop7, gvBandPatPo.X, gvBandPatPo.Y)
 		Logic.GroupPatrol(troop8, gvBandPatPo.X, gvBandPatPo.Y)
 	end

@@ -78299,7 +78299,7 @@
    <Flags>0</Flags>
    <PlayerID>3</PlayerID>
    <Health>-1</Health>
-   <Name></Name>
+   <Name>gate_kafarna</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>
@@ -84629,7 +84629,7 @@
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
-   <Name></Name>
+   <Name>PrisonRuin</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>
@@ -84764,7 +84764,7 @@
    <Flags>0</Flags>
    <PlayerID>3</PlayerID>
    <Health>-1</Health>
-   <Name></Name>
+   <Name>p3trader</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>
@@ -84779,7 +84779,7 @@
    <Flags>0</Flags>
    <PlayerID>3</PlayerID>
    <Health>-1</Health>
-   <Name></Name>
+   <Name>p3smelter</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>
@@ -84794,7 +84794,7 @@
    <Flags>0</Flags>
    <PlayerID>3</PlayerID>
    <Health>-1</Health>
-   <Name></Name>
+   <Name>p3scout</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>
@@ -84809,7 +84809,7 @@
    <Flags>0</Flags>
    <PlayerID>3</PlayerID>
    <Health>-1</Health>
-   <Name></Name>
+   <Name>p3alchemist</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>
@@ -84824,13 +84824,13 @@
    <Flags>0</Flags>
    <PlayerID>3</PlayerID>
    <Health>-1</Health>
-   <Name></Name>
+   <Name>p3settler</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>CU_Serf</Type>
+   <Type>CU_SettlerIdle</Type>
    <Position>
     <X>3.195378e+004</X>
     <Y>2.904944e+004</Y>
@@ -84839,7 +84839,7 @@
    <Flags>0</Flags>
    <PlayerID>3</PlayerID>
    <Health>-1</Health>
-   <Name></Name>
+   <Name>p3serf</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>
@@ -104669,7 +104669,7 @@
    <Flags>0</Flags>
    <PlayerID>7</PlayerID>
    <Health>-1</Health>
-   <Name></Name>
+   <Name>eastern_side</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>

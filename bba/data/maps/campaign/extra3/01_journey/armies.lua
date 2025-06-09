@@ -49,6 +49,18 @@ function CreateArmies()
 		end
 	end
 end
+function CreateCaravanArmy(_step)
+	local army = {}
+	army.player = 2
+	army.id	= GetFirstFreeArmySlot(2)
+	army.position = GetPosition("chest1")
+	army.rodeLength	= Logic.WorldGetSize()
+	army.strength = round((6/gvDiffLVL) + (_step/(math.sqrt(gvDiffLVL))))
+	army.building = nil
+	SetupArmy(army)
+	--
+	RefreshArmy(army.player, army.id, army.building)
+end
 function RefreshArmy(_player, _id, _building)
 	local army = ArmyTable[_player][_id + 1]
 	local trooptypes = RobbersTroopTypes

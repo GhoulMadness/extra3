@@ -4580,7 +4580,7 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>PU_Hero1</Type>
+   <Type>PU_Hero1c</Type>
    <Position>
     <X>1.002428e+004</X>
     <Y>2.862441e+004</Y>

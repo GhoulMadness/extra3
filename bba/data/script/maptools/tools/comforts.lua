@@ -5473,3 +5473,43 @@ function UpgradeBuilding(_EntityName)
 		GUI.UpgradeSingleBuilding(EntityID)
 	end
 end
+function CreateMiniMapScreenshot()
+	XGUIEng.ShowWidget("EMSMenu", 0)
+	XGUIEng.ShowWidget("EMSMenuAdditions", 0)
+	XGUIEng.ShowWidget("EMSRuleOverview", 0)
+	XGUIEng.ShowWidget("Normal", 1)
+	Logic.AddWeatherElement(1,10,0,1,0,0)
+	gvCamera.DefaultFlag = 0
+	Camera.ZoomSetDistance(0)
+	if EMS and EMS.T then
+		EMS.T.RecreateVillageCenters()
+	end
+	StartCountdown(1, function()
+		local screenX, screenY = GUI.GetScreenSize()
+		local origX, origY = 186, 192
+		local factor = math.floor(screenY / origY)
+		XGUIEng.SetWidgetPositionAndSize("Normal", 0, 0, screenX, screenY)
+		--XGUIEng.SetWidgetPosition("Minimap", round(screenX / 2), round(screenY / 2))
+		XGUIEng.SetWidgetPositionAndSize("Minimap", round(screenX / 4), round(screenY / 4), 71, 85)
+		XGUIEng.ShowWidget("BackGroundBottomContainer", 0)
+		XGUIEng.ShowWidget("BackGround_Top", 0)
+		XGUIEng.ShowWidget("MiniMapOverlay", 0)
+		XGUIEng.ShowWidget("ResourceView", 0)
+		XGUIEng.ShowWidget("Top", 0)
+		XGUIEng.ShowWidget("MiniMapButtons", 0)
+		XGUIEng.ShowWidget("NotesWindow", 0)
+		XGUIEng.ShowWidget("ShortMessagesListWindow", 0)
+		local X, Y = Logic.WorldGetSize()
+		Camera.ScrollSetLookAt(X, Y)
+		for i = 1, 12 do
+			Display.SetPlayerColorMapping(i, i)
+		end
+		GUI.MiniMap_SetRenderFogOfWar(0)
+		StartCountdown(1, function()
+			Game.SaveScreenShot()
+			Framework.CloseGame()
+		end,
+		false)
+	end,
+	false)
+end

@@ -114,7 +114,7 @@ function GameCallback_UpdateProgressBar()
 		end
 
 	end
-
+	collectgarbage(math.ceil(({gcinfo()})[2]/2))
 end
 
 

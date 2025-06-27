@@ -80,8 +80,8 @@ function AchievementMenu.S00_Start()
 								[3]	=
 										{	[1]		=	{Name = "wonmaps", Preview = true, Key = "achievements\\wonmaps_campaignExtra3", Value = 1},
 											[2]		=	{Name = "wonmapshard", Preview = true, Key = "achievements\\wonmapshard_campaignExtra3", Value = 1},
-											[3]		=	{Name = "", Preview = false, Key = "achievements\\", Value = 1},
-											[4]		=	{Name = "", Preview = false, Key = "achievements\\", Value = 1},
+											[3]		=	{Name = "journeylarinaallbuildings", Preview = false, Key = "achievements\\journeylarinaallbuildings", Value = 1},
+											[4]		=	{Name = "journeybridgeruinstillthere", Preview = false, Key = "achievements\\journeybridgeruinstillthere", Value = 1},
 											[5]		=	{Name = "", Preview = false, Key = "achievements\\", Value = 1},
 											[6]		=	{Name = "", Preview = false, Key = "achievements\\", Value = 1},
 											[7]		=	{Name = "", Preview = false, Key = "achievements\\", Value = 1},
@@ -95,7 +95,7 @@ function AchievementMenu.S00_Start()
 											[15]	=	{Name = "", Preview = false, Key = "achievements\\", Value = 1},
 											[16]	=	{Name = "", Preview = false, Key = "achievements\\", Value = 1},
 											[17]	=	{Name = "", Preview = false, Key = "achievements\\", Value = 1},
-											[18]	=	{Name = "masterofmyths", Preview = false, Key = "achievements\\masterofmyths", Value = 1}
+											[18]	=	{Name = "masterofmyths", Preview = true, Key = "achievements\\masterofmyths", Value = 1}
 										}
 	}
 

@@ -37,6 +37,11 @@ function GameCallback_OnGameStart()
 
 	IncludeGlobals("tools\\BSinit")
 
+	if string.find(Framework.GetCurrentMapName(), "Template") ~= nil then
+		Script.Load("extra3\\shr\\maps\\user\\EMS\\RMG\\rmg.lua")
+		RMG.GenerateMap()
+	end
+
 	--preload all models
 	Display.LoadAllModels()
 

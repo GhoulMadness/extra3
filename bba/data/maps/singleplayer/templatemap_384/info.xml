@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey></NameKey>
+ <DescKey></DescKey>
+ <Name>TemplateMap_384</Name>
+ <Desc></Desc>
+ <SizeX>385</SizeX>
+ <SizeY>385</SizeY>
+ <MPFlag>false</MPFlag>
+ <MPPlayerCount>1</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName></MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>7ee5168e-f247-4f7b-8140-35475db00a0e</Data>
+ </GUID>
+</root>

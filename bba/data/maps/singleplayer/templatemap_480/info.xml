@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey></NameKey>
+ <DescKey></DescKey>
+ <Name>TemplateMap_480</Name>
+ <Desc></Desc>
+ <SizeX>481</SizeX>
+ <SizeY>481</SizeY>
+ <MPFlag>false</MPFlag>
+ <MPPlayerCount>1</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\externalmap</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>f3f408be-bf1e-4f41-a87a-dfc03dbcc275</Data>
+ </GUID>
+</root>

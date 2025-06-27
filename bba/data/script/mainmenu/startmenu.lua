@@ -2,7 +2,7 @@
 -- Start menu stuff
 ----------------------------------------------------------------------------------------------------
 -- Table
-Ex3 = {Version = 0.772}
+Ex3 = {Version = 0.773}
 StartMenu = {}
 -- only high tex quality supported
 if GDB.IsKeyValid( "Config\\Display\\TextureResolution" ) then

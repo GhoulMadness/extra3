@@ -101,8 +101,7 @@ end
 ----------------------------------------------------------------------------------------------------
 -- Tool to create save game description of current game
 
-function
-MainWindow_SaveGame_CreateSaveGameDescription()
+function MainWindow_SaveGame_CreateSaveGameDescription()
 
 	-- Create description
 	local Description = ""
@@ -111,7 +110,10 @@ MainWindow_SaveGame_CreateSaveGameDescription()
 	local MapName = Framework.GetCurrentMapName()
 	local MapType, CampaignName = Framework.GetCurrentMapTypeAndCampaignName()
 	local MapNameString, MapDescString = Framework.GetMapNameAndDescription( MapName, MapType, CampaignName )
-	
+	if string.find(MapName, "TemplateMap") ~= nil then
+		MapNameString = "Zufallskarte_" .. string.sub(MapName, 13) .. "_" .. GDB.GetValue("Singleplayer\\RandomMapData\\MapKey")
+	end
+
 	-- Map name to use
 	local TempString = MapNameString
 	if TempString == nil or TempString == "" then

@@ -94,6 +94,7 @@ function FarbigeNamen()
 	p3tr	= ""..orange.." Verschleppter Händler Kafarnas "..lila..""
 	p3al	= ""..orange.." Verschleppter Alchemist Kafarnas "..lila..""
 	p3se	= ""..orange.." verschleppter Siedler Kafarnas "..lila..""
+	p8se 	= ""..orange.." Bewohner Larinas "..lila..""
 end
 
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -111,7 +112,7 @@ function FirstMapAction()
 	StartCutscene("Intro", Prolog)
 end
 function Prolog()
-	TagNachtZyklus(32,0,0,0,1)
+	TagNachtZyklus(28,0,0,0,1)
 end
 function Prolog()
 	local briefing = {}
@@ -122,6 +123,7 @@ function Prolog()
 	ASP("ari",ari,"Eile hin oder her, Dario. @cr Das Risiko ist einfach zu groß, dass wir Räuberbanden zum Opfer fallen. @cr Hier in der Nähe soll sich die letzte Handelsbastion unseres Reiches befinden. @cr Wir sollten uns dort zunächst mit Vorräten eindecken.", true)
 	ASP("dario",dario,"Nein Ari, die Überquerung des großen Stroms hat oberste Priorität. @cr Wir können uns auch im fremden benachbarten Reich eindecken. @cr Und nun los meine Freunde, wir haben schon genug Zeit verloren.", true)
 	briefing.finished = function()
+		Truhen()
 		DarioQuest()
 		AriQuest()
 		Logic.SetGlobalInvulnerability(1)
@@ -131,6 +133,18 @@ function Prolog()
 		InitAchievementChecks()
 	end
     StartBriefing(briefing)
+end
+function Truhen()
+	gvTotalChestAmount = 17
+	for i = 1, gvTotalChestAmount do
+		if math.random(1,3) == 1 then
+			CreateRandomGoldChest(GetPosition("chest"..i))
+		end
+	end
+	CreateChestOpener("dario")
+	CreateChestOpener("erec")
+	CreateChestOpener("ari")
+	StartChestQuest()
 end
 function DefeatJob()
 	if IsDead("dario") and IsDead("erec") and IsDead("ari") then
@@ -342,6 +356,7 @@ function MinesBuiltJob()
 		ASP("wanderer",ment,"Sprecht mit dem Nachfahren des Brückenwärters, sobald ihr bereit seid, in das Nachbarkönigreich des Ostens aufzubrechen.", false)
 		briefing.finished = function()
 			EnableNpcMarker(GetID("wanderer"))
+			Logic.RemoveQuest(1, MinesQID)
 			WandererBrief()
 		end
 		StartBriefing(briefing)
@@ -371,11 +386,82 @@ function WandererBrief()
 			EnableNpcMarker(GetID("Weirdo"))
 			Myst_NPC1()
 			StartSimpleJob("ArrivedAtOtherKingdownJob")
+			--
+			EnableNpcMarker(GetID("hermit"))
+			Hermit()
+			--
+			local posX, posY = 12600, 9900
+			local id = Logic.CreateEntity(Entities.CU_SettlerIdle, posX, posY, 220, 8)
+			EnableNpcMarker(id)
+			Logic.SetEntityName(id, "p8settler")
+			P8Settler()
 		end
 		StartBriefing(briefing)
 	end
 	}
 	SetupExpedition(BeiWan)
+end
+function P8Settler()
+	local npcname = "p8settler"
+	local BeiSet = {
+	--EntityName = "Dario",
+	Heroes = true,
+    TargetName = npcname,
+    Distance = 300,
+    Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID(npcname))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt(npcname,id);LookAt(id,npcname)
+		DisableNpcMarker(GetEntityId(npcname))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP(npcname, p8se, "Wie man die alte Brücke restaurieren kann? @cr Nun, eigentlich ist das gar nicht so schwer. @cr Sucht Euch die vier kompetentesten Eurer Leibeigenen und lasst sie mit Holz, Stein und Lehm die Brücke bearbeiten.", false)
+		ASP("yeoldbridge", p8se, "Nun, sie sollten aber auch gute Schwimmer sein. @cr Die Strömung kann tückisch sein und es muss viel Schutt inmitten des Flussbettes geräumt werden.", false)
+		briefing.finished = function()
+			if not BridgeBlownIntoTheAir then
+				InitRuinRepairing("LargeBridgeRuinRepairing", "yeoldbridge", "oldbridge1", "oldbridge2", "oldbridge3", "oldbridge4", Entities.PB_Bridge3, 2000 - round(200*gvDiffLVL), 2000, 0)
+				StartSimpleJob("LargeBridgeRuinRepairingSerfDrowned")
+				StartSimpleJob("CheckForLargeBridgeFullyRestored")
+			end
+		end
+		StartBriefing(briefing)
+	end
+	}
+	SetupExpedition(BeiSet)
+end
+function LargeBridgeRuinRepairingSerfDrowned()
+	if BridgeBlownIntoTheAir or BridgeFullyRestored then
+		return true
+	end
+	local posX, posY = Logic.GetEntityPosition(GetID("oldbridge2"))
+	local num, id1, id2, id3, id4 = Logic.GetPlayerEntitiesInArea(1, Entities.PU_Serf, posX, posY, 4)
+	if num >= 4 then
+		local rng = math.random(1, 12 + (3*gvDiffLVL))
+		if rng == 1 then
+			Message("Einer Eurer Arbeiter ist bei Bauarbeiten im Fluss ertrunken...")
+			Sound.PlayFeedbackSound(Sounds.VoicesMentor_ATTACK_UnitsDrowned_rnd_01, 170)
+		elseif rng == 2 then
+			rng = math.random(1, 5 + gvDiffLVL)
+			if rng == 1 then
+				Message("Räuber stören die Brückenbauarbeiten!")
+				CreateBridgeAmbushArmy()
+			end
+		end
+	end
+end
+function CheckForLargeBridgeFullyRestored()
+	if Logic.GetNumberOfEntitiesOfType(Entities.PB_Bridge3) > 0 then
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP("yeoldbridge", ment, "Sehr gut. @cr Die alte Brücke wurde vollständig restauriert. @cr Ihr solltet nun schleunigst weiter nach Osten aufbrechen. @cr Doch gebt Acht: Das Land jenseits dieses Flusses gehört bereits zu einem fremden Königreich.", false)
+		briefing.finished = function()
+			Logic.RemoveQuest(1, BridgeRestoreQID)
+			Logic.RemoveTribute(1, BridgeDestroyTribute)
+			BridgeFullyRestored = true
+		end
+		StartBriefing(briefing)
+		return true
+	end
 end
 function BridgeRestoreQuest()
 	local quest	= {
@@ -405,7 +491,7 @@ function BridgeDestroyTributePayed()
 	for eID in CEntityIterator.Iterator(CEntityIterator.OfAnyTypeFilter(unpack(BridgeRemoveEtypes)), CEntityIterator.InCircleFilter(posX, posY, 2300)) do
 		local X,Y = Logic.GetEntityPosition(eID)
 		Logic.CreateEffect(GGL_Effects.FXExplosion, X, Y)
-		StartCountdown(1, function() Logic.DestroyEntity(eID) end, false)
+		StartCountdown(1, function(_id) Logic.DestroyEntity(_id) end, false, nil, eID)
 	end
 	local briefing = {}
 	local AP, ASP = AddPages(briefing)
@@ -415,6 +501,7 @@ function BridgeDestroyTributePayed()
 		Logic.RemoveQuest(1, BridgeRestoreQID)
 		NewBridgeQuest()
 		StartSimpleJob("CheckForMasterBuilderNearBridge")
+		BridgeBlownIntoTheAir = true
 	end
 	StartBriefing(briefing)
 end
@@ -430,7 +517,8 @@ function NewBridgeQuest()
 end
 function CheckForMasterBuilderNearBridge()
 	local posX, posY = Logic.GetEntityPosition(GetID("wanderer"))
-	if Logic.GetEntitiesInArea(Entities.PB_MasterBuilderWorkshop, posX, posY, 2500, 1) > 0 then
+	local num, id = Logic.GetEntitiesInArea(Entities.PB_MasterBuilderWorkshop, posX, posY, 2500, 1)
+	if num > 0 and Logic.IsConstructionComplete(id) == 1 then
 		NewBridgeTribute()
 		return true
 	end
@@ -440,7 +528,7 @@ function NewBridgeTribute()
 	tribute.playerId = 1;
 	tribute.text = "Euer Brückenarchitekt hat die Kosten für die Errichtung eines neuen Brückenfundaments überschlagen." ..
 		" @cr Gebt dem Brückenarchitekten " .. 6000 - round(1000*gvDiffLVL) .. " Holz und Steine und " .. 9000 - round(1000*gvDiffLVL) .. " Lehm, damit er ein neues Brückenfundament errichten kann.";
-	tribute.cost = {Sulfur = 7500 - round(500*gvDiffLVL), Knowledge = 3000 - round(500*gvDiffLVL)};
+	tribute.cost = {Wood = 6000 - round(1000*gvDiffLVL), Stone = 6000 - round(1000*gvDiffLVL), Clay = 9000 - round(1000*gvDiffLVL)};
 	tribute.Callback = NewBridgeTributePayed
 	NewBridgeTributeTID = AddTribute( tribute )
 end
@@ -552,6 +640,7 @@ function ScoutArrivedJob()
 		ASP("path_to_west",tra,"Der Gesandte hat den Pfad nach Westen erreicht. @cr Er wird sich nun auf die weite Reise nach Westen begeben.", false)
 		ASP("TraderP8",tra,"Schon bald werden hier wieder Karavanen eintreffen. @cr Beschützt sie gut!", true)
 		briefing.finished = function()
+			DestroyEntity("ScoutP8")
 			StartCountdown((10 + math.random(0, round(6 - gvDiffLVL))) * 60, CaravanStart, false)
 		end
 		StartBriefing(briefing)
@@ -580,6 +669,11 @@ CaravanPossibleResourceTypes = {
 function SpawnCaravans()
 	caravan_step = caravan_step + 1
 	if caravan_step <= round(2.5*gvDiffLVL) then
+		local num_caravan = round(2*gvDiffLVL)
+		for i = 1, num_caravan do
+			CreateEntity(8,Entities.PU_Travelling_Salesman,GetPosition("path_to_west"),"caravan_" .. caravan_step .. i)
+		end
+		Caravan_On_Its_Way = true
 		local questcaravan = {
 		Unit = "caravan_" .. caravan_step,
 		Waypoint = {
@@ -609,9 +703,12 @@ function SpawnCaravans()
 				end;
 				StartBriefing(briefing);
 			end
+			if caravan_step >= round(2.5*gvDiffLVL) then
+				Caravan_On_Its_Way = false
+			end
 		end,
 		ArrivedCount = 0,
-		NumCaravan = round(2*gvDiffLVL),
+		NumCaravan = num_caravan,
 		ArrivedCallback = function(_Quest)
 			Logic.AddToPlayersGlobalResource(1, CaravanPossibleResourceTypes[math.random(1, table.getn(CaravanPossibleResourceTypes))], round(math.random(5, 30) * 10 * gvDiffLVL))
 		end}
@@ -668,7 +765,8 @@ function QuestRiddle1()
 end
 function ControlRiddle1Job()
 	if IsNighttime() then
-		if IsNear("dario", "waypoint1", 500) and IsNear("ari", "waypoint2") and IsNear("erec", "waypoint3") then
+		if IsNear("dario", "waypoint1", 500) and IsNear("ari", "waypoint2", 500) and IsNear("erec", "waypoint3", 500) then
+			local id = GetID((({"dario", "ari", "erec"})[math.random(1,3)]))
 			SetEntityVisibility(GetID("Weirdo"), 1)
 			local briefing = {}
 			local AP, ASP = AddPages(briefing)
@@ -699,6 +797,10 @@ function QuestRiddle2()
 end
 function ControlRiddle2Job()
 	if GetCurrentWeatherGfxSet() == 11 then
+		if not CutsceneBoatPlayed then
+			CutsceneBoatPlayed = true
+			StartCutscene("Boat")
+		end
 		archMoveSteps = archMoveSteps or 0
 		local posX, posY = 17000, 32000
 		local posX2, posY2 = 19000, 29000
@@ -726,6 +828,7 @@ function ControlRiddle2Job()
 		if archMoveSteps >= 100 then
 			DestroyEntity("Weirdo")
 			local id = Logic.CreateEntity(Entities.CU_Thief, 18600, 28900, 150, 7)
+			Logic.SetEntityName(id, "Weirdo")
 			Riddle2DoneBrief()
 			EnableNpcMarker(id)
 			--
@@ -796,8 +899,19 @@ function Guard1()
 		DisableNpcMarker(GetEntityId("guard1"))
 		local briefing = {}
 		local AP, ASP = AddPages(briefing)
-		ASP("guard1",gu1,"Der Zutritt nach Kafarna ist Fremden untersagt! @cr Wer seid ihr und was wollt ihr hier?", true)
+		AP{
+			title = gu1,
+			text = "Der Zutritt nach Kafarna ist Fremden untersagt! @cr Wer seid ihr und was wollt ihr hier?",
+			position = GetPosition("guard1"),
+			dialogCamera = false,
+			action = function()
+				Camera.RotSetAngle(135)
+				Camera.RotSetFlipBack(0)
+			end
+		}
 		briefing.finished = function()
+			Camera.RotSetAngle(-45)
+			Camera.RotSetFlipBack(1)
 			KafarnaDiscovered()
 			StartCountdown(30, function() EnableNpcMarker(GetID("guard2")) end, false)
 			Guard2()
@@ -820,9 +934,29 @@ function Guard2()
 		DisableNpcMarker(GetEntityId("guard2"))
 		local briefing = {}
 		local AP, ASP = AddPages(briefing)
-		ASP("guard2",gu2,"Ihr kommt hier nicht durch. @cr Das wäre viel zu gefährlich, das Tor zu öffnen.", true)
-		ASP("guard2",gu2,"Räuber haben letztes Mal, als wir dieses Tor öffneten, einige unserer Stadtbewohner entführt. @cr Das riskieren wir sicherlich nicht erneut!", true)
+		AP{
+			title = gu2,
+			text = "Ihr kommt hier nicht durch. @cr Das wäre viel zu gefährlich, das Tor zu öffnen.",
+			position = GetPosition("guard2"),
+			dialogCamera = false,
+			action = function()
+				Camera.RotSetAngle(135)
+				Camera.RotSetFlipBack(0)
+			end
+		}
+		AP{
+			title = gu2,
+			text = "Räuber haben letztes Mal, als wir dieses Tor öffneten, einige unserer Stadtbewohner entführt. @cr Das riskieren wir sicherlich nicht erneut!",
+			position = GetPosition("guard2"),
+			dialogCamera = false,
+			action = function()
+				Camera.RotSetAngle(135)
+				Camera.RotSetFlipBack(0)
+			end
+		}
 		briefing.finished = function()
+			Camera.RotSetAngle(-45)
+			Camera.RotSetFlipBack(1)
 			SettlersFreedQuest()
 			StartSimpleJob("SettlersFreedJob")
 		end
@@ -851,7 +985,8 @@ function SettlersFreedJob()
 		ASP("PrisonRuin",p3al,"Eure Schwerter werden dagegen wohl nichts ausrichten... @cr Aber mit etwas Sprengstoff oder ein wenig Kanonenfeuer sollte die Ruine in Schutt und Asche zu legen sein...", false)
 		briefing.finished = function()
 			Logic.RemoveQuest(1, SettlersFreedQID)
-			ReplaceEntity("PrisonRuin", Entities.CB_DestroyAbleRuinResidence1)
+			local id = ReplaceEntity("PrisonRuin", Entities.CB_DestroyAbleRuinResidence1)
+			ChangePlayer(id, 2)
 			StartSimpleJob("PrisonRuinDestroyedJob")
 			PrisonRuinSulfurTribute()
 			Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_HURT_ENTITY,"","PrisonRuinOnlyCannons",1,{},{GetID("PrisonRuin")})
@@ -928,10 +1063,46 @@ function HostagesBackInTownJob()
 	or IsNear("p3serf", "gate_kafarna", 600) or IsNear("p3trader", "gate_kafarna", 600) or IsNear("p3smelter", "gate_kafarna", 600) then
 		local briefing = {}
 		local AP, ASP = AddPages(briefing)
-		ASP("gate_kafarna",p3se,"Hey Dieter. @cr Wir sind dank diesen Fremden unbeschadet zurück. @cr Nun macht auf, das Tor!", false)
-		ASP("guard2",gu2,"Peter? @cr Bist du es, Peter? @cr ... @cr Ist gut, ich mache das Tor auf. Einen Moment bitte...", false)
-		ASP("guard2",gu2,"Und ihr Fremdlinge... @cr Ihr dürft natürlich auch passieren. @cr Danke für Eure Hilfe. @cr Ich hatte schon keine Hoffnung mehr...", false)
-		ASP("dario",dario,"Nun gut, meine Freunde. @cr Wir sollten schleunigst das Tor passieren und weiter gen Osten reisen.", false)
+		AP{
+			title = p3se,
+			text = "Hey Dieter. @cr Wir sind dank diesen Fremden unbeschadet zurück. @cr Nun macht auf, das Tor!",
+			position = GetPosition("gate_kafarna"),
+			dialogCamera = false,
+			action = function()
+				Camera.RotSetAngle(135)
+				Camera.RotSetFlipBack(0)
+			end
+		}
+		AP{
+			title = gu2,
+			text = "Peter? @cr Bist du es, Peter? @cr ... @cr Ist gut, ich mache das Tor auf. Einen Moment bitte...",
+			position = GetPosition("guard2"),
+			dialogCamera = false,
+			action = function()
+				Camera.RotSetAngle(135)
+				Camera.RotSetFlipBack(0)
+			end
+		}
+		AP{
+			title = gu2,
+			text = "Und ihr Fremdlinge... @cr Ihr dürft natürlich auch passieren. @cr Danke für Eure Hilfe. @cr Ich hatte schon keine Hoffnung mehr...",
+			position = GetPosition("guard2"),
+			dialogCamera = false,
+			action = function()
+				Camera.RotSetAngle(135)
+				Camera.RotSetFlipBack(0)
+			end
+		}
+		AP{
+			title = dario,
+			text = "Nun gut, meine Freunde. @cr Wir sollten schleunigst das Tor passieren und weiter gen Osten reisen.",
+			position = GetPosition("dario"),
+			dialogCamera = false,
+			action = function()
+				Camera.RotSetAngle(-45)
+				Camera.RotSetFlipBack(1)
+			end
+		}
 		briefing.finished = function()
 			ReplaceEntity("gate_kafarna", Entities.XD_WallStraightGate)
 			DestroyEntity("p3settler")
@@ -1115,6 +1286,105 @@ function randomRiddle(_hero)
 	local answer = XGUIEng.GetStringTableText("cm09_01_journey/Riddle_" .. _hero .. "_Answer_".. rand)
 	return quest, answer
 end
+function Hermit()
+	local BeiHer = {
+	--EntityName = "Dario",
+	Heroes = true,
+	TargetName = "hermit",
+	Distance = 300,
+	Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID("hermit"))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt("hermit",id);LookAt(id,"hermit")
+		DisableNpcMarker(GetEntityId("hermit"))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		local riddle, answer = randomRiddle(GetNPCDefaultNameByID(id))
+		ASP("hermit",herm,"Oh, Besucher, so weit hier draußen? @cr Nun, das will belohnt werden.", false)
+		ASP("hermit",herm,"Ich habe da so ein Gespür, dass ihr auf Euren Reisen etwas Schwefel benötigen werdet. @cr Nun, für Sprengstoff, Kanonen oder alchemische Forschungen spielt da wohl keine Rolle.", false)
+		ASP("hermit",herm,"Liefert mir ein wenig Schwefel und ich werde ihn für Euch einlagern. @cr Ihr könnt ihn dann später wieder abholen.", false)
+		briefing.finished = function()
+			HermitSulfurTribute()
+		end
+		StartBriefing(briefing)
+	end
+	}
+	SetupExpedition(BeiHer)
+end
+function HermitSulfurTribute()
+	local tribute =  {}
+	tribute.playerId = 1;
+	tribute.text = "Gebt dem Einsiedler " .. 1000 + round(500*gvDiffLVL) .. " Schwefel. @cr Er wird diese für Euch einlagern und ihr könnt den Schwefel zu einem späteren Zeitpunkt wieder abholen.";
+	tribute.cost = {Sulfur = 1000 + round(500*gvDiffLVL)}
+	tribute.Callback = HermitSulfurTributePayed
+	BridgeDestroyTributeTID = AddTribute( tribute )
+end
+function HermitSulfurTributePayed()
+	if not Caravan_On_Its_Way then
+		local num_caravan = round(2 + gvDiffLVL)
+		for i = 1, num_caravan do
+			CreateEntity(8,Entities.PU_Travelling_Salesman,GetPosition("LarinaMjPos"),"caravan_s_" .. i)
+		end
+		StartCountdown(6*60, CreateNVAmbushArmy, false)
+		local questcaravan = {
+		Unit = "caravan_s_",
+		Waypoint = {
+			 {Name = "path_to_west", 	WaitTime = round(6/gvDiffLVL)},
+			 {Name = "caravan_step4",	WaitTime = round(6/gvDiffLVL)},
+			 {Name = "caravan_step3", 	WaitTime = round(10/gvDiffLVL)},
+			 {Name = "caravan_step2",	WaitTime = round(10/gvDiffLVL)},
+			 {Name = "caravan_step1",	WaitTime = round(6/gvDiffLVL)},
+			 {Name = "BanditSpawn1",	WaitTime = round(16/gvDiffLVL)},
+			 {Name = "path_east1",		WaitTime = round(6/gvDiffLVL)},
+			 {Name = "path_east2",		WaitTime = round(6/gvDiffLVL)},
+			 {Name = "path_east3",		WaitTime = round(6/gvDiffLVL)},
+			 {Name = "path_east4",		WaitTime = round(14/gvDiffLVL)},
+			 {Name = "hermit",			WaitTime = round(10/gvDiffLVL)}
+		},
+		Remove = true,
+		Callback = function(_Quest)
+			if _Quest.ArrivedCount >= _Quest.NumCaravan then
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				ASP("hermit",herm,"Oh, die Karavanen sind eingetroffen. @cr Sehr gute Arbeit.", false)
+				briefing.finished = function()
+					GDB.SetValue("myths\\journeysulfurstored", round(500*_Quest.ArrivedCount))
+				end;
+				StartBriefing(briefing);
+			elseif _Quest.ArrivedCount > 0 then
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				ASP("hermit",herm,"Ohweh, nicht alle Karavanen sind eingetroffen. @cr Nun, ich werde das einlagern, das eingetroffen ist.", false)
+				briefing.finished = function()
+					GDB.SetValue("myths\\journeysulfurstored", round(500*_Quest.ArrivedCount))
+				end;
+				StartBriefing(briefing);
+			else
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				ASP("hermit",tra,"Ohweh, keine der Karavanen hat es überstanden. @cr Nun, so werde ich für Euch keine Ressourcen einlagern können...", false)
+				briefing.finished = function()
+					GDB.SetValue("myths\\journeysulfurstored", round(500*_Quest.ArrivedCount))
+				end;
+				StartBriefing(briefing);
+			end
+			if caravan_step >= round(2.5*gvDiffLVL) then
+				Caravan_On_Its_Way = false
+			end
+		end,
+		ArrivedCount = 0,
+		NumCaravan = num_caravan,
+		ArrivedCallback = function(_Quest)
+			Message("Ein Karren mit 500 Schwefel ist beim Einsiedler angekommen.")
+		end}
+		SetupCaravan(questcaravan)
+	else
+		Message("Wartet, bis alle Karavanen aus dem Westen eingetroffen sind!")
+		AddSulfur(1000 + round(500*gvDiffLVL))
+		HermitSulfurTribute()
+	end
+end
+
 function InitAchievementChecks()
 	StartSimpleJob("CheckForLarinaAllBuildingsIntact")
 	StartSimpleJob("CheckForBridgeRuinStillThere")

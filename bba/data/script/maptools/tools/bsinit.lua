@@ -1,6 +1,6 @@
 BS = BS or {}
 
-BS.Version = 0.772
+BS.Version = 0.773
 
 BS.SpectatorPID = 17
 
@@ -627,8 +627,9 @@ if not gvEMSFlag then
 else
 	Script.Load("data\\script\\maptools\\tools\\EMSAdditions.lua")
 	BS.EnemyBuildBlockRange = 1500
+	--
+	CWidget.LoadGUINoPreserve("data\\menu\\projects\\ingame.xml")
 end
-CWidget.LoadGUINoPreserve("data\\script\\maptools\\tools\\BS_GUI.xml")
 -- check for valid texture quality settings
 if BS.ValidateTextureQuality() ~= true then
 	local text = "Bitte stellt Eure Texturqualität im Optionsmenü im Hauptmenü auf hoch und startet das Spiel neu!"

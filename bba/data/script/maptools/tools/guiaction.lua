@@ -677,6 +677,9 @@ end
 
 function GUIAction_ArmyCreatorFinishSetup()
 
+	if Game.GameTimeGetFactor() == 0 or CUtil.GetGameTimeFactor() == 0 then
+		return
+	end
 	XGUIEng.ShowWidget("BS_ArmyCreator",0)
 
 	if CNetwork then
@@ -972,4 +975,14 @@ function GUIAction_ActivateCoalUsage(_flag)
 	else
 		gvCoal.AdjustTypeList(_flag, player, type)
 	end
+end
+function GUIAction_ActivateAlarm()
+	local player = GUI.GetPlayerID()
+	if Logic.GetNumberOfAttractedWorker(player) > 0 then
+		Sound.PlayFeedbackSound( Sounds.VoicesMentor_ALARM_ActivateAlarm, 0)
+		GUI.EnterWorkerAlarmMode()
+	else
+		Sound.PlayFeedbackSound(Sounds.VoicesMentor_COMMENT_BadPlay_rnd_01, 0)
+	end
+
 end

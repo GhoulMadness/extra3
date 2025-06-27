@@ -758,7 +758,7 @@ Action_ChestJob = function()
 					ReplaceEntity(chestControl.list[i].name,Entities.XD_ChestOpen)
 					DestroyEntity(chestControl.list[i].sparkname)
 					Sound.PlayGUISound( Sounds.OnKlick_Select_erec, 0 )
-					Sound.PlayGUISound(Sounds.VoicesMentor_CHEST_FoundTreasureChest_rnd_01, 127 )
+					Sound.PlayGUISound(Sounds.VoicesMentor_CHEST_FoundTreasureChest_rnd_01, 197 )
 --					Sound.PlayGUISound(Sounds.Misc_Chat,65)
 					break
 				end

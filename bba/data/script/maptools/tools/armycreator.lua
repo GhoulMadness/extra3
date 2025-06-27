@@ -3,7 +3,7 @@ WidgetHelper.AddPreCommitCallback(
 function()
 	CWidget.Transaction_AddRawWidgetsFromFile("data/script/maptools/tools/ArmyCreator.xml", "Normal")
 end)
-CWidget.LoadGUINoPreserve("data/script/maptools/tools/BS_GUI.xml")
+CWidget.LoadGUINoPreserve("data/menu/projects/ingame.xml")
 BS.CheckForAchievements(GUI.GetPlayerID())
 --initializing table
 ArmyCreator = {TroopLimit = 10, PointCosts = {	[Entities.PU_LeaderSword1] = 4,

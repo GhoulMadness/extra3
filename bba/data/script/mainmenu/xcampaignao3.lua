@@ -1,9 +1,10 @@
 -- extra 3 campaign
 
 SPMenu.AO3Campaign_Maps= {	"01_Journey",
-							"02_Kafarna",
-							"03_Keshet",
-							"04_Dunnotar"}
+							--"02_Kafarna",
+							--"03_Keshet",
+							--"04_Dunnotar"
+}
 SPMenu.CurrentAO3Campaign_Map = "01_Journey"
 
 

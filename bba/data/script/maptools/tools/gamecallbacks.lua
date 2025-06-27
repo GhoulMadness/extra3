@@ -23,7 +23,9 @@ function Mission_OnSaveGameLoaded()
 	CUtil.EnableEntityTypeAsUgradeCategory()
 	BS.GfxInit()
 	CUtil.DisableFoW()
-	CWidget.LoadGUINoPreserve("data/script/maptools/tools/BS_GUI.xml")
+	if gvEMSFlag then
+		CWidget.LoadGUINoPreserve("data/menu/projects/ingame.xml")
+	end
 	if not CNetwork then
 		if GDB.IsKeyValid("Config\\SettlerServer\\ColorPlayer") then
 			local PlayerColor = GDB.GetValue("Config\\SettlerServer\\ColorPlayer")

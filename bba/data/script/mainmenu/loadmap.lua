@@ -148,6 +148,34 @@ function LoadMap.Done()
 	end
 
 end
+----------------------------------------------------------------------------------------------------
+-- Random map config confirmed, close dialog and load game
+
+function LoadMap.StartRandomMap()
+	local data = {}
+	for k, v in pairs(SPMenu.S21_SettingData) do
+		local index = SPMenu.S21_CurrSetting[k]
+		local setting = v[index]
+		if type(setting) == "function" then
+			-- cut the @center shit
+			setting = string.sub(XGUIEng.GetText("SPM21_" .. k .. "_Title"), 9)
+		end
+		if tonumber(setting) == nil then
+			setting = index
+		end
+		data[k] = setting
+	end
+	for k, v in pairs(data) do
+		GDB.SetValue("Singleplayer\\RandomMapData\\" .. k, v)
+	end
+	--
+	local Name = "TemplateMap_" .. data.MapSize
+	-- Start game
+	--CMod.DetourFile("maps\\user\\" .. Name .. ".s5x", "data\\maps\\singleplayer\\" .. Name .. ".s5x")
+	Framework.StartMap( Name, 0, nil )
+	LoadScreen_Init( 0, Name, 0, nil )
+
+end
 
 
 
@@ -354,7 +382,7 @@ function MapListHandler_AddMaps( _MapHandler, _MapType, _CampaignName, _Multipla
 
 				if (MultiplayerMap and SelectedCustomMapsMode == 2 and string.find(string.lower(MapNameString), "koop") == nil and string.find(MapName, ") ") ~= nil and maxPlayers <= 8)
 				or (MultiplayerMap and SelectedCustomMapsMode == 3 and string.find(string.lower(MapNameString), "koop") ~= nil and string.find(MapName, ") ") ~= nil)
-				or (SelectedCustomMapsMode == 1 and not MultiplayerMap)
+				or (SelectedCustomMapsMode == 1 and not MultiplayerMap and string.find(string.lower(MapNameString), "template") == nil)
 				or (CNetwork and string.find(MapName, ") ") ~= nil) then
 
 					-- Get counter

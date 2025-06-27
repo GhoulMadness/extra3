@@ -111,6 +111,50 @@ function Cutscene_Larina_End()
 end
 -----------------------------------------------------------------------------------------------------------------------
 --
+--	CUTSCENE: "BOAT"
+--
+-----------------------------------------------------------------------------------------------------------------------
+function Cutscene_Boat_Init()
+	Mission_InitMovie()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Boat_Start()
+	Cutscene_Boat_Init()
+end
+------------------------------------------------------------------------------------
+------------------------------ Cutscene Data ---------------------------------------
+function Cutscene_Boat_Text1()
+	GUIAction_DisplayCinematicText("CM09_01_Journey/Cutscene_Boat_Text1")
+end
+function Cutscene_Boat_Text2()
+	GUIAction_DisplayCinematicText("CM09_01_Journey/Cutscene_Boat_Text1")
+end
+function Cutscene_Boat_Text3()
+	GUIAction_DisplayCinematicText("CM09_01_Journey/Cutscene_Boat_Text2")
+end
+function Cutscene_Boat_Text4()
+	GUIAction_DisplayCinematicText("CM09_01_Journey/Cutscene_Boat_Text2")
+end
+function Cutscene_Boat_Text5()
+	GUIAction_DisplayCinematicText("CM09_01_Journey/Cutscene_Boat_Text2")
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Boat_Finished()
+	Cutscene_Boat_End()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Boat_Cancel()
+	Cutscene_Boat_End()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Boat_SetView()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Boat_End()
+	Mission_EndMovie()
+end
+-----------------------------------------------------------------------------------------------------------------------
+--
 --	CUTSCENE: "EASTERNSIDE"
 --
 -----------------------------------------------------------------------------------------------------------------------
@@ -119,7 +163,7 @@ function Cutscene_EasternSide_Init()
 end
 -------------------------------------------------------------------------------------------------------------------------
 function Cutscene_EasternSide_Start()
-	Cutscene_Larina_Init()
+	Cutscene_EasternSide_Init()
 end
 ------------------------------------------------------------------------------------
 ------------------------------ Cutscene Data ---------------------------------------
@@ -157,7 +201,7 @@ function Cutscene_Outro_Init()
 end
 -------------------------------------------------------------------------------------------------------------------------
 function Cutscene_Outro_Start()
-	Cutscene_Larina_Init()
+	Cutscene_Outro_Init()
 end
 ------------------------------------------------------------------------------------
 ------------------------------ Cutscene Data ---------------------------------------

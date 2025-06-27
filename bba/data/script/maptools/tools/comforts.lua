@@ -5303,7 +5303,12 @@ ChestRandomPositions.GetRandomPositions = function(_amount)
     ChunkWrapper.UpdatePositions(chunks)
     local sizeX, sizeY = Logic.WorldGetSize()
     local postable = {}
+	--
+	local starttime = XGUIEng.GetSystemTime()
     while table.getn(postable) < _amount do
+		if XGUIEng.GetSystemTime() >= starttime + 5 then
+			break
+		end
         local X, Y = math.random(sizeX), math.random(sizeY)
         local entities = ChunkWrapper.GetEntitiesInAreaInCMSorted(chunks, X, Y, ChestRandomPositions.SearchRange)
         -- shuffle
@@ -5408,7 +5413,7 @@ ChestRandomPositions_ChestControl = function(...)
 	end
 end
 
-function InitRuinRepairing(_name, _center, _slot1, _slot2, _slot3, _slot4, _newentity, _progress, _playerID)
+function InitRuinRepairing(_name, _center, _slot1, _slot2, _slot3, _slot4, _newentity, _progress, _searchRange, _sitePlayer)
 	RuinRepairingData = RuinRepairingData or {}
 	RuinRepairingData[_name] = RuinRepairingData[_name] or {}
 	RuinRepairingData[_name].repairprogress = RuinRepairingData[_name].repairprogress or 0
@@ -5417,12 +5422,11 @@ function InitRuinRepairing(_name, _center, _slot1, _slot2, _slot3, _slot4, _newe
 	end
 	local centerpos = GetPosition(_center)
 	if not RuinRepairingData[_name].serfs then
-		local serfs = {Logic.GetPlayerEntitiesInArea(1,Entities.PU_Serf,centerpos.X,centerpos.Y,1000,4)}
+		local serfs = {Logic.GetPlayerEntitiesInArea(1, Entities.PU_Serf, centerpos.X, centerpos.Y, _searchRange or 1000, 4)}
 		if serfs[1] == 4 then
 			RuinRepairingData[_name].serfs = {serfs[2], serfs[3], serfs[4], serfs[5]}
 			if not RuinRepairingData[_name].site then
-				ChangePlayer(GetID(_center), _playerID)
-				RuinRepairingData[_name].site = Logic.CreateConstructionSite(centerpos.X, centerpos.Y, 0, _newentity, _playerID)
+				RuinRepairingData[_name].site = Logic.CreateConstructionSite(centerpos.X, centerpos.Y, 0, _newentity, _sitePlayer or 6)
 			end
 		end
 	else
@@ -5433,12 +5437,11 @@ function InitRuinRepairing(_name, _center, _slot1, _slot2, _slot3, _slot4, _newe
 				if Logic.GetCurrentTaskList(RuinRepairingData[_name].serfs[i]) == "TL_SERF_IDLE" then
 					Logic.SetTaskList(RuinRepairingData[_name].serfs[i], TaskLists.TL_SERF_BUILD)
 					Logic.SetEntitySelectableFlag(RuinRepairingData[_name].serfs[i], 0)
-					GUI.DeselectEntity(RuinRepairingData[_name].serfs[i])
 				elseif Logic.GetCurrentTaskList(RuinRepairingData[_name].serfs[i]) == "TL_SERF_BUILD" then
-					if GetWood(1) >= 15 and GetClay(1) >= 10 and GetStone(1) >= 15 then
-						AddWood(1,-15)
-						AddClay(1,-10)
-						AddStone(1,-15)
+					if GetWood(1) >= 30 and GetClay(1) >= 20 and GetStone(1) >= 30 then
+						AddWood(1,-30)
+						AddClay(1,-20)
+						AddStone(1,-30)
 						RuinRepairingData[_name].repairprogress = RuinRepairingData[_name].repairprogress + 1
 						Logic.CreateEffect(GGL_Effects.FXBuildingSmokeMedium, pos.X, pos.Y)
 					end
@@ -5448,12 +5451,10 @@ function InitRuinRepairing(_name, _center, _slot1, _slot2, _slot3, _slot4, _newe
 			end
 		end
 		if RuinRepairingData[_name].repairprogress >= _progress then
-			local build = CEntity.GetReversedAttachedEntities(RuinRepairingData[_name].site)[20][1]
-			DestroyEntity(build)
 			DestroyEntity(RuinRepairingData[_name].site)
 			ReplaceEntity(_center, _newentity)
 			for i = 1,4 do
-				Logic.SetTaskList(RuinRepairingData[_name].serfs[i], TaskLists.TL_SERF_IDLE)
+				Logic.SetTaskList(RuinRepairingData[_name].serfs[i], TaskLists.TL_SERF_BUILD)
 				Logic.SetEntitySelectableFlag(RuinRepairingData[_name].serfs[i], 1)
 			end
 			return true

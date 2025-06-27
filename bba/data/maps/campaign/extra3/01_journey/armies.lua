@@ -61,9 +61,40 @@ function CreateCaravanArmy(_step)
 	--
 	RefreshArmy(army.player, army.id, army.building)
 end
-function RefreshArmy(_player, _id, _building)
+function CreateBridgeAmbushArmy()
+	local army = {}
+	army.player = 2
+	army.id	= GetFirstFreeArmySlot(2)
+	army.position = GetPosition("bridge_ambush")
+	army.rodeLength	= Logic.WorldGetSize()
+	army.strength = round((6/gvDiffLVL) + ((Logic.GetTime()/600)/(math.sqrt(gvDiffLVL))))
+	army.building = nil
+	SetupArmy(army)
+	--
+	RefreshArmy(army.player, army.id, army.building)
+end
+function CreateNVAmbushArmy()
+	local army = {}
+	army.player = 2
+	army.id	= GetFirstFreeArmySlot(2)
+	army.position = GetPosition("nv_ambush")
+	army.rodeLength	= Logic.WorldGetSize()
+	army.strength = round((6/gvDiffLVL) + ((Logic.GetTime()/600)/(math.sqrt(gvDiffLVL))))
+	army.types = {Entities.CU_Evil_LeaderBearman1, Entities.CU_Evil_LeaderSkirmisher1, Entities.CU_AggressiveScorpion1}
+	if gvDiffLVL < 3 then
+		table.insert(army.types, Entities.CU_Evil_LeaderSpearman1)
+	end
+	if gvDiffLVL < 2 then
+		table.insert(army.types, Entities.CU_Evil_LeaderCavalry1)
+	end
+	army.building = nil
+	SetupArmy(army)
+	--
+	RefreshArmy(army.player, army.id, army.building, army.types)
+end
+function RefreshArmy(_player, _id, _building, _types)
 	local army = ArmyTable[_player][_id + 1]
-	local trooptypes = RobbersTroopTypes
+	local trooptypes = _types or RobbersTroopTypes
 	for i = 1, army.strength do
 		EnlargeArmy(army, {leaderType = trooptypes[math.random(table.getn(trooptypes))]})
 	end
@@ -78,7 +109,7 @@ function ControlArmies(_player, _id, _hq)
 	else
 		if IsVeryWeak(army) and IsExisting(_hq) then
 			if Counter.Tick2("ArmyDead_" .. _player .. "_" .. _id, round(60*gvDiffLVL)) then
-				RefreshArmy(_player, _id, _hq)
+				RefreshArmy(_player, _id, _hq, army.types)
 				return true
 			end
 		end

@@ -3,20 +3,22 @@
 
 	<Logic>
 	</Logic>
-	
+
 	<Display>
 		<TransitionTexture>TerrainTransitions</TransitionTexture>
 		<SnowTransitionTexture>SnowTerrainTransitions</SnowTransitionTexture>
 	</Display>
-	
-	<!-- 
+
+	<!--
 		+ NEVER REASSIGN ANY ID (value="...")!
 		+ NEVER CHANGE THE PRIORITY ORDER!
-		
+
 		+ Reassigning an ID will destroy loading of old maps.
 		+ Changing the priority order will change the visiual appearance.
+		
+		+ limit for ids is 255
 	-->
-	
+
 	<TerrainType id="GrassBright01B_AT" value="1">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -34,7 +36,7 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="GrassBright01B_CT" value="2">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -50,11 +52,11 @@
 				<R>100</R>
 				<G>105</G>
 				<B>45</B>
-			</Color>	
+			</Color>
       <ReplacementTerrainType>GrassBright01B_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
-		
+
 	<TerrainType id="BlackInternalUseOnly" value="3">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -72,7 +74,7 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="GrassDark01B_AT" value="4">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -87,11 +89,11 @@
 				<R>74</R>
 				<G>84</G>
 				<B>26</B>
-			</Color>		
+			</Color>
       <ReplacementTerrainType>GrassBright01B_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="GrassDark01B_CT" value="5">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -107,12 +109,12 @@
 				<R>74</R>
 				<G>84</G>
 				<B>26</B>
-			</Color>	
+			</Color>
       <ReplacementTerrainType>GrassBright01B_AT</ReplacementTerrainType>
 
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="EarthDark01B_AT" value="6">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -146,7 +148,7 @@
 				<R>103</R>
 				<G>92</G>
 				<B>53</B>
-			</Color>		
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -164,7 +166,7 @@
 				<R>97</R>
 				<G>87</G>
 				<B>52</B>
-			</Color>		
+			</Color>
       <ReplacementTerrainType>EarthBright01B_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
@@ -172,7 +174,7 @@
 	<TerrainType id="MudDark01B_AT" value="9">
 		<Logic>
 			<Blocked>False</Blocked>
-			<!--WalkModifier>0.5</WalkModifier-->	
+			<!--WalkModifier>0.5</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>3075</Priority>
@@ -184,7 +186,7 @@
 				<R>68</R>
 				<G>65</G>
 				<B>52</B>
-			</Color>				
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -203,7 +205,7 @@
 				<R>68</R>
 				<G>65</G>
 				<B>52</B>
-			</Color>					
+			</Color>
       <ReplacementTerrainType>MudDark01B_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
@@ -223,10 +225,10 @@
 				<R>79</R>
 				<G>79</G>
 				<B>79</B>
-			</Color>					
+			</Color>
 		</Display>
 	</TerrainType>
-	
+
 
 
 	<TerrainType id="GrassDarkLeaf01B_CT" value="13">
@@ -244,7 +246,7 @@
 				<R>82</R>
 				<G>84</G>
 				<B>37</B>
-			</Color>								
+			</Color>
       <ReplacementTerrainType>GrassBright01B_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
@@ -263,7 +265,7 @@
 				<R>78</R>
 				<G>77</G>
 				<B>71</B>
-			</Color>											
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -283,7 +285,7 @@
 				<R>79</R>
 				<G>79</G>
 				<B>79</B>
-			</Color>										
+			</Color>
       <ReplacementTerrainType>RockDark01B_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
@@ -302,7 +304,7 @@
 				<R>123</R>
 				<G>116</G>
 				<B>98</B>
-			</Color>														
+			</Color>
       <ReplacementTerrainType>SandRocky01_AT_HP</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
@@ -321,7 +323,7 @@
 				<R>123</R>
 				<G>116</G>
 				<B>98</B>
-			</Color>														
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -339,7 +341,7 @@
 				<R>150</R>
 				<G>140</G>
 				<B>110</B>
-			</Color>														
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -357,7 +359,7 @@
 				<R>150</R>
 				<G>140</G>
 				<B>110</B>
-			</Color>														
+			</Color>
       <ReplacementTerrainType>SandEarth01_AT_LP</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
@@ -376,7 +378,7 @@
 				<R>101</R>
 				<G>101</G>
 				<B>90</B>
-			</Color>														
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -395,7 +397,7 @@
 				<R>101</R>
 				<G>101</G>
 				<B>90</B>
-			</Color>														
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -413,7 +415,7 @@
 				<R>62</R>
 				<G>58</G>
 				<B>39</B>
-			</Color>														
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -431,7 +433,7 @@
 				<R>61</R>
 				<G>57</G>
 				<B>40</B>
-			</Color>														
+			</Color>
       <ReplacementTerrainType>EarthFir01_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
@@ -450,7 +452,7 @@
 				<R>62</R>
 				<G>58</G>
 				<B>40</B>
-			</Color>														
+			</Color>
       <ReplacementTerrainType>EarthFir01_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
@@ -469,7 +471,7 @@
   				<R>53</R>
   				<G>61</G>
   				<B>20</B>
-  			</Color>														
+  			</Color>
       <ReplacementTerrainType>EarthMoss02_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
@@ -488,7 +490,7 @@
 				<R>55</R>
 				<G>62</G>
 				<B>27</B>
-			</Color>														
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -506,14 +508,14 @@
 				<R>10</R>
 				<G>10</G>
 				<B>10</B>
-			</Color>														
+			</Color>
 		</Display>
 	</TerrainType>
 
 	<TerrainType id="RockDark02_AT" value="28">
 		<Logic>
 			<Blocked>True</Blocked>
-			<!--WalkModifier>0.2</WalkModifier-->		
+			<!--WalkModifier>0.2</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>6011</Priority>
@@ -534,7 +536,7 @@
 	<TerrainType id="RockDark02_CT" value="29">
 		<Logic>
 			<Blocked>True</Blocked>
-			<!--WalkModifier>0.2</WalkModifier-->		
+			<!--WalkModifier>0.2</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>6010</Priority>
@@ -555,7 +557,7 @@
 	<TerrainType id="RockDark03_AT" value="30">
 		<Logic>
 			<Blocked>True</Blocked>
-			<!--WalkModifier>0.2</WalkModifier-->		
+			<!--WalkModifier>0.2</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>6021</Priority>
@@ -608,11 +610,11 @@
 				<R>97</R>
 				<G>102</G>
 				<B>43</B>
-			</Color>	
+			</Color>
       <ReplacementTerrainType>GrassBright01B_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="GrassBright02_CT" value="33">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -628,7 +630,7 @@
 				<R>97</R>
 				<G>102</G>
 				<B>43</B>
-			</Color>	
+			</Color>
             <ReplacementTerrainType>GrassBright01B_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
@@ -647,11 +649,11 @@
 				<R>103</R>
 				<G>110</G>
 				<B>48</B>
-			</Color>	
+			</Color>
             <ReplacementTerrainType>GrassBright01B_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="GrassBright03_CT" value="35">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -667,7 +669,7 @@
 				<R>103</R>
 				<G>110</G>
 				<B>48</B>
-			</Color>	
+			</Color>
             <ReplacementTerrainType>GrassBright01B_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
@@ -686,11 +688,11 @@
 				<R>78</R>
 				<G>88</G>
 				<B>27</B>
-			</Color>	
+			</Color>
       <ReplacementTerrainType>GrassBright01B_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="GrassDark02_CT" value="37">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -706,7 +708,7 @@
 				<R>78</R>
 				<G>88</G>
 				<B>27</B>
-			</Color>	
+			</Color>
       <ReplacementTerrainType>GrassBright01B_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
@@ -725,10 +727,10 @@
 				<R>100</R>
 				<G>89</G>
 				<B>51</B>
-			</Color>	
+			</Color>
       <ReplacementTerrainType>EarthBright01B_AT</ReplacementTerrainType>
 		</Display>
-	</TerrainType>		
+	</TerrainType>
 
 	<TerrainType id="EarthBright03_AT" value="39">
 		<Logic>
@@ -744,10 +746,10 @@
 				<R>104</R>
 				<G>93</G>
 				<B>54</B>
-			</Color>	
+			</Color>
       <ReplacementTerrainType>EarthBright01B_AT</ReplacementTerrainType>
 		</Display>
-	</TerrainType>		
+	</TerrainType>
 
 	<TerrainType id="EarthBrStones02_AT" value="40">
 		<Logic>
@@ -766,7 +768,7 @@
 			</Color>
       <ReplacementTerrainType>EarthBright01B_AT</ReplacementTerrainType>
 		</Display>
-	</TerrainType>		
+	</TerrainType>
 
 	<TerrainType id="EarthDark02_AT" value="41">
 		<Logic>
@@ -782,11 +784,11 @@
 				<R>74</R>
 				<G>64</G>
 				<B>46</B>
-			</Color>	
+			</Color>
       <ReplacementTerrainType>EarthBright01B_AT</ReplacementTerrainType>
 
 		</Display>
-	</TerrainType>		
+	</TerrainType>
 
 	<TerrainType id="EarthDark03_AT" value="42">
 		<Logic>
@@ -802,10 +804,10 @@
 				<R>75</R>
 				<G>65</G>
 				<B>47</B>
-			</Color>	
+			</Color>
       <ReplacementTerrainType>EarthBright01B_AT</ReplacementTerrainType>
 		</Display>
-	</TerrainType>		
+	</TerrainType>
 
 	<TerrainType id="MudDark02B_AT" value="43">
 		<Logic>
@@ -850,7 +852,7 @@
 	<TerrainType id="MudDark03_AT" value="45">
 		<Logic>
 			<Blocked>False</Blocked>
-			<!--WalkModifier>0.5</WalkModifier-->		
+			<!--WalkModifier>0.5</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>3200</Priority>
@@ -870,7 +872,7 @@
 	<TerrainType id="MudDark03_CT" value="47">
 		<Logic>
 			<Blocked>False</Blocked>
-			<!--WalkModifier>0.5</WalkModifier-->		
+			<!--WalkModifier>0.5</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>3205</Priority>
@@ -1066,10 +1068,10 @@
 		</Display>
 	</TerrainType>
 
-		<TerrainType id="MudDarkIron01B_AT" value="57">
+	<TerrainType id="MudDarkIron01B_AT" value="57">
 		<Logic>
 			<Blocked>False</Blocked>
-			<!--WalkModifier>0.5</WalkModifier-->	
+			<!--WalkModifier>0.5</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>3075</Priority>
@@ -1081,7 +1083,7 @@
 				<R>68</R>
 				<G>65</G>
 				<B>52</B>
-			</Color>				
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -1100,11 +1102,11 @@
 				<R>68</R>
 				<G>65</G>
 				<B>52</B>
-			</Color>					
+			</Color>
       <ReplacementTerrainType>MudDarkIron01B_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="MudDarkIron02B_AT" value="59">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -1141,7 +1143,7 @@
 				<R>91</R>
 				<G>83</G>
 				<B>65</B>
-			</Color>														
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -1160,15 +1162,15 @@
 				<R>137</R>
 				<G>128</G>
 				<B>104</B>
-			</Color>														
+			</Color>
       <ReplacementTerrainType>RockMedium01B_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="MudDarkIron03_CT" value="62">
 		<Logic>
 			<Blocked>False</Blocked>
-			<!--WalkModifier>0.5</WalkModifier-->		
+			<!--WalkModifier>0.5</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>3205</Priority>
@@ -1288,7 +1290,7 @@
 	<TerrainType id="MudDarkIron03_AT" value="68">
 		<Logic>
 			<Blocked>False</Blocked>
-			<!--WalkModifier>0.5</WalkModifier-->		
+			<!--WalkModifier>0.5</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>3200</Priority>
@@ -1304,7 +1306,404 @@
       <ReplacementTerrainType>MudDarkIron01B_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
-	
+
+	<TerrainType id="MudDarkGold01B_AT" value="81">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3075</Priority>
+			<BaseTexture>MudDarkGold01B</BaseTexture>
+			<TransitionsTexture>Transitions01</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>4</Quads>
+			<Color>
+				<R>68</R>
+				<G>65</G>
+				<B>52</B>
+			</Color>
+		</Display>
+	</TerrainType>
+
+	<TerrainType id="MudDarkGold01B_CT" value="82">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3050</Priority>
+			<BaseTexture>MudDarkGold01B</BaseTexture>
+			<TransitionsTexture>Transitions02</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>4</Quads>
+			<Color>
+				<R>68</R>
+				<G>65</G>
+				<B>52</B>
+			</Color>
+      <ReplacementTerrainType>MudDarkGold01B_AT</ReplacementTerrainType>
+		</Display>
+	</TerrainType>
+
+	<TerrainType id="MudDarkGold02B_AT" value="83">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3175</Priority>
+			<BaseTexture>MudDarkGold02B</BaseTexture>
+			<TransitionsTexture>Transitions01</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>4</Quads>
+			<Color>
+				<R>73</R>
+				<G>70</G>
+				<B>58</B>
+			</Color>
+      <ReplacementTerrainType>MudDarkGold01B_AT</ReplacementTerrainType>
+		</Display>
+	</TerrainType>
+
+	<TerrainType id="MudDarkGold03_CT" value="84">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3205</Priority>
+			<BaseTexture>MudDarkGold03</BaseTexture>
+			<TransitionsTexture>Transitions02</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>2</Quads>
+			<Color>
+				<R>67</R>
+				<G>64</G>
+				<B>51</B>
+			</Color>
+      <ReplacementTerrainType>MudDarkGold01B_AT</ReplacementTerrainType>
+		</Display>
+	</TerrainType>
+
+	<TerrainType id="MudDarkGold04_AT" value="85">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3210</Priority>
+			<BaseTexture>MudDarkGold04</BaseTexture>
+			<TransitionsTexture>Transitions01</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>2</Quads>
+			<Color>
+				<R>65</R>
+				<G>62</G>
+				<B>51</B>
+			</Color>
+      <ReplacementTerrainType>MudDarkGold01B_AT</ReplacementTerrainType>
+		</Display>
+	</TerrainType>
+
+	<TerrainType id="MudDarkGold04_CT" value="86">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3215</Priority>
+			<BaseTexture>MudDarkGold04</BaseTexture>
+			<TransitionsTexture>Transitions02</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>2</Quads>
+			<Color>
+				<R>65</R>
+				<G>62</G>
+				<B>51</B>
+			</Color>
+      <ReplacementTerrainType>MudDarkGold01B_AT</ReplacementTerrainType>
+		</Display>
+	</TerrainType>
+
+	<TerrainType id="MudDarkGold05_AT" value="87">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3220</Priority>
+			<BaseTexture>MudDarkGold05</BaseTexture>
+			<TransitionsTexture>Transitions01</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>2</Quads>
+			<Color>
+				<R>72</R>
+				<G>69</G>
+				<B>57</B>
+			</Color>
+      <ReplacementTerrainType>MudDarkGold01B_AT</ReplacementTerrainType>
+		</Display>
+	</TerrainType>
+
+	<TerrainType id="MudDarkGold05_CT" value="88">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3225</Priority>
+			<BaseTexture>MudDarkGold05</BaseTexture>
+			<TransitionsTexture>Transitions02</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>2</Quads>
+			<Color>
+				<R>72</R>
+				<G>69</G>
+				<B>57</B>
+			</Color>
+      <ReplacementTerrainType>MudDarkGold01B_AT</ReplacementTerrainType>
+		</Display>
+	</TerrainType>
+
+	<TerrainType id="MudDarkGold02B_CT" value="89">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3150</Priority>
+			<BaseTexture>MudDarkGold02B</BaseTexture>
+			<TransitionsTexture>Transitions02</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>4</Quads>
+			<Color>
+				<R>73</R>
+				<G>70</G>
+				<B>58</B>
+			</Color>
+      <ReplacementTerrainType>MudDarkGold01B_AT</ReplacementTerrainType>
+		</Display>
+	</TerrainType>
+
+	<TerrainType id="MudDarkGold03_AT" value="90">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3200</Priority>
+			<BaseTexture>MudDarkGold03</BaseTexture>
+			<TransitionsTexture>Transitions01</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>2</Quads>
+			<Color>
+				<R>67</R>
+				<G>64</G>
+				<B>51</B>
+			</Color>
+      <ReplacementTerrainType>MudDarkGold01B_AT</ReplacementTerrainType>
+		</Display>
+	</TerrainType>
+
+		<TerrainType id="MudDarkSilver01B_AT" value="91">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3075</Priority>
+			<BaseTexture>MudDarkSilver01B</BaseTexture>
+			<TransitionsTexture>Transitions01</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>4</Quads>
+			<Color>
+				<R>68</R>
+				<G>65</G>
+				<B>52</B>
+			</Color>
+		</Display>
+	</TerrainType>
+
+	<TerrainType id="MudDarkSilver01B_CT" value="92">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3050</Priority>
+			<BaseTexture>MudDarkSilver01B</BaseTexture>
+			<TransitionsTexture>Transitions02</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>4</Quads>
+			<Color>
+				<R>68</R>
+				<G>65</G>
+				<B>52</B>
+			</Color>
+      <ReplacementTerrainType>MudDarkSilver01B_AT</ReplacementTerrainType>
+		</Display>
+	</TerrainType>
+
+	<TerrainType id="MudDarkSilver02B_AT" value="93">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3175</Priority>
+			<BaseTexture>MudDarkSilver02B</BaseTexture>
+			<TransitionsTexture>Transitions01</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>4</Quads>
+			<Color>
+				<R>73</R>
+				<G>70</G>
+				<B>58</B>
+			</Color>
+      <ReplacementTerrainType>MudDarkSilver01B_AT</ReplacementTerrainType>
+		</Display>
+	</TerrainType>
+
+	<TerrainType id="MudDarkSilver03_CT" value="94">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3205</Priority>
+			<BaseTexture>MudDarkSilver03</BaseTexture>
+			<TransitionsTexture>Transitions02</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>2</Quads>
+			<Color>
+				<R>67</R>
+				<G>64</G>
+				<B>51</B>
+			</Color>
+      <ReplacementTerrainType>MudDarkSilver01B_AT</ReplacementTerrainType>
+		</Display>
+	</TerrainType>
+
+	<TerrainType id="MudDarkSilver04_AT" value="95">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3210</Priority>
+			<BaseTexture>MudDarkSilver04</BaseTexture>
+			<TransitionsTexture>Transitions01</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>2</Quads>
+			<Color>
+				<R>65</R>
+				<G>62</G>
+				<B>51</B>
+			</Color>
+      <ReplacementTerrainType>MudDarkSilver01B_AT</ReplacementTerrainType>
+		</Display>
+	</TerrainType>
+
+	<TerrainType id="MudDarkSilver04_CT" value="96">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3215</Priority>
+			<BaseTexture>MudDarkSilver04</BaseTexture>
+			<TransitionsTexture>Transitions02</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>2</Quads>
+			<Color>
+				<R>65</R>
+				<G>62</G>
+				<B>51</B>
+			</Color>
+      <ReplacementTerrainType>MudDarkSilver01B_AT</ReplacementTerrainType>
+		</Display>
+	</TerrainType>
+
+	<TerrainType id="MudDarkSilver05_AT" value="97">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3220</Priority>
+			<BaseTexture>MudDarkSilver05</BaseTexture>
+			<TransitionsTexture>Transitions01</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>2</Quads>
+			<Color>
+				<R>72</R>
+				<G>69</G>
+				<B>57</B>
+			</Color>
+      <ReplacementTerrainType>MudDarkSilver01B_AT</ReplacementTerrainType>
+		</Display>
+	</TerrainType>
+
+	<TerrainType id="MudDarkSilver05_CT" value="98">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3225</Priority>
+			<BaseTexture>MudDarkSilver05</BaseTexture>
+			<TransitionsTexture>Transitions02</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>2</Quads>
+			<Color>
+				<R>72</R>
+				<G>69</G>
+				<B>57</B>
+			</Color>
+      <ReplacementTerrainType>MudDarkSilver01B_AT</ReplacementTerrainType>
+		</Display>
+	</TerrainType>
+
+	<TerrainType id="MudDarkSilver02B_CT" value="99">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3150</Priority>
+			<BaseTexture>MudDarkSilver02B</BaseTexture>
+			<TransitionsTexture>Transitions02</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>4</Quads>
+			<Color>
+				<R>73</R>
+				<G>70</G>
+				<B>58</B>
+			</Color>
+      <ReplacementTerrainType>MudDarkSilver01B_AT</ReplacementTerrainType>
+		</Display>
+	</TerrainType>
+
+	<TerrainType id="MudDarkSilver03_AT" value="69">
+		<Logic>
+			<Blocked>False</Blocked>
+			<!--WalkModifier>0.5</WalkModifier-->
+		</Logic>
+		<Display>
+			<Priority>3200</Priority>
+			<BaseTexture>MudDarkSilver03</BaseTexture>
+			<TransitionsTexture>Transitions01</TransitionsTexture>
+			<SnowTexture>Snow01</SnowTexture>
+			<Quads>2</Quads>
+			<Color>
+				<R>67</R>
+				<G>64</G>
+				<B>51</B>
+			</Color>
+      <ReplacementTerrainType>MudDarkSilver01B_AT</ReplacementTerrainType>
+		</Display>
+	</TerrainType>
 
 	<TerrainType id="GrassNorth01B_AT" value="100">
 		<Logic>
@@ -1435,7 +1834,7 @@
 				<R>70</R>
 				<G>66</G>
 				<B>62</B>
-			</Color>	
+			</Color>
  		</Display>
 	</TerrainType>
 
@@ -1453,10 +1852,10 @@
 				<R>71</R>
 				<G>69</G>
 				<B>66</B>
-			</Color>														
+			</Color>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="RockDarkNorth01B_CT" value="108">
 		<Logic>
 			<Blocked>True</Blocked>
@@ -1492,7 +1891,7 @@
 				<R>58</R>
 				<G>51</G>
 				<B>44</B>
-			</Color>	
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -1510,7 +1909,7 @@
 				<R>98</R>
 				<G>94</G>
 				<B>83</B>
-			</Color>	
+			</Color>
       <ReplacementTerrainType>SandRocky01_AT_HP</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
@@ -1650,7 +2049,7 @@
       <ReplacementTerrainType>GrassMediterrean02_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="EarthSeabedNorth02_AT" value="118">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -1686,11 +2085,11 @@
   				<R>60</R>
   				<G>53</G>
   				<B>37</B>
-  			</Color>	
+  			</Color>
 		</Display>
 	</TerrainType>
 
-	
+
 	<TerrainType id="EdgeColor01_AT" value="120">
 		<Logic>
 			<Blocked>True</Blocked>
@@ -1705,10 +2104,10 @@
 				<R>38</R>
 				<G>0</G>
 				<B>0</B>
-			</Color>														
+			</Color>
 		</Display>
-	</TerrainType>	
-	
+	</TerrainType>
+
 
 	<TerrainType id="SandMediterrean01_AT" value="121">
 		<Logic>
@@ -1725,7 +2124,7 @@
 				<R>140</R>
 				<G>133</G>
 				<B>97</B>
-			</Color>														
+			</Color>
 
 		</Display>
 	</TerrainType>
@@ -1745,7 +2144,7 @@
 				<R>137</R>
 				<G>131</G>
 				<B>96</B>
-			</Color>														
+			</Color>
       <ReplacementTerrainType>SandMediterrean01_AT</ReplacementTerrainType>
 
 		</Display>
@@ -1766,7 +2165,7 @@
 				<R>133</R>
 				<G>126</G>
 				<B>99</B>
-			</Color>														
+			</Color>
       <ReplacementTerrainType>SandMediterrean01_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
@@ -1889,7 +2288,7 @@
       <ReplacementTerrainType>GrassMediterrean02_AT</ReplacementTerrainType>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="GrassMediterrean04_AT" value="130">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -1928,7 +2327,7 @@
 			</Color>
       <ReplacementTerrainType>GrassMediterrean02_AT</ReplacementTerrainType>
 		</Display>
-		
+
 	</TerrainType>
   		<TerrainType id="EarthMoss01_CT" value="132">
   		<Logic>
@@ -1944,11 +2343,11 @@
   				<R>53</R>
   				<G>61</G>
   				<B>20</B>
-  			</Color>														
+  			</Color>
       <ReplacementTerrainType>EarthMoss02_AT</ReplacementTerrainType>
   		</Display>
   	</TerrainType>
-  	
+
   	<TerrainType id="RockDarkEvelance01B_AT" value="133">
   		<Logic>
   			<Blocked>True</Blocked>
@@ -1966,7 +2365,7 @@
 			</Color>
   		</Display>
   	</TerrainType>
-  	
+
   	<TerrainType id="RockDarkEvelance02_AT" value="134">
   		<Logic>
   			<Blocked>True</Blocked>
@@ -1985,7 +2384,7 @@
       <ReplacementTerrainType>RockDarkEvelance01B_AT</ReplacementTerrainType>
   		</Display>
   	</TerrainType>
-  	
+
   	<TerrainType id="EarthErosiveEvelance01B_AT" value="135">
   		<Logic>
   			<Blocked>False</Blocked>
@@ -2000,10 +2399,10 @@
 				<R>82</R>
 				<G>80</G>
 				<B>70</B>
-			</Color>	
+			</Color>
   		</Display>
   	</TerrainType>
-  	
+
   	<TerrainType id="GrassErosiveEvelance01B_AT" value="136">
   		<Logic>
   			<Blocked>False</Blocked>
@@ -2021,7 +2420,7 @@
 			</Color>
   		</Display>
   	</TerrainType>
-  	
+
   	<TerrainType id="EarthBrightEvelance01B_AT" value="138">
   		<Logic>
   			<Blocked>False</Blocked>
@@ -2036,10 +2435,10 @@
 				<R>83</R>
 				<G>77</G>
 				<B>55</B>
-			</Color>	
+			</Color>
   		</Display>
   	</TerrainType>
-  	
+
   	<TerrainType id="EarthDarkEvelance01_AT" value="140">
   		<Logic>
   			<Blocked>False</Blocked>
@@ -2054,10 +2453,10 @@
 				<R>62</R>
 				<G>54</G>
 				<B>44</B>
-			</Color>	
+			</Color>
   		</Display>
   	</TerrainType>
-  	
+
   	<TerrainType id="EarthDarkEvelance02_AT" value="145">
   		<Logic>
   			<Blocked>False</Blocked>
@@ -2072,11 +2471,11 @@
 				<R>71</R>
 				<G>65</G>
 				<B>58</B>
-			</Color>	
+			</Color>
       <ReplacementTerrainType>EarthDarkEvelance01_AT</ReplacementTerrainType>
   		</Display>
   	</TerrainType>
-  	
+
   	<TerrainType id="RockDarkEvelance03B_AT" value="148">
   		<Logic>
   			<Blocked>True</Blocked>
@@ -2095,7 +2494,7 @@
       <ReplacementTerrainType>RockDarkEvelance01B_AT</ReplacementTerrainType>
   		</Display>
   	</TerrainType>
-  	
+
   	<TerrainType id="RockDarkEvelance03B_CT" value="149">
   		<Logic>
   			<Blocked>True</Blocked>
@@ -2115,7 +2514,7 @@
       <ReplacementTerrainType>RockDarkEvelance01B_AT</ReplacementTerrainType>
   		</Display>
   	</TerrainType>
-  	
+
   	<TerrainType id="RockDarkEvelance01B_CT" value="150">
   		<Logic>
   			<Blocked>True</Blocked>
@@ -2135,7 +2534,7 @@
       <ReplacementTerrainType>RockDarkEvelance01B_AT</ReplacementTerrainType>
   		</Display>
   	</TerrainType>
-  	
+
   	<TerrainType id="RockDarkEvelance02_CT" value="151">
   		<Logic>
   			<Blocked>True</Blocked>
@@ -2155,7 +2554,7 @@
       <ReplacementTerrainType>RockDarkEvelance01B_AT</ReplacementTerrainType>
   		</Display>
   	</TerrainType>
-  	
+
   	<TerrainType id="EarthBrightEvelance02_AT" value="153">
   		<Logic>
   			<Blocked>False</Blocked>
@@ -2170,7 +2569,7 @@
 				<R>102</R>
 				<G>88</G>
 				<B>82</B>
-			</Color>	
+			</Color>
   		</Display>
   	</TerrainType>
 
@@ -2189,7 +2588,7 @@
 				<R>178</R>
 				<G>188</G>
 				<B>197</B>
-			</Color>	
+			</Color>
 		</Display>
 	</TerrainType>
 	<TerrainType id="Snow02_CT" value="155">
@@ -2207,7 +2606,7 @@
 				<R>178</R>
 				<G>188</G>
 				<B>197</B>
-			</Color>	
+			</Color>
 		</Display>
 	</TerrainType>
 	<TerrainType id="Snow03_CT" value="156">
@@ -2225,7 +2624,7 @@
 				<R>178</R>
 				<G>188</G>
 				<B>197</B>
-			</Color>	
+			</Color>
 		</Display>
 	</TerrainType>
   	<TerrainType id="RockDarkEvelance04B_AT" value="157">
@@ -2246,7 +2645,7 @@
       <ReplacementTerrainType>RockDarkEvelance01B_AT</ReplacementTerrainType>
   		</Display>
   	</TerrainType>
-  	
+
   	<TerrainType id="RockDarkEvelance04B_CT" value="158">
   		<Logic>
   			<Blocked>True</Blocked>
@@ -2307,7 +2706,7 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="EarthBrightSteppe02_AT" value="162">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -2341,10 +2740,10 @@
 				<R>79</R>
 				<G>79</G>
 				<B>79</B>
-			</Color>					
+			</Color>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="EarthRockySteppe01B_AT" value="164">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -2359,7 +2758,7 @@
 				<R>78</R>
 				<G>77</G>
 				<B>71</B>
-			</Color>											
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -2379,7 +2778,7 @@
 				<R>79</R>
 				<G>79</G>
 				<B>79</B>
-			</Color>										
+			</Color>
 <!--      <ReplacementTerrainType>RockDark01B_AT</ReplacementTerrainType> -->
 		</Display>
 	</TerrainType>
@@ -2387,7 +2786,7 @@
 	<TerrainType id="RockDarkSteppe02_AT" value="166">
 		<Logic>
 			<Blocked>True</Blocked>
-			<!--WalkModifier>0.2</WalkModifier-->		
+			<!--WalkModifier>0.2</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>6311</Priority>
@@ -2408,7 +2807,7 @@
 	<TerrainType id="RockDarkSteppe02_CT" value="167">
 		<Logic>
 			<Blocked>True</Blocked>
-			<!--WalkModifier>0.2</WalkModifier-->		
+			<!--WalkModifier>0.2</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>6310</Priority>
@@ -2429,7 +2828,7 @@
 	<TerrainType id="RockDarkSteppe03_AT" value="168">
 		<Logic>
 			<Blocked>True</Blocked>
-			<!--WalkModifier>0.2</WalkModifier-->		
+			<!--WalkModifier>0.2</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>6321</Priority>
@@ -2450,7 +2849,7 @@
 	<TerrainType id="RockDarkSteppe03_CT" value="169">
 		<Logic>
 			<Blocked>True</Blocked>
-			<!--WalkModifier>0.2</WalkModifier-->		
+			<!--WalkModifier>0.2</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>6320</Priority>
@@ -2556,11 +2955,11 @@
 				<R>74</R>
 				<G>84</G>
 				<B>26</B>
-			</Color>		
+			</Color>
 <!--      <ReplacementTerrainType>GrassBright01B_AT</ReplacementTerrainType> -->
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="GrassBrightSteppe01B_CT" value="175">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -2576,12 +2975,12 @@
 				<R>74</R>
 				<G>84</G>
 				<B>26</B>
-			</Color>	
+			</Color>
 <!--      <ReplacementTerrainType>GrassBright01B_AT</ReplacementTerrainType> -->
 
 		</Display>
 	</TerrainType>
-	
+
 <!-- Moor textures -->
 
 	<TerrainType id="EarthDarkMoor01B_AT" value="200">
@@ -2620,7 +3019,7 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="GrassDarkMoor01B_CT" value="206">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -2639,7 +3038,7 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="EarthBrightMoor01B_AT" value="210">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -2654,7 +3053,7 @@
 				<R>103</R>
 				<G>92</G>
 				<B>53</B>
-			</Color>		
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -2672,7 +3071,7 @@
 				<R>103</R>
 				<G>92</G>
 				<B>53</B>
-			</Color>		
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -2691,7 +3090,7 @@
 				<R>79</R>
 				<G>79</G>
 				<B>79</B>
-			</Color>					
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -2711,7 +3110,7 @@
 				<R>79</R>
 				<G>79</G>
 				<B>79</B>
-			</Color>					
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -2730,7 +3129,7 @@
 				<R>79</R>
 				<G>79</G>
 				<B>79</B>
-			</Color>					
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -2750,7 +3149,7 @@
 				<R>79</R>
 				<G>79</G>
 				<B>79</B>
-			</Color>					
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -2769,7 +3168,7 @@
 				<R>79</R>
 				<G>79</G>
 				<B>79</B>
-			</Color>					
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -2789,7 +3188,7 @@
 				<R>79</R>
 				<G>79</G>
 				<B>79</B>
-			</Color>					
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -2808,7 +3207,7 @@
 				<R>79</R>
 				<G>79</G>
 				<B>79</B>
-			</Color>					
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -2828,7 +3227,7 @@
 				<R>79</R>
 				<G>79</G>
 				<B>79</B>
-			</Color>					
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -2847,7 +3246,7 @@
 				<R>79</R>
 				<G>79</G>
 				<B>79</B>
-			</Color>					
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -2867,7 +3266,7 @@
 				<R>79</R>
 				<G>79</G>
 				<B>79</B>
-			</Color>					
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -2885,7 +3284,7 @@
 				<R>78</R>
 				<G>77</G>
 				<B>71</B>
-			</Color>											
+			</Color>
 		</Display>
 	</TerrainType>
 
@@ -2906,7 +3305,7 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="GrassBrightMoor01B_CT" value="229">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -2942,7 +3341,7 @@
   				<R>60</R>
   				<G>53</G>
   				<B>37</B>
-  			</Color>	
+  			</Color>
 		</Display>
 	</TerrainType>
 
@@ -2961,7 +3360,7 @@
   				<R>60</R>
   				<G>53</G>
   				<B>37</B>
-  			</Color>	
+  			</Color>
 		</Display>
 	</TerrainType>
 
@@ -2980,7 +3379,7 @@
   				<R>60</R>
   				<G>53</G>
   				<B>37</B>
-  			</Color>	
+  			</Color>
 		</Display>
 	</TerrainType>
 
@@ -2999,7 +3398,7 @@
   				<R>60</R>
   				<G>53</G>
   				<B>37</B>
-  			</Color>	
+  			</Color>
 		</Display>
 	</TerrainType>
 
@@ -3018,7 +3417,7 @@
   				<R>60</R>
   				<G>53</G>
   				<B>37</B>
-  			</Color>	
+  			</Color>
 		</Display>
 	</TerrainType>
 
@@ -3037,7 +3436,7 @@
   				<R>60</R>
   				<G>53</G>
   				<B>37</B>
-  			</Color>	
+  			</Color>
 		</Display>
 	</TerrainType>
 
@@ -3056,7 +3455,7 @@
   				<R>60</R>
   				<G>53</G>
   				<B>37</B>
-  			</Color>	
+  			</Color>
 		</Display>
 	</TerrainType>
 
@@ -3069,7 +3468,7 @@
 	<TerrainType id="MudTideland01B_AT" value="70">
 		<Logic>
 			<Blocked>False</Blocked>
-			<!--WalkModifier>0.5</WalkModifier-->	
+			<!--WalkModifier>0.5</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>3085</Priority>
@@ -3081,14 +3480,14 @@
 				<R>68</R>
 				<G>65</G>
 				<B>52</B>
-			</Color>				
+			</Color>
 		</Display>
 	</TerrainType>
 
 	<TerrainType id="MudTideland02_AT" value="71">
 		<Logic>
 			<Blocked>False</Blocked>
-			<!--WalkModifier>0.5</WalkModifier-->	
+			<!--WalkModifier>0.5</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>3087</Priority>
@@ -3100,7 +3499,7 @@
 				<R>68</R>
 				<G>65</G>
 				<B>52</B>
-			</Color>				
+			</Color>
 		</Display>
     <ReplacementTerrainType>MudTideland01B_AT</ReplacementTerrainType>
 	</TerrainType>
@@ -3108,7 +3507,7 @@
 	<TerrainType id="SandEarthTideland01B_AT" value="72">
 		<Logic>
 			<Blocked>False</Blocked>
-			<!--WalkModifier>0.5</WalkModifier-->	
+			<!--WalkModifier>0.5</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>3089</Priority>
@@ -3120,14 +3519,14 @@
 				<R>68</R>
 				<G>65</G>
 				<B>52</B>
-			</Color>				
+			</Color>
 		</Display>
 	</TerrainType>
 
 	<TerrainType id="SandEarthTideland02_AT" value="73">
 		<Logic>
 			<Blocked>False</Blocked>
-			<!--WalkModifier>0.5</WalkModifier-->	
+			<!--WalkModifier>0.5</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>3090</Priority>
@@ -3139,7 +3538,7 @@
 				<R>68</R>
 				<G>65</G>
 				<B>52</B>
-			</Color>				
+			</Color>
 		</Display>
     <ReplacementTerrainType>SandEarthTideland01B_AT</ReplacementTerrainType>
 	</TerrainType>
@@ -3147,7 +3546,7 @@
 	<TerrainType id="RockBrightTideland01B_AT" value="74">
 		<Logic>
 			<Blocked>True</Blocked>
-			<!--WalkModifier>0.5</WalkModifier-->	
+			<!--WalkModifier>0.5</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>3092</Priority>
@@ -3159,14 +3558,14 @@
 				<R>68</R>
 				<G>65</G>
 				<B>52</B>
-			</Color>				
+			</Color>
 		</Display>
 	</TerrainType>
 
 	<TerrainType id="GrassFlowersTideland01B_AT" value="75">
 		<Logic>
 			<Blocked>False</Blocked>
-			<!--WalkModifier>0.5</WalkModifier-->	
+			<!--WalkModifier>0.5</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>3098</Priority>
@@ -3178,7 +3577,7 @@
 				<R>68</R>
 				<G>65</G>
 				<B>52</B>
-			</Color>				
+			</Color>
 		</Display>
     <ReplacementTerrainType>GrassBright01B_AT</ReplacementTerrainType>
 	</TerrainType>
@@ -3186,7 +3585,7 @@
 	<TerrainType id="GrassFlowersTideland02B_AT" value="76">
 		<Logic>
 			<Blocked>False</Blocked>
-			<!--WalkModifier>0.5</WalkModifier-->	
+			<!--WalkModifier>0.5</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>3100</Priority>
@@ -3198,7 +3597,7 @@
 				<R>68</R>
 				<G>65</G>
 				<B>52</B>
-			</Color>				
+			</Color>
 		</Display>
     <ReplacementTerrainType>GrassBright01B_AT</ReplacementTerrainType>
 	</TerrainType>
@@ -3207,7 +3606,7 @@
 	<TerrainType id="CobbledPavement01B_AT" value="77">
 		<Logic>
 			<Blocked>False</Blocked>
-			<!--WalkModifier>0.5</WalkModifier-->	
+			<!--WalkModifier>0.5</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>3105</Priority>
@@ -3219,14 +3618,14 @@
 				<R>68</R>
 				<G>65</G>
 				<B>52</B>
-			</Color>				
+			</Color>
 		</Display>
 	</TerrainType>
 
 	<TerrainType id="GrassFlowersTideland01B_CT" value="78">
 		<Logic>
 			<Blocked>False</Blocked>
-			<!--WalkModifier>0.5</WalkModifier-->	
+			<!--WalkModifier>0.5</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>3102</Priority>
@@ -3238,7 +3637,7 @@
 				<R>68</R>
 				<G>65</G>
 				<B>52</B>
-			</Color>				
+			</Color>
 		</Display>
       <ReplacementTerrainType>GrassBright01B_AT</ReplacementTerrainType>
 	</TerrainType>
@@ -3246,7 +3645,7 @@
 	<TerrainType id="GrassFlowersTideland02B_CT" value="79">
 		<Logic>
 			<Blocked>False</Blocked>
-			<!--WalkModifier>0.5</WalkModifier-->	
+			<!--WalkModifier>0.5</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>3104</Priority>
@@ -3258,7 +3657,7 @@
 				<R>68</R>
 				<G>65</G>
 				<B>52</B>
-			</Color>				
+			</Color>
 		</Display>
     <ReplacementTerrainType>GrassBright01B_AT</ReplacementTerrainType>
 	</TerrainType>
@@ -3266,7 +3665,7 @@
 	<TerrainType id="RockBrightTideland01B_CT" value="80">
 		<Logic>
 			<Blocked>True</Blocked>
-			<!--WalkModifier>0.5</WalkModifier-->	
+			<!--WalkModifier>0.5</WalkModifier-->
 		</Logic>
 		<Display>
 			<Priority>3110</Priority>
@@ -3278,7 +3677,7 @@
 				<R>68</R>
 				<G>65</G>
 				<B>52</B>
-			</Color>				
+			</Color>
 		</Display>
     <ReplacementTerrainType>RockBrightTideland01B_AT</ReplacementTerrainType>
 	</TerrainType>
@@ -3302,7 +3701,7 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="EarthRockyDesert02_AT" value="251">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -3320,7 +3719,7 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="EarthRockyDesert03_AT" value="252">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -3338,7 +3737,7 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="EarthRockyDesert04_AT" value="253">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -3356,7 +3755,7 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="EarthRockyDesert05_AT" value="254">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -3374,7 +3773,7 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
+
 	<TerrainType id="GrassBrightDesert01_AT" value="255">
 		<Logic>
 			<Blocked>False</Blocked>
@@ -3392,8 +3791,8 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
-	<TerrainType id="GrassBrightDesert01_CT" value="256">
+
+	<TerrainType id="GrassBrightDesert01_CT" value="176">
 		<Logic>
 			<Blocked>False</Blocked>
 		</Logic>
@@ -3411,7 +3810,7 @@
 		</Display>
 	</TerrainType>
 
-	<TerrainType id="GrassBrightDesert02_AT" value="257">
+	<TerrainType id="GrassBrightDesert02_AT" value="177">
 		<Logic>
 			<Blocked>False</Blocked>
 		</Logic>
@@ -3428,8 +3827,8 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
-	<TerrainType id="GrassBrightDesert02_CT" value="258">
+
+	<TerrainType id="GrassBrightDesert02_CT" value="178">
 		<Logic>
 			<Blocked>False</Blocked>
 		</Logic>
@@ -3447,7 +3846,7 @@
 		</Display>
 	</TerrainType>
 
-	<TerrainType id="GrassDarkDesert01_AT" value="259">
+	<TerrainType id="GrassDarkDesert01_AT" value="179">
 		<Logic>
 			<Blocked>False</Blocked>
 		</Logic>
@@ -3464,8 +3863,8 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
-	<TerrainType id="GrassDarkDesert01_CT" value="260">
+
+	<TerrainType id="GrassDarkDesert01_CT" value="180">
 		<Logic>
 			<Blocked>False</Blocked>
 		</Logic>
@@ -3483,7 +3882,7 @@
 		</Display>
 	</TerrainType>
 
-	<TerrainType id="GrassDryDesert01_AT" value="261">
+	<TerrainType id="GrassDryDesert01_AT" value="181">
 		<Logic>
 			<Blocked>False</Blocked>
 		</Logic>
@@ -3500,8 +3899,8 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
-	<TerrainType id="GrassDryDesert01_CT" value="262">
+
+	<TerrainType id="GrassDryDesert01_CT" value="182">
 		<Logic>
 			<Blocked>False</Blocked>
 		</Logic>
@@ -3519,7 +3918,7 @@
 		</Display>
 	</TerrainType>
 
-	<TerrainType id="PebblesEarthDesert01_AT" value="263">
+	<TerrainType id="PebblesEarthDesert01_AT" value="183">
 		<Logic>
 			<Blocked>False</Blocked>
 		</Logic>
@@ -3536,8 +3935,8 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
-	<TerrainType id="PebblesEarthDesert01_CT" value="264">
+
+	<TerrainType id="PebblesEarthDesert01_CT" value="184">
 		<Logic>
 			<Blocked>False</Blocked>
 		</Logic>
@@ -3555,7 +3954,7 @@
 		</Display>
 	</TerrainType>
 
-	<TerrainType id="RockBrightDesert01_AT" value="265">
+	<TerrainType id="RockBrightDesert01_AT" value="185">
 		<Logic>
 			<Blocked>True</Blocked>
 		</Logic>
@@ -3572,8 +3971,8 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
-	<TerrainType id="RockBrightDesert01_CT" value="266">
+
+	<TerrainType id="RockBrightDesert01_CT" value="186">
 		<Logic>
 			<Blocked>True</Blocked>
 		</Logic>
@@ -3591,7 +3990,7 @@
 		</Display>
 	</TerrainType>
 
-	<TerrainType id="RockBrightDesert02_AT" value="267">
+	<TerrainType id="RockBrightDesert02_AT" value="187">
 		<Logic>
 			<Blocked>True</Blocked>
 		</Logic>
@@ -3608,8 +4007,8 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
-	<TerrainType id="RockBrightDesert02_CT" value="268">
+
+	<TerrainType id="RockBrightDesert02_CT" value="188">
 		<Logic>
 			<Blocked>True</Blocked>
 		</Logic>
@@ -3627,7 +4026,7 @@
 		</Display>
 	</TerrainType>
 
-	<TerrainType id="RockDarkDesert01_AT" value="269">
+	<TerrainType id="RockDarkDesert01_AT" value="189">
 		<Logic>
 			<Blocked>True</Blocked>
 		</Logic>
@@ -3644,8 +4043,8 @@
 			</Color>
 		</Display>
 	</TerrainType>
-	
-	<TerrainType id="RockDarkDesert01_CT" value="270">
+
+	<TerrainType id="RockDarkDesert01_CT" value="190">
 		<Logic>
 			<Blocked>True</Blocked>
 		</Logic>
@@ -3663,7 +4062,7 @@
 		</Display>
 	</TerrainType>
 
-	<TerrainType id="SandDesert01_AT" value="271">
+	<TerrainType id="SandDesert01_AT" value="191">
 		<Logic>
 			<Blocked>False</Blocked>
 		</Logic>
@@ -3681,7 +4080,7 @@
 		</Display>
 	</TerrainType>
 
-	<TerrainType id="SandDesert02_AT" value="272">
+	<TerrainType id="SandDesert02_AT" value="192">
 		<Logic>
 			<Blocked>False</Blocked>
 		</Logic>
@@ -3699,7 +4098,7 @@
 		</Display>
 	</TerrainType>
 
-	<TerrainType id="SandDesert03_AT" value="273">
+	<TerrainType id="SandDesert03_AT" value="193">
 		<Logic>
 			<Blocked>False</Blocked>
 		</Logic>
@@ -3717,7 +4116,7 @@
 		</Display>
 	</TerrainType>
 
-	<TerrainType id="SandEarthDesert01_AT" value="274">
+	<TerrainType id="SandEarthDesert01_AT" value="194">
 		<Logic>
 			<Blocked>False</Blocked>
 		</Logic>
@@ -3735,7 +4134,7 @@
 		</Display>
 	</TerrainType>
 
-	<TerrainType id="SandEarthDesert02_AT" value="275">
+	<TerrainType id="SandEarthDesert02_AT" value="195">
 		<Logic>
 			<Blocked>False</Blocked>
 		</Logic>
@@ -3753,7 +4152,7 @@
 		</Display>
 	</TerrainType>
 
-	<TerrainType id="SandEarthDesert03_AT" value="276">
+	<TerrainType id="SandEarthDesert03_AT" value="196">
 		<Logic>
 			<Blocked>False</Blocked>
 		</Logic>
@@ -3771,7 +4170,7 @@
 		</Display>
 	</TerrainType>
 
-	<TerrainType id="SandRockyDesert01_AT" value="277">
+	<TerrainType id="SandRockyDesert01_AT" value="197">
 		<Logic>
 			<Blocked>False</Blocked>
 		</Logic>
@@ -3789,7 +4188,7 @@
 		</Display>
 	</TerrainType>
 
-	<TerrainType id="SandRockyDesert02_AT" value="278">
+	<TerrainType id="SandRockyDesert02_AT" value="198">
 		<Logic>
 			<Blocked>False</Blocked>
 		</Logic>
@@ -3807,7 +4206,7 @@
 		</Display>
 	</TerrainType>
 
-	<TerrainType id="SandRockyDesert03_AT" value="279">
+	<TerrainType id="SandRockyDesert03_AT" value="199">
 		<Logic>
 			<Blocked>False</Blocked>
 		</Logic>

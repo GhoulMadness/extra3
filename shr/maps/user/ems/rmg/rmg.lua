@@ -15,12 +15,13 @@
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
 RMG = {}
 s5CommunityLibPath = "extra2\\shr\\maps\\user\\EMS\\tools\\s5CommunityLib"
+s5CommunityLibPathEx3 = "extra3\\shr\\maps\\user\\EMS\\tools\\s5CommunityLib"
 RMGPath = "extra3\\shr\\maps\\user\\EMS\\RMG"
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
 Script.Load( s5CommunityLibPath .. "\\fixes\\TriggerFix.lua" )
 Script.Load( s5CommunityLibPath .. "\\comfort\\math\\SimplexNoise.lua" )
 Script.Load( s5CommunityLibPath .. "\\comfort\\math\\astar.lua" )
-Script.Load( s5CommunityLibPath .. "\\tables\\TerrainTypes.lua" )
+Script.Load( s5CommunityLibPathEx3 .. "\\tables\\TerrainTypes.lua" )
 Script.Load( s5CommunityLibPath .. "\\tables\\WaterTypes.lua" )
 Script.Load( s5CommunityLibPath .. "\\comfort\\number\\round.lua" )
 Script.Load( s5CommunityLibPath .. "\\comfort\\entity\\CreateWoodPile.lua" )
@@ -100,6 +101,57 @@ RMG.LandscapeSetKeys = {
 	{id = "Moor",		eval = RMG.SetupLandscapeMoor},
 	{id = "Tideland",	eval = RMG.SetupLandscapeTideland, representative = "Küstenland"},
 	{id = "Steppe",		eval = RMG.SetupLandscapeSteppe,},
+	{id = "Desert"}
+}
+RMG.MapSettingDefinedStructureSurroundingTexture = {
+	["ClayPit"] = {
+		["Desert"] = {
+			TerrainTypes.EarthRockyDesert03_AT,
+			TerrainTypes.EarthRockyDesert04_AT,
+		}
+	},
+	["StonePit"] = {
+		["Desert"] = {
+			TerrainTypes.SandRockyDesert01_AT,
+			TerrainTypes.SandRockyDesert02_AT,
+			TerrainTypes.SandRockyDesert03_AT,
+		},
+		["Mediterran"] = {
+			TerrainTypes.RockMedium01B_AT,
+		},
+		["Steppe"] = {
+			TerrainTypes.RockMedium01B_AT,
+		}
+	},
+	["SulfurPit"] = {
+		["Desert"] = {
+			TerrainTypes.SandEarthDesert01_AT,
+			TerrainTypes.SandEarthDesert02_AT,
+			TerrainTypes.SandEarthDesert03_AT,
+		},
+		["Mediterran"] = {
+			TerrainTypes.SandMediterrean01_AT,
+			TerrainTypes.SandMediterrean02_AT,
+			TerrainTypes.SandMediterrean03_AT,
+		},
+		["Steppe"] = {
+			TerrainTypes.SandMediterrean01_AT,
+			TerrainTypes.SandMediterrean02_AT,
+			TerrainTypes.SandMediterrean03_AT,
+		}
+	}
+}
+RMG.MapSettingDefinedStructureEntityType = {
+	["StonePit"] = {
+		["Desert"] = Entities.XD_StonePit1_Med,
+		["Mediterran"] = Entities.XD_StonePit1_Med,
+		["Steppe"] = Entities.XD_StonePit1_Med,
+	},
+	["Stone"] = {
+		["Desert"] = Entities.XD_Stone1_Med,
+		["Mediterran"] = Entities.XD_Stone1_Med,
+		["Steppe"] = Entities.XD_Stone1_Med,
+	}
 }
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---@param _GenerationData table
@@ -121,18 +173,20 @@ function RMG.CustomizeGenerationData(_GenerationData)
 	_GenerationData.MirrorMap				= Num2Bool(GDB.GetValue("Singleplayer\\RandomMapData\\MapMirror") - 1)
 	_GenerationData.RandomPlayerPosition	= false
 
-	_GenerationData.ContentClayPit          = RMG.ResPitResAmountByTypeAndEnum["Normal"][EvalMapResources]
-	_GenerationData.ContentClayPile         = RMG.ResPileResAmountByTypeAndEnum["Normal"][EvalMapResources]
-	_GenerationData.ContentStonePit	        = RMG.ResPitResAmountByTypeAndEnum["Normal"][EvalMapResources]
-	_GenerationData.ContentStonePile	    = RMG.ResPileResAmountByTypeAndEnum["Normal"][EvalMapResources]
-	_GenerationData.ContentIronPit	        = RMG.ResPitResAmountByTypeAndEnum["Combat"][EvalMapResources]
-	_GenerationData.ContentIronPile	        = RMG.ResPileResAmountByTypeAndEnum["Combat"][EvalMapResources]
-	_GenerationData.ContentSulfurPit	    = RMG.ResPitResAmountByTypeAndEnum["Combat"][EvalMapResources]
-	_GenerationData.ContentSulfurPile	    = RMG.ResPileResAmountByTypeAndEnum["Combat"][EvalMapResources]
-	_GenerationData.ContentGoldPit	   		= RMG.ResPitResAmountByTypeAndEnum["Combat"][EvalMapResources]
-	_GenerationData.ContentSilverPit	    = RMG.ResPitResAmountByTypeAndEnum["Rare"][EvalMapResources]
-	_GenerationData.ContentSilverPile	    = RMG.ResPileResAmountByTypeAndEnum["Rare"][EvalMapResources]
-	_GenerationData.ContentWoodPile	        = RMG.ResPitResAmountByTypeAndEnum["Normal"][EvalMapResources]
+	local EvalMapResourceWealth = GDB.GetValue("Singleplayer\\RandomMapData\\MapResourceWealth")
+
+	_GenerationData.ContentClayPit          = RMG.ResPitResAmountByTypeAndEnum["Normal"][EvalMapResourceWealth]
+	_GenerationData.ContentClayPile         = RMG.ResPileResAmountByTypeAndEnum["Normal"][EvalMapResourceWealth]
+	_GenerationData.ContentStonePit	        = RMG.ResPitResAmountByTypeAndEnum["Normal"][EvalMapResourceWealth]
+	_GenerationData.ContentStonePile	    = RMG.ResPileResAmountByTypeAndEnum["Normal"][EvalMapResourceWealth]
+	_GenerationData.ContentIronPit	        = RMG.ResPitResAmountByTypeAndEnum["Combat"][EvalMapResourceWealth]
+	_GenerationData.ContentIronPile	        = RMG.ResPileResAmountByTypeAndEnum["Combat"][EvalMapResourceWealth]
+	_GenerationData.ContentSulfurPit	    = RMG.ResPitResAmountByTypeAndEnum["Combat"][EvalMapResourceWealth]
+	_GenerationData.ContentSulfurPile	    = RMG.ResPileResAmountByTypeAndEnum["Combat"][EvalMapResourceWealth]
+	_GenerationData.ContentGoldPit	   		= RMG.ResPitResAmountByTypeAndEnum["Combat"][EvalMapResourceWealth]
+	_GenerationData.ContentSilverPit	    = RMG.ResPitResAmountByTypeAndEnum["Rare"][EvalMapResourceWealth]
+	_GenerationData.ContentSilverPile	    = RMG.ResPileResAmountByTypeAndEnum["Rare"][EvalMapResourceWealth]
+	_GenerationData.ContentWoodPile	        = RMG.ResPitResAmountByTypeAndEnum["Normal"][EvalMapResourceWealth]
 
 	local EvalMapResources = GDB.GetValue("Singleplayer\\RandomMapData\\MapResources")
 	local EvalMapVC = GDB.GetValue("Singleplayer\\RandomMapData\\MapVC")
@@ -337,8 +391,8 @@ function RMG.InitGenerationData()
 	generationData.ThresholdRoad			= 0
 	generationData.ForestDensity			= 1 -- in %
 
-	generationData.ThresholdVeryStrongGroth	= 0.5
-	generationData.ThresholdStrongGroth		= 0.3
+	generationData.ThresholdVeryStrongGroth	= 0.35
+	generationData.ThresholdStrongGroth		= 0.15
 	generationData.ThresholdWeakGroth		= -0.1
 	generationData.ThresholdVeryWeakGroth	= -0.3
 
@@ -362,11 +416,13 @@ function RMG.InitGenerationData2(_GenerationData)
 		-- generate no rivers if not enough teams
 		if _GenerationData.NumberOfTeams <= 1 then
 			_GenerationData.TeamBorderType = 1 -- none
+			_GenerationData.MirrorMap = false						
 		end
 
 		-- generate no roads if not enough players
 		if _GenerationData.NumberOfPlayers <= 1 then
 			_GenerationData.GenerateRoads = false
+			_GenerationData.MirrorMap = false						
 		end
 	end
 
@@ -385,7 +441,8 @@ function RMG.InitGenerationData2(_GenerationData)
 	end
 
 	-- TODO: depend on number of players and teams
-	_GenerationData.PlayerDistanceToMiddle = 0.9 -- in percent
+	local sizeX = Logic.WorldGetSize()
+	_GenerationData.PlayerDistanceToMiddle = math.min(0.4 + (_GenerationData.NumberOfPlayers/8 / (sizeX/20000)), 0.95) -- in percent
 
 	-- build misc structure tables
 	local waterheight = _GenerationData.WaterBaseHeight + 200
@@ -395,7 +452,7 @@ function RMG.InitGenerationData2(_GenerationData)
 	RMG.StructureSets = {
 		ClayPit = {
 			Entities = {{Type = Entities.XD_ClayPit1, Resource = _GenerationData.ContentClayPit,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 6, Name = "white"},},
-			Blocking = 18,
+			Blocking = 22,
 			TerrainHeights = {
 				Area = 18,
 				[-6]={[-6]=  -3,[-5]=  -14,[-4]=  -24,[-3]=  -32,[-2]=  -34,[-1]=  -33,[0]=  -35,[1]=  -40,[2]=  -43,[3]=  -34,[4]=  -21,[5]=  -9},
@@ -414,14 +471,14 @@ function RMG.InitGenerationData2(_GenerationData)
 				[7]={[-6]=  -2,[-5]=   -2,[-4]=   -3,[-3]=   -5,[-2]=   -5,[-1]=   -8,[0]=   -9,[1]=  -12,[2]=   -6,[3]=   -4,[4]=   -3,[5]=  -1},
 			},
 			TerrainTextures = {
-				TextureList = RMG.TextureSets.NormalEarthDark,
+				TextureList = RMG.MapSettingDefinedStructureSurroundingTexture.ClayPit[_GenerationData.LandscapeSetKey] or RMG.TextureSets.NormalEarthDark,
 				Area = 11,
 			},
 			Water = {}, -- empty Water table uses preset for resource pits -> lowers water around pit - see CreateStructure(...)
 		},
 		StonePit = {
-			Entities = {{Type = Entities.XD_StonePit1, Resource = _GenerationData.ContentStonePit,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 5, Name = "white"},},
-			Blocking = 18,
+			Entities = {{Type = RMG.MapSettingDefinedStructureEntityType.StonePit[_GenerationData.LandscapeSetKey] or Entities.XD_StonePit1, Resource = _GenerationData.ContentStonePit,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 5, Name = "white"},},
+			Blocking = 22,
 			TerrainHeights = {
 				Area = 18,
 				[0] = {[0] = -89, [1] = -103,[-1] = -71,[-10] = 0,[10] = 480,[-11] = 0,[11] = 480,[-12] = 0,[12] = 480,[-13] = 0,[13] = 480,[-14] = 0,[14] = 480,[-15] = 0,[15] = 480,[-16] = 0,[16] = 480,[-17] = 0,[17] = 480,[-18] = 0,[18] = 480,[-19] = 0,[19] = 480,[2] = -112,[-2] = -54,[-20] = 0,[20] = 480,[3] = -126,[-3] = -45,[4] = -126,[-4] = -39,[5] = -110,[-5] = -17,[6] = 17,[-6] = -2,[-7] = 0,[7] = 400,[-8] = 0,[8] = 452,[-9] = 0,[9] = 480,},
@@ -467,7 +524,7 @@ function RMG.InitGenerationData2(_GenerationData)
 				[9] = {[0] = 485,[-1] = 448,[1] = 485,[-10] = 20,[10] = 480,[-11] = 0,[11] = 480,[-12] = 0,[12] = 480,[-13] = 0,[13] = 480,[-14] = 0,[14] = 480,[-15] = 0,[15] = 480,[-16] = 0,[16] = 480,[-17] = 0,[17] = 480,[-18] = 0,[18] = 480,[-19] = 0,[19] = 480,[-2] = 429,[2] = 480,[-20] = 0,[20] = 480,[-3] = 378,[3] = 480,[-4] = 352,[4] = 480,[-5] = 311,[5] = 480,[-6] = 246,[6] = 480,[-7] = 170,[7] = 480,[-8] = 110,[8] = 480,[9] = 480,[-9] = 62,},
 			},
 			TerrainTextures = {
-				TextureList = RMG.TextureSets.NormalRocky,
+				TextureList = RMG.MapSettingDefinedStructureSurroundingTexture.StonePit[_GenerationData.LandscapeSetKey] or RMG.TextureSets.NormalRocky,
 				RelativX = 3,
 				RelativY = 4,
 				Area = {x1 = -8, y1 = -8, x2 = 12, y2 = 12},
@@ -476,7 +533,7 @@ function RMG.InitGenerationData2(_GenerationData)
 		},
 		IronPit = {
 			Entities = {{Type = Entities.XD_IronPit1, Resource = _GenerationData.ContentIronPit,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 5, Name = "white"},},
-			Blocking = 16,
+			Blocking = 20,
 			TerrainHeights = {
 				Area = 16,
 				[-4]={[-4]= 0,[-3]=   0,[-2]=   -5},
@@ -490,14 +547,14 @@ function RMG.InitGenerationData2(_GenerationData)
 				[4]={[-4]= 0,[-3]=   0,[-2]=    0,[-1]=   -2,[0]=   -4},
 			},
 			TerrainTextures = {
-				TextureList = RMG.TextureSets.NormalMudDarkSmooth,
+				TextureList = RMG.TextureSets.NormalMudDarkIronSmooth,
 				Area = 10,
 			},
 			Water = {},
 		},
 		GoldPit = {
 			Entities = {{Type = Entities.XD_GoldPit1, Resource = _GenerationData.ContentGoldPit,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 5, Name = "white"},},
-			Blocking = 16,
+			Blocking = 20,
 			TerrainHeights = {
 				Area = 16,
 				[-4]={[-4]= 0,[-3]=   0,[-2]=   -5},
@@ -511,14 +568,14 @@ function RMG.InitGenerationData2(_GenerationData)
 				[4]={[-4]= 0,[-3]=   0,[-2]=    0,[-1]=   -2,[0]=   -4},
 			},
 			TerrainTextures = {
-				TextureList = RMG.TextureSets.NormalMudDarkSmooth,
+				TextureList = RMG.TextureSets.NormalMudDarkGoldSmooth,
 				Area = 10,
 			},
 			Water = {},
 		},
 		SilverPit = {
 			Entities = {{Type = Entities.XD_SilverPit1, Resource = _GenerationData.ContentSilverPit,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 5, Name = "white"},},
-			Blocking = 16,
+			Blocking = 20,
 			TerrainHeights = {
 				Area = 16,
 				[-4]={[-4]= 0,[-3]=   0,[-2]=   -5},
@@ -532,14 +589,14 @@ function RMG.InitGenerationData2(_GenerationData)
 				[4]={[-4]= 0,[-3]=   0,[-2]=    0,[-1]=   -2,[0]=   -4},
 			},
 			TerrainTextures = {
-				TextureList = RMG.TextureSets.NormalMudDarkSmooth,
+				TextureList = RMG.TextureSets.NormalMudDarkSilverSmooth,
 				Area = 10,
 			},
 			Water = {},
 		},
 		SulfurPit = {
 			Entities = {{Type = Entities.XD_SulfurPit1, Resource = _GenerationData.ContentSulfurPit,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 5, Name = "white"},},
-			Blocking = 16,
+			Blocking = 20,
 			TerrainHeights = {
 				Area = 16,
 				[-3]={[-5]= 0,[-4]=  -2,[-3]=   -2,[-2]=   -2,[-1]=   -2},
@@ -551,7 +608,7 @@ function RMG.InitGenerationData2(_GenerationData)
 				[3]={[-5]= 0,[-4]=  -4,[-3]=  -40,[-2]=  -85,[-1]= -109,[0]= -107,[1]=  -64},
 			},
 			TerrainTextures = {
-				TextureList = RMG.TextureSets.NorthSand,
+				TextureList = RMG.MapSettingDefinedStructureSurroundingTexture.SulfurPit[_GenerationData.LandscapeSetKey] or RMG.TextureSets.NorthSand,
 				Area = 9,
 			},
 			Water = {},
@@ -561,8 +618,8 @@ function RMG.InitGenerationData2(_GenerationData)
 			Blocking = 5,
 		},
 		StonePile = {
-			Entities = {{Type = Entities.XD_Stone1, Resource = _GenerationData.ContentStonePile,},},
-			Blocking = 5,
+			Entities = {{Type = RMG.MapSettingDefinedStructureEntityType.Stone[_GenerationData.LandscapeSetKey] or Entities.XD_Stone1, Resource = _GenerationData.ContentStonePile,},},
+			Blocking = 7,
 		},
 		IronPile = {
 			Entities = {{Type = Entities.XD_Iron1, Resource = _GenerationData.ContentIronPile,},},
@@ -585,7 +642,7 @@ function RMG.InitGenerationData2(_GenerationData)
 			Blocking = 5,
 		},
 		StonePileExplored = {
-			Entities = {{Type = Entities.XD_Stone1, Resource = _GenerationData.ContentStonePile,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 3, Name = "white"},},
+			Entities = {{Type = RMG.MapSettingDefinedStructureEntityType.Stone[_GenerationData.LandscapeSetKey] or Entities.XD_Stone1, Resource = _GenerationData.ContentStonePile,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 3, Name = "white"},},
 			Blocking = 5,
 		},
 		IronPileExplored = {
@@ -721,34 +778,54 @@ function RMG.InitGenerationData2(_GenerationData)
 			},
 		},
 		NeutralLighthouse = {
-			Blocking = 18,
+			Blocking = 14,
 			Entities = {
 				{Type = Entities.XD_Lighthouse_Ruin, Player = 0,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreVCs * 6, Name = "green"},
 			},
 			TerrainHeights = {
-				Area = 18,
+				Area = 14,
 			},
 			TerrainTextures = {
-				Area = {X = 10, Y = 10,},
+				Area = {X = 8, Y = 8,},
 				TextureList = "Road",
 			},
 		},
 		Placement = {
 			PileAtPit = {
-				AreaMin = 16,
-				AreaMax = 32,
+				AreaMin = 8,
+				AreaMax = 12,
 				HeightMin = heightmin,
 				HeightMax = heightmax,
 			},
 			PileAtPile = {
 				AreaMin = 4,
-				AreaMax = 12,
+				AreaMax = 8,
 				HeightMin = heightmin,
 				HeightMax = heightmax,
 			},
 		},
 	}
 
+	local resoff = math.max(8, _GenerationData.NumberOfPlayers / 2)
+	local maphalf = Logic.WorldGetSize() / 200
+	local maxdist
+
+	if _GenerationData.NumberOfPlayers > 1 then
+		-- triangle calculation for distance between players of same team
+		local b = maphalf * _GenerationData.PlayerDistanceToMiddle
+		local alpha = _GenerationData.MirrorRadian
+		local beta = (math.rad(180) - alpha) / 2
+		local a = b / math.sin(beta) * math.sin(alpha)
+
+		maxdist = math.min(a / 2 - 10 - resoff, 120)
+		-- maxdist at 12+ players is 89.44 so basicly 90 (a good value in the old generator)
+		-- - 10 (blocking) - 5 (resoff) = 75
+	else
+		maxdist = maphalf / 2
+	end
+
+	_GenerationData.ResourceDistanceOffset = resoff
+	_GenerationData.MaxStructureDistance = maxdist
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 function RMG.FillStructs(_GenerationData)
@@ -1175,17 +1252,8 @@ end
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 function RMG.FillPlayerStruct(_GenerationData)
 
-	-- triangle calculation for distance between players of same team
-	local maphalf = Logic.WorldGetSize() / 200
-	local b = maphalf * _GenerationData.PlayerDistanceToMiddle
-	local alpha = _GenerationData.MirrorRadian
-	local beta = (math.rad(180) - alpha) / 2
-	local a = b / math.sin(beta) * math.sin(alpha)
-
-	local resoff = math.max(5, _GenerationData.NumberOfPlayers / 2)
-	local maxdist = math.min(a / 2 - 10 - resoff, 120)
-	-- maxdist at 12+ players is 89.44 so basicly 90 (a good value in the old generator)
-	-- - 10 (blocking) - 5 (resoff) = 75
+	local resoff = _GenerationData.ResourceDistanceOffset
+	local maxdist = _GenerationData.MaxStructureDistance
 
 	local heightmin = -100
 	local heightmax = 100
@@ -1269,7 +1337,6 @@ function RMG.AddResourcePitToPlayerStruct(_PitAmount, _PitType, _PileAmount, _Pi
 
 	local possiblewoodpileindices = {}
 
-	-- do we have a pit
 	if _PitAmount > 0 then
 
 		local pileamount, pileamountleft = math.floor(_PileAmount / _PitAmount), math.mod(_PileAmount, _PitAmount)
@@ -1283,17 +1350,13 @@ function RMG.AddResourcePitToPlayerStruct(_PitAmount, _PitType, _PileAmount, _Pi
 					AreaMin = dist - _ResOff,
 					AreaMax = dist + _ResOff,
 					Height = _Noise + noise,
-					--HeightMin = _NoiseMin,
-					--HeightMax = _NoiseMax,
 					Grid = 4,
 				},
 				Data = RMG.StructureSets[_PitType],
 				Childs = {},
 			}
 			local n = 1
-			--if i <= pileamountleft then
-				--n = 0
-			--end
+
 			for j = n, pileamount do
 				if j == 1 then
 					table.insert(child.Childs, {Placement = RMG.StructureSets.Placement.PileAtPit, Data = RMG.StructureSets[_PileType], Childs = {},})
@@ -1320,8 +1383,6 @@ function RMG.AddResourcePitToPlayerStruct(_PitAmount, _PitType, _PileAmount, _Pi
 						AreaMin = dist - _ResOff,
 						AreaMax = dist + _ResOff,
 						Height = _Noise + noise,
-						--HeightMin = _NoiseMin,
-						--HeightMax = _NoiseMax,
 					},
 					Data = RMG.StructureSets[_PileType .. "Explored"],
 					Childs = {},
@@ -1408,6 +1469,7 @@ function RMG.GenerateMap()
 	local generationData = RMG.InitGenerationData()
 	RMG.CustomizeGenerationData(generationData)
 	RMG.InitGenerationData2(generationData)
+	RMG.CustomizeGenerationData2(generationData)										 
 	RMG.FillStructs(generationData)
 	RMG.FinalizeGenerationData(generationData)
 	RMG.GenerationData = generationData
@@ -2537,7 +2599,6 @@ function RMG.GetLandscapeSetData(_GenerationData, _tablekey, _heightkey, _vegeta
 	end
 
 	local vegetationtable = heighttable[_vegetationkey]
-
 	-- heighttable is mission requested vegetation table
 	if not vegetationtable then
 
@@ -3335,6 +3396,8 @@ function RMG.Finalize(_GenerationData)
 				for i = 1,18 do Display.GfxSetSetFogParams(i,0,0,0,0,0,0,0) end
 
 				XGUIEng.ShowWidget("GameClock", 1)
+				Display.SetRenderFogOfWar(0)
+				Camera.ZoomSetFactorMax(5)
 
 				local mapsize = Logic.WorldGetSize() / 100
 				for x = 0, mapsize do
@@ -3349,6 +3412,7 @@ function RMG.Finalize(_GenerationData)
 			end
 		end
 
+		Game.GameTimeSetFactor(10)
 		StartSimpleJob(RMG.Debug)
 	else
 

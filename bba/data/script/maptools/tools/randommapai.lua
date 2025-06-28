@@ -524,8 +524,8 @@ RandomMapAI.Init = function(_structData)
 			},
 			constructing			=	true,
 			rebuild = {
-				delay				=	15*(5-strength),
-				randomTime			=	10*(5-strength)
+				delay				=	10*(5-strength),
+				randomTime			=	5*(5-strength)
 			},
 		}
 		SetupPlayerAi(AI.PlayerID, description)

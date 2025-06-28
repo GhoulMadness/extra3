@@ -1,25 +1,25 @@
 RMG.LandscapeSets = {
-	
+
 	-- this set will be used as default if data is missing
 	-- name of the landscapeset
 	Normal = {
-		
+
 		-- texture sets ( recomended to be complete )
 		Textures = {
-			
+
 			-- there are 7 height biomes
 			Pike = {
-				
+
 				-- the normal texture will be used if no vegetation biome is defined ( must be defined )
 				Normal		= { Sets = { RMG.TextureSets.NormalRockDarkSmooth, }, },
-				
+
 				-- there are 5 vegetation biomes ( optional )
 				Strong		= { Sets = { RMG.TextureSets.NormalRockDarkSmooth, RMG.TextureSets.MiscSnow, }, },
 				VeryStrong	= { Sets = { RMG.TextureSets.MiscSnow, }, },
 			},
 			Mountain = {
 				Normal		= { Sets = { RMG.TextureSets.NormalRockDarkSmooth, }, },
-				
+
 				-- 2nd param: table weight ( optional )
 				Strong		= { Sets = { RMG.TextureSets.NormalRockDarkSmooth, RMG.TextureSets.NormalForestSmooth, }, Weights = { 2, 1, }, },
 				VeryStrong	= { Sets = { RMG.TextureSets.NormalRockDarkSmooth, RMG.TextureSets.NormalForestSmooth, }, Weights = { 2, 1, }, },
@@ -55,10 +55,10 @@ RMG.LandscapeSets = {
 				Normal		= { Sets = { RMG.TextureSets.NormalSeabedSmooth, }, },
 			},
 		},
-		
+
 		-- there is one water type for the whole map ( optional )
 		Water = WaterTypes.WaterA,
-		
+
 		-- entitiy sets ( optional )
 		Entities = {
 			Mountain = {
@@ -92,13 +92,13 @@ RMG.LandscapeSets = {
 				VeryStrong	= { Sets = { RMG.EntitySets.NormalRockDark, RMG.EntitySets.MiscWaterPlants, RMG.EntitySets.MiscWaterLily, }, Weights = { [3] = 4 }, Density = 1, },
 			},
 		},
-		
+
 		-- vertex color sets ( optional )
 		--VertexColors = {
 		--	Sea	= RMG.VertexColorSets.MiscNormal,
 		--},
 	},
-	
+
 	Evelance = {
 		Textures = {
 			Pike = {
@@ -170,7 +170,7 @@ RMG.LandscapeSets = {
 			},
 		},
 	},
-	
+
 	North = {
 		Textures = {
 			Pike = {
@@ -241,7 +241,7 @@ RMG.LandscapeSets = {
 			},
 		},
 	},
-	
+
 	Mediterran = {
 		Textures = {
 			Pike = {
@@ -310,8 +310,8 @@ RMG.LandscapeSets = {
 				VeryWeak	= { Sets = { RMG.EntitySets.MediSand, }, },
 				Weak		= { Sets = { RMG.EntitySets.MediSand, }, },
 				Medium		= { Sets = { RMG.EntitySets.NormalEarthBright, RMG.EntitySets.MiscReedBush, }, },
-				Strong		= { Sets = { RMG.EntitySets.MediForestCypress, RMG.EntitySets.MediGrassDark, }, },
-				VeryStrong	= { Sets = { RMG.EntitySets.MediForestCypress, RMG.EntitySets.MediGrassDark, }, },
+				Strong		= { Sets = { RMG.EntitySets.MediForestLake, RMG.EntitySets.MediGrassDark, }, },
+				VeryStrong	= { Sets = { RMG.EntitySets.MediForestCypress, RMG.EntitySets.MediForestLake, RMG.EntitySets.MediGrassDark, }, },
 			},
 			Lake = {
 				Normal		= { Sets = { RMG.EntitySets.MediRockBright, }, Density = 6, },
@@ -321,7 +321,7 @@ RMG.LandscapeSets = {
 			},
 		},
 	},
-	
+
 	Moor = {
 		Textures = {
 			Pike = {
@@ -479,7 +479,7 @@ RMG.LandscapeSets = {
 			},
 		},
 	},
-	
+
 	Steppe = {
 		Textures = {
 			Pike = {
@@ -539,8 +539,89 @@ RMG.LandscapeSets = {
 				VeryWeak	= { Sets = { RMG.EntitySets.SteppeEarthBright, }, },
 				Weak		= { Sets = { RMG.EntitySets.SteppeRocky, }, },
 				Medium		= { Sets = { RMG.EntitySets.SteppeRocky, }, },
-				Strong		= { Sets = { RMG.EntitySets.SteppeForestPine, RMG.EntitySets.SteppeGrassDark, }, },
-				VeryStrong	= { Sets = { RMG.EntitySets.SteppeForestPine, RMG.EntitySets.SteppeGrassDark, }, },
+				Strong		= { Sets = { RMG.EntitySets.SteppeForestLake, RMG.EntitySets.SteppeGrassDark, }, },
+				VeryStrong	= { Sets = { RMG.EntitySets.SteppeForestLake, RMG.EntitySets.SteppeGrassDark, }, },
+			},
+			Lake = {
+				Normal		= { Sets = { RMG.EntitySets.MediRockBright, }, Density = 6, },
+				Medium		= { Sets = { RMG.EntitySets.MediRockDark, RMG.EntitySets.MiscWaterPlants, }, Density = 4, },
+				Strong		= { Sets = { RMG.EntitySets.MediRockDark, RMG.EntitySets.MiscWaterPlants, }, Density = 4, },
+				VeryStrong	= { Sets = { RMG.EntitySets.MediRockDark, RMG.EntitySets.MiscWaterPlants, }, Density = 4, },
+			},
+		},
+	},
+
+	Desert = {
+		Textures = {
+			Pike = {
+				Normal		= { Sets = { RMG.TextureSets.DesertRockDarkSmooth, }, },
+			},
+			Mountain = {
+				Normal		= { Sets = { RMG.TextureSets.DesertRockDarkSmooth, }, },
+				Strong		= { Sets = { RMG.TextureSets.DesertRockDarkSmooth, RMG.TextureSets.DesertRocky, }, Weights = { 2, 1, }, },
+				VeryStrong	= { Sets = { RMG.TextureSets.DesertRockDarkSmooth, RMG.TextureSets.DesertRocky, }, Weights = { 2, 1, }, },
+			},
+			Hill = {
+				Normal		= { Sets = { RMG.TextureSets.DesertRocky, }, },
+				Medium		= { Sets = { RMG.TextureSets.DesertRocky, RMG.TextureSets.DesertSand, }, },
+				Strong		= { Sets = { RMG.TextureSets.DesertSand, }, },
+				VeryStrong	= { Sets = { RMG.TextureSets.DesertSand, }, },
+			},
+			Normal = {
+				Normal		= { Sets = { RMG.TextureSets.DesertGrassBrightSmooth, RMG.TextureSets.DesertGrassDarkSmooth, }, },
+				VeryWeak	= { Sets = { RMG.TextureSets.DesertSand, }, },
+				Weak		= { Sets = { RMG.TextureSets.DesertEarthDry, }, },
+				Medium		= { Sets = { RMG.TextureSets.DesertRocky, RMG.TextureSets.DesertGrassBrightSmooth, }, },
+				Strong		= { Sets = { RMG.TextureSets.DesertGrassDarkSmooth, RMG.TextureSets.DesertGrassBrightSmooth, }, },
+			},
+			Road = {
+				Normal		= { Sets = { RMG.TextureSets.DesertPebbles, }, },
+			},
+			Coast = {
+				Normal		= { Sets = { RMG.TextureSets.DesertGrassBrightSmooth, }, },
+				VeryWeak	= { Sets = { RMG.TextureSets.DesertSand, }, },
+				Weak		= { Sets = { RMG.TextureSets.DesertSand, }, },
+				Strong		= { Sets = { RMG.TextureSets.DesertGrassBrightSmooth, RMG.TextureSets.DesertGrassDarkSmooth,}, },
+				VeryStrong	= { Sets = { RMG.TextureSets.DesertGrassBrightSmooth, RMG.TextureSets.DesertGrassDarkSmooth,}, },
+			},
+			Lake = {
+				Normal		= { Sets = { RMG.TextureSets.DesertRocky, }, },
+				VeryWeak	= { Sets = { RMG.TextureSets.DesertSand, }, },
+				Weak		= { Sets = { RMG.TextureSets.DesertSand, }, },
+			},
+			Sea = {
+				Normal		= { Sets = { RMG.TextureSets.DesertSand, }, },
+			},
+		},
+		Water = WaterTypes.Mediterran_Lake,
+		Entities = {
+			Pike = {
+				VeryWeak	= { Sets = { RMG.EntitySets.DesertCliff, }, Density = 5, },
+				Weak		= { Sets = { RMG.EntitySets.DesertCliff, }, Density = 5, },
+			},
+			Mountain = {
+				Strong		= { Sets = { RMG.EntitySets.DesertRocky, }, Density = 4, },
+				VeryStrong	= { Sets = { RMG.EntitySets.DesertRocky, }, },
+			},
+			Hill = {
+				Normal		= { Sets = { RMG.EntitySets.DesertRocky, }, Density = 6, },
+				VeryWeak	= { Sets = { RMG.EntitySets.DesertRocky, RMG.EntitySets.DesertEarthDry, }, Density = 4, },
+				Strong		= { Sets = { RMG.EntitySets.DesertForestDead, }, },
+				VeryStrong	= { Sets = { RMG.EntitySets.DesertForestPine, RMG.EntitySets.DesertForestDead, }, Weights = { 2, 1, }, },
+			},
+			Normal = {
+				VeryWeak	= { Sets = { RMG.EntitySets.DesertRocky, }, },
+				Weak		= { Sets = { RMG.EntitySets.DesertEarthDry, }, },
+				Medium		= { Sets = { RMG.EntitySets.DesertEarthBright, }, },
+				Strong		= { Sets = { RMG.EntitySets.DesertGrassBright, RMG.EntitySets.DesertGrassDark, }, Weights = { 1, 2, }, },
+				VeryStrong	= { Sets = { RMG.EntitySets.DesertForestPine, RMG.EntitySets.DesertGrassDark, }, Weights = { 2, 1, }, },
+			},
+			Coast = {
+				VeryWeak	= { Sets = { RMG.EntitySets.DesertEarthBright, }, },
+				Weak		= { Sets = { RMG.EntitySets.DesertRocky, }, },
+				Medium		= { Sets = { RMG.EntitySets.DesertRocky, }, },
+				Strong		= { Sets = { RMG.EntitySets.DesertForestLake, RMG.EntitySets.DesertGrassDark, }, },
+				VeryStrong	= { Sets = { RMG.EntitySets.DesertForestLake, RMG.EntitySets.DesertGrassDark, }, Weights = { 2, 1, }, },
 			},
 			Lake = {
 				Normal		= { Sets = { RMG.EntitySets.MediRockBright, }, Density = 6, },

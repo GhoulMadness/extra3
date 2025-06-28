@@ -46,6 +46,27 @@ RMG.TextureSets = {
 		TerrainTypes.MudDark04_AT,TerrainTypes.MudDark04_AT,
 		TerrainTypes.MudDark05_AT,TerrainTypes.MudDark05_AT,
 	},
+	NormalMudDarkIronSmooth = {
+		TerrainTypes.MudDarkIron01B_AT,TerrainTypes.MudDarkIron01B_AT,TerrainTypes.MudDarkIron01B_AT,TerrainTypes.MudDark01B_AT,
+		TerrainTypes.MudDarkIron02B_AT,TerrainTypes.MudDarkIron02B_AT,TerrainTypes.MudDark02B_AT,
+		TerrainTypes.MudDarkIron03_AT,TerrainTypes.MudDark03_AT,
+		TerrainTypes.MudDarkIron04_AT,TerrainTypes.MudDark04_AT,
+		TerrainTypes.MudDarkIron05_AT,TerrainTypes.MudDark05_AT,
+	},
+	NormalMudDarkGoldSmooth = {
+		TerrainTypes.MudDarkGold01B_AT,TerrainTypes.MudDarkGold01B_AT,TerrainTypes.MudDarkGold01B_AT,TerrainTypes.MudDark01B_AT,
+		TerrainTypes.MudDarkGold02B_AT,TerrainTypes.MudDarkGold02B_AT,TerrainTypes.MudDark02B_AT,
+		TerrainTypes.MudDarkGold03_AT,TerrainTypes.MudDark03_AT,
+		TerrainTypes.MudDarkGold04_AT,TerrainTypes.MudDark04_AT,
+		TerrainTypes.MudDarkGold05_AT,TerrainTypes.MudDark05_AT,
+	},
+	NormalMudDarkSilverSmooth = {
+		TerrainTypes.MudDarkSilver01B_AT,TerrainTypes.MudDarkSilver01B_AT,TerrainTypes.MudDarkSilver01B_AT,TerrainTypes.MudDark01B_AT,
+		TerrainTypes.MudDarkSilver02B_AT,TerrainTypes.MudDarkSilver02B_AT,TerrainTypes.MudDark02B_AT,
+		TerrainTypes.MudDarkSilver03_AT,TerrainTypes.MudDark03_AT,
+		TerrainTypes.MudDarkSilver04_AT,TerrainTypes.MudDark04_AT,
+		TerrainTypes.MudDarkSilver05_AT,TerrainTypes.MudDark05_AT,
+	},
 	NormalRockDarkSmooth = {
 		TerrainTypes.RockDark01B_AT,TerrainTypes.RockDark01B_AT,TerrainTypes.RockDark01B_AT,TerrainTypes.RockDark01B_AT,
 		TerrainTypes.RockDark02_AT,TerrainTypes.RockDark02_AT,TerrainTypes.RockDark02_AT,
@@ -64,7 +85,7 @@ RMG.TextureSets = {
 		TerrainTypes.EarthSeabed01_AT,
 		TerrainTypes.EarthSeabed02_AT,
 	},
- 
+
 	-- Norths
 	NorthEarthBright = {
 		TerrainTypes.EarthBrightNorth01B_AT,
@@ -109,11 +130,11 @@ RMG.TextureSets = {
 	NorthSand = {
 		TerrainTypes.SandRockyNorth01_AT_HP,
 		TerrainTypes.SandEarthNorth01_AT_HP,
-	},	
+	},
 	NorthSeabedSmooth = {
 		TerrainTypes.EarthSeabedNorth01_AT,
 	},
- 
+
 	-- Evelance
 	EvelanceEarthBones = {
 		TerrainTypes.EarthDarkEvelance01_AT,
@@ -167,7 +188,7 @@ RMG.TextureSets = {
 		TerrainTypes.RockDarkEvelance04B_AT,
 		TerrainTypes.RockDarkEvelance04B_AT,
 	},
-	
+
 	-- Medi
 	MediForest = {
 		TerrainTypes.EarthBright01B_AT,
@@ -204,7 +225,7 @@ RMG.TextureSets = {
 		TerrainTypes.SandMediterrean02_AT,
 		TerrainTypes.SandMediterrean03_AT,
 	},
-	
+
 	-- Moor
 	MoorEarth = {
 		TerrainTypes.EarthBrightMoor01B_AT,
@@ -255,7 +276,7 @@ RMG.TextureSets = {
 		TerrainTypes.EarthRockyMoor01_AT,
 		TerrainTypes.EarthRockyMoor01_AT,
 	},
-	
+
 	-- Tideland
 	TidelandGrassFlowers = {
 		TerrainTypes.GrassFlowersTideland01B_AT,
@@ -291,7 +312,7 @@ RMG.TextureSets = {
 	TidelandSandDark = {
 		TerrainTypes.SandEarthTideland02_AT,
 	},
-	
+
 	-- Steppe
 	SteppeEarthBright = {
 		TerrainTypes.EarthBrightSteppe01B_AT,
@@ -326,6 +347,54 @@ RMG.TextureSets = {
 		TerrainTypes.EarthRockySteppe01B_AT,
 	},
 	
+	-- Desert
+	DesertSand = {
+		TerrainTypes.SandEarthDesert01_AT,
+		TerrainTypes.SandEarthDesert02_AT,
+		TerrainTypes.SandEarthDesert03_AT,
+		TerrainTypes.SandDesert01_AT,
+		TerrainTypes.SandDesert02_AT,
+		TerrainTypes.SandDesert03_AT,
+	},
+	DesertEarthDry = {
+		TerrainTypes.SandEarthDesert01_AT,
+		TerrainTypes.SandEarthDesert02_AT,
+		TerrainTypes.SandEarthDesert03_AT,
+		TerrainTypes.EarthRockyDesert01_AT,
+		TerrainTypes.EarthRockyDesert02_AT,
+		TerrainTypes.EarthRockyDesert03_AT,
+		TerrainTypes.EarthRockyDesert04_AT,
+		TerrainTypes.EarthRockyDesert05_AT,
+	},
+	DesertGrassBrightSmooth = {
+		TerrainTypes.EarthRockyDesert01_AT,
+		TerrainTypes.GrassBrightDesert01_AT,
+		TerrainTypes.GrassBrightDesert02_AT,
+		TerrainTypes.GrassDryDesert01_AT,
+	},
+	DesertGrassDarkSmooth = {
+		TerrainTypes.EarthRockyDesert01_AT,
+		TerrainTypes.GrassDarkDesert01_AT,
+	},
+	DesertRocky = {
+		TerrainTypes.EarthRockyDesert01_AT,
+		TerrainTypes.EarthRockyDesert02_AT,
+		TerrainTypes.EarthRockyDesert03_AT,
+		TerrainTypes.EarthRockyDesert04_AT,
+		TerrainTypes.EarthRockyDesert05_AT,
+		TerrainTypes.SandRockyDesert01_AT,
+		TerrainTypes.SandRockyDesert02_AT,
+		TerrainTypes.SandRockyDesert03_AT,
+	},
+	DesertRockDarkSmooth = {
+		TerrainTypes.RockBrightDesert01_AT,
+		TerrainTypes.RockBrightDesert02_AT,
+		TerrainTypes.RockDarkDesert01_AT,
+	},
+	DesertPebbles = {
+		TerrainTypes.PebblesEarthDesert01_AT,
+	},
+
 	-- Misc
 	MiscSnow = {
 		TerrainTypes.Snow01_CT,
@@ -334,7 +403,7 @@ RMG.TextureSets = {
 		TerrainTypes.Snow02_CT,
 		TerrainTypes.Snow03_CT,
 	},
-	
+
 	MiscPebbles = {
 		TerrainTypes.PebblesEarth01_AT,
 	}

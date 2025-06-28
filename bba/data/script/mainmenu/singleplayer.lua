@@ -79,7 +79,7 @@ SPMenu.S21_AISettings = {
 	["Team"]		= {1, 2, 3, 4, 5, 6, 7, 8}
 }
 SPMenu.S21_SettingData = {
-	["MapSetting"] 			= {"Europäisch", "Hochland", "Evelance", "Mediterran", "Moor", "Küste", "Steppe"},
+	["MapSetting"] 			= {"Europäisch", "Hochland", "Evelance", "Mediterran", "Moor", "Küste", "Steppe", "Wüste"},
 	["MapHeroes"]			= {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14},
 	["MapSize"]				= {384, 480, 576, 672, 768},
 	["MapKey"]				= {function() math.randomseed(XGUIEng.GetSystemTime()); return math.floor(math.ldexp(math.random(), math.random(10,20))*math.random(1,99))  end},

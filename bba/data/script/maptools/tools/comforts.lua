@@ -2222,14 +2222,53 @@ function SetPlayerDiplomacy(_PlayerID, _Diplomacy)
 	assert(type(_Diplomacy) == "number","second argument must be a number (either Diplomacy.XXX or ID of the given diplomacy state)")
 	local tablelength = table.getn(_PlayerID)
 
-	for i = 1,tablelength,1 do
-		for k = tablelength,1,-1 do
+	for i = 1, tablelength, 1 do
+		for k = tablelength, 1, -1 do
 			if _PlayerID[i] ~= _PlayerID[k] then
-				Logic.SetDiplomacyState(_PlayerID[i],_PlayerID[k],_Diplomacy)
+				Logic.SetDiplomacyState(_PlayerID[i], _PlayerID[k], _Diplomacy)
 			end
 		end
 	end
 
+end
+
+-- comfort to set the diplomacy state between a given group of player IDs and another
+---@param _Group1 table with player IDs
+---@param _Group2 table with player IDs
+---@param _Diplomacy integer diplomacy state
+function SetPlayerGroupToPlayerGroupDiplomacy(_Group1, _Group2, _Diplomacy)
+
+	assert(type(_Group1) == "table","first argument must be a table filled with valid player IDs")
+	assert(type(_Group2) == "table","first argument must be a table filled with valid player IDs")
+	assert(type(_Diplomacy) == "number","second argument must be a number (either Diplomacy.XXX or ID of the given diplomacy state)")
+	local tablelength1 = table.getn(_Group1)
+	local tablelength2 = table.getn(_Group2)
+
+	for i = 1, tablelength1, 1 do
+		for k = tablelength2, 1, -1 do
+			if _Group1[i] ~= _Group2[k] then
+				Logic.SetDiplomacyState(_Group1[i], _Group2[k], _Diplomacy)
+			end
+		end
+	end
+end
+
+-- comfort to let a group of given player IDs share or not share the exploration
+---@param _PlayerID table with player IDs
+---@param _Share boolean should share exploration
+function SetShareView(_PlayerID, _Share)
+
+	assert(type(_PlayerID) == "table","first argument must be a table filled with valid player IDs")
+	assert(type(_Share) == "boolean","second argument must be a boolean (true if exploration should be shared, false if not)")
+	local tablelength = table.getn(_PlayerID)
+
+	for i = 1, tablelength, 1 do
+		for k = tablelength, 1, -1 do
+			if _PlayerID[i] ~= _PlayerID[k] then
+				ActivateShareExploration(_PlayerID[i], _PlayerID[k], _Share)
+			end
+		end
+	end
 end
 
 -- comfort to set the diplomacy state between a player ID or a group of given player IDs and all AI player IDs on the map
@@ -2339,7 +2378,7 @@ end
 ---@return boolean
 function IsPositionUnblocked(_x, _y)
 	local height, blockingtype, sector, terrType = CUtil.GetTerrainInfo(_x, _y)
-	return (sector ~= 0 and math.mod(blockingtype, 2) == 0 and (height > CUtil.GetWaterHeight(round(_x/100), round(_y/100))))
+	return (sector ~= 0 and math.mod(blockingtype, 2) == 0 and (height > CUtil.GetWaterHeight(dekaround(_x/100), dekaround(_y/100))))
 end
 
 -- sets the health of an entity to a given percentage
@@ -2615,33 +2654,39 @@ end
 ---@param _val integer new clipping limit maximum
 function SetInternalClippingLimitCutscene(_val)
 	assert(type(_val) == "number", "Clipping Limit needs to be a number")
+	--[[
 	if S5Hook then
 		S5Hook.GetRawMem(tonumber("0x77A7E8", 16))[0]:SetFloat(_val)
 	else
 		CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[0]:SetFloat(_val)
 	end
+	]]
 end
 
 -- overrides internal clipping limit maximum for global map (internally capped at 100k per default)
 ---@param _val integer new clipping limit maximum
 function SetInternalClippingLimitGlobal(_val)
 	assert(type(_val) == "number", "Clipping Limit needs to be a number")
+	--[[
 	if S5Hook then
 		S5Hook.GetRawMem(tonumber("0x77A7E8", 16))[1]:SetFloat(_val)
 	else
 		CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[1]:SetFloat(_val)
 	end
+	]]
 end
 
 -- overrides internal clipping used when not specified or resetted back to default (12.5k per default)
 ---@param _val integer new clipping fallback value
 function SetInternalClippingResetValue(_val)
 	assert(type(_val) == "number", "Clipping fallback value needs to be a number")
+	--[[
 	if S5Hook then
 		S5Hook.GetRawMem(tonumber("0x77A7E8", 16))[2]:SetFloat(_val)
 	else
 		CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[2]:SetFloat(_val)
 	end
+	]]
 end
 
 -- returns the weather movement speed modifier

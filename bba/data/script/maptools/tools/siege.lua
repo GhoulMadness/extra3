@@ -1,110 +1,173 @@
-Siege = {AttackerIDs = {}, DefenderIDs = {}, TrapPositions = {}, TrapActivationRange = 300, TrapDamage = 100, TrapDamageRange = 800,
-		PitchFieldPositions = {}, PitchFieldDefaultPlayer = 8, PitchFieldEnemyTreshold = 10, PitchFieldActivationRange = 500, PitchFieldAlreadyTargetted = {},
-		PitchBurnerRange = 500, PitchBurnerEnemyTreshold = 1, PitchBurnerRefillDelay = 30 * (gvDiffLVL or 1), PitchBurnerVatEmpty = {},
-		PitchBurningDuration = 20, PitchBurningDamage = 50, PitchBurningRange = 800, PitchBurningDamageFactorToHeroes = 5, PitchBurningDamageFactorToVehicles = 4, PitchBurningDamageFactorToUnderlings = 3,
-		FireEffectCasted = {},
-		TriggerIDs = {},
-		CreateTraps = function(_player, _x, _y, _range, _amount, _spacing)
-			local size = Logic.WorldGetSize()
-			local t = CreateEntitiesInRectangle(Entities.XD_TrapHole1, _amount, _player, math.max(_x - _range, 0), math.min(_x + _range, size), math.max(_y - _range, 0), math.min(_y + _range, size), _spacing, "TrapHole")
-			for i in t do
-				table.insert(Siege.TrapPositions, t[i])
-			end
-			if not Siege.TriggerIDs.TrapControl then
-				Siege.TriggerIDs.TrapControl = Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "Siege_TrapControl", 1)
-			end
-		end,
-		CreatePitchFields = function(_x, _y, _range, _length, _amount)
-			for i = 1, table.getn(Siege.AttackerIDs) do
-				Logic.SetDiplomacyState(Siege.AttackerIDs[i], Siege.PitchFieldDefaultPlayer, Diplomacy.Hostile)
-			end
-			local size = Logic.WorldGetSize()
-			local t = CreateEntityTrailsInRectangle(Entities.XD_Pitch, _amount, Siege.PitchFieldDefaultPlayer, math.max(_x - _range, 0), math.min(_x + _range, size), math.max(_y - _range, 0), math.min(_y + _range, size), _length, 200, 800, "PitchField")
-			for i in t do
-				table.insert(Siege.PitchFieldPositions, t[i])
-			end
-			if not Siege.TriggerIDs.PitchFieldControl then
-				Siege.TriggerIDs.PitchFieldControl = Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "Siege_PitchFieldsControl", 1)
-			end
-		end,
-		PitchBurnerInit = function()
-			Siege.PitchBurners = Siege.PitchBurners or {}
-			for eID in CEntityIterator.Iterator(CEntityIterator.OfTypeFilter(Entities.PU_PitchBurner), CEntityIterator.OfAnyPlayerFilter(unpack(Siege.DefenderIDs))) do
-				table.insert(Siege.PitchBurners, eID)
-				Siege.PitchBurnerVatEmpty[eID] = false
-				Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "Siege_PitchBurnerControl", 1, {}, {eID})
-			end
-		end,
-		FireEffectOffsets = {{X = 0, Y = 0},
-							{X = 300, Y = 0},
-							{X = 300, Y = 300},
-							{X = 0, Y = 300},
-							{X = 600, Y = 0},
-							{X = 600, Y = 300},
-							{X = 600, Y = 600},
-							{X = 0, Y = 600},
-							{X = 300, Y = 600},
-							{X = -300, Y = 0},
-							{X = -300, Y = -300},
-							{X = 0, Y = -300},
-							{X = -600, Y = 0},
-							{X = -600, Y = -300},
-							{X = -600, Y = -600},
-							{X = 0, Y = -600},
-							{X = -300, Y = -600}},
-		SearchForNearestBowman = function(_x, _y)
-			for eID in CEntityIterator.Iterator(CEntityIterator.OfAnyPlayerFilter(unpack(Siege.DefenderIDs)), CEntityIterator.OfCategoryFilter(EntityCategories.Bow)) do
-				if Logic.IsLeader(eID) == 1 then
-					local pos = GetPosition(eID)
-					local range = GetEntityTypeMaxAttackRange(eID, Logic.EntityGetPlayer(eID))
-					if GetDistance(pos, {X = _x, Y = _y}) <= range then
-						return eID
-					end
+Siege = {
+	AttackerIDs = {},
+	DefenderIDs = {},
+	TrapPositions = {},
+	TrapActivationRange = 300,
+	TrapDamage = 100,
+	TrapDamageRange = 800,
+	PitchFieldPositions = {},
+	PitchFieldDefaultPlayer = 8,
+	PitchFieldEnemyTreshold = 10,
+	PitchFieldActivationRange = 500,
+	PitchFieldAlreadyTargetted = {},
+	PitchBurnerRange = 500,
+	PitchBurnerEnemyTreshold = 1,
+	PitchBurnerRefillDelay = 30 * (gvDiffLVL or 1),
+	PitchBurnerVatEmpty = {},
+	PitchBurningDuration = 20,
+	PitchBurningDamage = 50,
+	PitchBurningRange = 800,
+	PitchBurningDamageFactorToHeroes = 5,
+	PitchBurningDamageFactorToVehicles = 4,
+	PitchBurningDamageFactorToUnderlings = 3,
+	FireEffectCasted = {},
+	TriggerIDs = {},
+	CreateTraps = function(_player, _x, _y, _range, _amount, _spacing)
+		local size = Logic.WorldGetSize()
+		local t = CreateEntitiesInRectangle(Entities.XD_TrapHole1, _amount, _player, math.max(_x - _range, 0), math.min(_x + _range, size), math.max(_y - _range, 0), math.min(_y + _range, size), _spacing, "TrapHole")
+		for i in t do
+			table.insert(Siege.TrapPositions, t[i])
+		end
+		if not Siege.TriggerIDs.TrapControl then
+			Siege.TriggerIDs.TrapControl = Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "Siege_TrapControl", 1)
+		end
+	end,
+	CreatePitchFields = function(_x, _y, _range, _length, _amount)
+		for i = 1, table.getn(Siege.AttackerIDs) do
+			Logic.SetDiplomacyState(Siege.AttackerIDs[i], Siege.PitchFieldDefaultPlayer, Diplomacy.Hostile)
+		end
+		local size = Logic.WorldGetSize()
+		local t = CreateEntityTrailsInRectangle(Entities.XD_Pitch, _amount, Siege.PitchFieldDefaultPlayer, math.max(_x - _range, 0), math.min(_x + _range, size), math.max(_y - _range, 0), math.min(_y + _range, size), _length, 200, 800, "PitchField")
+		for i in t do
+			table.insert(Siege.PitchFieldPositions, t[i])
+		end
+		if not Siege.TriggerIDs.PitchFieldControl then
+			Siege.TriggerIDs.PitchFieldControl = Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "Siege_PitchFieldsControl", 1)
+		end
+	end,
+	PitchBurnerInit = function()
+		Siege.PitchBurners = Siege.PitchBurners or {}
+		for eID in CEntityIterator.Iterator(CEntityIterator.OfTypeFilter(Entities.PU_PitchBurner), CEntityIterator.OfAnyPlayerFilter(unpack(Siege.DefenderIDs))) do
+			table.insert(Siege.PitchBurners, eID)
+			Siege.PitchBurnerVatEmpty[eID] = false
+			Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "Siege_PitchBurnerControl", 1, {}, {eID})
+		end
+	end,
+	FireEffectOffsets = {
+		{X = 0, Y = 0},
+		{X = 300, Y = 0},
+		{X = 300, Y = 300},
+		{X = 0, Y = 300},
+		{X = 600, Y = 0},
+		{X = 600, Y = 300},
+		{X = 600, Y = 600},
+		{X = 0, Y = 600},
+		{X = 300, Y = 600},
+		{X = -300, Y = 0},
+		{X = -300, Y = -300},
+		{X = 0, Y = -300},
+		{X = -600, Y = 0},
+		{X = -600, Y = -300},
+		{X = -600, Y = -600},
+		{X = 0, Y = -600},
+		{X = -300, Y = -600}
+	},
+	SearchForNearestBowman = function(_x, _y)
+		for eID in CEntityIterator.Iterator(CEntityIterator.OfAnyPlayerFilter(unpack(Siege.DefenderIDs)), CEntityIterator.OfCategoryFilter(EntityCategories.Bow)) do
+			if Logic.IsLeader(eID) == 1 then
+				local pos = GetPosition(eID)
+				local range = GetEntityTypeMaxAttackRange(eID, Logic.EntityGetPlayer(eID))
+				if GetDistance(pos, {X = _x, Y = _y}) <= range then
+					return eID
 				end
 			end
-		end,
-		Init = function()
-			Script.Load("data\\script\\maptools\\tools\\localmusic_siege.lua")
-			Script.Load("data\\script\\maptools\\tools\\recalculate_bridge_height.lua")
-			if not Siege.PitchBurners then
-				Siege.PitchBurnerInit()
+		end
+	end,
+	Init = function()
+		Script.Load("data\\script\\maptools\\tools\\localmusic_siege.lua")
+		Script.Load("data\\script\\maptools\\tools\\recalculate_bridge_height.lua")
+		if not Siege.PitchBurners then
+			Siege.PitchBurnerInit()
+		end
+		Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_HURT_ENTITY,"", "Siege_NoDamageToWallsAndGates", 1)
+		Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_HURT_ENTITY,"", "Siege_EntityBurnedToDeathSounds", 1)
+		Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_HURT_ENTITY,"", "Siege_TrapCalculateDamage", 1)
+		Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_DESTROYED,"", "Siege_GateDestroyedControl", 1)
+		if gvChallengeFlag then
+			Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_CREATED,"", "Siege_EntityCreated", 1)
+		end
+		function Victory()
+			if Logic.PlayerGetGameState(gvMission.PlayerID) == 1 then
+				Logic.PlayerSetGameStateToWon(gvMission.PlayerID)
 			end
-			Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_HURT_ENTITY,"", "Siege_NoDamageToWallsAndGates", 1)
-			Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_HURT_ENTITY,"", "Siege_EntityBurnedToDeathSounds", 1)
-			Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_HURT_ENTITY,"", "Siege_TrapCalculateDamage", 1)
-			Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_DESTROYED,"", "Siege_GateDestroyedControl", 1)
-			if gvChallengeFlag then
-				Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_CREATED,"", "Siege_EntityCreated", 1)
+			Sound.PlayGUISound(Sounds["Stronghold_" .. Siege.VictorySounds[1+XGUIEng.GetRandom(table.getn(Siege.VictorySounds)-1)]], 152)
+		end
+		function Defeat()
+			if Logic.PlayerGetGameState(gvMission.PlayerID) == 1 then
+				Logic.PlayerSetGameStateToLost(gvMission.PlayerID)
 			end
-			function Victory()
-				if Logic.PlayerGetGameState(gvMission.PlayerID) == 1 then
-					Logic.PlayerSetGameStateToWon(gvMission.PlayerID)
-				end
-				Sound.PlayGUISound(Sounds["Stronghold_" .. Siege.VictorySounds[1+XGUIEng.GetRandom(table.getn(Siege.VictorySounds)-1)]], 152)
-			end
-			function Defeat()
-				if Logic.PlayerGetGameState(gvMission.PlayerID) == 1 then
-					Logic.PlayerSetGameStateToLost(gvMission.PlayerID)
-				end
-				Trigger.DisableTriggerSystem(1)
-				Sound.PlayGUISound(Sounds["Stronghold_" .. Siege.DefeatSounds[1+XGUIEng.GetRandom(table.getn(Siege.DefeatSounds)-1)]], 152)
-			end
-			GUIAction_ToggleMenuOrig = GUIAction_ToggleMenu
-			function GUIAction_ToggleMenu(_Menu, _Status)
+			Trigger.DisableTriggerSystem(1)
+			Sound.PlayGUISound(Sounds["Stronghold_" .. Siege.DefeatSounds[1+XGUIEng.GetRandom(table.getn(Siege.DefeatSounds)-1)]], 152)
+		end
+		GUIAction_ToggleMenuOrig = GUIAction_ToggleMenu
+		function GUIAction_ToggleMenu(_Menu, _Status)
 
-				if _Menu == "MainMenuBoxQuitWindow" or _Menu == "MainMenuBoxQuitAppWindow" then
-					Sound.PlayGUISound(Sounds.Stronghold_General_QuitGame, 152)
-				end
-				GUIAction_ToggleMenuOrig(_Menu, _Status)
-
+			if _Menu == "MainMenuBoxQuitWindow" or _Menu == "MainMenuBoxQuitAppWindow" then
+				Sound.PlayGUISound(Sounds.Stronghold_General_QuitGame, 152)
 			end
-		end,
-		RamSounds = {Move = "Engineer_MRam", Select = "Engineer_SRam", Attack = {"Engineer_Ram1", "Engineer_AtkS1", "Engineer_AtkS2", "Engineer_AtkS3", "Engineer_AtkS4", "Engineer_AtkW1"}},
-		DropOilSounds = {"Engineer_PourOil1", "Engineer_PourOil2", "Engineer_PourOil3", "Engineer_PourOil4", "Engineer_PourOil5", "Engineer_PourOil6", "Engineer_PourOil7", "Engineer_PourOil8", "Engineer_PourOil9"},
-		BurnedToDeathSounds = {"Burn1", "Burn2", "Burn3", "Burn4", "Burn5", "Burn6", "Burn7", "Burn8", "Burn9", "Burn10"},
-		DefeatSounds = {"Wf_Vict_01", "Wf_Vict_02", "Wf_Vict_03", "Wf_Vict_04"},
-		VictorySounds = {"General_Victory1", "General_Victory2", "General_Victory3", "General_Victory4", "General_Victory5"}
+			GUIAction_ToggleMenuOrig(_Menu, _Status)
+
+		end
+	end,
+	RamSounds = {
+		Move = "Engineer_MRam",
+		Select = "Engineer_SRam",
+		Attack = {
+			"Engineer_Ram1",
+			"Engineer_AtkS1",
+			"Engineer_AtkS2",
+			"Engineer_AtkS3",
+			"Engineer_AtkS4",
+			"Engineer_AtkW1"
 		}
+	},
+	DropOilSounds = {
+		"Engineer_PourOil1",
+		"Engineer_PourOil2",
+		"Engineer_PourOil3",
+		"Engineer_PourOil4",
+		"Engineer_PourOil5",
+		"Engineer_PourOil6",
+		"Engineer_PourOil7",
+		"Engineer_PourOil8",
+		"Engineer_PourOil9"
+	},
+	BurnedToDeathSounds = {
+		"Burn1",
+		"Burn2",
+		"Burn3",
+		"Burn4",
+		"Burn5",
+		"Burn6",
+		"Burn7",
+		"Burn8",
+		"Burn9",
+		"Burn10"
+	},
+	DefeatSounds = {
+		"Wf_Vict_01",
+		"Wf_Vict_02",
+		"Wf_Vict_03",
+		"Wf_Vict_04"
+	},
+	VictorySounds = {
+		"General_Victory1",
+		"General_Victory2",
+		"General_Victory3",
+		"General_Victory4",
+		"General_Victory5"
+	}
+}
 
 Siege_TrapControl = function()
 	local max = table.getn(Siege.TrapPositions)

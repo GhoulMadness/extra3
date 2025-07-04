@@ -28,20 +28,20 @@ if EMS then
 	EMS.L.CastleLevel = "Ausbaustufe Landsitze"
 	EMS.L.CastleLevelDescription = "Legt die maximale Ausbaustufe fest, zu der ihr Landsitze ausbauen könnt!"
 	EMS.L.CastleLevels = {
-			"Landsitze",
-			"Herrenhäuser",
-			"Villen",
-			"Schlösser",
-			"Königsfesten"
-		}
+		"Landsitze",
+		"Herrenhäuser",
+		"Villen",
+		"Schlösser",
+		"Königsfesten"
+	}
 	EMS.L.Lighthouse = "Leuchttürme"
 	EMS.L.LighthouseDescription = "Erlaubt oder verbietet den Bau von Leuchttürmen"
 	EMS.L.LighthouseLevel = "Ausbaustufe Leuchttürme"
 	EMS.L.LighthouseLevelDescription = "Legt die maximale Ausbaustufe fest, zu der ihr Leuchttürme ausbauen könnt!"
 	EMS.L.LighthouseLevels = {
-			"Verfallene Leuchttürme",
-			"Leuchttürme"
-		}
+		"Verfallene Leuchttürme",
+		"Leuchttürme"
+	}
 	EMS.L.Dome = "Dom"
 	EMS.L.DomeDescription = "Erlaubt oder verbietet den Bau von Domen"
 	EMS.L.Silversmith = "Silberschmelzen"
@@ -49,9 +49,9 @@ if EMS then
 	EMS.L.SilversmithLevel = "Ausbaustufe Silberschmelzen"
 	EMS.L.SilversmithLevelDescription = "Legt die maximale Ausbaustufe fest, zu der ihr Silberschmelzen ausbauen könnt!"
 	EMS.L.SilversmithLevels = {
-			"Silberschmelze",
-			"Silbergießerei"
-		}
+		"Silberschmelze",
+		"Silbergießerei"
+	}
 	EMS.L.Mercenary = "Söldnertürme"
 	EMS.L.MercenaryDescription = "Erlaubt oder verbietet den Bau von Söldnertürmen"
 	EMS.L.Scaremonger = "Schreckensgebäude"

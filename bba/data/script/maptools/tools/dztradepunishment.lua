@@ -1,7 +1,20 @@
 ----------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------- DZ Trade Punishment --------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------
-gvDZTradeCheck = {PlayerDelay = {}, PlayerTime = {}, amount = 0.007 + (math.random(8)/100), factor = 1.1 + (math.random(5)/10), treshold = 15 + math.random(15), PunishmentProtected = {CriticalRange = 3200}, AttractionOverhaulFactor = 1.2, MotivationValues = {Maximum = 0.29, AverageMaximum = 0.26, Minimum = 0.24}}
+gvDZTradeCheck = {
+	PlayerDelay = {},
+	PlayerTime = {},
+	amount = 0.007 + (math.random(8)/100),
+	factor = 1.1 + (math.random(5)/10),
+	treshold = 15 + math.random(15),
+	PunishmentProtected = {CriticalRange = 3200},
+	AttractionOverhaulFactor = 1.2,
+	MotivationValues = {
+		Maximum = 0.29,
+		AverageMaximum = 0.26,
+		Minimum = 0.24
+	}
+}
 function DZTrade_Init()
 
 	for i = 1,XNetwork.GameInformation_GetMapMaximumNumberOfHumanPlayer() do
@@ -34,8 +47,8 @@ function DZTrade_PunishmentJob()
 				gvDZTradeCheck.Punishment(player)
 			end
 		else
-		gvDZTradeCheck.PlayerTime[player] = - 1
-		gvDZTradeCheck.PlayerDelay[player] = gvDZTradeCheck.DelayDefaultValue
+			gvDZTradeCheck.PlayerTime[player] = - 1
+			gvDZTradeCheck.PlayerDelay[player] = gvDZTradeCheck.DelayDefaultValue
 		end
 	end
 end
@@ -58,7 +71,9 @@ function gvDZTradeCheck.Punishment(_playerID)
 	end
 end
 function gvDZTradeCheck.PunishmentProtected.Check(_playerID)
-	local DZTable = {	Logic.GetPlayerEntities(_playerID, Entities.PB_VillageCenter3, 10)	}
+	local DZTable = {
+		Logic.GetPlayerEntities(_playerID, Entities.PB_VillageCenter3, 10)
+	}
 	local HPTable = {}
 	table.remove(DZTable,1)
 	for i = 1,table.getn(DZTable) do

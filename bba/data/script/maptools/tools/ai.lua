@@ -637,6 +637,35 @@ function ControlLeaderStillBaitedJob(_id, _target, _armyId, _type)
 		RetreatLeaderToArmyAnchor(_id, tab)
 	end
 end
+MapEditor_GetArmyDefaultDescription = function(_strength)
+	local description = {
+		serfLimit				=	(_strength^2)+2,
+		extracting				=	false,
+		resources = {
+			gold				=	_strength*15000,
+			clay				=	_strength*12500,
+			iron				=	_strength*12500,
+			sulfur				=	_strength*12500,
+			stone				=	_strength*12500,
+			wood				=	_strength*12500
+		},
+		refresh = {
+			gold				=	_strength*1300,
+			clay				=	_strength*400,
+			iron				=	_strength*1100,
+			sulfur				=	_strength*550,
+			stone				=	_strength*400,
+			wood				=	_strength*750,
+			updateTime			=	math.floor(30/_strength)
+		},
+		constructing			=	true,
+		rebuild = {
+			delay				=	30*(5-_strength),
+			randomTime			=	15*(5-_strength)
+		}
+	}
+	return description
+end
 --------------------------------------------------------------------------------------
 -- function to initialize recruited armies for given playerID
 -- army splits into offensive armies and defensive armies (roughly 5:1)
@@ -679,38 +708,7 @@ MapEditor_SetupAI = function(_playerId, _strength, _range, _techlevel, _position
 	end
 	if not MapEditor_Armies[_playerId] then
 		MapEditor_Armies[_playerId] = {
-			description = {
-
-				serfLimit				=	(_strength^2)+2,
-				--------------------------------------------------
-				extracting				=	false,
-				--------------------------------------------------
-				resources = {
-					gold				=	_strength*15000,
-					clay				=	_strength*12500,
-					iron				=	_strength*12500,
-					sulfur				=	_strength*12500,
-					stone				=	_strength*12500,
-					wood				=	_strength*12500
-				},
-				--------------------------------------------------
-				refresh = {
-					gold				=	_strength*1300,
-					clay				=	_strength*400,
-					iron				=	_strength*1100,
-					sulfur				=	_strength*550,
-					stone				=	_strength*400,
-					wood				=	_strength*750,
-					updateTime			=	math.floor(30/_strength)
-				},
-				--------------------------------------------------
-				constructing			=	true,
-				--------------------------------------------------
-				rebuild = {
-					delay				=	30*(5-_strength),
-					randomTime			=	15*(5-_strength)
-				},
-			},
+			description = MapEditor_GetArmyDefaultDescription(_strength),
 			prioritylist = {},
 			prioritylist_lastUpdate = 0,
 			multiTraining = _multiTrain or true,

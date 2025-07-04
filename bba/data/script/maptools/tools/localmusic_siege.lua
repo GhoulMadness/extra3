@@ -6,27 +6,27 @@ LocalMusic = LocalMusic or {}
 LocalMusic.MusicPath = "data\\voice\\music\\"
 
 LocalMusic.Songs = {
-					{ "castlejam.mp3", 259 },
-					{ "fiddle_solo.mp3", 155 },
-					{ "labyrinth.mp3", 302 },
-					{ "mattsjig.mp3", 172 },
-					{ "minstrelosity.mp3", 158 },
-					{ "sad_times_full.mp3", 309 },
-					{ "the_life_of_a_gong_farmer.mp3", 212 },
-					{ "two_mandolins.mp3", 153 },
-					{ "underanoldtree.mp3", 267 },
-					{ "virgin_territory.mp3", 263 }
-					}
+	{ "castlejam.mp3", 259 },
+	{ "fiddle_solo.mp3", 155 },
+	{ "labyrinth.mp3", 302 },
+	{ "mattsjig.mp3", 172 },
+	{ "minstrelosity.mp3", 158 },
+	{ "sad_times_full.mp3", 309 },
+	{ "the_life_of_a_gong_farmer.mp3", 212 },
+	{ "two_mandolins.mp3", 153 },
+	{ "underanoldtree.mp3", 267 },
+	{ "virgin_territory.mp3", 263 }
+}
 
 LocalMusic.SetBattle =  {
-						{ "the_chant.mp3", 69 },
-						{ "the_lamb.mp3", 88 },
-						{ "the_smith.mp3", 181 }
-						}
+	{ "the_chant.mp3", 69 },
+	{ "the_lamb.mp3", 88 },
+	{ "the_smith.mp3", 181 }
+}
 LocalMusic.SetMainTheme = LocalMusic.Songs
-LocalMusic.SetBriefing =	{
-							{ "victory_is_ours.mp3", 39 }
-							}
+LocalMusic.SetBriefing = {
+	{ "victory_is_ours.mp3", 39 }
+}
 
 LocalMusic.SongLength = 0
 LocalMusic.BattlesOnTheMap = 0

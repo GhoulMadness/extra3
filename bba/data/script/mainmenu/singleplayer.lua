@@ -88,6 +88,7 @@ SPMenu.S21_SettingData = {
 	["MapResourceWealth"]	= {"Knapp", "Unterdurchschnittlich", "Gewöhnlich", "Überdurchschnittlich", "Üppig"},
 	["MapStart"]			= {"Wenige", "Moderat", "Viele"},
 	["MapMirror"]			= {"Nein", "Ja"},
+	["MapWeather"]			= {"Rau", "Unbeständig", "Gewöhnlich", "Stabil", "Dürre", "Monsun", "Blizzard"},
 	["MapAI_1_Strength"]	= SPMenu.S21_AISettings.Strength,
 	["MapAI_1_TechLVL"]		= SPMenu.S21_AISettings.TechLVL,
 	["MapAI_1_Peacetime"]	= SPMenu.S21_AISettings.Peacetime,
@@ -129,7 +130,8 @@ SPMenu.S21_SettingDefaultIndex = {
 	["MapVC"]				= 2,
 	["MapResources"]		= 2,
 	["MapResourceWealth"]	= 3,
-	["MapStart"]			= 2
+	["MapStart"]			= 2,
+	["MapWeather"]			= 3
 }
 
 function SPMenu.S21_Init()
@@ -152,6 +154,17 @@ function SPMenu.S21_Init()
 			XGUIEng.SetText(widget, text)
 		end
 	end
+	--[[
+	Script.Load("extra3/shr/maps/user/ems/tools/chartriggerhandle.lua")
+	Script.Load("extra3/shr/maps/user/ems/tools/customtextinput.lua")
+	SPMenu.S21_CustomTextInputCallback = function(_input, _noChange, _widget)
+		if _noChange then return end
+		XGUIEng.SetText(_widget, _input)
+	end
+	SPMenu.S21_CustomTextInputs = {
+		["MapKey"] = CTI.New({Widget="SPM21_MapKey_Title", Before = "@center ", NumbersOnly=true, MaxLength=16, Callback = SPMenu.S21_CustomTextInputCallback})
+	}
+	--]]
 end
 function SPMenu.S21_NextSetting(_Setting)
 

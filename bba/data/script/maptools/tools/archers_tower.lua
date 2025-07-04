@@ -18,11 +18,20 @@ gvArchers_Tower.MaxRangeBonus = 600
 -- In dieser Reichweite werden Truppen zum stationieren gesucht
 gvArchers_Tower.Troop_SearchRadius = 500
 -- Kategorien von feindlichen Fernkampf-Truppen, die nicht nahe des Turms stehen dürfen, wenn er befüllt werden soll
-gvArchers_Tower.RangedEnemySearchCategories = {EntityCategories.LongRange,EntityCategories.EvilLeader,EntityCategories.Cannon,EntityCategories.CavalryLight,EntityCategories.Hero5,EntityCategories.Hero10}
+gvArchers_Tower.RangedEnemySearchCategories = {
+	EntityCategories.LongRange,
+	EntityCategories.EvilLeader,
+	EntityCategories.Cannon,
+	EntityCategories.CavalryLight,
+	EntityCategories.Hero5,
+	EntityCategories.Hero10
+}
 -- Kritische Reichweite, in der sich keine Fernkampf-Feinde in der Nähe des Turmes befinden dürfen
 gvArchers_Tower.RangedEnemySearchRange = 3500
 -- Kategorien von feindlichen Nahkampf-Truppen, die nicht nahe des Turms stehen dürfen, wenn er befüllt werden soll
-gvArchers_Tower.MeleeEnemySearchCategories = {EntityCategories.Melee}
+gvArchers_Tower.MeleeEnemySearchCategories = {
+	EntityCategories.Melee
+}
 -- Kritische Reichweite, in der sich keine Nahkampf-Feinde in der Nähe des Turmes befinden dürfen
 gvArchers_Tower.MeleeEnemySearchRange = 1000
 
@@ -34,25 +43,32 @@ gvArchers_Tower.CurrentlyClimbing = {}
 
 gvArchers_Tower.SlotData = {}
 
-gvArchers_Tower.TriggerIDs = {AddTroop = {}, RemoveTroop = {}}
+gvArchers_Tower.TriggerIDs = {
+	AddTroop = {},
+	RemoveTroop = {}
+}
 
-gvArchers_Tower.AllowedTypes = {Entities.PU_LeaderBow1,
-								Entities.PU_LeaderBow2,
-								Entities.PU_LeaderBow3,
-								Entities.PU_LeaderBow4,
-								Entities.PU_LeaderRifle1,
-								Entities.PU_LeaderRifle2,
-								Entities.PV_Cannon1,
-								Entities.PV_Cannon3,
-								Entities.PV_Cannon5,
-								Entities.CU_Evil_LeaderSkirmisher1,
-								Entities.CU_BanditLeaderBow1}
-								-- value that defines the damage treshold needed to trigger the damage recalculation
-gvArchers_Tower.OccupiedTroop = {DamageTreshold = 50,
-								-- value that defines the used damage class/armor class value for calculation
-								AverageDamageFactor = 0.35,
-								-- value that defines the range in which the nearest archers tower is searched
-								TowerSearchRange = 500}
+gvArchers_Tower.AllowedTypes = {
+	Entities.PU_LeaderBow1,
+	Entities.PU_LeaderBow2,
+	Entities.PU_LeaderBow3,
+	Entities.PU_LeaderBow4,
+	Entities.PU_LeaderRifle1,
+	Entities.PU_LeaderRifle2,
+	Entities.PV_Cannon1,
+	Entities.PV_Cannon3,
+	Entities.PV_Cannon5,
+	Entities.CU_Evil_LeaderSkirmisher1,
+	Entities.CU_BanditLeaderBow1
+}
+-- value that defines the damage treshold needed to trigger the damage recalculation
+gvArchers_Tower.OccupiedTroop = {
+	DamageTreshold = 50,
+	-- value that defines the used damage class/armor class value for calculation
+	AverageDamageFactor = 0.35,
+	-- value that defines the range in which the nearest archers tower is searched
+	TowerSearchRange = 500
+}
 if CNetwork then
 
 	for i = 1,XNetwork.GameInformation_GetMapMaximumNumberOfHumanPlayer() do
@@ -67,21 +83,32 @@ else
 
 end
 
-gvArchers_Tower.Offset_ByOrientation = {[0] = {	X = 0,
-												Y = 700},
+gvArchers_Tower.Offset_ByOrientation = {
+	[0] = {
+		X = 0,
+		Y = 700
+	},
 
-										[90] = {X = -600,
-												Y = 0},
+	[90] = {
+		X = -600,
+		Y = 0
+	},
 
-										[180]= {X = 0,
-												Y = -600},
+	[180] = {
+		X = 0,
+		Y = -600
+	},
 
-										[270]= {X = 800,
-												Y = 0},
+	[270] = {
+		X = 800,
+		Y = 0
+	},
 
-										[360]= {X = 0,
-												Y = 700}
-										}
+	[360] = {
+		X = 0,
+		Y = 700
+	}
+}
 
 function gvArchers_Tower.GetOffset_ByOrientation(_entity)
 
@@ -108,11 +135,12 @@ function gvArchers_Tower.GetFirstFreeSlot(_entity)
 
 end
 
-gvArchers_Tower.Icon_ByEntityCategory = {	[EntityCategories.Bow]	 = "Data\\Graphics\\Textures\\GUI\\b_select_bowman",
-											[EntityCategories.Rifle]  = "Data\\Graphics\\Textures\\GUI\\b_select_rifleman",
-											[EntityCategories.Cannon] = "Data\\Graphics\\Textures\\GUI\\b_select_cannon",
-											[EntityCategories.EvilLeader] = "Data\\Graphics\\Textures\\GUI\\b_select_skirmisher"
-										}
+gvArchers_Tower.Icon_ByEntityCategory = {
+	[EntityCategories.Bow]	 = "Data\\Graphics\\Textures\\GUI\\b_select_bowman",
+	[EntityCategories.Rifle]  = "Data\\Graphics\\Textures\\GUI\\b_select_rifleman",
+	[EntityCategories.Cannon] = "Data\\Graphics\\Textures\\GUI\\b_select_cannon",
+	[EntityCategories.EvilLeader] = "Data\\Graphics\\Textures\\GUI\\b_select_skirmisher"
+}
 
 gvArchers_Tower.EmptySlot_Icon = "Data\\Graphics\\Textures\\GUI\\b_select_empty"
 
@@ -404,7 +432,6 @@ function OnArchers_Tower_OccupiedTroopDied()
 								if gvArchers_Tower.TriggerIDs.RemoveTroop[k.."_"..slot] then
 									Trigger.UnrequestTrigger(gvArchers_Tower.TriggerIDs.RemoveTroop[k.."_"..slot])
 								end
-
 							end
 						end
 					end

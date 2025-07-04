@@ -2,10 +2,14 @@
 ------------------------------------------------- Blitzeinschläge & Unwetter ---------------------------------------
 --------------------------------------------------------------------------------------------------------------------
 if not gvLastTimeLightningRodUsed then
-	gvLastTimeLightningRodUsed = -240000
+	gvLastTimeLightningRodUsed = - 240000
 end
 Mapsize = Logic.WorldGetSize()
-gvLightning = { Range = 245, BaseDamage = 25, DamageAmplifier = 1, AdditionalStrikes = 0,
+gvLightning = {
+	Range = 245,
+	BaseDamage = 25,
+	DamageAmplifier = 1,
+	AdditionalStrikes = 0,
 	--Menge an Blitzen pro Sekunde abhängig von der Fläche der Map
 	Amount = math.floor((((Mapsize/100)^2)/70000)+0.5),
 	RecentlyDamaged =
@@ -38,8 +42,8 @@ gvLightning = { Range = 245, BaseDamage = 25, DamageAmplifier = 1, AdditionalStr
 		false,
 		false,
 		false
-	}
-, 	DamageProofBuildings = {
+	},
+	DamageProofBuildings = {
 		[Entities.CB_OldKingsCastleRuin] = true,
 		[Entities.CB_Mercenary] = true,
 		[Entities.CB_Abbey01] = true,

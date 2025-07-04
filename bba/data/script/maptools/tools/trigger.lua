@@ -1,14 +1,26 @@
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------ Trigger for Drakes Headshot ----------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-gvHero10 = {SnipeAbilityValues = {CriticalRange = 800, AboveCriticalRange = {MaxHealthDMG = 0.36, DMGMultiplier = 4.8}, BelowCriticalRange = {MaxHealthDMG = 0.12, DMGMultiplier = 1.6}},
-			GetCriticalStateByDistance = function(_distance)
-				if _distance >= gvHero10.SnipeAbilityValues.CriticalRange then
-					return "AboveCriticalRange"
-				else
-					return "BelowCriticalRange"
-				end
-			end}
+gvHero10 = {
+	SnipeAbilityValues = {
+		CriticalRange = 800,
+		AboveCriticalRange = {
+			MaxHealthDMG = 0.36,
+			DMGMultiplier = 4.8
+		},
+		BelowCriticalRange = {
+			MaxHealthDMG = 0.12,
+			DMGMultiplier = 1.6
+		}
+	},
+	GetCriticalStateByDistance = function(_distance)
+		if _distance >= gvHero10.SnipeAbilityValues.CriticalRange then
+			return "AboveCriticalRange"
+		else
+			return "BelowCriticalRange"
+		end
+	end
+}
 function DrakeHeadshotDamage()
 
 	local attacker = Event.GetEntityID1()
@@ -37,8 +49,10 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 gvPoisonDoT = {}
 --Heroes that are using poison (so these are relevant for the DoT effect)
-gvPoisonDoT.PoisonUsers = {	[Entities.CU_Mary_de_Mortfichet] = true,
-							[Entities.CU_Evil_Queen] = true	}
+gvPoisonDoT.PoisonUsers = {
+	[Entities.CU_Mary_de_Mortfichet] = true,
+	[Entities.CU_Evil_Queen] = true
+}
 
 gvPoisonDoT.GetNeededTaskByEntityType = function(_type)
 
@@ -128,7 +142,15 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------ Trigger for Yukis Shuriken -----------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-gvHero11 = {ShurikenValues = {CriticalAngle = 45, DMGMultiplier = 2, AmpDMGMultiplier = 5, MaxDelay = 10, CooldownReset = 15}}
+gvHero11 = {
+	ShurikenValues = {
+		CriticalAngle = 45,
+		DMGMultiplier = 2,
+		AmpDMGMultiplier = 5,
+		MaxDelay = 10,
+		CooldownReset = 15
+	}
+}
 function YukiShurikenBonusDamage()
 
 	local attacker = Event.GetEntityID1()
@@ -163,9 +185,19 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------ Trigger for Kerberos attacks ---------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-gvHero7 = {ArmorDiffPassive = {DMGMultiplierAddPerDiff = 0.2, CooldownResetPerDiff = {	[Abilities.AbilityInflictFear] = 1,
-																						[Abilities.AbilityRangedEffect] = 3}},
-			Abilities = {Abilities.AbilityInflictFear, Abilities.AbilityRangedEffect}}
+gvHero7 = {
+	ArmorDiffPassive = {
+		DMGMultiplierAddPerDiff = 0.2,
+		CooldownResetPerDiff = {
+			[Abilities.AbilityInflictFear] = 1,
+			[Abilities.AbilityRangedEffect] = 3
+		}
+	},
+	Abilities = {
+		Abilities.AbilityInflictFear,
+		Abilities.AbilityRangedEffect
+	}
+}
 function KerberosAttackAdditions()
 
 	local attacker = Event.GetEntityID1()
@@ -257,7 +289,14 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------ Trigger for Ari ----------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-gvHero5 = {AbilityProperties = {Summon = {NumSoldiersPerTroop = 7, Duration = 60}}}
+gvHero5 = {
+	AbilityProperties = {
+		Summon = {
+			NumSoldiersPerTroop = 7,
+			Duration = 60
+		}
+	}
+}
 function OnAriTroopCreated()
 
 	local entityID = Event.GetEntityID()
@@ -289,15 +328,16 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------ Trigger for Catapult Stones ----------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-CatapultStoneOnHitEffects = {	[1] = GGL_Effects.FXFireTemp,
-								[2] = GGL_Effects.FXFireMediumTemp,
-								[3] = GGL_Effects.FXFireSmallTemp,
-								[4] = GGL_Effects.FXFireLoTemp,
-								[5] = GGL_Effects.FXCrushBuildingLarge,
-								[6] = GGL_Effects.FXExplosion,
-								[7] = GGL_Effects.FXExplosionPilgrim,
-								[8] = GGL_Effects.FXExplosionShrapnel
-							}
+CatapultStoneOnHitEffects = {
+	[1] = GGL_Effects.FXFireTemp,
+	[2] = GGL_Effects.FXFireMediumTemp,
+	[3] = GGL_Effects.FXFireSmallTemp,
+	[4] = GGL_Effects.FXFireLoTemp,
+	[5] = GGL_Effects.FXCrushBuildingLarge,
+	[6] = GGL_Effects.FXExplosion,
+	[7] = GGL_Effects.FXExplosionPilgrim,
+	[8] = GGL_Effects.FXExplosionShrapnel
+}
 
 function CatapultStoneHitEffects()
 
@@ -633,9 +673,14 @@ end
 ----------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------- Beautification Animation Trigger -------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------
-gvBeautiAnim = {IDs = {}, AnimByType = {[Entities.PB_Beautification07] = "PB_Beautification07_Clockwork_600",
-										[Entities.PB_Beautification12] = "PB_Beautification12_Turn_600"},
-										Delay = 2}
+gvBeautiAnim = {
+	IDs = {},
+	AnimByType = {
+		[Entities.PB_Beautification07] = "PB_Beautification07_Clockwork_600",
+		[Entities.PB_Beautification12] = "PB_Beautification12_Turn_600"
+	},
+	Delay = 2
+}
 function OnSpecBeautiCreated()
 
 	local entityID = Event.GetEntityID()
@@ -697,18 +742,22 @@ end
 ------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------- Trigger for Winter Sounds -------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
-gvWinterTheme = {GfxSets = {3, 9, 13}, WeatherState = 3, Chance = 1/28, Volume = 130,
-				IsCurrentWeatherSuited = function()
-					if Logic.GetWeatherState() == gvWinterTheme.WeatherState then
-						return true
-					end
-					for k,v in pairs(gvWinterTheme.GfxSets) do
-						if GetCurrentWeatherGfxSet() == v then
-							return true
-						end
-					end
-					return false
-				end}
+gvWinterTheme = {
+	GfxSets = {
+		[3] = true,
+		[9] = true,
+		[13] = true
+	},
+	WeatherState = 3,
+	Chance = 1/28,
+	Volume = 130,
+	IsCurrentWeatherSuited = function()
+		if Logic.GetWeatherState() == gvWinterTheme.WeatherState then
+			return true
+		end
+		return gvWinterTheme.GfxSets[GetCurrentWeatherGfxSet()] or false
+	end
+}
 function WinterTheme()
 
 	if gvWinterTheme.IsCurrentWeatherSuited() then
@@ -1233,13 +1282,17 @@ function OnDovbar_Created()
 
 end
 
-gvCommandCheck = {FunctionNameByCommand = {[0] = Logic.GroupAttack,
-											[3] = Logic.GroupDefend,
-											[4] = Logic.GroupPatrol,
-											[5] = Logic.GroupAttackMove,
-											[6] = Logic.GroupGuard,
-											[7] = Logic.GroupStand,
-											[8] = Logic.MoveSettler}}
+gvCommandCheck = {
+	FunctionNameByCommand = {
+		[0] = Logic.GroupAttack,
+		[3] = Logic.GroupDefend,
+		[4] = Logic.GroupPatrol,
+		[5] = Logic.GroupAttackMove,
+		[6] = Logic.GroupGuard,
+		[7] = Logic.GroupStand,
+		[8] = Logic.MoveSettler
+	}
+}
 function CheckForCommandAbortedJob(_id, _command, ...)
 	if not IsValid(_id) or GetArmyByLeaderID(_id) ~= nil then
 		gvCommandCheck[_id] = nil
@@ -1257,7 +1310,13 @@ function CheckForCommandAbortedJob(_id, _command, ...)
 	end
 end
 
-gvEvil = {Troll = {AoERange = 500, AoEEffect = GGL_Effects.FXCrushBuilding, LastTimeUsed = {}}}
+gvEvil = {
+	Troll = {
+		AoERange = 500,
+		AoEEffect = GGL_Effects.FXCrushBuilding,
+		LastTimeUsed = {}
+	}
+}
 function EvilTroll_AoEDMG()
 
 	local attacker = Event.GetEntityID1()

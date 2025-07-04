@@ -2,12 +2,12 @@
 ---------------------------------- LocalMusic Additions -------------------------------------
 ---------------------------------------------------------------------------------------------
 if LocalMusic then
-	LocalMusic.SetEvilBattle= 	{
-								{ "43_Extra1_DarkMoor_Combat.mp3", 120 },
-								{ "05_CombatEvelance1.mp3", 117 },
-								{ "03_CombatEurope1.mp3", 117 },
-								{ "04_CombatMediterranean1.mp3", 113 }
-								}
+	LocalMusic.SetEvilBattle = {
+		{ "43_Extra1_DarkMoor_Combat.mp3", 120 },
+		{ "05_CombatEvelance1.mp3", 117 },
+		{ "03_CombatEurope1.mp3", 117 },
+		{ "04_CombatMediterranean1.mp3", 113 }
+	}
 	function LocalMusic_Spectator_TriggerSettlerKilled()
 		if GUI.GetPlayerID() == BS.SpectatorPID then
 			local entityID = Event.GetEntityID()

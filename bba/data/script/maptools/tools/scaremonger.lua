@@ -1,13 +1,15 @@
 ----------------- Scaremonger motivation effect values ---------------------
 ----------------------------------------------------------------------------
-Scaremonger = {MotiEffect = {
-	[Entities.PB_Scaremonger01] = 0.14,
-	[Entities.PB_Scaremonger02] = 0.12,
-	[Entities.PB_Scaremonger03] = 0.19,
-	[Entities.PB_Scaremonger04] = 0.22,
-	[Entities.PB_Scaremonger05] = 0.40,
-	[Entities.PB_Scaremonger06] = 0.18,
-	[Entities.PB_VictoryStatue2] = 0.20}
+Scaremonger = {
+	MotiEffect = {
+		[Entities.PB_Scaremonger01] = 0.14,
+		[Entities.PB_Scaremonger02] = 0.12,
+		[Entities.PB_Scaremonger03] = 0.19,
+		[Entities.PB_Scaremonger04] = 0.22,
+		[Entities.PB_Scaremonger05] = 0.40,
+		[Entities.PB_Scaremonger06] = 0.18,
+		[Entities.PB_VictoryStatue2] = 0.20
+	}
 }
 ------------------- called in GameCallbacks.lua when building construction is finished ----------------------------------------
 Scaremonger.MotiDebuff = function(_PlayerID, _eType)

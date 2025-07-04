@@ -1,6 +1,10 @@
-gvAnnivStatue20 = gvAnnivStatue20 or {Range = 1200, CooldownPerEntity = 30, StaminaRefreshValue = 20}
+gvAnnivStatue20 = gvAnnivStatue20 or {
+	Range = 1200, CooldownPerEntity = 30, StaminaRefreshValue = 20
+}
 for player = 1,17 do
-	gvAnnivStatue20[player] = {Amount = 0, EntityLastTime = {}}
+	gvAnnivStatue20[player] = {
+		Amount = 0, EntityLastTime = {}
+	}
 end
 function OnAnnivStatue_Destroyed(_id)
 	local entityID = Event.GetEntityID()

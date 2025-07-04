@@ -1,22 +1,23 @@
-local BridgeTypes = {Entities.PB_Archers_Tower,
-					Entities.PB_Bridge1,
-					Entities.PB_Bridge2,
-					Entities.PB_Bridge3,
-					Entities.PB_Bridge4,
-					Entities.PB_DrawBridgeClosed1,
-					Entities.PB_DrawBridgeClosed2,
-					Entities.XD_OSO_Wall_Block2,
-					Entities.XD_OSO_Wall_Straight2,
-					Entities.XD_OSO_Wall_Straight2_90,
-					Entities.XD_OSO_Wall_Straight2_180,
-					Entities.XD_OSO_Wall_Straight2_270,
-					Entities.XD_OSO_Wall_Tower2,
-					Entities.XD_OSO_Wall_Tower2_90,
-					Entities.XD_OSO_Wall_Tower2_180,
-					Entities.XD_OSO_Wall_Tower2_270,
-					Entities.XD_OSO_Wall_Tower3,
-					Entities.XD_OSO_Wall_Gate_Slim_Closed2
-					}
+local BridgeTypes = {
+	Entities.PB_Archers_Tower,
+	Entities.PB_Bridge1,
+	Entities.PB_Bridge2,
+	Entities.PB_Bridge3,
+	Entities.PB_Bridge4,
+	Entities.PB_DrawBridgeClosed1,
+	Entities.PB_DrawBridgeClosed2,
+	Entities.XD_OSO_Wall_Block2,
+	Entities.XD_OSO_Wall_Straight2,
+	Entities.XD_OSO_Wall_Straight2_90,
+	Entities.XD_OSO_Wall_Straight2_180,
+	Entities.XD_OSO_Wall_Straight2_270,
+	Entities.XD_OSO_Wall_Tower2,
+	Entities.XD_OSO_Wall_Tower2_90,
+	Entities.XD_OSO_Wall_Tower2_180,
+	Entities.XD_OSO_Wall_Tower2_270,
+	Entities.XD_OSO_Wall_Tower3,
+	Entities.XD_OSO_Wall_Gate_Slim_Closed2
+}
 local BridgeHeightByType = {}
 for i = 1, table.getn(BridgeTypes) do
 	local type = BridgeTypes[i]

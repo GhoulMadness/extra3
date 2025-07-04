@@ -1,5 +1,6 @@
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
 -- author:RobbiTheFox,mcb		current maintainer:RobbiTheFox
+-- current version: 3.0 ex3
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
 --
 -- supported player-team compositions:
@@ -9,6 +10,7 @@
 -- - 3 teams in any composition with up to 9 players
 -- - 2 teams in any composition with up to 10 players
 -- - equal teams up to 16 players (odd numbers above 8 are only supported as ffa)
+-- - other compositions can work, depending on the map size
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
 -- TODO:
 -- check player config compatibility
@@ -41,6 +43,10 @@ function RMG.Callback_OnGenerationFinished()
 	Logic.SetNumberOfBuyableHerosForPlayer(1, GDB.GetValue("Singleplayer\\RandomMapData\\MapHeroes"))
 	IncludeGlobals("tools\\RandomMapAI")
 	RandomMapAI.Init(structData)
+	--
+	LocalMusic.UseSet = RMG.MusicSetByLandscapeSetKey[RMG.GenerationData.LandscapeSetKey]
+	local weatherdata = RMG.WeatherSpecsByWeatherEnum[GDB.GetValue("Singleplayer\\RandomMapData\\MapWeather")]
+	TagNachtZyklus(unpack(weatherdata), 1)
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- ex3 sp menu21 random map creator custom stuff
@@ -63,14 +69,34 @@ function RMG.GetPlayerConfigByGDBData()
 	end)
 	return table.getn(playert), playert, table.getn(teams)
 end
+-- duration, rainflag, snowflag, bonuscount (rain/snow)
+RMG.WeatherSpecsByWeatherEnum = {
+	[1] = {12, 1, 1, 6},
+	[2] = {18, 1, 1, 3},
+	[3] = {24, 1, 1, 0},
+	[4] = {24, 1, 1, -3},
+	[5] = {32, 0, 0, 0},
+	[6] = {32, 1, 0, 12},
+	[7] = {32, 0, 1, 12}
+}
+RMG.MusicSetByLandscapeSetKey = {
+	["Normal"] = EUROPEMUSIC,
+	["North"] = HIGHLANDMUSIC,
+	["Evelance"] = EVELANCEMUSIC,
+	["Mediterran"] = MEDITERANEANMUSIC,
+	["Moor"] = DARKMOORMUSIC,
+	["Tideland"] = HIGHLANDMUSIC,
+	["Steppe"] = MEDITERANEANMUSIC,
+	["Desert"] = MEDITERANEANMUSIC
+}
 RMG.StartResourcesByEnum = {
 	[1] = {500, 1000, 800, 600, 0, 0},
 	[2] = {1000, 1800, 1500, 800, 50, 50},
 	[3] = {1500, 2500, 2000, 1200, 200, 200}
 }
 RMG.ResPitValByTypeAndEnum = {
-	["Normal"] = {[1] = 1, [2] = 2, [3] = 3},
-	["Combat"] = {[1] = 0, [2] = 1, [3] = 2},
+	["Normal"] = {[1] = 1, [2] = 2, [3] = 2},
+	["Combat"] = {[1] = 1, [2] = 1, [3] = 2},
 	["Rare"]   = {[1] = 0, [2] = 0, [3] = 1}
 }
 RMG.ResPitResAmountByTypeAndEnum = {
@@ -219,6 +245,8 @@ function RMG.CustomizeGenerationData(_GenerationData)
 	for p = 1, nplayers do
 		table.insert(_GenerationData.Players, {Id = players[p].Id, Team = players[p].Team, IsHuman = players[p].IsHuman, IsReady = false,})
 	end
+end
+function RMG.CustomizeGenerationData2(_GenerationData)
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- override me :)
@@ -391,8 +419,8 @@ function RMG.InitGenerationData()
 	generationData.ThresholdRoad			= 0
 	generationData.ForestDensity			= 1 -- in %
 
-	generationData.ThresholdVeryStrongGroth	= 0.35
-	generationData.ThresholdStrongGroth		= 0.15
+	generationData.ThresholdVeryStrongGroth	= 0.4
+	generationData.ThresholdStrongGroth		= 0.2
 	generationData.ThresholdWeakGroth		= -0.1
 	generationData.ThresholdVeryWeakGroth	= -0.3
 
@@ -416,13 +444,13 @@ function RMG.InitGenerationData2(_GenerationData)
 		-- generate no rivers if not enough teams
 		if _GenerationData.NumberOfTeams <= 1 then
 			_GenerationData.TeamBorderType = 1 -- none
-			_GenerationData.MirrorMap = false						
+			_GenerationData.MirrorMap = false
 		end
 
 		-- generate no roads if not enough players
 		if _GenerationData.NumberOfPlayers <= 1 then
 			_GenerationData.GenerateRoads = false
-			_GenerationData.MirrorMap = false						
+			_GenerationData.MirrorMap = false
 		end
 	end
 
@@ -451,7 +479,9 @@ function RMG.InitGenerationData2(_GenerationData)
 
 	RMG.StructureSets = {
 		ClayPit = {
-			Entities = {{Type = Entities.XD_ClayPit1, Resource = _GenerationData.ContentClayPit,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 6, Name = "white"},},
+			Entities = {
+				{Type = Entities.XD_ClayPit1, Resource = _GenerationData.ContentClayPit, Name = "ClayPit"},
+				{Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 6, Name = "white"},},
 			Blocking = 22,
 			TerrainHeights = {
 				Area = 18,
@@ -477,7 +507,9 @@ function RMG.InitGenerationData2(_GenerationData)
 			Water = {}, -- empty Water table uses preset for resource pits -> lowers water around pit - see CreateStructure(...)
 		},
 		StonePit = {
-			Entities = {{Type = RMG.MapSettingDefinedStructureEntityType.StonePit[_GenerationData.LandscapeSetKey] or Entities.XD_StonePit1, Resource = _GenerationData.ContentStonePit,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 5, Name = "white"},},
+			Entities = {
+				{Type = RMG.MapSettingDefinedStructureEntityType.StonePit[_GenerationData.LandscapeSetKey] or Entities.XD_StonePit1, Resource = _GenerationData.ContentStonePit, Name = "StonePit"},
+				{Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 5, Name = "white"},},
 			Blocking = 22,
 			TerrainHeights = {
 				Area = 18,
@@ -532,7 +564,9 @@ function RMG.InitGenerationData2(_GenerationData)
 			Water = {},
 		},
 		IronPit = {
-			Entities = {{Type = Entities.XD_IronPit1, Resource = _GenerationData.ContentIronPit,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 5, Name = "white"},},
+			Entities = {
+				{Type = Entities.XD_IronPit1, Resource = _GenerationData.ContentIronPit, Name = "IronPit"},
+				{Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 5, Name = "white"},},
 			Blocking = 20,
 			TerrainHeights = {
 				Area = 16,
@@ -553,7 +587,9 @@ function RMG.InitGenerationData2(_GenerationData)
 			Water = {},
 		},
 		GoldPit = {
-			Entities = {{Type = Entities.XD_GoldPit1, Resource = _GenerationData.ContentGoldPit,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 5, Name = "white"},},
+			Entities = {
+				{Type = Entities.XD_GoldPit1, Resource = _GenerationData.ContentGoldPit, Name = "GoldPit"},
+				{Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 5, Name = "white"},},
 			Blocking = 20,
 			TerrainHeights = {
 				Area = 16,
@@ -574,7 +610,9 @@ function RMG.InitGenerationData2(_GenerationData)
 			Water = {},
 		},
 		SilverPit = {
-			Entities = {{Type = Entities.XD_SilverPit1, Resource = _GenerationData.ContentSilverPit,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 5, Name = "white"},},
+			Entities = {
+				{Type = Entities.XD_SilverPit1, Resource = _GenerationData.ContentSilverPit, Name = "SilverPit"},
+				{Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 5, Name = "white"},},
 			Blocking = 20,
 			TerrainHeights = {
 				Area = 16,
@@ -595,7 +633,9 @@ function RMG.InitGenerationData2(_GenerationData)
 			Water = {},
 		},
 		SulfurPit = {
-			Entities = {{Type = Entities.XD_SulfurPit1, Resource = _GenerationData.ContentSulfurPit,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 5, Name = "white"},},
+			Entities = {
+				{Type = Entities.XD_SulfurPit1, Resource = _GenerationData.ContentSulfurPit, Name = "SulfurPit"},
+				{Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreResources * 5, Name = "white"},},
 			Blocking = 20,
 			TerrainHeights = {
 				Area = 16,
@@ -754,7 +794,8 @@ function RMG.InitGenerationData2(_GenerationData)
 		NeutralVillageCenter = {
 			Blocking = 18,
 			Entities = {
-				{Type = Entities.XD_VillageCenter, Player = 0,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreVCs * 6, Name = "green"},
+				{Type = Entities.XD_VillageCenter, Name = "VillageCenter"},
+				{Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreVCs * 6, Name = "green"},
 			},
 			TerrainHeights = {
 				Area = 18,
@@ -767,7 +808,8 @@ function RMG.InitGenerationData2(_GenerationData)
 		NeutralVillageHall = {
 			Blocking = 18,
 			Entities = {
-				{Type = Entities.XD_VillageCenter_Ruin, Player = 0,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreVCs * 6, Name = "green"},
+				{Type = Entities.XD_VillageCenter_Ruin, Name = "VillageHall"},
+				{Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreVCs * 6, Name = "green"},
 			},
 			TerrainHeights = {
 				Area = 18,
@@ -780,7 +822,8 @@ function RMG.InitGenerationData2(_GenerationData)
 		NeutralLighthouse = {
 			Blocking = 14,
 			Entities = {
-				{Type = Entities.XD_Lighthouse_Ruin, Player = 0,}, {Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreVCs * 6, Name = "green"},
+				{Type = Entities.XD_Lighthouse_Ruin, Name = "Lighthouse"},
+				{Type = Entities.XD_ScriptEntity, Explore = _GenerationData.ExploreVCs * 6, Name = "green"},
 			},
 			TerrainHeights = {
 				Area = 14,
@@ -1262,7 +1305,7 @@ function RMG.FillPlayerStruct(_GenerationData)
 
 	-- village
 	currentindex = RMG.AddResourcePitToPlayerStruct(1, "NeutralVillageCenter", 0, "", maxdist - 25, maxdist - 25, resoff, _GenerationData.TerrainBaseHeight, heightmin, heightmax, currentindex)
-	RMG.StructureSets.PlayerStruct.Childs[2].Childs = {{Data = {Entities = {{Type = Entities.PB_VillageCenter1, SkipDummy = true,}}}}}
+	RMG.StructureSets.PlayerStruct.Childs[2].Childs = {{Data = {Entities = {{Type = Entities.PB_VillageCenter1, SkipDummy = true}}}}}
 	currentindex = RMG.AddResourcePitToPlayerStruct(_GenerationData.AmountVillageCenter - 1, "NeutralVillageCenter", 0, "", maxdist - 5, maxdist - 5, resoff, _GenerationData.TerrainBaseHeight, heightmin, heightmax, currentindex)
 
 	-- village hall
@@ -1469,7 +1512,7 @@ function RMG.GenerateMap()
 	local generationData = RMG.InitGenerationData()
 	RMG.CustomizeGenerationData(generationData)
 	RMG.InitGenerationData2(generationData)
-	RMG.CustomizeGenerationData2(generationData)										 
+	RMG.CustomizeGenerationData2(generationData)
 	RMG.FillStructs(generationData)
 	RMG.FinalizeGenerationData(generationData)
 	RMG.GenerationData = generationData
@@ -1899,9 +1942,9 @@ function RMG.CreateFences(_GenerationData)
 		if delta > c + d and delta < b - d then
 
 			-- leave gap or create gate
-			if EMS_CustomMapConfig.Peacetime > 0 then
+			--if EMS_CustomMapConfig.Peacetime > 0 then
 				Logic.CreateEntity(Entities.XD_WoodenFence15, x * 100, y * 100, math.deg(delta) + 90, 0)
-			end
+			--end
 
 		else
 			Logic.CreateEntity(Entities["XD_WoodenFence0"..math.random(1, 8)], x * 100, y * 100, math.deg(delta) + 90, 0)
@@ -3132,13 +3175,13 @@ function RMG.GetRandomPosition(_GenerationData, _struct, _parent, _grid)
 	local x1, y1, x2, y2, areasq1, isrect1 = RMG.GetAreaData(_struct.Placement.AreaMax)
 
 	-- and the excluded inner area
-	local x3, y3, x4, y4, areasq2, isrect2 = 0,0,0,0,0,true
+	local x3, y3, x4, y4, areasq2, isrect2 = 0,0,0,0,0,isrect1
 
 	if _struct.Placement.AreaMin then
 		x3, y3, x4, y4, areasq2, isrect2 = RMG.GetAreaData(_struct.Placement.AreaMin)
 	end
 
-	local bestheight= _struct.Placement.Height
+	local bestheight = _struct.Placement.Height
 
 	if not bestheight then
 		local heightmax = _struct.Placement.HeightMax or 1
@@ -3164,7 +3207,7 @@ function RMG.GetRandomPosition(_GenerationData, _struct, _parent, _grid)
 		for y = y1, y2, step do
 
 			-- is inside outer area ?
-			local nx, ny = Round(x +_parent.X), Round(y +_parent.Y)
+			local nx, ny = Round(x + _parent.X), Round(y + _parent.Y)
 			if (isrect1 or IsInRangeSq(0, 0, x, y, areasq1)) and SimpleGetDistance(nx, ny, maphalf, maphalf) <= maphalf - blocking then --IsValidMapIndex(0, xn, yn) and
 
 				-- is outside inner area ?
@@ -3343,6 +3386,20 @@ function RMG.CreateEntity(_GenerationData, _entity)
 	if entity.Name then
 		if entity.Name == "HQP" then
 			Logic.SetEntityName(id, entity.Name .. player)
+		elseif string.find(entity.Name, "Pit") ~= nil
+		or string.find(entity.Name, "Village") ~= nil
+		or string.find(entity.Name, "Lighthouse") ~= nil then
+			local count = 1
+			local name = ""
+			while true do
+				name = entity.Name .. "_" .. player .. "_" .. count
+				if Logic.GetEntityIDByName(name) == 0 then
+					break
+				else
+					count = count + 1
+				end
+			end
+			Logic.SetEntityName(id, name)
 		else
 			Logic.SetEntityName(id, entity.Name)
 		end

@@ -100,14 +100,14 @@ function InterfaceTool_HasPlayerEnoughResources_Feedback(_Costs)
 
 	local PlayerID = GUI.GetPlayerID()
 
-	local Clay = math.floor(Logic.GetPlayersGlobalResource(PlayerID, ResourceType.Clay) + Logic.GetPlayersGlobalResource(PlayerID, ResourceType.ClayRaw))
-	local Wood = math.floor(Logic.GetPlayersGlobalResource(PlayerID, ResourceType.Wood) + Logic.GetPlayersGlobalResource(PlayerID, ResourceType.WoodRaw))
+	local Clay 	 = math.floor(Logic.GetPlayersGlobalResource(PlayerID, ResourceType.Clay) + Logic.GetPlayersGlobalResource(PlayerID, ResourceType.ClayRaw))
+	local Wood 	 = math.floor(Logic.GetPlayersGlobalResource(PlayerID, ResourceType.Wood) + Logic.GetPlayersGlobalResource(PlayerID, ResourceType.WoodRaw))
 	local Gold   = math.floor(Logic.GetPlayersGlobalResource(PlayerID, ResourceType.Gold) + Logic.GetPlayersGlobalResource(PlayerID, ResourceType.GoldRaw))
 	local Iron   = math.floor(Logic.GetPlayersGlobalResource(PlayerID, ResourceType.Iron) + Logic.GetPlayersGlobalResource(PlayerID, ResourceType.IronRaw))
 	local Stone  = math.floor(Logic.GetPlayersGlobalResource(PlayerID, ResourceType.Stone) + Logic.GetPlayersGlobalResource(PlayerID, ResourceType.StoneRaw))
 	local Sulfur = math.floor(Logic.GetPlayersGlobalResource(PlayerID, ResourceType.Sulfur) + Logic.GetPlayersGlobalResource(PlayerID, ResourceType.SulfurRaw))
 	local Silver = math.floor(Logic.GetPlayersGlobalResource(PlayerID, ResourceType.Silver) + Logic.GetPlayersGlobalResource(PlayerID, ResourceType.SilverRaw))
-	local Coal = math.floor(Logic.GetPlayersGlobalResource(PlayerID, ResourceType.Knowledge))
+	local Coal 	 = math.floor(Logic.GetPlayersGlobalResource(PlayerID, ResourceType.Knowledge))
 
 	local Message = ""
 
@@ -153,7 +153,7 @@ function InterfaceTool_HasPlayerEnoughResources_Feedback(_Costs)
 		GUI.AddNote(Message)
 		GUI.SendNotEnoughResourcesFeedbackEvent(ResourceType.Gold, _Costs[ResourceType.Gold] - Gold)
 	end
-	
+
 	if _Costs[ResourceType.Knowledge] ~= nil and Coal < _Costs[ResourceType.Knowledge]  then
 		Message = _Costs[ResourceType.Knowledge] - Coal .. " " .. XGUIEng.GetStringTableText("InGameMessages/GUI_NotEnoughCoal")
 		GUI.AddNote(Message)

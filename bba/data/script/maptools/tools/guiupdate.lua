@@ -1,11 +1,26 @@
-BS.DefaultColorValues = {RechargeButton = {r = 214, g = 44, b = 24, a = 189},
-						White = {r = 255, g = 255, b = 255, a = 255},
-						Red = {r = 255, g = 0, b = 0, a = 255},
-						BrightRed = {r = 255, g = 100, b = 100, a = 255},
-						BrightGreen = {r = 100, g = 255, b = 100, a = 255},
-						Space = {r = 0, g = 0, b = 0, a = 0},
-						GrayedOut = {r = 210, g = 210, b = 210, a = 210}
-						}
+BS.DefaultColorValues = {
+	RechargeButton = {
+		r = 214, g = 44, b = 24, a = 189
+	},
+	White = {
+		r = 255, g = 255, b = 255, a = 255
+	},
+	Red = {
+		r = 255, g = 0, b = 0, a = 255
+	},
+	BrightRed = {
+		r = 255, g = 100, b = 100, a = 255
+	},
+	BrightGreen = {
+		r = 100, g = 255, b = 100, a = 255
+	},
+	Space = {
+		r = 0, g = 0, b = 0, a = 0
+	},
+	GrayedOut = {
+		r = 210, g = 210, b = 210, a = 210
+	}
+}
 function GUIUpdate_AttackRange()
 
 	local CurrentWidgetID = XGUIEng.GetCurrentWidgetID()
@@ -58,13 +73,14 @@ function GUIUpdate_MoveSpeed()
 
 end
 
-BS.ExperienceLevels = {	[0] = 0,
-						[1] = 184,
-						[2] = 328,
-						[3] = 470,
-						[4] = 629,
-						[5] = 846
-						}
+BS.ExperienceLevels = {
+	[0] = 0,
+	[1] = 184,
+	[2] = 328,
+	[3] = 470,
+	[4] = 629,
+	[5] = 846
+}
 
 function GUIUpdate_Experience()
 
@@ -85,7 +101,18 @@ function GUIUpdate_Experience()
 
 end
 
-BS.Time = {DefaultValues = {secondsperday = 1440, daytimebegin = 8, tutorialoffset = 34}, calculation = {dayinsec = 60*60*24, hourinminutes = 60*60}, IngameTimeSec = 0}
+BS.Time = {
+	DefaultValues = {
+		secondsperday = 1440,
+		daytimebegin = 8,
+		tutorialoffset = 34
+	},
+	calculation = {
+		dayinsec = 60*60*24,
+		hourinminutes = 60*60
+	},
+	IngameTimeSec = 0
+}
 function GUIUpdate_Time()
 
 	local CurrentWidgetID = XGUIEng.GetCurrentWidgetID()
@@ -154,15 +181,18 @@ function GUIUpdate_ResourceAmountRawAndRefined( _ResourceType )
 	XGUIEng.SetText( CurrentWidgetID, "@color:"..BS.DefaultColorValues.Red.r..","..BS.DefaultColorValues.Red.g..","..BS.DefaultColorValues.Red.b.." "..RawResourceAmount.." @color:"..BS.DefaultColorValues.White.r..","..BS.DefaultColorValues.White.g..","..BS.DefaultColorValues.White.b.." / @color:10,170,160 "..Amount.." ")
 
 end
-BS.Faith = {MaxValue = 5000, colorsteps = {	[0] = {r = 255, g = 0, b = 0},
-											[20] = {r = 255, g = 165, b = 0},
-											[40] = {r = 255, g = 255, b = 0},
-											[60] = {r = 153, g = 225, b = 47},
-											[80] = {r = 50, g = 205, b = 50},
-											[100] = {r = 0, g = 255, b = 0}
-											},
-							defaultcol = {r = 255, g = 255, b = 255}
-			}
+BS.Faith = {
+	MaxValue = 5000,
+	colorsteps = {
+		[0] = {r = 255, g = 0, b = 0},
+		[20] = {r = 255, g = 165, b = 0},
+		[40] = {r = 255, g = 255, b = 0},
+		[60] = {r = 153, g = 225, b = 47},
+		[80] = {r = 50, g = 205, b = 50},
+		[100] = {r = 0, g = 255, b = 0}
+	},
+	defaultcol = {r = 255, g = 255, b = 255}
+}
 function GUIUpdate_SpecialResourceAmount(_ResourceType)
 
 	local CurrentWidgetID = XGUIEng.GetCurrentWidgetID()
@@ -1099,31 +1129,33 @@ function GUIUpdate_SettlersUpgradeButtons(_Button, _TechnologyType, _BuildingTyp
 		XGUIEng.DisableButton(_Button,1)
 	end
 end
-UpgradeTechByEtype = {	[Entities.PU_LeaderBow1] = Technologies.T_UpgradeBow1,
-						[Entities.PU_LeaderBow2] = Technologies.T_UpgradeBow2,
-						[Entities.PU_LeaderBow3] = Technologies.T_UpgradeBow3,
-						[Entities.PU_LeaderRifle1] = Technologies.T_UpgradeRifle1,
-						[Entities.PU_LeaderSword1] = Technologies.T_UpgradeSword1,
-						[Entities.PU_LeaderSword2] = Technologies.T_UpgradeSword2,
-						[Entities.PU_LeaderSword3] = Technologies.T_UpgradeSword3,
-						[Entities.PU_LeaderPoleArm1] = Technologies.T_UpgradeSpear1,
-						[Entities.PU_LeaderPoleArm2] = Technologies.T_UpgradeSpear2,
-						[Entities.PU_LeaderPoleArm3] = Technologies.T_UpgradeSpear3,
-						[Entities.PU_LeaderCavalry1] = Technologies.T_UpgradeLightCavalry1,
-						[Entities.PU_LeaderHeavyCavalry1] = Technologies.T_UpgradeHeavyCavalry1
-					}
-UpgradeBuildingLVLByEtype = {[Entities.PU_LeaderBow1] = 1,
-							[Entities.PU_LeaderBow2] = 2,
-							[Entities.PU_LeaderBow3] = 2,
-							[Entities.PU_LeaderRifle1] = 2,
-							[Entities.PU_LeaderSword1] = 1,
-							[Entities.PU_LeaderSword2] = 2,
-							[Entities.PU_LeaderSword3] = 2,
-							[Entities.PU_LeaderPoleArm1] = 1,
-							[Entities.PU_LeaderPoleArm2] = 2,
-							[Entities.PU_LeaderPoleArm3] = 2,
-							[Entities.PU_LeaderCavalry1] = 2,
-							[Entities.PU_LeaderHeavyCavalry1] = 2
+UpgradeTechByEtype = {
+	[Entities.PU_LeaderBow1] = Technologies.T_UpgradeBow1,
+	[Entities.PU_LeaderBow2] = Technologies.T_UpgradeBow2,
+	[Entities.PU_LeaderBow3] = Technologies.T_UpgradeBow3,
+	[Entities.PU_LeaderRifle1] = Technologies.T_UpgradeRifle1,
+	[Entities.PU_LeaderSword1] = Technologies.T_UpgradeSword1,
+	[Entities.PU_LeaderSword2] = Technologies.T_UpgradeSword2,
+	[Entities.PU_LeaderSword3] = Technologies.T_UpgradeSword3,
+	[Entities.PU_LeaderPoleArm1] = Technologies.T_UpgradeSpear1,
+	[Entities.PU_LeaderPoleArm2] = Technologies.T_UpgradeSpear2,
+	[Entities.PU_LeaderPoleArm3] = Technologies.T_UpgradeSpear3,
+	[Entities.PU_LeaderCavalry1] = Technologies.T_UpgradeLightCavalry1,
+	[Entities.PU_LeaderHeavyCavalry1] = Technologies.T_UpgradeHeavyCavalry1
+}
+UpgradeBuildingLVLByEtype = {
+	[Entities.PU_LeaderBow1] = 1,
+	[Entities.PU_LeaderBow2] = 2,
+	[Entities.PU_LeaderBow3] = 2,
+	[Entities.PU_LeaderRifle1] = 2,
+	[Entities.PU_LeaderSword1] = 1,
+	[Entities.PU_LeaderSword2] = 2,
+	[Entities.PU_LeaderSword3] = 2,
+	[Entities.PU_LeaderPoleArm1] = 1,
+	[Entities.PU_LeaderPoleArm2] = 2,
+	[Entities.PU_LeaderPoleArm3] = 2,
+	[Entities.PU_LeaderCavalry1] = 2,
+	[Entities.PU_LeaderHeavyCavalry1] = 2
 }
 
 function GUIUpdate_UpgradeLeader(_LeaderID)

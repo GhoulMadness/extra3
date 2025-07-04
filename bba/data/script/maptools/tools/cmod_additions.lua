@@ -46,17 +46,21 @@ Input.KeyBindDown(Keys.ModifierControl + Keys.ModifierAlt + Keys.Enter, "CreateM
 -----------------------------------------------------------------------------------------------
 -- Added Castles to win condition -------------------------------------------------------------
 -----------------------------------------------------------------------------------------------
-MultiplayerTools.EntityTableHeadquarters = {Entities.PB_Headquarters1, Entities.PB_Headquarters2, Entities.PB_Headquarters3,
-											Entities.PB_Castle1,Entities.PB_Castle2,Entities.PB_Castle3,Entities.PB_Castle4,Entities.PB_Castle5,
-											Entities.PB_Outpost1, Entities.PB_Outpost2, Entities.PB_Outpost3}
+MultiplayerTools.EntityTableHeadquarters = {
+	Entities.PB_Headquarters1, Entities.PB_Headquarters2, Entities.PB_Headquarters3,
+	Entities.PB_Castle1,Entities.PB_Castle2,Entities.PB_Castle3,Entities.PB_Castle4,Entities.PB_Castle5,
+	Entities.PB_Outpost1, Entities.PB_Outpost2, Entities.PB_Outpost3
+}
 -- needed for GameCallback_PlaceBuildingAdditionalCheck
-HostileTroopBuildBlockWhitelist = {	[Entities.PU_Hero3_Trap] = true,
-									[Entities.PB_GenericBridge] = true,
-									[Entities.PB_Bridge1] = true,
-									[Entities.PB_Bridge2] = true,
-									[Entities.PB_Bridge3] = true,
-									[Entities.PB_Bridge4] = true,
-									[Entities.PB_WoodenBridge1] = true}
+HostileTroopBuildBlockWhitelist = {
+	[Entities.PU_Hero3_Trap] = true,
+	[Entities.PB_GenericBridge] = true,
+	[Entities.PB_Bridge1] = true,
+	[Entities.PB_Bridge2] = true,
+	[Entities.PB_Bridge3] = true,
+	[Entities.PB_Bridge4] = true,
+	[Entities.PB_WoodenBridge1] = true
+}
 -- needed for outpost taxes update
 gvGUI_WidgetID.TaxesButtonsOP = {}
 gvGUI_WidgetID.TaxesButtonsOP[0] = 	"SetVeryLowTaxes_OP"
@@ -129,7 +133,7 @@ if CUtil then
 		[Entities.PB_Alchemist2] = 5,
 		[Entities.PB_GunsmithWorkshop1] = 4,
 		[Entities.PB_GunsmithWorkshop2] = 5
-		}
+	}
 
 end
 --Silver added to resource window
@@ -188,15 +192,15 @@ if CNetwork then
 			[ResourceType.SulfurRaw] = { ResourceType.SulfurRaw },
 		}
 		if MP_DiplomacyWindow.allowed_resources then
-		 MP_DiplomacyWindow.allowed_resources = {
-			[ResourceType.Gold] = true,
-			[ResourceType.Clay] = true,
-			[ResourceType.Wood] = true,
-			[ResourceType.Stone] = true,
-			[ResourceType.Iron] = true,
-			[ResourceType.Sulfur] = true,
-			[ResourceType.Silver] = true
-		}
+			MP_DiplomacyWindow.allowed_resources = {
+				[ResourceType.Gold] = true,
+				[ResourceType.Clay] = true,
+				[ResourceType.Wood] = true,
+				[ResourceType.Stone] = true,
+				[ResourceType.Iron] = true,
+				[ResourceType.Sulfur] = true,
+				[ResourceType.Silver] = true
+			}
 		end
 		if MP_DiplomacyWindow.raw_resources_allowed then
 			MP_DiplomacyWindow.allowed_resources[ResourceType.GoldRaw] = true

@@ -18,13 +18,6 @@ end
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 -- This function is called from main script to init all resources for player(s)
 function InitResources()
-    -- set some resources
-    AddGold  (0)
-    AddSulfur(0)
-    AddIron  (0)
-    AddWood  (0)
-    AddStone (0)
-    AddClay  (0)
 end
 
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -36,13 +29,11 @@ end
 -- This function is called on game start and after save game is loaded, setup your weather gfx
 -- sets here
 function InitWeatherGfxSets()
-	SetupNormalWeatherGfxSet()
 end
 
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 -- This function is called on game start you should setup your weather periods here
 function InitWeather()
-	AddPeriodicSummer(10)
 end
 
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -53,5 +44,4 @@ end
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 -- This function is called on game start after all initialization is done
 function FirstMapAction()
-
 end

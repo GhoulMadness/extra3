@@ -885,25 +885,32 @@ function GUIAction_ActionUpgradeLeader(_LeaderID, _PlayerID, ...)
 	end
 	Logic.DEBUG_UpgradeSettler(_LeaderID)
 end
-EntityTypesInCatString = {["Mercenary"] = {	Entities.CU_BanditLeaderBow1,
-											Entities.CU_BanditLeaderSword1,
-											Entities.CU_BanditLeaderSword2,
-											Entities.CU_Barbarian_LeaderClub1,
-											Entities.CU_Barbarian_LeaderClub2,
-											Entities.CU_BlackKnight_LeaderMace1,
-											Entities.CU_BlackKnight_LeaderMace2,
-											Entities.CU_BlackKnight_LeaderSword3,
-											Entities.CU_VeteranLieutenant},
-							["Bearman"] = {	Entities.CU_Evil_LeaderBearman1,
-											Entities.CU_Evil_LeaderSkirmisher1,
-											Entities.PU_Hero14_Bearman1,
-											Entities.PU_Hero14_Bearman2,
-											Entities.PU_Hero14_BearmanElite,
-											Entities.PU_Hero14_Skirmisher1,
-											Entities.PU_Hero14_Skirmisher2,
-											Entities.PU_Hero14_SkirmisherElite},
-							   ["Ulan"] = { Entities.PU_LeaderUlan1}
-							}
+EntityTypesInCatString = {
+	["Mercenary"] = {
+		Entities.CU_BanditLeaderBow1,
+		Entities.CU_BanditLeaderSword1,
+		Entities.CU_BanditLeaderSword2,
+		Entities.CU_Barbarian_LeaderClub1,
+		Entities.CU_Barbarian_LeaderClub2,
+		Entities.CU_BlackKnight_LeaderMace1,
+		Entities.CU_BlackKnight_LeaderMace2,
+		Entities.CU_BlackKnight_LeaderSword3,
+		Entities.CU_VeteranLieutenant
+	},
+	["Bearman"] = {
+		Entities.CU_Evil_LeaderBearman1,
+		Entities.CU_Evil_LeaderSkirmisher1,
+		Entities.PU_Hero14_Bearman1,
+		Entities.PU_Hero14_Bearman2,
+		Entities.PU_Hero14_BearmanElite,
+		Entities.PU_Hero14_Skirmisher1,
+		Entities.PU_Hero14_Skirmisher2,
+		Entities.PU_Hero14_SkirmisherElite
+	},
+	["Ulan"] = {
+		Entities.PU_LeaderUlan1
+	}
+}
 function GUIAction_SelectEntityInCategory(_catstring)
 	-- Do not jump in cutscene!
 	if gvInterfaceCinematicFlag == 1 then

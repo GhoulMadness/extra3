@@ -1,26 +1,36 @@
 ------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------- Lighthouse Comforts ----------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------
-gvLighthouse = { delay = 60 + math.random(30) , troopamount = 2 + math.random(4) , techlevel = 1 + math.random(2) , troops = {
-	Entities.PU_LeaderSword1,
-	Entities.PU_LeaderPoleArm1,
-	Entities.PU_LeaderBow1,
-	Entities.PU_LeaderRifle1,
-	Entities.PU_LeaderCavalry1,
-	Entities.PU_LeaderHeavyCavalry1,
-	Entities.PU_LeaderSword2,
-	Entities.PU_LeaderPoleArm2,
-	Entities.PU_LeaderBow2,
-	Entities.PU_LeaderSword3,
-	Entities.PU_LeaderPoleArm3,
-	Entities.PU_LeaderBow3,
-	Entities.PU_LeaderSword4,
-	Entities.PU_LeaderPoleArm4,
-	Entities.PU_LeaderBow4,
-	Entities.PU_LeaderRifle2,
-	Entities.PU_LeaderCavalry2,
-	Entities.PU_LeaderHeavyCavalry2},
-	soldieramount = 1 + math.random(6), soldiercavamount = 1 + math.random(5) , starttime = {}, cooldown = 300, villageplacesneeded = 10 + math.random(5),
+gvLighthouse = {
+	delay = 60 + math.random(30),
+	troopamount = 2 + math.random(4),
+	techlevel = 1 + math.random(2),
+	troops = {
+		Entities.PU_LeaderSword1,
+		Entities.PU_LeaderPoleArm1,
+		Entities.PU_LeaderBow1,
+		Entities.PU_LeaderRifle1,
+		Entities.PU_LeaderCavalry1,
+		Entities.PU_LeaderHeavyCavalry1,
+		Entities.PU_LeaderSword2,
+		Entities.PU_LeaderPoleArm2,
+		Entities.PU_LeaderBow2,
+		Entities.PU_LeaderSword3,
+		Entities.PU_LeaderPoleArm3,
+		Entities.PU_LeaderBow3,
+		Entities.PU_LeaderSword4,
+		Entities.PU_LeaderPoleArm4,
+		Entities.PU_LeaderBow4,
+		Entities.PU_LeaderRifle2,
+		Entities.PU_LeaderCavalry2,
+		Entities.PU_LeaderHeavyCavalry2,
+		Entities.PU_LeaderUlan1
+	},
+	soldieramount = 1 + math.random(6),
+	soldiercavamount = 1 + math.random(5),
+	starttime = {},
+	cooldown = 300,
+	villageplacesneeded = 10 + math.random(5),
 	UpdateTroopQuality = function(_time)
 		gvLighthouse.troopamount = math.max(gvLighthouse.troopamount, math.min(round(3 ^ (1 + _time / 10000)), 10))
 		gvLighthouse.soldieramount = math.max(gvLighthouse.soldieramount, math.min(round(2 ^ (1 + _time / 2000)), 12))
@@ -30,7 +40,7 @@ gvLighthouse = { delay = 60 + math.random(30) , troopamount = 2 + math.random(4)
 			table.remove(gvLighthouse.troops, math.random(1, table.getn(gvLighthouse.troops) - 6))
 		end
 	end
-	}
+}
 if not CNetwork then
 	gvLighthouse.starttime[1] = 0
 else
@@ -38,18 +48,20 @@ else
 		gvLighthouse.starttime[i] = 0
 	end
 end
-gvLighthouse.RotationOffsets = {[0] = {X = -700, Y = -100},
-								[90] = {X = 100, Y = -800},
-								[180] = {X = 600, Y = 100},
-								[270] = {X = -100, Y = 600},
-								[360] = {X = -700, Y = -100}
-							}
+gvLighthouse.RotationOffsets = {
+	[0] = {X = -700, Y = -100},
+	[90] = {X = 100, Y = -800},
+	[180] = {X = 600, Y = 100},
+	[270] = {X = -100, Y = 600},
+	[360] = {X = -700, Y = -100}
+}
 gvLighthouse.GetOffsetByOrientation = function(_rot)
 	return gvLighthouse.RotationOffsets[_rot]
 end
-gvLighthouse.HireCosts = {	[ResourceType.Iron] = 600,
-							[ResourceType.Sulfur] = 400
-						}
+gvLighthouse.HireCosts = {
+	[ResourceType.Iron] = 600,
+	[ResourceType.Sulfur] = 400
+}
 gvLighthouse.CheckForResources = function(_playerID)
 	for k,v in pairs(gvLighthouse.HireCosts) do
 		if Logic.GetPlayersGlobalResource(_playerID, k) + Logic.GetPlayersGlobalResource(_playerID, k+1) < v then

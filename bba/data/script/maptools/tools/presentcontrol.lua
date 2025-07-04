@@ -9,12 +9,12 @@ gvPresent = gvPresent or {}
 --Geschenke-Funktionen initialisieren
 --Trigger IDs
 gvPresent.triggerIDTable = {
-							Theft = {},
-							Delivery = {},
-							Kill = {},
-							Created = {},
-							Victory = {}
-							}
+	Theft = {},
+	Delivery = {},
+	Kill = {},
+	Created = {},
+	Victory = {}
+}
 gvPresent.SDPaydayFactor = {}
 for i = 1,8 do
 	gvPresent.SDPaydayFactor[i] = 1
@@ -115,21 +115,21 @@ end
 -- Positionen der beiden Weihnachtsbäume
 if gvMaxPlayers == 4 then
 	if not gvXmas2021Flag then
-		gvPresent.XmasTreePos =		{
-									[1]={X=21200,Y=10500},
-									[2]={X=33200,Y=10300}
-								}
+		gvPresent.XmasTreePos =	{
+			[1] = {X = 21200, Y = 10500},
+			[2] = {X = 33200, Y = 10300}
+		}
 	else
-		gvPresent.XmasTreePos = 	{
-									[1]={X=39900,Y=36400},
-									[2]={X=39900,Y=24500}
-								}
+		gvPresent.XmasTreePos = {
+			[1] = {X = 39900, Y = 36400},
+			[2] = {X = 39900, Y = 24500}
+		}
 	end
 elseif gvMaxPlayers == 6 or gvMaxPlayers == 8 then
-	gvPresent.XmasTreePos =		{
-								[1]={X=32300,Y=21600},
-								[2]={X=44500,Y=21600}
-							}
+	gvPresent.XmasTreePos =	{
+		[1] = {X = 32300, Y = 21600},
+		[2] = {X = 44500, Y = 21600}
+	}
 end
 -- Alle Geschenke-Typen. Beim erfolgreichen Klau wird zufällig eines davon erstellt
 gvPresent.PresentTypes = {Entities.XD_Present1,Entities.XD_Present2,Entities.XD_Present3}
@@ -462,22 +462,22 @@ function gvPresent.CutsceneVictorious(_TID)
 	local cutsceneTable = {
     StartPosition = {
 	position = pos1, angle = 18, zoom = 3700, rotation = 90},
-	Flights = 	{
-					{
-					position = pos1,
-					angle = 18,
-					zoom = 3700,
-					rotation = -10,
-					duration = 20,
-					delay = 6,
-					action 	=	function()
+	Flights = {
+		{
+		position = pos1,
+		angle = 18,
+		zoom = 3700,
+		rotation = -10,
+		duration = 20,
+		delay = 6,
+		action = function()
 
-					end,
-					title = " @color:180,0,240 Mentor",
-					text = " @color:230,0,0 Herzlichen Gl\195\188ckwunsch! @color:"..pcolorr1..","..pcolorg1..","..pcolorb1.." "..text.." diese Partie für sich entschieden!",
-					},
+		end,
+		title = " @color:180,0,240 Mentor",
+		text = " @color:230,0,0 Herzlichen Gl\195\188ckwunsch! @color:"..pcolorr1..","..pcolorg1..","..pcolorb1.." "..text.." diese Partie für sich entschieden!",
+		},
 
-			},
+	},
 	Callback = function()
 		Display.SetRenderFogOfWar(0)
 		GUI.MiniMap_SetRenderFogOfWar(0)

@@ -478,7 +478,7 @@ function GameCallback_GUI_SelectionChanged()
 
 				XGUIEng.ShowWidget(gvGUI_WidgetID.TroopMerchant,1)
 				XGUIEng.ShowAllSubWidgets(gvGUI_WidgetID.TroopMerchant,1)
-				
+
 				--Display building container
 				XGUIEng.ShowWidget(gvGUI_WidgetID.SelectionBuilding,1)
 				XGUIEng.ShowWidget(gvGUI_WidgetID.BackgroundFull,1)
@@ -1108,6 +1108,7 @@ function GameCallback_GUI_EntityIDChanged(_OldID, _NewID)
 			end
 		end
 	end
+
 	GameCallback_GUI_EntityIDChangedOrig(_OldID, _NewID)
 end
 

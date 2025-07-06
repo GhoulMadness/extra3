@@ -18,8 +18,10 @@ AI_InitChunks = function(_playerId)
 	Trigger.RequestTrigger(Events.LOGIC_EVENT_DIPLOMACY_CHANGED, "", "OnAIDiplomacyChanged", 1, {}, {_playerId})
 end
 
-AIEnemies_ExcludedTypes = {	[Entities.PU_Forester] = true,
-							[Entities.PU_WoodCutter] = true}
+AIEnemies_ExcludedTypes = {
+	[Entities.PU_Forester] = true,
+	[Entities.PU_WoodCutter] = true
+}
 -- adds all appropiate entities to ai chunk data for a given player
 ---@param _playerId integer player id
 AI_AddEnemiesToChunkData = function(_playerId)
@@ -144,9 +146,11 @@ RemoveArmyByID = function(_player, _id)
 	ArmyHomespots[_player][_id + 1] = nil
 end
 
-AIResizedTypes = {[Entities.CU_AggressiveScorpion1] = 3,
-				[Entities.CU_AggressiveScorpion2] = 3,
-				[Entities.CU_AggressiveScorpion3] = 3}
+AIResizedTypes = {
+	[Entities.CU_AggressiveScorpion1] = 3,
+	[Entities.CU_AggressiveScorpion2] = 3,
+	[Entities.CU_AggressiveScorpion3] = 3
+}
 -- creates troop for spawn army
 ---@param _army table army table
 ---@param _troop table troop description (.leaderType: leader entity type, [.maxNumberOfSoldiers: leader number of soldiers, .experiencePoints: leader experience (points not level))
@@ -421,11 +425,12 @@ SetupAITroopSpawnGenerator = function(_Name, _army)
 	-- Setup trigger
 	assert(_army.generatorID==nil, "There is already a generator registered")
 	_army.generatorID = Trigger.RequestTrigger( Events.LOGIC_EVENT_EVERY_SECOND,
-					"AITroopSpawnGenerator_Condition",
-					"AITroopSpawnGenerator_Action",
-					1,
-					{_Name, _army.player, _army.id},
-					{_army.player, _army.id})
+		"AITroopSpawnGenerator_Condition",
+		"AITroopSpawnGenerator_Action",
+		1,
+		{_Name, _army.player, _army.id},
+		{_army.player, _army.id}
+	)
 end
 
 AITroopSpawnGenerator_Condition = function(_Name, _player, _id)
@@ -564,8 +569,8 @@ ManualControl_AttackTarget = function(_player, _armyId, _id, _type, _target)
 	end
 	pos = GetPosition(_id)
 	newtarget = CheckForBetterTarget(_id, tabname[_id] and tabname[_id].currenttarget, nil)
-				or GetNearestEnemyInRange(_player, tabname.enemySearchPosition or pos, range - GetDistance(pos, tabname.enemySearchPosition or tabname.position))
-				or GetNearestTarget(_player, _id)
+		or GetNearestEnemyInRange(_player, tabname.enemySearchPosition or pos, range - GetDistance(pos, tabname.enemySearchPosition or tabname.position))
+		or GetNearestTarget(_player, _id)
 
 	tabname[_id] = tabname[_id] or {}
 
@@ -718,20 +723,22 @@ MapEditor_SetupAI = function(_playerId, _strength, _range, _techlevel, _position
 			aggressiveLVL =	_aggressiveLevel,
 			TroopRecruitmentDelay = 11 - (3*_aggressiveLevel),
 			ForbiddenTypes = {},
-			offensiveArmies = {strength	= 5 + _strength * 10,
-								position = position,
-								enemySearchPosition = _attackPosition,
-								rodeLength = _range,
-								baseDefenseRange = _defenseRange or (_range*2)/3,
-								AttackAllowed =	false,
-								baitDetection = _baitDetection or false,
-								IDs	= {}
-								},
-			defensiveArmies = {strength	= _strength * 3,
-								position = position,
-								baseDefenseRange = math.min(_range, _defenseRange or 5000),
-								IDs	= {}
-								}
+			offensiveArmies = {
+				strength	= 5 + _strength * 10,
+				position = position,
+				enemySearchPosition = _attackPosition,
+				rodeLength = _range,
+				baseDefenseRange = _defenseRange or (_range*2)/3,
+				AttackAllowed =	false,
+				baitDetection = _baitDetection or false,
+				IDs	= {}
+			},
+			defensiveArmies = {
+				strength	= _strength * 3,
+				position = position,
+				baseDefenseRange = math.min(_range, _defenseRange or 5000),
+				IDs	= {}
+			}
 		}
 	end
 
@@ -1110,7 +1117,12 @@ AITroopGenerator_EvaluateMilitaryBuildingsPriority = function(_player, _forbidde
 	end
 	if MapEditor_Armies[_player].multiTraining then
 		if num.Foundry > 0 then
-			for id in CEntityIterator.Iterator(CEntityIterator.OfPlayerFilter(_player), CEntityIterator.OfAnyTypeFilter(Entities.PB_Foundry1, Entities.PB_Foundry2)) do
+			local MapEditor_Armies_FoundryTypes = {Entities.PB_Foundry1, Entities.PB_Foundry2}
+			if MapEditor_Armies[_player].techLVL > 2 then
+				-- high tier cannons can only be produced at lvl2 foundry
+				MapEditor_Armies_FoundryTypes = {Entities.PB_Foundry2}
+			end
+			for id in CEntityIterator.Iterator(CEntityIterator.OfPlayerFilter(_player), CEntityIterator.OfAnyTypeFilter(unpack(MapEditor_Armies_FoundryTypes))) do
 				if MilitaryBuildingIsTrainingSlotFree(id) then
 					local types = {Entities.PV_Cannon1, Entities.PV_Cannon2}
 					for i = table.getn(types), 1, -1 do
@@ -1124,8 +1136,10 @@ AITroopGenerator_EvaluateMilitaryBuildingsPriority = function(_player, _forbidde
 		end
 		for k, v in pairs(MapEditor_Armies[_player].prioritylist) do
 			for id in CEntityIterator.Iterator(CEntityIterator.OfPlayerFilter(_player), CEntityIterator.OfAnyTypeFilter(Entities["PB_"..v.name.."1"], Entities["PB_"..v.name.."2"])) do
-				if MilitaryBuildingIsTrainingSlotFree(id) then
-					return v.typ, id
+				if Logic.GetEntityType(id) ~= Entities.PB_Foundry1 then
+					if MilitaryBuildingIsTrainingSlotFree(id) then
+						return v.typ, id
+					end
 				end
 			end
 		end
@@ -1152,10 +1166,12 @@ end
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------ Triggers for general AI data --------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------
-gvAntiBuildingCannonsRange = {	[Entities.PV_Cannon2] = 0,
-								[Entities.PV_Cannon4] = 0,
-								[Entities.PV_Cannon6] = -2000,
-								[Entities.PV_Catapult] = -1000}
+gvAntiBuildingCannonsRange = {
+	[Entities.PV_Cannon2] = 0,
+	[Entities.PV_Cannon4] = 0,
+	[Entities.PV_Cannon6] = -2000,
+	[Entities.PV_Catapult] = -1000
+}
 for k,v in pairs(gvAntiBuildingCannonsRange) do
 	gvAntiBuildingCannonsRange[k] = math.ceil(v + (GetEntityTypeBaseAttackRange(k)/3))
 end

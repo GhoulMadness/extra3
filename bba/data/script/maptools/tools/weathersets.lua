@@ -242,7 +242,7 @@ function TagNachtZyklus(_duration, _rainflag, _snowflag, _bonuscount, _randomfla
 	local bonuscountinsec = _bonuscount * 60
 	--0 = weder Regen noch Winter; 1 = Regen, aber kein Winter; 2 = Winter, aber kein Regen; 3 = Regen und Winter
 	local allowed_weathertypes = _rainflag + (2*_snowflag)
-	gvDayTimeSeconds = _duration
+	gvDayTimeSeconds = durationinsec
 	if _rainflag == 0 and _snowflag == 0 then
 		AddPeriodicSummer(round(durationinsec/2))							--12min Tag startet um 08:00 morgens
 		AddPeriodicTransitionSunrise(round(durationinsec/24))				--1min

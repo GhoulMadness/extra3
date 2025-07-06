@@ -103,13 +103,13 @@ end
 
 BS.Time = {
 	DefaultValues = {
-		secondsperday = 1440,
+		secondsperday = 24*60,
 		daytimebegin = 8,
 		tutorialoffset = 34
 	},
 	calculation = {
 		dayinsec = 60*60*24,
-		hourinminutes = 60*60
+		hourinminutes = 60
 	},
 	IngameTimeSec = 0
 }

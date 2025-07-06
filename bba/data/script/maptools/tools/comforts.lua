@@ -3531,7 +3531,7 @@ end
 ---@param _val integer Stamina remaining
 function SetStamina(_id, _val)
 	assert(IsValid(_id) and Logic.IsEntityInCategory(_id, EntityCategories.Worker) == 1, "entityID must be a worker")
-	assert(type(_val) == "number" and _val > 0, "stamina value must be a non-negative number")
+	assert(type(_val) == "number" and _val >= 0, "stamina value must be a non-negative number")
 	--GGL_CWorkerBehavior
 	local beh = CUtil.GetBehaviour(_id, tonumber("772B30", 16))
 	local stam = CUtilMemory.GetMemory(tonumber(beh,16))[4]:SetInt(_val)

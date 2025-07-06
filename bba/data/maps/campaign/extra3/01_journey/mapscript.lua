@@ -107,12 +107,10 @@ function FirstMapAction()
 	IncludeLocals("armies")
 	LocalMusic.UseSet = MEDITERANEANMUSIC
 
+	TagNachtZyklus(28,0,0,0,1)
 	CreateArmies()
 	ActivateBriefingsExpansion()
 	StartCutscene("Intro", Prolog)
-end
-function Prolog()
-	TagNachtZyklus(28,0,0,0,1)
 end
 function Prolog()
 	local briefing = {}

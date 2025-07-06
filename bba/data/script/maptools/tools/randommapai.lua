@@ -143,11 +143,11 @@ RandomMapAI.IsAreaUnblocked = function(centerX, centerY, halfWidth, halfLength)
     end
     return true
 end
-RandomMapAI.FindValidRectangleCenter = function(initialX, initialY, width, length)
-    local halfWidth = width / 2
-    local halfLength = length / 2
-    if RandomMapAI.IsAreaUnblocked(initialX, initialY, halfWidth, halfLength) then
-        return initialX, initialY
+RandomMapAI.FindValidRectangleCenter = function(_initialX, _initialY, _width, _length, _additionalCheck)
+    local halfWidth = _width / 2
+    local halfLength = _length / 2
+    if RandomMapAI.IsAreaUnblocked(_initialX, _initialY, halfWidth, halfLength) then
+        return _initialX, _initialY
     end
 	local maxX = RandomMapAI.MaxSizeX
     local searchRadius = 1
@@ -156,19 +156,29 @@ RandomMapAI.FindValidRectangleCenter = function(initialX, initialY, width, lengt
         -- Um den Bereich systematisch zu erweitern (z.B. wie eine Spirale)
         for offsetX = -searchRadius, searchRadius do
             local checks = {
-                {math.max(math.min(initialX + offsetX, maxX), 0), math.max(math.min(initialY + searchRadius, maxX), 0)},
-                {math.max(math.min(initialX + offsetX, maxX), 0), math.max(math.min(initialY - searchRadius, maxX), 0)},
-                {math.max(math.min(initialX + searchRadius, maxX), 0), math.max(math.min(initialY + offsetX, maxX), 0)},
-                {math.max(math.min(initialX - searchRadius, maxX), 0), math.max(math.min(initialY + offsetX, maxX), 0)}
+                {math.max(math.min(_initialX + offsetX, maxX), 0), math.max(math.min(_initialY + searchRadius, maxX), 0)},
+                {math.max(math.min(_initialX + offsetX, maxX), 0), math.max(math.min(_initialY - searchRadius, maxX), 0)},
+                {math.max(math.min(_initialX + searchRadius, maxX), 0), math.max(math.min(_initialY + offsetX, maxX), 0)},
+                {math.max(math.min(_initialX - searchRadius, maxX), 0), math.max(math.min(_initialY + offsetX, maxX), 0)}
             }
             for _, pos in ipairs(checks) do
                 if RandomMapAI.IsAreaUnblocked(pos[1], pos[2], halfWidth, halfLength) then
-					local sec1 = CUtil.GetSector(initialX, initialY)
+					local sec1 = CUtil.GetSector(_initialX, _initialY)
 					if sec1 == 0 then
-						sec1 = EvaluateNearestUnblockedSector(initialX * 100, initialY * 100, 5000, 100)
+						sec1 = EvaluateNearestUnblockedSector(_initialX * 100, _initialY * 100, 5000, 100)
 					end
 					if sec1 == CUtil.GetSector(pos[1], pos[2]) then
-						return pos[1], pos[2]
+						if _additionalCheck then
+							local rot = 0
+							while rot < 360 do
+								if _additionalCheck(pos[1] * 100, pos[2] * 100, rot) then
+									return pos[1], pos[2], rot
+								end
+								rot = rot + 5
+							end
+						else
+							return pos[1], pos[2]
+						end
 					end
                 end
             end
@@ -226,10 +236,10 @@ RandomMapAI.ConstructionPlanSnippets = {
 	},
 	["Coal"] = {
 		{ type = Entities.PB_CoalMine1, pos = "base", dirty = true, level = 0 },
+		{ type = Entities.PB_Farm1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Residence1, pos = "inherit", dirty = true, level = 0 },
 		{ type = Entities.PB_CoalmakersHut1, pos = "base", dirty = true, level = 0 },
-		{ type = Entities.PB_CoalmakersHut1, pos = "base", dirty = true, level = 0 },
-    	{ type = Entities.PB_Farm1, pos = "inherit", dirty = true, level = 0 },
-		{ type = Entities.PB_Residence1, pos = "inherit", dirty = true, level = 0 }
+		{ type = Entities.PB_CoalmakersHut1, pos = "base", dirty = true, level = 0 }
 	},
 	["Clay"] = {
 		{ type = Entities.PB_ClayMine1, pos = "ClayPit", dirty = false, level = 0 },
@@ -329,7 +339,8 @@ RandomMapAI.ConstructionPlanSnippets = {
 		{ type = Entities["PB_VictoryStatueET2" .. math.random(2,5)], pos = "inherit", dirty = true, level = 0 },
 	},
 	["VictoryStatue"] = {
-		{ type = Entities["PB_VictoryStatue" .. math.random(1,9)], pos = "base", dirty = true, level = 0 },
+		{ type = Entities["PB_VictoryStatue" .. math.random(1,6)], pos = "base", dirty = true, level = 0 },
+		{ type = Entities["PB_VictoryStatue" .. math.random(8,9)], pos = "base", dirty = true, level = 0 }
 	},
 	["Scaremonger"] = {
 		{ type = Entities["PB_Scaremonger0" .. math.random(1,6)], pos = "base", dirty = true, level = 0 }
@@ -604,22 +615,30 @@ RandomMapAI.ProcessConstructionPlan = function(_AIData, _cPlan, _index)
 	local strength = _AIData.Strength
 	local currTask = _cPlan[_index]
 	local posX, posY = currTask.pos.X, currTask.pos.Y
+	local rot = 0
 	local posDirty = currTask.dirty
 	local etype = currTask.type
 	if posDirty then
 		local x1, y1, x2, y2 = GetBuildingTypeTerrainPosArea(etype)
 		local width = math.ceil((math.abs(x1) + math.abs(x2))/100)
 		local length = math.ceil((math.abs(y1) + math.abs(y2))/100)
-		posX, posY = RandomMapAI.FindValidRectangleCenter(round(posX/100), round(posY/100), width, length)
-		assert(posX and posY, "measuring valid position failed!")
+		if etype == Entities.PB_CoalMine1 then
+			posX, posY, rot = RandomMapAI.FindValidRectangleCenter(round(posX/100), round(posY/100), width, length, gvCoal.Mine.PlacementCheck)
+		else
+			posX, posY = RandomMapAI.FindValidRectangleCenter(round(posX/100), round(posY/100), width, length)
+		end
+		if not (posX and posY) then
+			LuaDebugger.Log("measuring valid position failed!")
+			StartCountdown(1, RandomMapAI.ProcessConstructionPlan, false, "RandomMapAI_ProcessConstructionPlan_" .. player .. "_" .. _index + 1, _AIData, _cPlan, _index + 1)
+		end
 		posX, posY = posX * 100, posY * 100
 	end
 	local level = currTask.level
 	local secToNextProcess = MapEditor_Armies[player].description.rebuild.delay + math.random(MapEditor_Armies[player].description.rebuild.randomTime)
 	--
-	local csite = Logic.CreateConstructionSite(posX, posY, 0, etype, player)
-	local id = CEntity.GetReversedAttachedEntities(csite)[20][1]
+	local csite = Logic.CreateConstructionSite(posX, posY, rot, etype, player)
 	if level > 0 then
+		local id = CEntity.GetReversedAttachedEntities(csite)[20][1]
 		Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "", "RandomMapAI_CheckForBuildingConstructionCompleteToUpgrade", 1, {}, {id, level})
 	end
 	StartCountdown(secToNextProcess, RandomMapAI.ProcessConstructionPlan, false, "RandomMapAI_ProcessConstructionPlan_" .. player .. "_" .. _index + 1, _AIData, _cPlan, _index + 1)
@@ -717,7 +736,7 @@ RandomMapAI.UpgradeBuilding.UpgradeCategoriesByTechLVL = {
 		UpgradeCategories.SulfurMine,
 		UpgradeCategories.SilverMine,
 		UpgradeCategories.GoldMine,
-		UpgradeCategories.CoalMine,
+		UpgradeCategories.Coalmine,
 		UpgradeCategories.Market,
 		UpgradeCategories.Castle,
 		UpgradeCategories.Tavern
@@ -772,10 +791,12 @@ RandomMapAI.Init = function(_structData)
 		local description = MapEditor_GetArmyDefaultDescription(strength)
 		description.extracting = 1
 		description.rebuild = {
-			delay		= 5*(5-strength),
-			randomTime	= 2*(5-strength)
+			delay		= 4*(6-strength),
+			randomTime	= 2*(6-strength)
 		}
 		SetupPlayerAi(player, description)
+		MapEditor_Armies[player].description.rebuild.delay = description.rebuild.delay
+		MapEditor_Armies[player].description.rebuild.randomTime = description.rebuild.randomTime
 		StartCountdown((5/strength)*60+math.random(0,20), RandomMapAI.IncreaseSerfs, false, nil, player, strength, description.serfLimit)
 		StartCountdown((5+(15/strength))*60+math.random(0,20), RandomMapAI.UpgradeBuilding.UpgradeCommand, false, nil, currAI)
 		SetPlayerName(player, RandomMapAI.PlayerNames[player - 1])

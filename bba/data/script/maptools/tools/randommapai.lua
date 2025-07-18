@@ -11,6 +11,21 @@ RandomMapAI.PlayerNames = {
 	"(AI) Contact",
 	"(AI) Wicki"
 }
+RandomMapAI.PossibleHeroes = {
+	Entities.PU_Hero1c,
+	Entities.PU_Hero2,
+	Entities.PU_Hero3,
+	Entities.PU_Hero4,
+	Entities.PU_Hero5,
+	Entities.PU_Hero6,
+	Entities.PU_Hero10,
+	Entities.PU_Hero11,
+	Entities.PU_Hero13,
+	Entities.CU_Barbarian_Hero,
+	Entities.CU_BlackKnight,
+	Entities.CU_Mary_de_Mortfichet,
+	Entities.CU_Evil_Queen
+}
 ---------------------------------------------------------------------------------------------------
 ---------------------------------- Construction position logic ------------------------------------
 ---------------------------------------------------------------------------------------------------
@@ -67,11 +82,13 @@ RandomMapAI_EntityWithBlockingCreated = function()
 			local etype = Logic.GetEntityType(id)
 			local x1, y1, x2, y2 = GetBuildingTypeTerrainPosArea(etype)
 			local posX, posY = Logic.GetEntityPosition(id)
+			local px1, px2, py1, py2 = math.ceil(x1/100), math.ceil(x2/100), math.ceil(y1/100), math.ceil(y2/100)
+
 			local posXm, posYm = round(posX/100), round(posY/100)
 			RandomMapAI.UpdateGrid(posXm, posYm, true)
-			for X = math.min(x1, x2), math.max(x1, x2), 100 do
-				for Y = math.min(y1, y2), math.max(y1, y2), 100 do
-					RandomMapAI.UpdateGrid(posXm + math.ceil(X/100), posYm + math.ceil(Y/100), true)
+			for X = math.min(px1, px2), math.max(px1, px2) do
+				for Y = math.min(py1, py2), math.max(py1, py2) do
+					RandomMapAI.UpdateGrid(posXm + X, posYm + Y, true)
 				end
 			end
 		end
@@ -114,12 +131,13 @@ RandomMapAI_EntityWithBlockingDestroyed = function()
 			else
 				local etype = Logic.GetEntityType(id)
 				local x1, y1, x2, y2 = GetBuildingTypeTerrainPosArea(etype)
+				local px1, px2, py1, py2 = math.ceil(x1/100), math.ceil(x2/100), math.ceil(y1/100), math.ceil(y2/100)
 
 				local posXm, posYm = round(posX/100), round(posY/100)
 				RandomMapAI.UpdateGrid(posXm, posYm, true)
-				for X = math.min(x1, x2), math.max(x1, x2), 100 do
-					for Y = math.min(y1, y2), math.max(y1, y2), 100 do
-						RandomMapAI.UpdateGrid(posXm + math.ceil(X/100), posYm + math.ceil(Y/100), false)
+				for X = math.min(px1, px2), math.max(px1, px2) do
+					for Y = math.min(py1, py2), math.max(py1, py2) do
+						RandomMapAI.UpdateGrid(posXm + X, posYm + Y, false)
 					end
 				end
 			end
@@ -556,39 +574,44 @@ RandomMapAI.GenerateConstructionPlan = function(_AI)
 			num_snipnames = table.getn(snipnames)
 		end
 		local snip = snipnames[math.random(1, table.getn(snipnames))]
+		local limitname
 		if RandomMapAI.SnippetTypesWithLimit[typesplan[i]] then
-			local limitname = RandomMapAI.SnippetNameToLimitName[snip]
+			limitname = RandomMapAI.SnippetNameToLimitName[snip]
 			currNumStruct[limitname] = currNumStruct[limitname] + 1
 			if currNumStruct[limitname] >= maxNumStruct[limitname] then
 				removetablekeyvalue(SnippetNamesByTypes[typesplan[i]], snip)
 			end
 		end
-		local snipplan = CopyTable(RandomMapAI.ConstructionPlanSnippets[snip])
-		for j = 1, table.getn(snipplan) do
-			if snipplan[j].pos == "base" then
-				snipplan[j].pos = pos
-			elseif snipplan[j].pos == "inherit" then
-				snipplan[j].pos = snipplan[j - 1].pos
-			elseif type(snipplan[j].pos) == "string" then
-				local typ = snipplan[j].pos
-				local itname = RandomMapAI.StructNameToCurrIterationName[typ]
-				if maxNumStruct[itname] >= currNumStruct[itname] then
-					-- first village center is already built...
-					if typ == "VillageCenter" then
-						local curr = currNumStruct[itname] + 1
-						if curr <= maxNumStruct[itname] then
-							snipplan[j].pos = GetPosition(typ .. "_" .. _AI.PlayerID .. "_" .. curr)
+		-- only, when minimum 1 of limited types is allowed (e.g no silver eco snippets when there is no silver pit)
+		if not limitname
+		or (limitname and maxNumStruct[limitname] > 0) then
+			local snipplan = CopyTable(RandomMapAI.ConstructionPlanSnippets[snip])
+			for j = 1, table.getn(snipplan) do
+				if snipplan[j].pos == "base" then
+					snipplan[j].pos = pos
+				elseif snipplan[j].pos == "inherit" then
+					snipplan[j].pos = snipplan[j - 1].pos
+				elseif type(snipplan[j].pos) == "string" then
+					local typ = snipplan[j].pos
+					local itname = RandomMapAI.StructNameToCurrIterationName[typ]
+					if maxNumStruct[itname] >= currNumStruct[itname] then
+						-- first village center is already built...
+						if typ == "VillageCenter" then
+							local curr = currNumStruct[itname] + 1
+							if curr <= maxNumStruct[itname] then
+								snipplan[j].pos = GetPosition(typ .. "_" .. _AI.PlayerID .. "_" .. curr)
+							end
+						else
+							snipplan[j].pos = GetPosition(typ .. "_" .. _AI.PlayerID .. "_" .. (currNumStruct[itname]))
 						end
-					else
-						snipplan[j].pos = GetPosition(typ .. "_" .. _AI.PlayerID .. "_" .. (currNumStruct[itname]))
 					end
 				end
-			end
-			if type(snipplan[j].pos) == "table" then
-				if snipplan[j].pos.X > 0 then
-					table.insert(cplan, snipplan[j])
-				else
-					assert(false, "invalid snipplan position detected")
+				if type(snipplan[j].pos) == "table" then
+					if snipplan[j].pos.X > 0 then
+						table.insert(cplan, snipplan[j])
+					else
+						assert(false, "invalid snipplan position detected")
+					end
 				end
 			end
 		end
@@ -627,9 +650,10 @@ RandomMapAI.ProcessConstructionPlan = function(_AIData, _cPlan, _index)
 		else
 			posX, posY = RandomMapAI.FindValidRectangleCenter(round(posX/100), round(posY/100), width, length)
 		end
-		if not (posX and posY) then
+		if not posX or not posY then
 			LuaDebugger.Log("measuring valid position failed!")
 			StartCountdown(1, RandomMapAI.ProcessConstructionPlan, false, "RandomMapAI_ProcessConstructionPlan_" .. player .. "_" .. _index + 1, _AIData, _cPlan, _index + 1)
+			return
 		end
 		posX, posY = posX * 100, posY * 100
 	end
@@ -643,16 +667,25 @@ RandomMapAI.ProcessConstructionPlan = function(_AIData, _cPlan, _index)
 	end
 	StartCountdown(secToNextProcess, RandomMapAI.ProcessConstructionPlan, false, "RandomMapAI_ProcessConstructionPlan_" .. player .. "_" .. _index + 1, _AIData, _cPlan, _index + 1)
 end
-function RandomMapAI_CheckForBuildingConstructionCompleteToUpgrade(_id, _level)
-	if not IsValid(_id) then
-		return true
+function RandomMapAI_CheckForBuildingConstructionCompleteToUpgrade(_id, _level, _name)
+	if _name then
+		_id = Logic.GetEntityIDByName(_name)
+		if _id == 0 then
+			return true
+		end
+	else
+		if not IsValid(_id) then
+			return true
+		end
+		_name = Logic.GetEntityName(_id) or "RandomMapAI_BuildingToUpgrade_" .. Logic.GetEntityTypeName(Logic.GetEntityType(_id)) .. "_" .. _id
+		Logic.SetEntityName(_id, _name)
 	end
 	if Logic.IsConstructionComplete(_id) == 1
 	and Logic.GetRemainingUpgradeTimeForBuilding(_id) == Logic.GetTotalUpgradeTimeForBuilding(_id) then
 		(CSendEvent or SendEvent).UpgradeBuilding(_id)
 		_level = _level - 1
 		if _level > 0 then
-			Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "", "RandomMapAI_CheckForBuildingConstructionCompleteToUpgrade", 1, {}, {_id, _level})
+			Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "", "RandomMapAI_CheckForBuildingConstructionCompleteToUpgrade", 1, {}, {_id, _level, _name})
 		end
 		return true
 	end
@@ -759,11 +792,178 @@ RandomMapAI.UpgradeBuilding.UpgradeCommand = function(_AI)
 	end
 	for eID in CEntityIterator.Iterator(CEntityIterator.IsBuildingFilter(), CEntityIterator.OfPlayerFilter(_AI.PlayerID), CEntityIterator.OfAnyTypeFilter(unpack(etypes))) do
 		local currLVL = Logic.GetUpgradeLevelForBuilding(eID) + 1
-		if currLVL < maxBuildingLVL then
+		local maxLVL = Logic.GetBuildingTypesInUpgradeCategory(Logic.GetUpgradeCategoryByBuildingType(Logic.GetEntityType(eID)))
+		if currLVL < maxLVL and currLVL < maxBuildingLVL then
 			(CSendEvent or SendEvent).UpgradeBuilding(eID)
 		end
 	end
 	StartCountdown((5+(15/_AI.Strength))*60+math.random(0,20), RandomMapAI.UpgradeBuilding.UpgradeCommand, false, nil, _AI)
+end
+---------------------------------------------------------------------------------------------------
+RandomMapAI.Research = {}
+
+RandomMapAI.Research.BuildingTypeTechs = {
+	[Entities.PB_Headquarters1] = {
+		Technologies.T_Tracking
+	},
+	[Entities.PB_Blacksmith1] = {
+		Technologies.T_LeatherMailArmor,
+		Technologies.T_SoftArcherArmor
+	},
+	[Entities.PB_Blacksmith2] = {
+		Technologies.T_LeatherMailArmor,
+		Technologies.T_ChainMailArmor,
+		Technologies.T_SoftArcherArmor,
+		Technologies.T_PaddedArcherArmor
+	},
+	[Entities.PB_Blacksmith3] = {
+		Technologies.T_LeatherMailArmor,
+		Technologies.T_ChainMailArmor,
+		Technologies.T_PlateMailArmor,
+		Technologies.T_SoftArcherArmor,
+		Technologies.T_PaddedArcherArmor,
+		Technologies.T_LeatherArcherArmor
+	},
+	[Entities.PB_Sawmill2] = {
+		Technologies.T_Fletching,
+		Technologies.T_BodkinArrow,
+		Technologies.T_WoodAging,
+		Technologies.T_Turnery
+	},
+	[Entities.PB_Alchemist2] = {
+		Technologies.T_EnhancedGunPowder,
+		Technologies.T_BlisteringCannonballs
+	},
+	[Entities.PB_StoneMason2] = {
+		Technologies.T_Masonry
+	},
+	[Entities.PB_Brickworks2] = {
+		Technologies.T_LightBricks
+	},
+	[Entities.PB_Bank2] = {
+		Technologies.T_Debenture
+	},
+	[Entities.PB_Bank3] = {
+		Technologies.T_Debenture,
+		Technologies.T_BookKeeping
+	},
+	[Entities.PB_VillageCenter1] = {
+		Technologies.T_CityGuard
+	},
+	[Entities.PB_VillageCenter2] = {
+		Technologies.T_CityGuard,
+		Technologies.T_Loom
+	},
+	[Entities.PB_VillageCenter3] = {
+		Technologies.T_CityGuard,
+		Technologies.T_Loom,
+		Technologies.T_Shoes,
+		Technologies.T_TownGuard
+	},
+	[Entities.PB_VillageHall1] = {
+		Technologies.T_Foresight,
+		Technologies.T_Alacricity
+	},
+	[Entities.PB_Silversmith2] = {
+		Technologies.T_SilverPlateArmor,
+		Technologies.T_SilverArcherArmor,
+		Technologies.T_SilverArrows,
+		Technologies.T_SilverSwords,
+		Technologies.T_SilverLance,
+		Technologies.T_SilverBullets,
+		Technologies.T_SilverMissiles,
+		Technologies.T_BloodRush
+	},
+	[Entities.PB_Barracks2] = {
+		Technologies.T_BetterTrainingBarracks
+	},
+	[Entities.PB_Archery2] = {
+		Technologies.T_BetterTrainingArchery
+	},
+	[Entities.PB_Stable2] = {
+		Technologies.T_Shoeing
+	},
+	[Entities.PB_Foundry2] = {
+		Technologies.T_BetterChassis
+	},
+	[Entities.PB_Castle5] = {
+		Technologies.T_HeroicShoes,
+		Technologies.T_HeroicArmor,
+		Technologies.T_HeroicWeapon
+	},
+	[Entities.PB_ClayMine3] = {
+		Technologies.T_PickAxe
+	},
+	[Entities.PB_GunsmithWorkshop1] = {
+		Technologies.T_FleeceArmor,
+		Technologies.T_LeadShot
+	},
+	[Entities.PB_GunsmithWorkshop2] = {
+		Technologies.T_FleeceArmor,
+		Technologies.T_FleeceLinedLeatherArmor,
+		Technologies.T_LeadShot,
+		Technologies.T_Sights
+	},
+	[Entities.PB_Tavern2] = {
+		Technologies.T_ThiefSabotage,
+		Technologies.T_Agility,
+		Technologies.T_LeatherCoat
+	}
+}
+
+RandomMapAI.Research.PlayerResearchedTech = {{},{},{},{},{},{},{}}
+RandomMapAI.Research.ResearchCommand = function(_AI)
+	local player = _AI.PlayerID
+	for etype, techs in pairs(RandomMapAI.Research.BuildingTypeTechs) do
+		local num, id = Logic.GetPlayerEntities(player, etype, 1)
+		if num > 0 then
+			if not InterfaceTool_IsBuildingDoingSomething(id) then
+				for i = 1, table.getn(techs) do
+					local tech = techs[i]
+					if not RandomMapAI.Research.PlayerResearchedTech[player - 1][tech] then
+						local costs = {}
+						Logic.FillTechnologyCostsTable(tech, costs)
+						local enough = true
+						for res, amount in pairs(costs) do
+							if Logic.GetPlayersGlobalResource(player, res) + Logic.GetPlayersGlobalResource(player, res + 1) < amount then
+								enough = false
+							end
+						end
+						if enough then
+							(CSendEvent or SendEvent).StartResearch(id, tech)
+							RandomMapAI.Research.PlayerResearchedTech[player - 1][tech] = true
+							break
+						end
+					end
+				end
+			end
+		end
+	end
+	local strength = _AI.Strength
+	StartCountdown((2+(3/strength))*60+math.random(0,120), RandomMapAI.Research.ResearchCommand, false, nil, _AI)
+end
+---------------------------------------------------------------------------------------------------
+RandomMapAI.CreateHeroArmy = function(_player, _position, _peaceTime, _heroes)
+	local army = {}
+	army.player 	= _player
+	army.id 		= GetFirstFreeArmySlot(_player)
+	army.position 	= _position
+	army.strength 	= table.getn(_heroes)
+	army.rodeLength = 5000
+	SetupArmy(army)
+	for i = 1, table.getn(_heroes) do
+		EnlargeArmy(army, {leaderType = _heroes[i]})
+	end
+	local peaceTime
+	Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "", "RandomMapAI_ControlGenericArmy", 1, {}, {_player, army.id, _peaceTime})
+end
+RandomMapAI_ControlGenericArmy = function(_player, _id, _peaceTime)
+	local army = ArmyTable[_player][_id + 1]
+	if Logic.GetTime() < _peaceTime * 60 then
+		Defend(army)
+	else
+		Advance(army)
+	end
 end
 ---------------------------------------------------------------------------------------------------
 RandomMapAI.GetAIConfigFromGDBData = function(_structData)
@@ -781,6 +981,7 @@ RandomMapAI.GetAIConfigFromGDBData = function(_structData)
 end
 RandomMapAI.Init = function(_structData)
 	local AIData = RandomMapAI.GetAIConfigFromGDBData(_structData)
+	local numHeroes = GDB.GetValue("Singleplayer\\RandomMapData\\MapHeroes")
 	local mapsizeX = Logic.WorldGetSize()
 	local playerInTeam = {[1] = {1}}
 	for i = 1, table.getn(AIData) do
@@ -798,7 +999,8 @@ RandomMapAI.Init = function(_structData)
 		MapEditor_Armies[player].description.rebuild.delay = description.rebuild.delay
 		MapEditor_Armies[player].description.rebuild.randomTime = description.rebuild.randomTime
 		StartCountdown((5/strength)*60+math.random(0,20), RandomMapAI.IncreaseSerfs, false, nil, player, strength, description.serfLimit)
-		StartCountdown((5+(15/strength))*60+math.random(0,20), RandomMapAI.UpgradeBuilding.UpgradeCommand, false, nil, currAI)
+		StartCountdown((5+(14/strength))*60+math.random(0,120), RandomMapAI.UpgradeBuilding.UpgradeCommand, false, nil, currAI)
+		StartCountdown((2+(3/strength))*60+math.random(0,120), RandomMapAI.Research.ResearchCommand, false, nil, currAI)
 		SetPlayerName(player, RandomMapAI.PlayerNames[player - 1])
 		local cplan = RandomMapAI.GenerateConstructionPlan(currAI)
 		RandomMapAI.ProcessConstructionPlan(currAI, cplan, 1)
@@ -809,6 +1011,18 @@ RandomMapAI.Init = function(_structData)
 		table.insert(playerInTeam[team], player)
 		Logic.PlayerSetIsHumanFlag(player, 1)
 		Logic.PlayerSetPlayerColor(player, GUI.GetPlayerColor(player))
+		--
+		if numHeroes > 0 then
+			local possibleHeroes = CopyTable(RandomMapAI.PossibleHeroes)
+			local selectedHeroes = {}
+			while table.getn(selectedHeroes) < numHeroes do
+				local rand = math.random(1, table.getn(possibleHeroes))
+				table.insert(selectedHeroes, possibleHeroes[rand])
+				table.remove(possibleHeroes, rand)
+			end
+			--
+			RandomMapAI.CreateHeroArmy(player, GetPosition("HQP" .. player), currAI.PeaceTime, selectedHeroes)
+		end
 	end
 	-- Diplomacy stuff
 	local teams = {}

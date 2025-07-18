@@ -276,6 +276,9 @@
 			<Technology>T_Scale</Technology>
 			<Technology>T_Coinage</Technology>
 
+	<!--Headquarters Serf Exploration -->
+			<Technology>T_Tracking</Technology>
+
 	<!--Village Center Technologies -->
 			<!--Exploration: Buildings-->
 			<Technology>T_CityGuard</Technology>
@@ -468,7 +471,6 @@
 
 
 	<!-- NOT USED FOR THE MOMENT: -->
-	<Technology>T_Tracking</Technology>
 	<Technology>T_SpinningWheel</Technology>
 	<Technology>T_ChainBardingArmor</Technology>
 	<Technology>T_PlateBardingArmor</Technology>

@@ -145,6 +145,9 @@ gvCoal = {
 			local offX2, offY2 = RotateOffset(gvCoal.Mine.Offset2.X, gvCoal.Mine.Offset2.Y, _rot)
 			local offX3, offY3 = RotateOffset(gvCoal.Mine.Offset3.X, gvCoal.Mine.Offset3.Y, _rot)
 			local posX1, posY1, posX2, posY2, posX3, posY3 = _x + offX1, _y + offY1, _x + offX2, _y + offY2, _x + offX3, _y + offY3
+			if posX1 < 0 or posX2 < 0 or posX3 < 0 or posY1 < 0 or posY2 < 0 or posY3 < 0 then
+				return false
+			end
 			local height1 = CUtil.GetTerrainNodeHeight(posX1/100, posY1/100)
 			local height2, blockingtype2, sector2, terrType2 = CUtil.GetTerrainInfo(posX2, posY2)
 			local height3, blockingtype3, sector3, terrType3 = CUtil.GetTerrainInfo(posX3, posY3)

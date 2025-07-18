@@ -346,11 +346,6 @@ function SetAdvancedCutsceneClipping()
 		Dist = GDB.GetValue( "Config\\Display\\ClippingDistance" )
 	end
 	if Dist > 0 then
-		if not S5Hook then
-			IncludeGlobals("tools\\s5hook")
-			InstallS5Hook()
-		end
-		-- needs s5hook instead of CUtilMemory since adress is read-only
 		SetInternalClippingLimitCutscene(60000)
 	end
 end
@@ -2654,39 +2649,24 @@ end
 ---@param _val integer new clipping limit maximum
 function SetInternalClippingLimitCutscene(_val)
 	assert(type(_val) == "number", "Clipping Limit needs to be a number")
-	--[[
-	if S5Hook then
-		S5Hook.GetRawMem(tonumber("0x77A7E8", 16))[0]:SetFloat(_val)
-	else
-		CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[0]:SetFloat(_val)
-	end
-	]]
+	CUtil.SetMaxClipping(_val)
+	--CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[0]:SetFloat(_val)
 end
 
 -- overrides internal clipping limit maximum for global map (internally capped at 100k per default)
 ---@param _val integer new clipping limit maximum
 function SetInternalClippingLimitGlobal(_val)
 	assert(type(_val) == "number", "Clipping Limit needs to be a number")
-	--[[
-	if S5Hook then
-		S5Hook.GetRawMem(tonumber("0x77A7E8", 16))[1]:SetFloat(_val)
-	else
-		CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[1]:SetFloat(_val)
-	end
-	]]
+	CUtil.SetMaxClippingLimit(_val)
+	--CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[1]:SetFloat(_val)
 end
 
 -- overrides internal clipping used when not specified or resetted back to default (12.5k per default)
 ---@param _val integer new clipping fallback value
 function SetInternalClippingResetValue(_val)
 	assert(type(_val) == "number", "Clipping fallback value needs to be a number")
-	--[[
-	if S5Hook then
-		S5Hook.GetRawMem(tonumber("0x77A7E8", 16))[2]:SetFloat(_val)
-	else
-		CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[2]:SetFloat(_val)
-	end
-	]]
+	CUtil.SetMaxClippingDefault(_val)
+	--CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[2]:SetFloat(_val)
 end
 
 -- returns the weather movement speed modifier
@@ -3218,15 +3198,22 @@ function GetAbilityRange(_entityType, _ability)
 		end
 	end
 end
-BS.MemValues.IndexByAbility = {	[Abilities.AbilityRangedEffect] = {AffectsDiplomacy = 5, AffectsCat = 6, Range = 7, Duration = 8, DamageFactor = 9, ArmorFactor = 10, HealthRecoveryFactor = 11, Effect = 12, HealEffect = 13},
-								[Abilities.AbilityCircularAttack] = {TaskList = 5, Animation = 6, DamageClass = 7, Damage = 8, Range = 9, Effect = 10},
-								[Abilities.AbilityInflictFear] = {TaskList = 5, Animation = 6, FlightDuration = 7, Range = 8, FlightRange = 9}}
-BS.MemValues.VTableByAbility = {[Abilities.AbilityRangedEffect] = tonumber("774E9C", 16),
-								[Abilities.AbilityCircularAttack] = tonumber("7774A0", 16),
-								[Abilities.AbilityInflictFear] = tonumber("776674", 16),
-								[Abilities.AbilityPlaceBomb] = tonumber("7783D8", 16),
-								[Abilities.AbilityBuildCannon] = tonumber("777510", 16)
-								}
+BS.MemValues.IndexByAbility = {
+	[Abilities.AbilityRangedEffect] = {AffectsDiplomacy = 5, AffectsCat = 6, Range = 7, Duration = 8, DamageFactor = 9, ArmorFactor = 10, HealthRecoveryFactor = 11, Effect = 12, HealEffect = 13},
+	[Abilities.AbilityCircularAttack] = {TaskList = 5, Animation = 6, DamageClass = 7, Damage = 8, Range = 9, Effect = 10},
+	[Abilities.AbilityInflictFear] = {TaskList = 5, Animation = 6, FlightDuration = 7, Range = 8, FlightRange = 9}
+}
+BS.MemValues.VTableByAbility = {
+	[Abilities.AbilityRangedEffect] = tonumber("774E9C", 16),
+	[Abilities.AbilityCircularAttack] = tonumber("7774A0", 16),
+	[Abilities.AbilityInflictFear] = tonumber("776674", 16),
+	[Abilities.AbilityPlaceBomb] = tonumber("7783D8", 16),
+	[Abilities.AbilityBuildCannon] = tonumber("777510", 16)
+}
+
+function GetWorkerTypeResourceTakenAmount(_etype)
+
+end
 ------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------- entity id related --------------------------------------------------------------------------
 -- returns settler base movement speed (not affected by weather or technologies, just the raw value defined in the respective xml)
@@ -3544,6 +3531,15 @@ function AddStamina(_id, _val)
 	assert(IsValid(_id) and Logic.IsEntityInCategory(_id, EntityCategories.Worker) == 1, "entityID must be a worker")
 	assert(type(_val) == "number", "stamina value must be a number")
 	SetStamina(_id, math.max(0, GetStamina(_id) + _val))
+end
+
+-- gets entityID resource amount currently transporting
+---@param _workerID integer entityID (must be a worker)
+---@return float resource amount currently transporting
+function GetWorkerCurrentTransportedResourceAmount(_workerID)
+	assert(IsValid(_workerID) and Logic.IsEntityInCategory(_workerID, EntityCategories.Worker) == 1, "entityID must be a worker")
+	local beh = CUtil.GetBehaviour(_workerID, tonumber("772B30", 16))
+	return CUtilMemory.GetMemory(tonumber(beh,16))[17]:GetFloat()
 end
 
 -- gets ability convert settler target (e.g. Helias)

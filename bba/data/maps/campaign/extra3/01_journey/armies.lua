@@ -7,7 +7,7 @@ function CreateArmies()
 	if gvDiffLVL < 2 then
 		table.insert(RobbersTroopTypes, Entities.CU_VeteranMajor)
 		table.insert(RobbersTroopTypes, Entities.CU_VeteranCaptain)
-		table.insert(KerbTroopTypes, Entities.CU_VeteranLieutenant)
+		table.insert(RobbersTroopTypes, Entities.CU_VeteranLieutenant)
 		table.insert(RobbersTroopTypes, Entities.PV_Cannon5)
 	end
 

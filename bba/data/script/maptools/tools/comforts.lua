@@ -192,6 +192,29 @@ PrepareBriefing = function(_briefing)
 	XGUIEng.ShowWidget("CinematicMiniMapContainer",0)
 
 end
+CustomizeBriefingParams = function(_angleXY, _angleZ, _dist)
+	Camera.RotSetAngle(_angleXY)
+	gvCamera.DefaultFlag = 0
+	gvCamera.ZoomAngleMin = _angleZ
+	gvCamera.ZoomAngleMax = _angleZ
+	DIALOG_ZOOMANGLE = _angleZ
+	Camera.ScrollUpdateZMode(1)
+	Camera.ZoomSetDistance(_dist)
+	Camera.ZoomSetAngle(_angleZ)
+	Camera.RotSetFlipBack(0)
+end
+SetCameraDefaultParams = function()
+	gvCamera.DefaultFlag = 1
+	gvCamera.ZoomAngleMin = 29
+	gvCamera.ZoomAngleMax = 49
+	Display.SetRenderSky( 0 )
+	DIALOG_ZOOMANGLE = 29
+	Camera.RotSetAngle( -45 )
+	Camera.RotSetFlipBack( 1 )
+	Camera.ScrollUpdateZMode( 0 )
+	Camera.ZoomSetDistance(3000)
+	Camera.ZoomSetAngle(45)
+end
 -------------------------------------------------------------------------------------------------------
 ------------------------------- Pages briefing comfort ------------------------------------------------
 -------------------------------------------------------------------------------------------------------
@@ -774,21 +797,70 @@ end
 ---@return integer entityID
 function ReplacingEntity(_Entity, _EntityType)
 
-	local entityId      = Logic.GetEntityIDByName(_Entity)
+	local entityId      = GetID(_Entity)
 	local pos 			= {}
 	pos.X,pos.Y  		= Logic.GetEntityPosition(entityId)
 	local name 			= Logic.GetEntityName(entityId)
 	local player 		= Logic.EntityGetPlayer(entityId)
 	local orientation 	= Logic.GetEntityOrientation(entityId)
-	local wasSelected	= IsEntitySelected(_Entity)
+	local scale 		= GetEntitySize(entityId)
+	local wasSelected	= IsEntitySelected(entityId)
 
 	if wasSelected then
 		GUI.DeselectEntity(entityId)
     end
 
-	DestroyEntity(_Entity)
+	DestroyEntity(entityId)
 	local newEntityId = Logic.CreateEntity(_EntityType,pos.X,pos.Y,orientation,player)
 	Logic.SetEntityName(newEntityId, name)
+	if scale ~= 1 then
+		SetEntitySize(newEntityId, scale)
+	end
+
+	if wasSelected then
+		GUI.SelectEntity(newEntityId)
+    end
+
+	GroupSelection_EntityIDChanged(entityId, newEntityId)
+	return newEntityId
+
+end
+
+-- ReplaceEntityWithOffset comfort, to replace entity with given offset ---------------------------------------
+---@param _Entity string|integer entityName or entityID
+---@param _EntityType integer entityType
+---@param _offX number offsetX (in scm)
+---@param _offY number offsetY (in scm)
+---@return integer entityID
+function ReplaceEntityWithOffset(_Entity, _EntityType, _offX, _offY)
+
+	local entityId      = GetID(_Entity)
+	local pos 			= {}
+	pos.X,pos.Y  		= Logic.GetEntityPosition(entityId)
+	pos.X 				= pos.X + _offX
+	pos.Y 				= pos.Y + _offY
+	local name 			= Logic.GetEntityName(entityId)
+	local player 		= Logic.EntityGetPlayer(entityId)
+	local orientation 	= Logic.GetEntityOrientation(entityId)
+	local scale 		= GetEntitySize(entityId)
+	local wasSelected	= IsEntitySelected(entityId)
+
+	if wasSelected then
+		GUI.DeselectEntity(entityId)
+    end
+
+	DestroyEntity(entityId)
+
+	while Logic.GetEntityAtPosition(pos.X, pos.Y) ~= 0 do
+		pos.X = pos.X + math.random(-2^16, 2^16) / 10^5
+		pos.Y = pos.Y + math.random(-2^16, 2^16) / 10^5
+	end
+	local newEntityId = Logic.CreateEntity(_EntityType,pos.X,pos.Y,orientation,player)
+	assert(newEntityId > 0, "creating new entity failed!")
+	Logic.SetEntityName(newEntityId, name)
+	if scale ~= 1 then
+		SetEntitySize(newEntityId, scale)
+	end
 
 	if wasSelected then
 		GUI.SelectEntity(newEntityId)
@@ -1422,6 +1494,97 @@ GetAttachedEntitiesOrig = CEntity.GetAttachedEntities
 CEntity.GetAttachedEntities = function(_id)
 	assert(IsValid(_id), "invalid entityID")
 	return GetAttachedEntitiesOrig(_id)
+end
+
+-- added some assertion so we don't get a crash
+CreateEntityOrig = Logic.CreateEntity
+Logic.CreateEntity = function(_entityType, _posX, _posY, _angle, _playerId)
+	assert(_entityType ~= nil and _entityType > 0, "invalid entityType")
+	local sizeX = Logic.WorldGetSize()
+	assert(_posX ~= nil and (_posX >= 0 and _posX < sizeX or _posX == -1) and _posY ~= nil and (_posY >= 0 and _posY < sizeX or _posY == -1), "invalid position")
+	assert(_angle ~= nil)
+	assert(_playerId ~= nil and _playerId >= 0 and _playerId <= (CNetwork and CNetwork.IsSCEPlayersActive() and 16 or 8), "invalid playerID")
+	return CreateEntityOrig(_entityType, _posX, _posY, _angle, _playerId)
+end
+
+-- added some assertion so we don't get a crash
+GetSectorOrig = CUtil.GetSector
+CUtil.GetSector = function(_posX, _posY)
+	local sizeX = Logic.WorldGetSize()
+	assert(_posX ~= nil and _posX >= 0 and _posX < sizeX/100 and _posY ~= nil and _posY >= 0 and _posY < sizeX/100, "invalid position")
+	return GetSectorOrig(_posX, _posY)
+end
+
+-- added some assertion so we don't get a crash
+GetTerrainNodeTypeOrig = CUtil.GetTerrainNodeType
+CUtil.GetTerrainNodeType = function(_posX, _posY)
+	local sizeX = Logic.WorldGetSize()
+	assert(_posX ~= nil and _posX >= 0 and _posX < sizeX/100 and _posY ~= nil and _posY >= 0 and _posY < sizeX/100, "invalid position")
+	return GetTerrainNodeTypeOrig(_posX, _posY)
+end
+
+-- added some assertion so we don't get a crash
+GetTerrainNodeHeightOrig = CUtil.GetTerrainNodeHeight
+CUtil.GetTerrainNodeHeight = function(_posX, _posY)
+	local sizeX = Logic.WorldGetSize()
+	assert(_posX ~= nil and _posX >= 0 and _posX < sizeX/100 and _posY ~= nil and _posY >= 0 and _posY < sizeX/100, "invalid position")
+	return GetTerrainNodeHeightOrig(_posX, _posY)
+end
+
+-- added some assertion so we don't get a crash
+GetWaterHeightOrig = CUtil.GetWaterHeight
+CUtil.GetWaterHeight = function(_posX, _posY)
+	local sizeX = Logic.WorldGetSize()
+	assert(_posX ~= nil and _posX >= 0 and _posX < sizeX/100 and _posY ~= nil and _posY >= 0 and _posY < sizeX/100, "invalid position")
+	return GetWaterHeightOrig(_posX, _posY)
+end
+
+-- added some assertion so we don't get a crash
+SetEntityScriptingValueOrig = Logic.SetEntityScriptingValue
+Logic.SetEntityScriptingValue = function(_id, _offset, _value)
+	assert(IsValid(_id), "invalid entityID")
+	assert(_offset ~= nil and type(_offset) == "number", "invalid offset")
+	assert(_value ~= nil, "invalid value")
+	return SetEntityScriptingValueOrig(_id, _offset, _value)
+end
+
+-- added some assertion so we don't get a crash
+SetEntitySelectableFlagOrig = Logic.SetEntitySelectableFlag
+Logic.SetEntitySelectableFlag = function(_id, _flag)
+	assert(IsValid(_id), "invalid entityID")
+	assert(_flag ~= nil and (_flag == 0 or _flag == 1), "invalid flag")
+	return SetEntitySelectableFlagOrig(_id, _flag)
+end
+
+-- added some assertion so we don't get a crash
+GetCurrentTaskListOrig = Logic.GetCurrentTaskList
+Logic.GetCurrentTaskList = function(_id)
+	assert(IsValid(_id), "invalid entityID")
+	return GetCurrentTaskListOrig(_id)
+end
+
+-- added some assertion so we don't get a crash
+SetTaskListOrig = Logic.SetTaskList
+Logic.SetTaskList = function(_id, _taskList)
+	assert(IsValid(_id), "invalid entityID")
+	assert(_taskList ~= nil and type(_taskList == "number"), "invalid TaskList")
+	return SetTaskListOrig(_id, _taskList)
+end
+
+-- added some assertion so we don't get a crash
+SetModelAndAnimSetOrig = Logic.SetModelAndAnimSet
+Logic.SetModelAndAnimSet = function(_id, _model, _animSet)
+	assert(IsValid(_id), "invalid entityID")
+	assert(_model ~= nil and type(_model) == "number", "invalid model")
+	return SetModelAndAnimSetOrig(_id, _model, _animSet)
+end
+
+CreateEffectOrig = Logic.CreateEffect
+Logic.CreateEffect = function(_effect, _posX, _posY, _player)
+	local sizeX = Logic.WorldGetSize()
+	assert(_effect ~= nil and type(_effect) == "number" and _effect > 0, "invalid effect")
+	assert(_posX ~= nil and _posX >= 0 and _posX < sizeX and _posY ~= nil and _posY >= 0 and _posY < sizeX, "invalid position")
+	return CreateEffectOrig(_effect, _posX, _posY, _player)
 end
 
 -- added some assertion so we don't get a crash; function allows only armyIDs between -1 and 8
@@ -2373,7 +2536,7 @@ end
 ---@return boolean
 function IsPositionUnblocked(_x, _y)
 	local height, blockingtype, sector, terrType = CUtil.GetTerrainInfo(_x, _y)
-	return (sector ~= 0 and math.mod(blockingtype, 2) == 0 and (height > CUtil.GetWaterHeight(dekaround(_x/100), dekaround(_y/100))))
+	return (sector ~= 0 and math.mod(blockingtype, 2) == 0 and (height > CUtil.GetWaterHeight(round(_x/100), round(_y/100))))
 end
 
 -- sets the health of an entity to a given percentage
@@ -2667,6 +2830,16 @@ function SetInternalClippingResetValue(_val)
 	assert(type(_val) == "number", "Clipping fallback value needs to be a number")
 	CUtil.SetMaxClippingDefault(_val)
 	--CUtilMemory.GetMemory(tonumber("0x77A7E8", 16))[2]:SetFloat(_val)
+end
+
+-- returns the factor of health left when a building should be closed (e.g. if this is 0.2, the building will
+-- close if its Health value is less than 20% of its MaxHealth value)
+---@return number ClosedHealthFactor
+function GetBuildingClosedHealthFactor()
+	if not BS.MemValues.BuildingClosedHealthFactor then
+		BS.MemValues.BuildingClosedHealthFactor = GetLogicPropertiesPointer()[24]:GetFloat()
+	end
+	return BS.MemValues.BuildingClosedHealthFactor
 end
 
 -- returns the weather movement speed modifier
@@ -2987,6 +3160,47 @@ function GetAttractionPlacesProvided(_entityType)
 	else
 		BS.MemValues.EntityTypeAttractionPlacesProvided[_entityType] = GetEntityTypePointer(_entityType)[44]:GetInt()
 		return BS.MemValues.EntityTypeAttractionPlacesProvided[_entityType]
+	end
+end
+
+-- gets building type builder slots amount
+---@param _entityType integer entityType
+---@return integer amount of builder slots
+function GetBuildingTypeBuilderSlotsAmount(_entityType)
+	assert(_entityType ~= 0, "invalid entity type")
+	if not BS.MemValues.BuildingTypeBuilderSlotsAmount then
+		BS.MemValues.BuildingTypeBuilderSlotsAmount = {}
+	end
+	if BS.MemValues.BuildingTypeBuilderSlotsAmount[_entityType] then
+		return BS.MemValues.BuildingTypeBuilderSlotsAmount[_entityType]
+	else
+		BS.MemValues.BuildingTypeBuilderSlotsAmount[_entityType] = (GetEntityTypePointer(_entityType)[53]:GetInt() - GetEntityTypePointer(_entityType)[52]:GetInt()) / 12
+		return BS.MemValues.BuildingTypeBuilderSlotsAmount[_entityType]
+	end
+end
+
+-- gets building type builder slots properties, returns X1, Y1, rot1, X2, Y2, rot2 and so on
+---@param _entityType integer entityType
+---@return table builder slots {X1, Y1, rot1, X2, Y2, rot2, ..., Xn, Yn, rotn}
+function GetBuildingTypeBuilderSlots(_entityType)
+	assert(_entityType ~= 0, "invalid entity type")
+	if not BS.MemValues.BuildingTypeBuilderSlots then
+		BS.MemValues.BuildingTypeBuilderSlots = {}
+	end
+	if BS.MemValues.BuildingTypeBuilderSlots[_entityType] then
+		return unpack(BS.MemValues.BuildingTypeBuilderSlots[_entityType])
+	else
+		BS.MemValues.BuildingTypeBuilderSlots[_entityType] = {}
+		for i = 1, GetBuildingTypeBuilderSlotsAmount(_entityType) * 3 do
+			if math.mod(i, 3) ~= 0 then
+				-- position -> float
+				table.insert(BS.MemValues.BuildingTypeBuilderSlots[_entityType], GetEntityTypePointer(_entityType)[52][i-1]:GetFloat())
+			else
+				-- rotation -> int
+				table.insert(BS.MemValues.BuildingTypeBuilderSlots[_entityType], GetEntityTypePointer(_entityType)[52][i-1]:GetInt())
+			end
+		end
+		return unpack(BS.MemValues.BuildingTypeBuilderSlots[_entityType])
 	end
 end
 
@@ -3871,8 +4085,20 @@ function GetNearestBarracks(_playerId, _id)
 		return 0
 	end
 end
-BS.UCatByType = {}
 
+-- gets next higher entity Type in upgradeCategory by given entityType and upgradeCategory (_type + 1 does not always do the trick)
+---@param _type integer EntityType
+---@param _upCat integer upgradeCategory
+---@return integer next higher EntityType
+function GetNextHigherEntityTypeInUpgradeCategory(_type, _upCat)
+	local bTypes = {Logic.GetBuildingTypesInUpgradeCategory(_upCat)}
+	local tPos = table_findvalue(bTypes, _type)
+	if tPos > 0 and tPos <= bTypes[1] then
+		return bTypes[tPos + 1]
+	end
+end
+
+BS.UCatByType = {}
 -- gets upgrade category by entity type
 ---@param _type integer EntityType
 ---@param _flag boolean is EntityType a building? (true for building, false for settler)
@@ -3960,6 +4186,14 @@ GetAllPlayerEntitiesOfCategory = function(_playerID, _entityCat)
 		end
 	end
 	return playerEntities
+end
+
+-- returns amount of player entities in given entityCategory
+---@param _playerID integer playerID
+---@param _entityCat integer entityCategory
+---@return integer amount of entities
+GetNumberOfPlayerEntitiesInEntityCategory = function(_playerID, _entityCat)
+	return table.getn(GetAllPlayerEntitiesOfCategory(_playerID, _entityCat))
 end
 
 -- gets entities of player (optional filtered by entityType)
@@ -4117,7 +4351,8 @@ BS.GetAllEnemyPlayerIDs = function(_playerID)
 	end
 
 	for i = 1, maxplayers do
-		if Logic.GetDiplomacyState(i, _playerID) == Diplomacy.Hostile then
+		if Logic.GetDiplomacyState(i, _playerID) == Diplomacy.Hostile
+		and Logic.GetDiplomacyState(_playerID, i) == Diplomacy.Hostile then
 			table.insert(playerIDTable, i)
 		end
 	end
@@ -4362,7 +4597,10 @@ function CheckForBetterTarget(_eID, _target, _range)
 	end
 	if gvAntiBuildingCannonsRange[etype] then
 		local res
-		local target_eval = function(_target1, _target2)
+		local target_eval = function(_target1, _target2, _eID)
+			if Logic.GetDiplomacyState(Logic.EntityGetPlayer(_target1), Logic.EntityGetPlayer(_eID)) ~= Diplomacy.Hostile then
+				return _target2
+			end
 			if _target1 and Logic.IsBuilding(_target1) == 0 and IsValid(_target2) then
 				return _target2
 			elseif _target1 and Logic.IsBuilding(_target1) == 1 then
@@ -4391,16 +4629,16 @@ function CheckForBetterTarget(_eID, _target, _range)
 			and GetDistance(_eID, target) > maxrange
 			and Logic.GetTime() < tab[_eID].lasttime + 10 then
 			else
-				res = target_eval(_target, target)
+				res = target_eval(_target, target, _eID)
 			end
 		else
-			res = target_eval(_target, target)
+			res = target_eval(_target, target, _eID)
 		end
 		if res then
 			return res
 		end
 	end
-	if _target and Logic.IsEntityAlive(_target)
+	if _target and Logic.IsEntityAlive(_target) and Logic.GetDiplomacyState(_target, player) == Diplomacy.Hostile
 	and (IsMelee and sector == Logic.GetSector(_target)
 	or not IsMelee) then
 		calcT[1] = {id = _target, factor = DamageFactorToArmorClass[damageclass][GetEntityTypeArmorClass(Logic.GetEntityType(_target))], dist = GetDistance(_eID, _target)}
@@ -4413,7 +4651,11 @@ function CheckForBetterTarget(_eID, _target, _range)
 	local entities = ChunkWrapper.GetEntitiesInAreaInCMSorted(AIchunks[player], posX, posY, _range or maxrange + bonusRange)
 
 	if not next(entities) then
-		return
+		if not next(calcT) then
+			return
+		else
+			return calcT[1].id
+		end
 	end
 	for i = 1, table.getn(entities) do
 		if Logic.IsEntityAlive(entities[i]) then
@@ -4672,7 +4914,10 @@ end
 ---@return boolean
 MilitaryBuildingIsTrainingSlotFree = function(_id)
 	if not _id or not Logic.IsEntityAlive(_id) then
-		return
+		return false
+	end
+	if GetEntityHealth(_id) < GetBuildingClosedHealthFactor()*100 then
+		return false
 	end
 	local IsFoundry = (Logic.GetEntityType(_id) == Entities.PB_Foundry1 or Logic.GetEntityType(_id) == Entities.PB_Foundry2)
 	if IsFoundry then
@@ -4809,6 +5054,27 @@ RotateOffset = function(_x, _y, _rot)
 	return _x * math.cos(_rot) - _y * math.sin(_rot), _x * math.sin(_rot) + _y * math.cos(_rot)
 end
 
+-- rotates a given rectangle with four edges a, b, c, d
+---@param _a table position edge a
+---@param _b table position edge b
+---@param _c table position edge c
+---@param _d table position edge d
+---@param _rot number rotation angle in degree
+---@return table position edge a
+---@return table position edge b
+---@return table position edge c
+---@return table position edge d
+RotateRectangle = function(_a, _b, _c, _d, _rot)
+
+	local aX, aY, bX, bY, cX, cY, dX, dY
+	aX, aY = RotateOffset(_a.X, _a.Y, _rot)
+	bX, bY = RotateOffset(_b.X, _b.Y, _rot)
+	cX, cY = RotateOffset(_c.X, _c.Y, _rot)
+	dX, dY = RotateOffset(_d.X, _d.Y, _rot)
+	--
+	return {X = aX, Y = aY}, {X = bX, Y = bY}, {X = cX, Y = cY}, {X = dX, Y = dY}
+end
+
 -- gets nearest unblocked position near a possibly blocked position
 ---@param _posX number positionX
 ---@param _posY number positionY
@@ -4848,6 +5114,110 @@ EvaluateNearestUnblockedPosition = function(_posX, _posY, _offset, _step, _noter
 		end
 	end
 	return xspawn, yspawn
+end
+
+-- gets nearest unblocked position near a possibly blocked position within vision range of player
+---@param _player integer playerID
+---@param _posX number positionX
+---@param _posY number positionY
+---@param _offset integer maximum search range near position
+---@param _step integer limits max loop counts, thus higher value increases performance but lowers result quality
+---@param _noterrpos boolean? optional; should build block be ignored as blocked position? default: true
+---@return number positionX
+---@return number positionY
+EvaluateNearestUnblockedPositionWithinVisionRangeOfPlayer = function(_player, _posX, _posY, _offset, _step, _noterrpos)
+	if _noterrpos == nil then
+		_noterrpos = true
+	end
+	local xmax, ymax = Logic.WorldGetSize()
+	local dmin, xspawn, yspawn
+	local f = IsPositionUnblocked
+	local res = true
+	if not _noterrpos then
+		f = CUtil.GetBlocking100
+		res = 0
+	end
+
+	for y_ = _posY - _offset, _posY + _offset, _step do
+		for x_ = _posX - _offset, _posX + _offset, _step do
+			if y_ > 0 and x_ > 0 and x_ < xmax and y_ < ymax then
+
+				local d = (x_ - _posX)^2 + (y_ - _posY)^2
+
+				if f(x_, y_) == res
+				and Logic.IsMapPositionExplored(_player, _posX, _posY) == 1 then
+					if not dmin or dmin > d then
+						dmin = d
+						xspawn = x_
+						yspawn = y_
+					end
+				end
+
+			end
+		end
+	end
+	return xspawn, yspawn
+end
+
+-- gets nearest unblocked area near a possibly blocked position within vision range of player
+---@param _player integer playerID
+---@param _posX number positionX
+---@param _posY number positionY
+---@param _rectWidth number rectangle width
+---@param _rectHeight number rectangle height
+---@param _offset integer maximum search range near position
+---@param _step integer limits max loop counts, thus higher value increases performance but lowers result quality
+---@param _noterrpos boolean? optional; should build block be ignored as blocked position? default: true
+---@return number positionX
+---@return number positionY
+EvaluateNearestUnblockedAreaWithinVisionRangeOfPlayer = function(_player, _posX, _posY, _rectWidth, _rectHeight, _offset, _step, _noterrpos)
+	if _noterrpos == nil then
+		_noterrpos = true
+	end
+	local xmax, ymax = Logic.WorldGetSize()
+	local dmin, xspawn, yspawn
+	local f = IsPositionUnblocked
+	local res = true
+	if not _noterrpos then
+		f = CUtil.GetBlocking100
+		res = 0
+	end
+	-- Hilfsfunktion: Prüfen, ob das Rechteck an einer Position frei ist
+	local function isAreaFree(f, res, x, y, width, height)
+		for dy = -height/2, height/2, 100 do
+			for dx = -width/2, width/2, 100 do
+				if f(x + dx, y + dy) ~= res then
+					return false
+				end
+			end
+		end
+		return true
+	end
+
+	if isAreaFree(f, res, _posX, _posY, _rectWidth, _rectHeight) and Logic.IsMapPositionExplored(_player, _posX, _posY) == 1 then
+		return _posX, _posY
+	end
+
+	local bestX, bestY, minDist
+
+	for dy = -_offset, _offset, _step do
+		for dx = -_offset, _offset, _step do
+			local checkX = _posX + dx
+			local checkY = _posY + dy
+
+			if isAreaFree(f, res, checkX, checkY, _rectWidth, _rectHeight) then
+				if Logic.IsMapPositionExplored(_player, checkX, checkY) == 1 then
+					local d = (checkX - _posX)^2 + (checkY - _posY)^2
+					if not minDist or d < minDist then
+						bestX, bestY = checkX, checkY
+						minDist = d
+					end
+				end
+			end
+		end
+	end
+
+	return bestX, bestY
 end
 
 EvaluateNearestUnblockedPositionWithinDistanceOfNode = function(_posX, _posY, _offset, _step, _nodeX, _nodeY, _distance, _sector)

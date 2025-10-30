@@ -129,6 +129,7 @@ function FarbigeNamen()
 	weiss   = " @color:255,255,255 "
 
 	ker  	= ""..orange.." Kerberos "..lila..""
+	kerlhg  = ""..orange.." Wolf, Wache des Feuers "..lila..""
 	var	 	= ""..orange.." Varg "..lila..""
 	rei  	= ""..orange.." Kommandant der Kavallerie "..lila..""
 	er   	= ""..orange.." Erec "..lila..""
@@ -143,6 +144,16 @@ function FarbigeNamen()
 	thi   	= ""..orange.." Sappeur "..lila..""
 	mi     	= ""..orange.." Vorarbeiter des Lehmbergwerks "..lila..""
 	tra 	= ""..orange.." Arbeitsloser Händler "..lila..""
+	fish  	= ""..orange.." Betrübter Fischer "..lila..""
+	alch  	= ""..orange.." Euphorischer Alchemist "..lila..""
+
+	vk_set1 = ""..orange.." Rolf, Siedler Velborgs "..lila..""
+	vk_set2 = ""..orange.." Leif, Siedler Velborgs "..lila..""
+	vk_set3 = ""..orange.." Floki, Jarl Velborgs "..lila..""
+	vk_far1 = ""..orange.." Alvar, Schafhirte Velborgs "..lila..""
+	vk_far2 = ""..orange.." Sigrid, Schafhirte Velborgs "..lila..""
+	vk_far3 = ""..orange.." Ulf, Schafhirte Velborgs "..lila..""
+	vk_far4 = ""..orange.." Borg, Farmer der rauen Küste "..lila..""
 end
 function Start()
 	SetHealth("Turm",55)
@@ -161,36 +172,9 @@ function Start()
 	MakeInvulnerable("Erec")
 	--
 	MakeInvulnerable("VargHaupt")
-	--**
-	do
-		local pos = GetPosition("LighthouseDefend")
-		for i = 1,6 do
-			CreateMilitaryGroup(7,Entities.PU_LeaderBow4,12,{X = pos.X - i*50, Y = pos.Y - i*50},"LGuard_Bow"..i)
-			CreateMilitaryGroup(7,Entities.PU_LeaderCavalry2,6,{X = pos.X + i*50, Y = pos.Y + i*50},"LGuard_Cav"..i)
-			Logic.GroupPatrol(GetID("LGuard_Bow"..i), 61300-i*30, 30600-i*30)
-			Logic.GroupPatrol(GetID("LGuard_Cav"..i), 61300+i*30, 30600+i*30)
-		end
-	end
-	do
-		local pos = GetPosition("Barbaren")
-		for i = 1,5 do
-			CreateMilitaryGroup(6,Entities.CU_Barbarian_LeaderClub2,8,{X = pos.X - i*50, Y = pos.Y - i*50},"VargGuard_Sword"..i)
-			CreateMilitaryGroup(6,Entities.CU_VeteranLieutenant,4,{X = pos.X + i*50, Y = pos.Y + i*50},"VargGuard_Elite"..i)
-			Logic.GroupPatrol(GetID("VargGuard_Elite"..i), 40900-i*30, 51900-i*30)
-			Logic.GroupPatrol(GetID("VargGuard_Sword"..i), 40900+i*30, 51900+i*30)
-		end
-	end
-	do
-		local pos = GetPosition("VargHQDefense")
-		for i = 1,7 do
-			CreateMilitaryGroup(6,Entities.CU_Barbarian_LeaderClub2,8,{X = pos.X - i*50, Y = pos.Y - i*50},"VargHQGuard_Sword"..i)
-			CreateMilitaryGroup(6,Entities.CU_VeteranLieutenant,4,{X = pos.X + i*50, Y = pos.Y + i*50},"VargHQGuard_Elite"..i)
-			Logic.GroupPatrol(GetID("VargHQGuard_Elite"..i), 55000-i*30, 7400-i*30)
-			Logic.GroupPatrol(GetID("VargHQGuard_Sword"..i), 55000+i*30, 7400+i*30)
-		end
-	end
+	--
 	CreateMilitaryGroup(6,Entities.CU_BlackKnight_LeaderSword3,6,GetPosition("Barbaren"),"EliteSword")
-	local posX, posY = Logic.GetEntityPosition(GetID("VargHaupt"))
+	local posX, posY = Logic.GetEntityPosition(GetID("Varg_Haupt"))
 	Logic.GroupPatrol(GetID("EliteSword"), posX, posY)
 	MakeInvulnerable("EliteSword")
 	--
@@ -223,7 +207,7 @@ function Prolog()
 
     briefing.finished = function()
 		EnableNpcMarker(GetEntityId("Erec"))
-		DarioQuest()
+		IntroQuest()
 
 		Erec()
 		-- Level 0 is deactivated...ignore
@@ -248,20 +232,32 @@ function RemoveVision()
 	end
 end
 
+function IntroQuest()
+	local quest	= {
+		id		= GetQuestId(),
+		type	= MAINQUEST_OPEN,
+		title	= "Die Nordfeste",
+		text	= "Findet den Eingang zur Nordfeste. @cr Sprecht mit Erec.",
+	}
+	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
+	IntQuest = quest.id
+end
 function DarioQuest()
-	quest	= {
+	local quest	= {
 		id		= GetQuestId(),
 		type	= SUBQUEST_OPEN,
 		title	= "Errichtet euer Lager",
-		text	= "Sucht euch einen geeigneten Platz zum Siedeln und unterstützt dann die Nordfeste im Kampf gegen Kerberos und Varg.",
+		text	= "Sucht euch einen geeigneten Platz zum Siedeln. @cr In den Bergen oberhalb der Nordfeste befindet sich eine heruntergekommene Burgruine. " ..
+		"Mithilfe einiger fleißiger Arbeiter könnt ihr sie wieder herrichten. @cr Errichtet anschließend @cr zwei Steinstollen, @cr zwei Eisenerzstollen, @cr zwei Schwefelstollen, " ..
+		"@cr eine Sägemühle, @cr eine Kohlemine, @cr eine Grobschmiede, @cr eine Kirche @cr sowie zehn mittlere Wohnhäuser @cr und zehn Mühlen. @cr Sprecht anschließend wieder mit Erec. Und eilt Euch...",
 	}
 	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
 	DarQuest = quest.id
 end
 function KerQuest()
-	quest	= {
+	local quest	= {
 		id		= GetQuestId(),
-		type	= SUBQUEST_OPEN,
+		type	= MAINQUEST_OPEN,
 		title	= "Kerberos",
 		text	= "Vernichtet Kerberos Truppen und nehmt dann Kerberos in Gefangenschaft.",
 	}
@@ -269,9 +265,9 @@ function KerQuest()
 	KeQuest = quest.id
 end
 function VarQuest()
-	quest	= {
+	local quest	= {
 		id		= GetQuestId(),
-		type	= SUBQUEST_OPEN,
+		type	= MAINQUEST_OPEN,
 		title	= "Varg",
 		text	= "Vernichtet Vargs Truppen und nehmt dann Varg in Gefangenschaft.",
 	}
@@ -304,32 +300,10 @@ function Erec()
 		ASP("Ruinspawn",er,"Alleine gegen zwei Gegnern sind wir ihnen dennoch leider unterlegen.", false)
 		ASP("Outpost_Ruin",er,"Dario, bitte steh uns bei und bezieh unsere alte Burg weit oben in den Bergen.", false)
 		ASP("Erec",er,"Aber bitte beeil dich, ich weiß nicht wie lange wir sie noch von unserer Burg fernhalten können.", true)
-		ASP("Erec",er,"Sobald sich die Verteidigung stabilisiert hat, sollten wir in den Angriff übergehen und zunächst die Außenposten von Kerberos und Varg vernichten.", false)
-		AP{
-			title = er,
-			text = "Kerberos Außenposten befindet sich gut geschützt an dieser Stelle. @cr Unsere Späher haben saubere Arbeit geleistet.",
-			position = GetPosition("KerberosBurg"),
-			marker = STATIC_MARKER,
-			dialogCamera = false,
-		}
-		AP{
-			title = er,
-			text = "Die von Varg war da schon ein wenig umständlicher zu finden. @cr Sie liegt weit oben in den Kralbergen und ist nur über einen schmalen Pfad zu erreichen.",
-			position = GetPosition("VargHaupt"),
-			marker = STATIC_MARKER,
-			dialogCamera = false,
-		}
-
-		ASP("Erec",er,"Ich werde euch im Kampf eigenhändig zur Seite stehen.", true)
 		briefing.finished = function()
 			do
-				local pos = GetPosition("Kerb")
-				local pos2 = GetPosition("VargHaupt")
-				Logic.SetEntityName(Logic.CreateEntity(Entities.XD_ScriptEntity,pos.X,pos.Y,0,1),"p1_enemy_view_1")
-				Logic.SetEntityExplorationRange(GetID("p1_enemy_view_1"), 28)
-				Logic.SetEntityName(Logic.CreateEntity(Entities.XD_ScriptEntity,pos2.X,pos2.Y,0,1),"p1_enemy_view_2")
-				Logic.SetEntityExplorationRange(GetID("p1_enemy_view_2"), 28)
-				StartCountdown(120,RemoveVision,false)
+				local pos = GetPosition("Eingang")
+				GUI.DestroyMinimapPulse(pos.X, pos.Y)
 			end
 			local sizeX = Logic.WorldGetSize()
 			MapEditor_Armies[5].offensiveArmies.rodeLength = 12000
@@ -343,25 +317,12 @@ function Erec()
 			ChangePlayer("serf2",1)
 			ChangePlayer("serf3",1)
 			ChangePlayer("serf4",1)
-			ChangePlayer("Erec",1)
-			QuestSieg()
-			KerQuest()
-			VarQuest()
-			ActivateShareExploration( 1,5, true )
-			EnableNpcMarker(GetEntityId("Reiter"))
-			EnableNpcMarker(GetEntityId("Farmer"))
-			EnableNpcMarker(GetEntityId("scout"))
-			EnableNpcMarker(GetEntityId("monk"))
-			EnableNpcMarker(GetEntityId("thief"))
-			EnableNpcMarker(GetEntityId("miner"))
-			EnableNpcMarker(GetEntityId("trader"))
-			Reiter()
-			Farmer()
-			Scout()
-			Monk()
-			Thief()
-			Miner()
-			Trader()
+			--
+			Logic.RemoveQuest(1, IntQuest)
+			DarioQuest()
+			DefCounter = StartCountdown((25 + 5 * gvDiffLVL) * 60, Defeat, true)
+			StartSimpleJob("VillageDone")
+			--
 			Vorbereitung()
 
 			StartCountdown(25*60*gvDiffLVL,IncreaseP2Range,false)
@@ -383,9 +344,91 @@ function Erec()
 	end}
 	SetupExpedition(BeiEr)
 end
+function VillageDone()
+	if Logic.GetNumberOfEntitiesOfTypeOfPlayer(1, Entities.PB_StoneMine2) >= 2
+	and Logic.GetNumberOfEntitiesOfTypeOfPlayer(1, Entities.PB_IronMine2) >= 2
+	and Logic.GetNumberOfEntitiesOfTypeOfPlayer(1, Entities.PB_SulfurMine2) >= 2
+	and Logic.GetNumberOfEntitiesOfTypeOfPlayer(1, Entities.PB_CoalMine1) >= 1
+	and Logic.GetNumberOfEntitiesOfTypeOfPlayer(1, Entities.PB_Sawmill1) >= 1
+	and Logic.GetNumberOfEntitiesOfTypeOfPlayer(1, Entities.PB_Blacksmith2) >= 1
+	and Logic.GetNumberOfEntitiesOfTypeOfPlayer(1, Entities.PB_Monastery2) >= 1
+	and Logic.GetNumberOfEntitiesOfTypeOfPlayer(1, Entities.PB_Residence2) >= 10
+	and Logic.GetNumberOfEntitiesOfTypeOfPlayer(1, Entities.PB_Farm2) >= 10 then
+		Message("Ihr habt alle geforderten Gebäude errichtet! @cr Sprecht nun erneut mit Erec!")
+		EnableNpcMarker(GetID("Erec"))
+		Erec2()
+		return true
+	end
+end
+function Erec2()
+	local BeiEr = {
+    TargetName = "Erec",
+    Distance = 300,
+	Heroes = true,
+    Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID("Erec"))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt("Erec", id);LookAt(id ,"Erec")
+		DisableNpcMarker(GetEntityId("Erec"))
+		StopCountdown(DefCounter)
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP("Erec",er,"Sehr gut. @cr Unsere Wirtschaft ist nun stark genug, um eine Armee ausheben zu können, die den Vormarsch der dunklen Horden aufhalten kann.", true)
+		ASP("Erec",er,"Wir sollten zunächst die Verteidigung der Nordfeste unterstützen. @cr Aber früher oder später werden wir auch in den Angriff übergehen müssen. " ..
+			"@cr Varg und Kerberos verfügen über vorgeschobene Militärbasen, die sie als Ausgangspunkt für die Angriffe auf die Nordfeste nutzen. @cr Diese Außenposten gilt es auszuschalten.", true)
+		AP{
+			title = er,
+			text = "Kerberos Außenposten befindet sich gut geschützt an dieser Stelle. @cr Unsere Späher haben saubere Arbeit geleistet.",
+			position = GetPosition("KerberosBurg"),
+			marker = STATIC_MARKER,
+			dialogCamera = false,
+		}
+		AP{
+			title = er,
+			text = "Der von Varg war da schon ein wenig umständlicher zu finden. @cr Der Außenposten liegt weit oben in den Kralbergen und ist nur über einen schmalen Pfad zu erreichen.",
+			position = GetPosition("VargHaupt"),
+			marker = STATIC_MARKER,
+			dialogCamera = false,
+		}
+
+		ASP("Erec",er,"Ich werde euch im Kampf eigenhändig zur Seite stehen. @cr Meine Fähigkeiten werden sich bestimmt als nützlich erweisen!", true)
+		briefing.finished = function()
+			do
+				local pos = GetPosition("Kerb")
+				local pos2 = GetPosition("VargHaupt")
+				Logic.SetEntityName(Logic.CreateEntity(Entities.XD_ScriptEntity,pos.X,pos.Y,0,1),"p1_enemy_view_1")
+				Logic.SetEntityExplorationRange(GetID("p1_enemy_view_1"), 28)
+				Logic.SetEntityName(Logic.CreateEntity(Entities.XD_ScriptEntity,pos2.X,pos2.Y,0,1),"p1_enemy_view_2")
+				Logic.SetEntityExplorationRange(GetID("p1_enemy_view_2"), 28)
+				StartCountdown(120,RemoveVision,false)
+			end
+			ChangePlayer("Erec",1)
+			Logic.RemoveQuest(1, DarQuest)
+			KerQuest()
+			VarQuest()
+			--
+			ActivateShareExploration( 1,5, true )
+			EnableNpcMarker(GetEntityId("Reiter"))
+			EnableNpcMarker(GetEntityId("Farmer"))
+			EnableNpcMarker(GetEntityId("monk"))
+			EnableNpcMarker(GetEntityId("thief"))
+			EnableNpcMarker(GetEntityId("miner"))
+			EnableNpcMarker(GetEntityId("trader"))
+			EnableNpcMarker(GetEntityId("fisherman"))
+			Reiter()
+			Farmer()
+			Monk()
+			Thief()
+			Miner()
+			Trader()
+			Fisherman()
+		end
+		StartBriefing(briefing)
+	end}
+	SetupExpedition(BeiEr)
+end
 function Vorbereitung()
     StartSimpleJob("VictoryJob_Step1")
-    StartSimpleJob("Ruinen")
 	--
 	StartSimpleJob("Outpost_Ruin_Control")
 end
@@ -460,7 +503,55 @@ function Start_Step2()
         text	= "@color:230,0,0 Oh nein. Ein Haufen wütender Elitekrieger hat sich um Kerberos versammelt. @cr @cr Ich hoffe Ihr seid vorbereitet Sire.",
 		position = GetPosition("Kerb"),
 		action = function()
+			Logic.RemoveQuest(1, KeQuest)
 			Move("Kerb","KerberosBaseSpawn")
+			GUI.DestroyMinimapPulse(Logic.GetEntityPosition(GetID("KerberosBurg")))
+			if IsExisting("KerbBarrier") then
+				ReplaceEntity("KerbGate1", Entities.XD_WallStraightGate)
+				ReplaceEntity("KerbGate2", Entities.XD_WallStraightGate)
+				DestroyEntity("KerbBarrier")
+			end
+			StartSimpleJob("KerberosSiegeAmbush")
+			do
+				local id, tbi, e = nil, table.insert, {};
+				id = Logic.CreateEntity(Entities.XD_CaveEntry, 50362.55, 61313.70, 238.51, 0);tbi(e,id);Logic.SetEntityScriptingValue(id, -58+25, 1060320050) --[[ Scale: 0.70 ]]
+				id = Logic.CreateEntity(Entities.XD_BuildBlockScriptEntity, 50414.54, 61739.31, 0.00, 7);tbi(e,id)
+				id = Logic.CreateEntity(Entities.XD_BuildBlockScriptEntity, 50103.17, 61692.56, 0.00, 7);tbi(e,id)
+				id = Logic.CreateEntity(Entities.XD_BuildBlockScriptEntity, 50573.32, 61982.97, 0.00, 7);tbi(e,id)
+				id = Logic.CreateEntity(Entities.XD_BuildBlockScriptEntity, 50282.55, 61987.46, 0.00, 7);tbi(e,id)
+				id = Logic.CreateEntity(Entities.XD_BuildBlockScriptEntity, 49998.05, 61997.50, 0.00, 7);tbi(e,id)
+				id = Logic.CreateEntity(Entities.XD_ScriptEntity, 50313.06, 61594.48, 0.00, 7);tbi(e,id);Logic.SetEntityName(id, "KerbAmbush")
+			end
+			Logic.SetTerrainVertexColor(502, 612,  55,  55,  55);
+			Logic.SetTerrainVertexColor(503, 612,   0,   0,   0);
+			Logic.SetTerrainVertexColor(502, 613,   0,   0,   0);
+			Logic.SetTerrainVertexColor(503, 613,   0,   0,   0);
+			Logic.SetTerrainVertexColor(502, 614,  31,  31,  31);
+			Logic.SetTerrainVertexColor(503, 614,   0,   0,   0);
+			Logic.SetTerrainVertexColor(502, 615, 114, 114, 114);
+			Logic.SetTerrainVertexColor(503, 615,  78,  78,  78);
+			Logic.SetTerrainNodeHeight(502, 612,  2137);
+			Logic.SetTerrainNodeHeight(503, 612,  1988);
+			Logic.SetTerrainNodeHeight(502, 613,  2058);
+			Logic.SetTerrainNodeHeight(503, 613,  1893);
+			Logic.SetTerrainNodeHeight(502, 614,  2012);
+			Logic.SetTerrainNodeHeight(503, 614,  1898);
+			Logic.SetTerrainNodeHeight(502, 615,  1987);
+			Logic.SetTerrainNodeHeight(503, 615,  1940);
+			Logic.SetTerrainNodeHeight(502, 616,  1996);
+			Logic.SetTerrainNodeHeight(503, 616,  1969);
+			Logic.SetTerrainNodeHeight(503, 617,  1994);
+			Logic.UpdateBlocking(496, 608, 504, 620);
+			for i = 1,3 do
+				Logic.CreateEffect(GGL_Effects.FXBuildingSmokeLarge, 50400, 61800)
+				Logic.CreateEffect(GGL_Effects.FXExplosion, 50400, 61800)
+			end
+			ChangePlayer("Kerb", 7)
+			CEntity.DealDamageInArea(GetID("Kerb"), 50400, 61800, 800, 800)
+			ChangePlayer("Kerb", 4)
+			--
+			EnableNpcMarker(GetEntityId("alchemist"))
+			Alchemist()
 		end
 
     }
@@ -502,7 +593,9 @@ function Start_Step3()
         text	= "@color:230,0,0 Oh nein. Wölfe und Elitekrieger haben sich um Varg versammelt. @cr @cr Ich hoffe Ihr seid vorbereitet Sire.",
 		position = GetPosition("Varg"),
 		action = function()
+			Logic.RemoveQuest(1, VaQuest)
 			Move("Varg","VargCave")
+			GUI.DestroyMinimapPulse(Logic.GetEntityPosition(GetID("VargHaupt")))
 		end
 
     }
@@ -531,6 +624,8 @@ function Start_Step4()
 	StartSimpleJob("VictoryJob_Step4_1")
 	StartSimpleJob("VictoryJob_Step4_2")
 	StartSimpleJob("VictoryJob")
+
+	QuestSieg()
 end
 function End_Step4_1()
 	local briefing = {}
@@ -544,7 +639,7 @@ function End_Step4_1()
 			army.player = 7
 			army.id = GetFirstFreeArmySlot(7)
 			army.position = GetPosition("Kerb")
-			army.strength = round(12/gvDiffLVL)
+			army.strength = round(16 - 2 * gvDiffLVL)
 			army.rodeLength = Logic.WorldGetSize()
 			SetupArmy(army)
 			for i = 1, army.strength/2 do
@@ -602,7 +697,10 @@ function End_Step4_2()
 				EnlargeArmy(army, {leaderType = Entities.CU_AggressiveWolf})
 			end
 			Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","ControlGenericArmies",1,{},{army.player, army.id})
-
+			--
+			-- setup varg base villagers npc's
+			EnableNpcMarker(GetID("vik_settler1"))
+			Vik_Settler1()
 		end
     }
 	AP{
@@ -621,9 +719,15 @@ function MoveVargToBase()
 		return true
 	end
 end
+function KerberosSiegeAmbush()
+	if IsDestroyed("StableP7") then
+		Stream.Start("Sounds\\VoicesHero7\\HERO7_madness_rnd_01.wav", 250)
+		KerbFinalAmbushArmy()
+		return true
+	end
+end
 function Reiter()
 	local BeiRei = {
-	--EntityName = "Dario",
 	Heroes = true,
     TargetName = "Reiter",
     Distance = 300,
@@ -648,14 +752,24 @@ function Reiter()
 		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Danke für den Hinweis. @cr Wir werden dies bei unserem taktischen Vorgehen berücksichtigen.", true)
 		briefing.finished = function()
 			StartSimpleJob("Eisenmine")
+			P5_CavQuest()
   		end;
 		StartBriefing(briefing)
 	end}
 	SetupExpedition(BeiRei)
 end
+function P5_CavQuest()
+	local quest	= {
+		id		= GetQuestId(),
+		type	= SUBQUEST_OPEN,
+		title	= "Operation: Gegenschlag!",
+		text	= "Vernichtet das Eisenerzbergwerk auf einer Insel unweit der Küste südlich Kerberos Lager. @cr Vielleicht schwächt es ja Kerberos Nachschub...",
+	}
+	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
+	P5_CavQ = quest.id
+end
 function Farmer()
 	local BeiFar = {
-	--EntityName = "Dario",
 	Heroes = true,
 	TargetName = "Farmer",
 	Distance = 300,
@@ -677,7 +791,6 @@ function Farmer()
 end
 function Monk()
 	local BeiMo = {
-	--EntityName = "Dario",
 	Heroes = true,
 	TargetName = "monk",
 	Distance = 300,
@@ -694,10 +807,21 @@ function Monk()
 		ASP("monk",mon,"Seid doch bitte so gut und entsendet uns genügend Baumaterialien zum Ausbau unserer Kirche. @cr Vielleicht kann ja ein wenig Prunk die ein oder andere arme Seele wieder in die Hände der Kirche treiben. @cr Schon zu viele Schafe sind zu Wölfen geworden...", false)
 		briefing.finished = function()
 			TributeMonk()
+			P5_MonkQuest()
 		end;
 		StartBriefing(briefing)
 	end}
 	SetupExpedition(BeiMo)
+end
+function P5_MonkQuest()
+	local quest	= {
+		id		= GetQuestId(),
+		type	= SUBQUEST_OPEN,
+		title	= "Den Glauben wiederherstellen",
+		text	= "Entsendet dem Mönch der Nordfeste einige Ressourcen, sodass die Kirche in eine prunkvolle Kathedrale ausgebaut werden kann. @cr Vielleicht lässt dies ja die ein oder andere verlorene Seele über ihre schändlichen Taten nachdenken...",
+	}
+	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
+	P5_MonkQ = quest.id
 end
 function TributeMonk()
 	local tribute =  {}
@@ -708,8 +832,10 @@ function TributeMonk()
 	TributeMoID = AddTribute(tribute)
 end
 function TributePaidMonk()
-	UpgradeBuilding("monastery_p5")
-	StartSimpleJob("P5MonasteryUpgradeDone")
+	StartCountdown(1, function() 
+		(SendEvent or CSendEvent).UpgradeBuilding(GetID("monastery_p5"));
+		StartSimpleJob("P5MonasteryUpgradeDone") 
+	end, false)
 end
 function P5MonasteryUpgradeDone()
 	if Logic.GetPlayerEntities(5, Entities.PB_Monastery3, 1) > 0 then
@@ -719,6 +845,7 @@ function P5MonasteryUpgradeDone()
 		ASP("Dario",dario,"Tut mir leid, aber ich muss weiter. @cr So gerne ich hier verweilen würde, ich habe noch Aufgaben zu erledigen.", false)
 		ASP("monk",mon,"Nun, das kann ich verstehen. @cr Gott sei mit Euch. @cr @cr Ich bin überzeugt, dass diese prunkvolle Kathedrale die Kampfkraft der Menschen hier stärken wird.", true)
 		briefing.finished = function()
+			Logic.RemoveQuest(1, P5_MonkQ)
 			MapEditor_Armies[5].offensiveArmies.strength = MapEditor_Armies[5].offensiveArmies.strength + round(gvDiffLVL)
 		end;
 		StartBriefing(briefing)
@@ -727,7 +854,6 @@ function P5MonasteryUpgradeDone()
 end
 function Scout()
 	local BeiSc = {
-	--EntityName = "Dario",
 	Heroes = true,
 	TargetName = "scout",
 	Distance = 300,
@@ -742,11 +868,23 @@ function Scout()
 		ASP("fire3",sc,"Kerberos hat seinen benachbarten Stellungen über ein Leuchtfeuer alarmiert und wird wohl regelmäßig von der Küste her Verstärkung erhalten.", false)
 		ASP("fireguard",sc,"Nur eine einzelne Wache hält das Feuer am Brennen. @cr Vielleicht sollte man versuchen, sie zu eliminieren und das Feuer zu löschen.", true)
 		briefing.finished = function()
+			P5_ScoutQuest()
 			StartSimpleJob("ControlSupplyFire")
 		end;
 		StartBriefing(briefing)
 	end}
 	SetupExpedition(BeiSc)
+end
+function P5_ScoutQuest()
+	local quest	= {
+		id		= GetQuestId(),
+		type	= SUBQUEST_OPEN,
+		title	= "Löscht die Flamme des bösen Omens!",
+		text	= "Kerberos bezieht Verstärkungstruppen über den östlichen Küstenstreifen. @cr Ein Leuchtfeuer weist ihnen den Weg. " ..
+			"@cr Dem Kundschafter nach hält eine einzelne Wache auf einer schroffen Insel unweit eines alten Leuchtturms das Feuer am Brennen. @cr Wir sollten sie eliminieren und das Feuer löschen!",
+	}
+	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
+	P5_ScoutQ = quest.id
 end
 function ControlSupplyFire()
 	if IsDead("fireguard") then
@@ -764,10 +902,12 @@ function RemoveFire()
 	ReplaceEntity("fire1", Entities.XD_SingnalFireOff)
 	ReplaceEntity("fire2", Entities.XD_SingnalFireOff)
 	ReplaceEntity("fire3", Entities.XD_SingnalFireOff)
+	--
+	StopCountdown(LighthouseSupplyCounter)
+	Logic.RemoveQuest(1, P5_ScoutQ)
 end
 function Thief()
 	local BeiThi = {
-	--EntityName = "Dario",
 	Heroes = true,
 	TargetName = "thief",
 	Distance = 300,
@@ -785,11 +925,23 @@ function Thief()
 		ASP("FoundryP7",thi,"Konkret schwebt mir vor, die Kanonengießerei des Feindes zu sabotieren. @cr Gebt mir ein wenig Schwefel und Kohle, und Kerberos wird eine böse Überraschung erleben.", false)
 		ASP("thief",thi,"Ach, und sorgt Euch bitte um meine Familie. @cr Ich würde den Auftrag vermutlich nicht überleben...", false)
 		briefing.finished = function()
+			P5_ThiefQuest()
 			TributeSappeur()
 		end;
 		StartBriefing(briefing)
 	end}
 	SetupExpedition(BeiThi)
+end
+function P5_ThiefQuest()
+	local quest	= {
+		id		= GetQuestId(),
+		type	= SUBQUEST_OPEN,
+		title	= "Und ab ins Dunkel!",
+		text	= "Ein Sappeur hat Euch vorgeschlagen, sich ins Lager von Kerberos zu schaufeln und dort die feindliche Kanonengießerei zu sabotieren. @cr Er benötigt dafür jedoch einige Ressourcen... " ..
+			"@cr Doch wie stehen schon die Chancen, dass dieses tollkühne Unterfangen wirklich gelingt...",
+	}
+	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
+	P5_ThiefQ = quest.id
 end
 function TributeSappeur()
 	local tribute =  {}
@@ -805,6 +957,7 @@ function TributePaidSap()
 	ASP("thief",thi,"Ich werde direkt mit dem Graben beginnen", true)
 	ASP("thief",thi,"Ich hoffe, ihr haltet Euer Versprechen und kümmert Euch gut und meine Familie.", false)
 	briefing.finished = function()
+		Logic.RemoveQuest(1, P5_ThiefQ)
 		Move("thief", "Leer4")
 		StartSimpleJob("CheckForSappeurArrivedAtStartingPoint")
 	end;
@@ -854,6 +1007,7 @@ function SappeurArrivedAtTarget()
 	local AP, ASP = AddPages(briefing)
 	ASP("Extra",ment,"Heureka! @cr Der Sappeur hat sein Ziel erreicht und die Sabotage erfolreich durchgeführt. @cr Leider ließ er dabei sein Leben... @cr Nun haltet Euer Versprechen und kümmert Euch um seine Familie.", false)
 	briefing.finished = function()
+		TributeWidow()
 		P7FoundrySabotaged = true
 		Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_CREATED,"","OnSabotagedCannonCreated",1,{},{})
 	end;
@@ -916,7 +1070,6 @@ function DesperateWidow()
 end
 function Miner()
 	local BeiMin = {
-	--EntityName = "Dario",
 	Heroes = true,
 	TargetName = "miner",
 	Distance = 300,
@@ -933,11 +1086,23 @@ function Miner()
 		ASP("miner",mi,"Ich hatte mal gehört, dass man tief im Berginneren Kohle abbauen kann. @cr Das wäre doch etwas.", false)
 		ASP("mount",mi,"Die Bergflanke nördlich von hier eignet sich doch bestimmt bestens dafür. @cr Seid so gut, und errichtet dort ein Kohlebergwerk.", false)
 		briefing.finished = function()
+			P5_MinerQuest()
 			StartSimpleJob("Built_Coalmine")
 		end;
 		StartBriefing(briefing)
 	end}
 	SetupExpedition(BeiMin)
+end
+function P5_MinerQuest()
+	local quest	= {
+		id		= GetQuestId(),
+		type	= SUBQUEST_OPEN,
+		title	= "Immer rein in den Dreck!",
+		text	= "Ein Bergmann ist empört ob der miesen Arbeitsbedingungen. @cr Ständig in die schlammigen Lehmgrube hinabsteigen und dazu noch das miese Wetter..." ..
+			"@cr Das gefällt ihm so gar nicht. @cr Er würde lieber unter Tage knechten. @cr Seid so gut und errichtet für den armen Mann ein Kohlebergwerk an der Bergflanke nördlich seines Arbeitsplatzes.",
+	}
+	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
+	P5_MinerQ = quest.id
 end
 function Built_Coalmine()
 	local posX, posY = Logic.GetEntityPosition(GetID("mount"))
@@ -950,6 +1115,7 @@ function Built_Coalmine()
 		ASP("miner",mi,"Hier, nehmt diese alte Kette als Zeichen meiner Dankbarkeit. @cr Sie wurde über Generationen in meiner Familie weitergegeben.", false)
 		ASP("Dario",ment,"Seht doch, mein Herr. @cr Der Bergmann hat Euch eine prunkvolle Silberkette überreicht. @cr Die lässt sich bestimmt gut einschmelzen. @cr Ihr solltet dem Bergmann nur nichts davon erzählen...", false)
 		briefing.finished = function()
+			Logic.RemoveQuest(1, P5_MinerQ)
 			ReplaceEntity("miner", Entities.PU_Miner)
 			ChangePlayer(id, 5)
 			Logic.AddToPlayersGlobalResource(1, ResourceType.Silver, round(200*gvDiffLVL))
@@ -960,7 +1126,6 @@ function Built_Coalmine()
 end
 function Trader()
 	local BeiTr = {
-	--EntityName = "Dario",
 	Heroes = true,
 	TargetName = "trader",
 	Distance = 300,
@@ -976,20 +1141,33 @@ function Trader()
 		ASP("trader",tra,"Jetzt kann ich nur noch hier meine wenigen Güter anpreisen. @cr Aber niemand hier möchte meine Waren kaufen...", false)
 		ASP("trader",tra,"Bitte Herr! @cr Reißt diesen Bastarden den Arsch auf. @cr Und wenn ihr die Kapazitäten habt, errichtet doch bitte einen neuen Handelsposten für mich.", true)
 		briefing.finished = function()
+			P5_TraderQuest()
 			StartSimpleJob("MarketBuiltJob")
 		end;
 		StartBriefing(briefing)
 	end}
 	SetupExpedition(BeiTr)
 end
+function P5_TraderQuest()
+	local quest	= {
+		id		= GetQuestId(),
+		type	= SUBQUEST_OPEN,
+		title	= "Ein neuer Handelsposten",
+		text	= "Der alte Handelsposten des Händlers wurde von Kerberos Horden niedergebrannt." ..
+			"@cr Seid so gut und errichtet für den Händler einen neuen Handelsposten.",
+	}
+	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
+	P5_TraderQ = quest.id
+end
 function MarketBuiltJob()
 	local num, id = Logic.GetPlayerEntities(1, Entities.PB_Market3, 1)
 	if num > 0 then
 		local briefing = {}
 		local AP, ASP = AddPages(briefing)
-		ASP(id,tra,"Habt Dank. @cr Habt Dank. @cr Ich werde mich direkt auf den Weg machen.", true)
-		ASP("trader",tra,"Kommt mich jederzeit besuchen und schauet meine Waren. @cr Ach und nehmt dies als Zeichen meiner Dankbarkeit. @cr Die Waren bin ich sowieso nicht losgeworden in dieser Stadt.", false)
+		ASP(id,tra,"Habt Dank. @cr Habt Dank. @cr Ich werde mich direkt auf den Weg machen.", false)
+		ASP("trader",tra,"Kommt mich jederzeit besuchen und schauet meine Waren. @cr Ach und nehmt dies als Zeichen meiner Dankbarkeit. @cr Die Waren bin ich sowieso nicht losgeworden in dieser Stadt.", true)
 		briefing.finished = function()
+			Logic.RemoveQuest(1, P5_TraderQ)
 			Move("trader", id)
 			Logic.AddToPlayersGlobalResource(1, ResourceType.Knowledge, round(2500*gvDiffLVL))
 			StartSimpleJob("TraderArrivedAtMarketJob")
@@ -1009,7 +1187,6 @@ function TraderArrivedAtMarketJob()
 end
 function Trader2()
 	local BeiTr2 = {
-	--EntityName = "Dario",
 	Heroes = true,
 	TargetName = "trader",
 	Distance = 300,
@@ -1022,8 +1199,8 @@ function Trader2()
 		local AP, ASP = AddPages(briefing)
 		ASP("trader",tra,"Ah, ihr seid es. @cr Schaut in Euer Tributmenü, ich mache Euch gute Preise.", false)
 		briefing.finished = function()
-			TributeCoal1()
 			NumCoalTributePaid = 1
+			TributeCoal1()
 		end;
 		StartBriefing(briefing)
 	end}
@@ -1042,12 +1219,548 @@ function TributePaidCoal1()
 	Logic.AddToPlayersGlobalResource(1, ResourceType.Knowledge, 3000)
 	TributeCoal1()
 end
+function Fisherman()
+	local BeiFi = {
+	Heroes = true,
+	TargetName = "fisherman",
+	Distance = 300,
+	Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID("fisherman"))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt("fisherman",id);LookAt(id,"fisherman")
+		DisableNpcMarker(GetEntityId("fisherman"))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Nanu, hier so weit draußen noch ein einsamer Siedler? @cr Was treibt ihr hier? @cr Seht ihr nicht, dass Krieg herrscht?", true)
+		ASP("fisherman",fish,"Nun, mein Herr, für solche Dinge interessiere ich mich nicht. Ich bin nur ein einsamer Fischer. @cr Aber irgendwie wollen die Fische hier nicht so beißen...", true)
+		ASP("fisherman_chest",fish,"Einst war ich dort oben tagein, tagaus am angeln und konnte so meine Familie durchbringen. @cr Aber dann bezog ein neuer Regent die Feste und das Übel nahm seinen Lauf...", false)
+		ASP("sea_view",fish,"Ressourcen wurden erbarmungslos geplündert, Industrieabfälle und Unrat einfach in den See geschüttet. @cr Meine Familie wurde schwer krank und der See versumpfte zusehends...", false)
+		ASP("fisherman",fish,"Als mir dann letztes Jahr mein letztes Kind genommen wurde, verließ ich die Feste und ließ mich hier am Nordmeer nieder. @cr Nichts ist mir geblieben...", false)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Der Regent von dem ihr da spricht, ist bestimmt Kerberos. @cr Das miese Schwein macht nicht einmal vor seinen eigenen Untertanen halt.", true)
+		ASP("fisherman_chest",tra,"Oh, ihr steht ihm feindlich gegenüber? @cr In dem Fall könnt ihr Euch gerne an all dem Hab und Gut laben, dass ich zurücklassen musste. @cr Vielleicht hilft es Euch ja...", true)
+		briefing.finished = function()
+			P5_FishermanQuest()
+			StartSimpleJob("Control_Fisherman_Chest")
+		end
+		StartBriefing(briefing)
+	end}
+	SetupExpedition(BeiFi)
+end
+function P5_FishermanQuest()
+	local quest	= {
+		id		= GetQuestId(),
+		type	= SUBQUEST_OPEN,
+		title	= "Zurückgelassene Schätze",
+		text	= "Der alte Fischer hat alles - wirklich alles - an Kerberos Untaten verloren. @cr Er hat seine Schätze vor Kerberos Schergen verborgen und ist aus der Stadt geflohen. " ..
+			"@cr Nun liegt es an Euch, den Schatz des alten Fischers zu bergen. @cr Er befindet sich in einer alten Holztruhe in der alten Schaluppe des Fischers am Rande von Kerberos Festungsstadt.",
+	}
+	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
+	P5_FishMQ = quest.id
+end
+function Control_Fisherman_Chest()
+	local id = GetID("fisherman_chest")
+	local pos = GetPosition(id)
+	local entities = {Logic.GetPlayerEntitiesInArea(1, 0, pos.X, pos.Y, 300, 1)}
+	if entities[1] > 0 then
+		if Logic.IsHero(entities[2]) == 1 then
+			local amount = round(100 * gvDiffLVL + math.random(300) ^ (1 + Logic.GetTime()/ 36000))
+			local text = amount .. " Silber"
+			Logic.AddToPlayersGlobalResource(1, ResourceType.Silver, amount)
+			Message("@color:0,255,255 " .. UserTool_GetPlayerName(j) ..  " hat die Truhe des Fischers geplündert. Inhalt: " .. text )
+			ReplaceEntity(id, Entities.XD_ChestOpen)
+			Logic.RemoveQuest(1, P5_FishMQ)
+			return true
+		end
+	end
+end
+function Alchemist()
+	local npc = "alchemist"
+	local npcname = alch
+	local BeiAl = {
+	Heroes = true,
+	TargetName = npc,
+	Distance = 300,
+	Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID(npc))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt(npc,id);LookAt(id,npc)
+		DisableNpcMarker(GetEntityId(npc))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP(npc,npcname,"Ihr habt es geschafft! @cr Kerberos Außenposten ist gefallen. @cr Ihr seid wahrlich ein mächtiger Anführer.", true)
+		ASP("Ruin_4",npcname,"Wir sollten diesen Triumph feiern und die alten Ruinen der früheren Stadtgrenze beseitigen. @cr Nun, da es wieder etwas sicherer ist, können wir dort wieder neue Gebäude errichten.", false)
+		ASP(npc,npcname,"Ihr solltet in der Lage sein, die Ruinen einzureißen. @cr Gebt mir dann ein wenig Schwefel und Kohle und ich beseitige mit einigen gezielten Sprengsätzen die übrigen Trümmer.", true)
+		ASP("Ruin_9",npcname,"Seid jedoch vorsichtig. @cr Einige Gesetzlose sollen sich in den Ruinen niedergelassen haben.", false)
+		briefing.finished = function()
+			for i = 0, 10 do
+				ChangePlayer("Ruin_" .. i, 2)
+			end
+			StartSimpleJob("Ruinen")
+			P5_AlchemistQuest()
+		end;
+		StartBriefing(briefing)
+	end}
+	SetupExpedition(BeiAl)
+end
+function P5_AlchemistQuest()
+	local quest	= {
+		id		= GetQuestId(),
+		type	= SUBQUEST_OPEN,
+		title	= "Diese Trümmer verschandeln mir die Aussicht!",
+		text	= "Nun, da die Lage etwas sicherer für die Nordfeste ist, solltet ihr die alten Ruinen am Stadtrand beseitigen. " ..
+			"@cr Gebt dem Alchemisten nach Beseitigung der Ruinen etwas Schwefel und Kohle, sodass dieser mithilfe einiger Sprengsätze die restlichen Trümmer beseitigen kann. " ..
+			"@cr In den Ruinen sollen sich Gestztlose verstecken, gebt also Acht!",
+	}
+	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
+	P5_AlchQ = quest.id
+end
+RuinSpawnDone = {}
+function Ruinen()
+	for i = 0, 9 do
+		if not RuinSpawnDone[i+1] and IsDestroyed("Ruin_" .. i) then
+			CreateRuinAmbushArmy(i)
+			RuinSpawnDone[i+1] = true
+			break
+		end
+	end
+	if table.getn(RuinSpawnDone) == 10 then
+		P5_AlchemistTribute()
+		return true
+	end
+end
+function P5_AlchemistTribute()
+	local tribute =  {}
+	tribute.playerId = 1
+	tribute.text = "Gebt dem Alchemisten ".. round(2100/gvDiffLVL) .." Kohle und " .. round(4200/gvDiffLVL) .. " Schwefel, um die verbliebenen Trümmer am Stadtrand der Nordfeste zu beseitigen."
+	tribute.cost = { Knowledge = round(2100/gvDiffLVL), Sulfur = round(4200/gvDiffLVL) }
+	tribute.Callback = P5_AlchemistTributePaid
+	P5_AlchemistTributeID = AddTribute(tribute)
+end
+function P5_AlchemistTributePaid()
+	local npc = "alchemist"
+	local npcname = alch
+	local briefing = {}
+	local AP, ASP = AddPages(briefing)
+	ASP(npc,npcname,"Habt Dank für die Lieferung. @cr Ich mache mich sofort auf den Weg, um die Trümmer zu beseitigen.", true)
+	briefing.finished = function()
+		Move("alchemist", "Ruinspawn")
+		StartSimpleJob("P5_Alch_Arrived_At_Ruins")
+	end;
+	StartBriefing(briefing)
+end
+P5_Alch_ExplosionPositions = {
+	{X = 28825.90, Y = 49562.37},
+	{X = 29273.78, Y = 49520.00},
+	{X = 30720.00, Y = 49920.00},
+	{X = 30270.54, Y = 48869.32},
+	{X = 27754.36, Y = 47980.00},
+	{X = 28429.53, Y = 48020.00},
+	{X = 29180.00, Y = 48031.75},
+	{X = 30280.00, Y = 47720.00},
+	{X = 29520.00, Y = 47330.28},
+	{X = 28320.00, Y = 47124.94},
+	{X = 27565.69, Y = 47034.85},
+	{X = 27420.00, Y = 45823.53},
+	{X = 28229.03, Y = 45720.00},
+	{X = 28944.85, Y = 45956.61},
+	{X = 29573.98, Y = 45955.70},
+	{X = 28920.00, Y = 44480.00},
+}
+function P5_Alch_Arrived_At_Ruins()
+	if IsNear("alchemist", "Ruinspawn", 300) then
+		for i = 1, table.getn(P5_Alch_ExplosionPositions) do
+			local X, Y = P5_Alch_ExplosionPositions[i].X, P5_Alch_ExplosionPositions[i].Y
+			Logic.CreateEffect(GGL_Effects.FXBuildingSmokeLarge, X, Y)
+			Logic.CreateEffect(GGL_Effects.FXExplosion, X, Y)
+			StartCountdown(2, function(_X, _Y) Logic.DestroyEntity(Logic.GetEntityAtPosition(_X, _Y)) end, false, nil, X, Y)
+		end
+		Logic.RemoveQuest(1, P5_AlchQ)
+		DestroyEntity("Ruinspawn")
+		return true
+	else
+		if Logic.GetCurrentTaskList(GetID("alch")) == "TL_NPC_IDLE" then
+			Move("alchemist", "Ruinspawn")
+		end
+	end
+end
+--
+function Vik_Settler1()
+	local npc = "vik_settler1"
+	local npcname = vk_set1
+	local BeiVk_s1 = {
+	Heroes = true,
+	TargetName = npc,
+	Distance = 300,
+	Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID(npc))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt(npc,id);LookAt(id,npc)
+		DisableNpcMarker(GetEntityId(npc))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP(npc,npcname,"Verschont uns! @cr Wir sind einfache Bergbewohner und haben mit Vargs schändlichen Taten nichts zu tun.", true)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Gut gesprochen. @cr Aber ich kann euch nicht trauen. @cr Lasst mich mit eurem Dorfältesten sprechen. @cr Danach fallen wir ein Urteil, wie wir mit euch verfahren.", true)
+		ASP("vik_settler2",npcname,"Ihr meint unseren Jarl? @cr Der befindet sich meist vor seiner Hütte, auf dem Nordhang Velborgs. @cr Doch er wird euch auch nichts anderes erzählen. @cr So glaubt uns doch, wir sind einfache Leute und keine mordenden Barbaren.", true)
+		briefing.finished = function()
+			EnableNpcMarker(GetID("vik_settler2"))
+			Vik_Settler2()
+		end;
+		StartBriefing(briefing)
+	end}
+	SetupExpedition(BeiVk_s1)
+end
+function Vik_Settler2()
+	local npc = "vik_settler2"
+	local npcname = vk_set2
+	local BeiVk_s2 = {
+	Heroes = true,
+	TargetName = npc,
+	Distance = 300,
+	Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID(npc))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt(npc,id);LookAt(id,npc)
+		DisableNpcMarker(GetEntityId(npc))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Seid ihr Jarl Floki? @cr Ein Dörfler flehte um sein Leben und schwörte, dass ihr Bergbewohner Velborgs nichts mit Vargs Machenschaften zu tun habt. @cr Ist das wahr?", true)
+		ASP(npc,npcname,"Ja, der bin ich. @cr Als Varg sich hier einnistete, hatten wir wenig, was wir dagegenstellen konnten. @cr Was können einige Bergbewohner schon gegen eine marodierende Horde Barbaren ausrichten?", true)
+		ASP(npc,npcname,"Als Jarl musste ich eine Entscheidung treffen, die die gesamten Dörfer betrifft. @cr Ich bin nicht stolz darauf, aber ich fügte mich und wir kollaborierten mit Varg. @cr Hätte ich anders entschieden, wären wir sicherlich nicht mehr am Leben...", true)
+		local choicePage = AP{
+			mc = {
+				title			= ""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."",
+				text 			= "(In Gedanken) Ob man diesen Dörflern wirklich trauen kann? @cr Wir sollten sofort eine eindeutige Entscheidung treffen.",
+				firstText  		= " @color:230,20,20 Nun, das kann man nicht beschönigen. @cr Egal, wie man es dreht und wendet, ihr habt Hochverrat gegen den König und das Reich begangen. @cr Darauf steht der Tod!",
+				secondText 	 	= " @color:20,255,50 Ich gebe euch eine letzte Chance. @cr Beweist euch als loyale Untergebe Darios.",
+				firstSelected  	= 5,
+				secondSelected 	= 9,
+				position 		= GetPosition(npc)
+			},
+			action = function() end
+		}
 
+		AP{title = ""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."", text = "Los Männer, statuiert an ihnen ein Exempel. @cr Das soll allen Verrätern eine Warnung sein!"}
+		AP{title = npcname, text = "Gnade Herr! @cr So lasst doch Gnade walten...",
+			position = GetPosition(npc), dialogCamera = false, action = function()
+			end}
+		AP{title = ""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."", text = "Das Recht auf Gnade wird euch verwehrt. @cr Euer Schicksal ist bereits besiegelt."}
+		AP()
+		AP{title = ""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."", text = "Ein jeder Erstgeborene, der vierzehn Sommer erlebt hat, muss in unsere Dienste gestellt werden. " ..
+			"@cr Solange sie uns getreu im Kampf zur Seite stehen, dürft ihr euer friedliches Dorfleben wieder aufnehmen. @cr Doch wagt es ja nicht, uns zu hintergehen.",
+			position = GetPosition(npc), dialogCamera = false, action = function()
+			end}
+		AP{title = npcname, text = "Unsere Erstgeborenen? @cr Oh weh, ein harter Schlag für unsere Frauen. @cr Aber wenn das die einzige Möglichkeit ist, euch unsere Treue zu beweisen, so haben wir wohl keine andere Wahl... " ..
+			"@cr Ihr werdet aber schon selbst mit den Dörflern sprechen müssen. @cr Ich bringe es nicht übers Herz, so schlechte Nachrichten zu verbreiten..."}
+		AP{title = ""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."", text = "Nun, ihr bildet da keine Ausnahme. @cr Auch euren Erstgeborenen nehmen wir mit!"}
+		briefing.finished = function()
+			if GetSelectedBriefingMCButton(choicePage) == 1 then
+				ReplaceEntity(ChangePlayer("vik_settler1", 6), Entities.CU_Barbarian_LeaderClub2)
+				ReplaceEntity(ChangePlayer("vik_settler2", 6), Entities.CU_VeteranLieutenant)
+				ReplaceEntity(ChangePlayer("vik_settler3", 6), Entities.CU_Barbarian_LeaderClub2)
+				--
+				ReplaceEntity(ChangePlayer("vik_farmer1", 6), Entities.CU_Barbarian_LeaderClub2)
+				ReplaceEntity(ChangePlayer("vik_farmer2", 6), Entities.CU_Barbarian_LeaderClub2)
+				ReplaceEntity(ChangePlayer("vik_farmer3", 6), Entities.CU_Barbarian_LeaderClub2)
+				ReplaceEntity(ChangePlayer("vik_farmer4", 6), Entities.CU_Barbarian_LeaderClub2)
+    		else
+				FirstbornsDeadJobs = {}
+				local pos = GetPosition("vik_settler2")
+				Logic.SetEntityName(AI.Entity_CreateFormation(1, Entities.CU_VeteranLieutenant, 0, 0, pos.X, pos.Y, 0, 0, 0, 0), "firstborn_settler_2")
+				table.insert(FirstbornsDeadJobs, Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "","Firstborn_Dead_Job",1,{},{"settler", 2}))
+				TalkedToVikNPCs = 1
+				FirstbornsDead = 0
+				--
+				P6_JarlQuest()
+				EnableNpcMarker(GetID("vik_settler1"))
+				Vik_Settler1_2()
+				EnableNpcMarker(GetID("vik_settler3"))
+				Vik_Settler3()
+				EnableNpcMarker(GetID("vik_farmer1"))
+				Vik_Farmer1()
+				EnableNpcMarker(GetID("vik_farmer2"))
+				Vik_Farmer2()
+				EnableNpcMarker(GetID("vik_farmer3"))
+				Vik_Farmer3()
+				EnableNpcMarker(GetID("vik_farmer4"))
+				Vik_Farmer4()
+				--
+				StartSimpleJob("Vik_TalkedToAllNPCsJob")
+			end
+		end;
+		StartBriefing(briefing)
+	end}
+	SetupExpedition(BeiVk_s2)
+end
+function P6_JarlQuest()
+	local quest	= {
+		id		= GetQuestId(),
+		type	= SUBQUEST_OPEN,
+		title	= "Die Jarlsqueste",
+		text	= "Ihr habt die verräterischen Bergbewohner Velborgs verschont." ..
+			"@cr Im Gegenzug müssen die Erstgeborenen einer jeden Familie in Euren Reihen dienen. " ..
+			"@cr Der Jarl brachte es jedoch nicht übers Herz, den Müttern diese Nachricht zu überbringen. " ..
+			"@cr Ihr werdet dies selbst mit den Familien Velborgs besprechen müssen...",
+	}
+	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
+	P6_JarlQ = quest.id
+end
+function Vik_Settler1_2()
+	local npc = "vik_settler1"
+	local npcname = vk_set1
+	local BeiVk_s1 = {
+	Heroes = true,
+	TargetName = npc,
+	Distance = 300,
+	Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID(npc))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt(npc,id);LookAt(id,npc)
+		DisableNpcMarker(GetEntityId(npc))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Wo ist euer Erstgeborener. @cr Ihm kommt die Ehre zugute, Ruhm und Glorie für Darios Reich zu erweitern.", true)
+		ASP(npc,npcname,"Nicht unseren Björn... @cr Alles, nur das nicht... @cr Wie könnt ihr nur so grausam sein?", true)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Das ist nur das Ergebnis eurer schändlichen Taten. @cr Seid froh, dass ihr mit dem Leben davonkommt.", true)
+		briefing.finished = function()
+			TalkedToVikNPCs = TalkedToVikNPCs + 1
+			local pos = GetPosition("vik_settler3")
+			Logic.SetEntityName(AI.Entity_CreateFormation(1, Entities.CU_VeteranLieutenant, 0, 0, pos.X, pos.Y, 0, 0, 0, 0), "firstborn_settler_1")
+			table.insert(FirstbornsDeadJobs, Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "","Firstborn_Dead_Job",1,{},{"settler", 1}))
+		end;
+		StartBriefing(briefing)
+	end}
+	SetupExpedition(BeiVk_s1)
+end
+function Vik_Settler3()
+	local npc = "vik_settler3"
+	local npcname = vk_set3
+	local BeiVk_s3 = {
+	Heroes = true,
+	TargetName = npc,
+	Distance = 300,
+	Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID(npc))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt(npc,id);LookAt(id,npc)
+		DisableNpcMarker(GetEntityId(npc))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Bringt uns euren Erstgeborenen. @cr Dann dürft ihr trotz eures schändlichen Verrats hier weiter in Frieden leben. @cr Ein wahrlich kleiner Preis für all eure Verfehlungen!", true)
+		ASP(npc,npcname,"Unseren ältesten Sohn? @cr Nein, nicht unseren ältesten Sohn. @cr Alles, außer das...", true)
+		briefing.finished = function()
+			TalkedToVikNPCs = TalkedToVikNPCs + 1
+			local pos = GetPosition("vik_settler3")
+			Logic.SetEntityName(AI.Entity_CreateFormation(1, Entities.CU_VeteranLieutenant, 0, 0, pos.X, pos.Y, 0, 0, 0, 0), "firstborn_settler_3")
+			table.insert(FirstbornsDeadJobs, Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "","Firstborn_Dead_Job",1,{},{"settler", 3}))
+		end;
+		StartBriefing(briefing)
+	end}
+	SetupExpedition(BeiVk_s3)
+end
+function Vik_Farmer1()
+	local npc = "vik_farmer1"
+	local npcname = vk_far1
+	local BeiVk_f1 = {
+	Heroes = true,
+	TargetName = npc,
+	Distance = 300,
+	Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID(npc))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt(npc,id);LookAt(id,npc)
+		DisableNpcMarker(GetEntityId(npc))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Wo ist euer ältester Sohn. @cr Ihm wird die Ehre zuteil, in Darios glorreichem Heer zu dienen und so die Schandtaten seiner Familie reinzuwaschen.", true)
+		ASP(npc,npcname,"Was für Schandtaten? @cr Wir sind einfache Schafhirten. @cr Bitte, lasst uns unseren Sohn. Wer soll uns denn nun im Alter pflegen und unser Erbe weiterführen?... @cr Ihr seid wahrlich grausam.", true)
+		briefing.finished = function()
+			TalkedToVikNPCs = TalkedToVikNPCs + 1
+			local pos = GetPosition("vik_farmer1")
+			Logic.SetEntityName(AI.Entity_CreateFormation(1, Entities.CU_VeteranLieutenant, 0, 0, pos.X, pos.Y, 0, 0, 0, 0), "firstborn_farmer_1")
+			table.insert(FirstbornsDeadJobs, Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "","Firstborn_Dead_Job",1,{},{"farmer", 1}))
+		end;
+		StartBriefing(briefing)
+	end}
+	SetupExpedition(BeiVk_f1)
+end
+function Vik_Farmer2()
+	local npc = "vik_farmer2"
+	local npcname = vk_far2
+	local BeiVk_f2 = {
+	Heroes = true,
+	TargetName = npc,
+	Distance = 300,
+	Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID(npc))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt(npc,id);LookAt(id,npc)
+		DisableNpcMarker(GetEntityId(npc))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP(npc,npcname,"Was tut ihr da? @cr Ihr habt kein Recht, unseren Karl mitzunehmen! @cr Lasst ihn frei!", true)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Auf keinen Fall. @cr Das ist mit dem Jarl abgesprochen. @cr Euer Sohn wird für eure schändliche Kollaboration mit Varg in eurem Namen die Schuld ableisten.", true)
+		briefing.finished = function()
+			TalkedToVikNPCs = TalkedToVikNPCs + 1
+			local pos = GetPosition("vik_farmer2")
+			Logic.SetEntityName(AI.Entity_CreateFormation(1, Entities.CU_VeteranLieutenant, 0, 0, pos.X, pos.Y, 0, 0, 0, 0), "firstborn_farmer_2")
+			table.insert(FirstbornsDeadJobs, Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "","Firstborn_Dead_Job",1,{},{"farmer", 2}))
+		end;
+		StartBriefing(briefing)
+	end}
+	SetupExpedition(BeiVk_f2)
+end
+function Vik_Farmer3()
+	local npc = "vik_farmer3"
+	local npcname = vk_far3
+	local BeiVk_f3 = {
+	Heroes = true,
+	TargetName = npc,
+	Distance = 300,
+	Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID(npc))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt(npc,id);LookAt(id,npc)
+		DisableNpcMarker(GetEntityId(npc))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Auf königlichem Befehl nehmen wir uns euren ältesten Sohn. @cr Er wird euren Namen wieder reinwaschen.", true)
+		ASP(npc,npcname,"Was habt ihr mit unserem Sohn vor? @cr Nein, wie könnt ihr es wagen? @cr Lasst die Finger von ihm... @cr Er ist doch noch ein Kind...", true)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Er wird in unsere Armeen eingereiht. @cr Ihr werdet ihn nie wieder sehen. @cr Im Gegenzug sehen wir über euren schändlichen Verrat hinweg.", true)
+		ASP(npc,npcname,"Verrat? @cr Wir sind nur einfache Schäfer... @cr Wer ist hier der wahre Barbar?", true)
+		briefing.finished = function()
+			TalkedToVikNPCs = TalkedToVikNPCs + 1
+			local pos = GetPosition("vik_farmer3")
+			Logic.SetEntityName(AI.Entity_CreateFormation(1, Entities.CU_VeteranLieutenant, 0, 0, pos.X, pos.Y, 0, 0, 0, 0), "firstborn_farmer_3")
+			table.insert(FirstbornsDeadJobs, Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "","Firstborn_Dead_Job",1,{},{"farmer", 3}))
+		end;
+		StartBriefing(briefing)
+	end}
+	SetupExpedition(BeiVk_f3)
+end
+function Vik_Farmer4()
+	local npc = "vik_farmer4"
+	local npcname = vk_far4
+	local BeiVk_f4 = {
+	Heroes = true,
+	TargetName = npc,
+	Distance = 300,
+	Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID(npc))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt(npc,id);LookAt(id,npc)
+		DisableNpcMarker(GetEntityId(npc))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP(npc,npcname,"Thore, lauf! @cr Lauf, so schnell du kannst... @cr Nein, lasst eure dreckigen Hände von unserem Sohn. @cr Er hat euch doch nichts getan...", true)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Er vielleicht nicht. @cr Ihr jedoch schon. @cr Ihr habt euer Schicksal besiegelt, als ihr gemeinsame Sache mit Varg gemacht habt.", true)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Seid froh, dass wir uns nur euren Sohn holen. @cr Für euren Hochverrat hättet ihr den Tod verdient!", true)
+		briefing.finished = function()
+			TalkedToVikNPCs = TalkedToVikNPCs + 1
+			local pos = GetPosition("vik_farmer4")
+			Logic.SetEntityName(AI.Entity_CreateFormation(1, Entities.CU_VeteranLieutenant, 0, 0, pos.X, pos.Y, 0, 0, 0, 0), "firstborn_farmer_4")
+			table.insert(FirstbornsDeadJobs, Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "","Firstborn_Dead_Job",1,{},{"farmer", 4}))
+		end;
+		StartBriefing(briefing)
+	end}
+	SetupExpedition(BeiVk_f4)
+end
+function Vik_TalkedToAllNPCsJob()
+	if TalkedToVikNPCs >= 7 then
+		Logic.RemoveQuest(1, P6_JarlQ)
+		return true
+	end
+end
+function Firstborn_Dead_Job(_villagerType, _index)
+	if IsDead("firstborn_" .. _villagerType .. "_" .. _index) then
+		FirstbornsDead = FirstbornsDead + 1
+		EnableNpcMarker(GetID("vik_" .. _villagerType .. "" .. _index))
+		Generic_Vik_Villager_Firstborn_Dead_Brief(_villagerType, _index)
+		return true
+	end
+end
+Vik_Data_ToNPCNameString = {
+	["settler"] = "set",
+	["farmer"] = "far"
+}
+function Generic_Vik_Villager_Firstborn_Dead_Brief(_villagerType, _index)
+	local npc = "vik_" .. _villagerType "" .. _index
+	local npcname = vk_ .. Vik_Data_ToNPCNameString[_villagerType] .. _index
+	local Brief = {
+	Heroes = true,
+	TargetName = npc,
+	Distance = 300,
+	Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID(npc))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt(npc,id);LookAt(id,npc)
+		DisableNpcMarker(GetEntityId(npc))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Euer ätester Sohn ist im Kampf gefallen. @cr Er hat dem Reich treue Dienste geleistet. @cr Lasst uns gemeinsam seinen Tod rächen und lasst euren jüngeren Sohn seinen Platz einnehmen.", true)
+		ASP(npc,npcname,"Unser Junge... @cr Oh nein! @cr Ihr Monster! @cr Wie konntet ihr das nur zulassen...", true)
+		briefing.finished = function()
+			local pos = GetPosition("vik_" .. _villagerType "" .. _index)
+			Logic.SetEntityName(AI.Entity_CreateFormation(1, Entities.CU_VeteranLieutenant, 0, 0, pos.X, pos.Y, 0, 0, 0, 0), "secondborn_" .. _villagerType .. "_" .. _index)
+			if math.random(1, (100 - round(FirstbornsDead ^ 2))) < 10 or FirstbornsDead >= 7 then
+				Vik_Villager_RevolutionBrief()
+			end
+		end;
+		StartBriefing(briefing)
+	end}
+	SetupExpedition(Brief)
+end
+Vik_Villager_Etypes = {
+	Entities.CB_MinerCamp1, Entities.CB_MinerCamp2, Entities.CB_MinerCamp3,
+	Entities.CB_MinerCamp4, Entities.CB_MinerCamp5, Entities.CB_MinerCamp6, Entities.PB_Farm2
+}
+function Vik_Villager_RevolutionBrief()
+	local npc = "vik_settler2"
+	local npcname = vk_set2
+	local briefing = {}
+	local AP, ASP = AddPages(briefing)
+	ASP(npc,npcname,"Ihr habt es zu weit getrieben! @cr Wir werden nicht tatenlos mit ansehen, wie ihr unsere Söhne in den sicheren Tod schickt. @cr Los Männer, zu den Waffen!", true)
+	briefing.finished = function()
+		for i = 1, table.getn(FirstbornsDeadJobs) do
+			Trigger.UnrequestTrigger(FirstbornsDeadJobs[i])
+		end
+		for i = 1, 3 do
+			if IsExisting("firstborn_settler_" .. i) then
+				ChangePlayer("firstborn_settler_" .. i, 6)
+			end
+			if IsExisting("secondborn_settler_" .. i) then
+				ChangePlayer("secondborn_settler_" .. i, 6)
+			end
+		end
+		for i = 1, 4 do
+			if IsExisting("firstborn_farmer_" .. i) then
+				ChangePlayer("firstborn_farmer_" .. i, 6)
+			end
+			if IsExisting("secondborn_farmer_" .. i) then
+				ChangePlayer("secondborn_farmer_" .. i, 6)
+			end
+		end
+		ReplaceEntity(ChangePlayer("vik_settler1", 6), Entities.CU_VeteranLieutenant)
+		ReplaceEntity(ChangePlayer("vik_settler2", 6), Entities.CU_VeteranLieutenant)
+		ReplaceEntity(ChangePlayer("vik_settler3", 6), Entities.CU_VeteranLieutenant)
+		--
+		ReplaceEntity(ChangePlayer("vik_farmer1", 6), Entities.CU_VeteranLieutenant)
+		ReplaceEntity(ChangePlayer("vik_farmer2", 6), Entities.CU_VeteranLieutenant)
+		ReplaceEntity(ChangePlayer("vik_farmer3", 6), Entities.CU_VeteranLieutenant)
+		ReplaceEntity(ChangePlayer("vik_farmer4", 6), Entities.CU_VeteranLieutenant)
+		--
+		CreateVikRevolutionArmy()
+		--
+		for eID in CEntityIterator.Iterator(CEntityIterator.OfPlayerFilter(4), CEntityIterator.OfAnyTypeFilter(unpack(Vik_Villager_Etypes))) do
+			ChangePlayer(eID, 6)
+		end
+	end;
+	StartBriefing(briefing)
+end
 --**
 function QuestSieg()
-	quest	= {
+	local quest	= {
 	id		= GetQuestId(),
-	type	= SUBQUEST_OPEN,
+	type	= MAINQUEST_OPEN,
 	title	= "Der finale Kampf",
 	text	= "Stürmt in einem finalen Kampf die Festungen von Kerberos und Varg, damit wieder Frieden im Norden des Reiches einkehren kann.",
 	}
@@ -1063,10 +1776,10 @@ function VictoryJob()
 			ASP("Dario",dario,"Endlich hat die Invasion durch Kerberos ein Ende.", false)
 			ASP("Dario",dario,"Dies ist ein wahrer Grund zum Feiern meine Freunde.", false)
 			ASP("Outpost_Ruin",dario,"Lasst uns einige Tage den Sieg über Kerberos Unterdrückung zelebrieren und erst dann den Weg zurück in die Hauptstadt antreten!", false)
-			ASP("Pilgrim",pil,"Sorry Dario, aber hör bitte einfach auf, über beschwerliche Wege zu reden, lass uns einfach FEIIIEERN!!!!", false)
+			ASP("Pilgrim",pil,"Was soll das Dario? @cr Hör bitte einfach auf, über beschwerliche Wege zu reden, lass uns einfach FEIIIEERN!!!!", false)
 			ASP("Outpost_Ruin",ment,"Pilgrim war zwar bereits hackedicht voll, dies hinderte ihn und seine Freunde allerdings nicht daran, bis tief in die Nacht zu feiern.", false)
-			ASP("Outpost_Ruin",dario,"Mir kommt da grad noch so eine Idee. Nachbardörfer im Kralgebirge werden vom Nebelvolk und Banditen heimgesucht.", true)
-			ASP("Outpost_Ruin",dario,"Lasst uns doch mal dort vorbeischauen und ihnen helfen, wir sind sowieso in der Nähe. Zeit für die Heimreise haben wir noch genug.", true)
+			ASP("Dario",dario,"Mir kommt da grad noch so eine Idee. Nachbardörfer im Kralgebirge werden vom Nebelvolk und Banditen heimgesucht.", true)
+			ASP("Dario",dario,"Lasst uns doch mal dort vorbeischauen und ihnen helfen, wir sind sowieso in der Nähe. Zeit für die Heimreise haben wir noch genug.", true)
 			Logic.CreateEffect( GGL_Effects.FXYukiFireworksFear, 21700,73200, 0 );
 			Logic.CreateEffect( GGL_Effects.FXYukiFireworksJoy, 21700,73200, 0 );
 			briefing.finished = function()
@@ -1144,33 +1857,6 @@ function Zusatz()
 	end
 end
 
-function Ruinen()
-	if IsDestroyed("Ruin_2") then
-		CreateMilitaryGroup(8,Entities.CU_VeteranLieutenant,4,GetPosition("Ruinspawn"))
-		CreateMilitaryGroup(8,Entities.CU_VeteranLieutenant,4,GetPosition("Ruinspawn"))
-		return true
-	end
-	if IsDestroyed("Ruin_3") then
-		CreateMilitaryGroup(8,Entities.CU_VeteranLieutenant,4,GetPosition("Ruinspawn"))
-		CreateMilitaryGroup(8,Entities.CU_VeteranLieutenant,4,GetPosition("Ruinspawn"))
-		return true
-	end
-	if IsDestroyed("Ruin_8") then
-		CreateMilitaryGroup(8,Entities.CU_VeteranLieutenant,4,GetPosition("Ruinspawn"))
-		CreateMilitaryGroup(8,Entities.CU_VeteranLieutenant,4,GetPosition("Ruinspawn"))
-		return true
-	end
-	if IsDestroyed("Ruin_9") then
-		CreateMilitaryGroup(8,Entities.CU_VeteranLieutenant,4,GetPosition("Ruinspawn"))
-		CreateMilitaryGroup(8,Entities.CU_VeteranLieutenant,4,GetPosition("Ruinspawn"))
-		return true
-	end
-	if IsDestroyed("Ruin_0") then
-		CreateMilitaryGroup(8,Entities.CU_VeteranLieutenant,4,GetPosition("Ruinspawn"))
-		CreateMilitaryGroup(8,Entities.CU_VeteranLieutenant,4,GetPosition("Ruinspawn"))
-		return true
-	end
-end
 function Eisenmine()
 	if IsDestroyed("Eisenmine") then
 		local briefing = {}
@@ -1186,6 +1872,9 @@ function Eisenmine()
 			MapEditor_Armies[6].offensiveArmies.strength = MapEditor_Armies[6].offensiveArmies.strength - round(2+gvDiffLVL)
 			MapEditor_Armies[7].offensiveArmies.strength = MapEditor_Armies[7].offensiveArmies.strength - round(2+gvDiffLVL)
 			MapEditor_Armies[8].offensiveArmies.strength = MapEditor_Armies[8].offensiveArmies.strength - round(2+gvDiffLVL)
+			--
+			GUI.DestroyMinimapPulse(Logic.GetEntityPosition(GetID("Eisen")))
+			Logic.RemoveQuest(1, P5_CavQ)
 		end
 		StartBriefing(briefing);
 		return true

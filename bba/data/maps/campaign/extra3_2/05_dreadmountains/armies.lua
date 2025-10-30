@@ -8,10 +8,14 @@ NVArmyTypes = {Entities.CU_Evil_LeaderBearman1,
 	Entities.CU_Evil_LeaderSpearman1,
 	Entities.CU_Evil_LeaderSkirmisher1,
 	Entities.CU_Evil_LeaderSkirmisher1,
+}
+-- not yet
+--[[
 	Entities.CU_Evil_LeaderCavalry1,
 	Entities.CU_AggressiveScorpion1,
 	Entities.CU_AggressiveScorpion2,
-	Entities.CU_AggressiveScorpion3}
+	Entities.CU_AggressiveScorpion3
+--]]
 MurkalTroopTypes = {Entities.PU_LeaderSword4,
 	Entities["PU_LeaderSword" .. math.min(2 + gvDiffLVL, 4)],
 	Entities["PU_LeaderSword" .. 1 + gvDiffLVL],
@@ -319,6 +323,16 @@ function CreateInitialArmies()
 	Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","ControlGenericArmy",1,{},{army.player, army.id})
 	--
 	local army = {}
+	army.player = 5
+	army.id = GetFirstFreeArmySlot(5)
+	army.position = GetPosition("merc_tower_defense")
+	army.strength = round(12-2*gvDiffLVL)
+	army.rodeLength = 6200
+	SetupArmy(army)
+	RefreshArmy(army.player, army.id, GetID("merc_tower"))
+	MercTowerArmyID = army.id
+	--
+	local army = {}
 	army.player = 6
 	army.id = GetFirstFreeArmySlot(6)
 	army.position = GetPosition("BanditSpawn")
@@ -489,7 +503,7 @@ function CreateInitialArmies()
 	army.player = 8
 	army.id = GetFirstFreeArmySlot(8)
 	army.position = GetPosition("NV14")
-	army.strength = round(8/gvDiffLVL)
+	army.strength = round(13-3*gvDiffLVL)
 	army.rodeLength = 6500
 	SetupArmy(army)
 	RefreshArmy(army.player, army.id, GetID("NVTower1"))
@@ -723,6 +737,19 @@ function CreateInitialArmies()
 	RefreshArmy(army.player, army.id, GetID("Wohn"))
 	--
 	local army = {}
+	army.player = 8
+	army.id = GetFirstFreeArmySlot(8)
+	army.position = GetPosition("mountKegoNV")
+	army.strength = round(9-2*gvDiffLVL)
+	army.rodeLength = 4100
+	SetupArmy(army)
+	MountKegoNVArmy = army
+	for i = 1, army.strength do
+		EnlargeArmy(army, {leaderType = NVArmyTypes[math.random(table.getn(NVArmyTypes))]})
+	end
+	Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","ControlGenericArmy",1,{},{army.player, army.id})
+	--
+	local army = {}
 	army.player = 2
 	army.id = GetFirstFreeArmySlot(2)
 	army.position = GetPosition("Dreadstone1")
@@ -887,6 +914,20 @@ function NVSteinArmy()
 	army.rodeLength = Logic.WorldGetSize()
 	SetupArmy(army)
 	NVSteinArmy2 = army
+	for i = 1, army.strength do
+		EnlargeArmy(army, {leaderType = NVArmyTypes[math.random(table.getn(NVArmyTypes))]})
+	end
+	Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","ControlGenericArmy",1,{},{army.player, army.id})
+end
+function CreateNVArmyOutpost()
+	local army = {}
+	army.player = 8
+	army.id = GetFirstFreeArmySlot(8)
+	army.position = GetPosition("NV_OP")
+	army.strength = round(16-(3*gvDiffLVL))
+	army.rodeLength = 3500
+	SetupArmy(army)
+	NVOPArmy = army
 	for i = 1, army.strength do
 		EnlargeArmy(army, {leaderType = NVArmyTypes[math.random(table.getn(NVArmyTypes))]})
 	end

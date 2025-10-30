@@ -5,7 +5,6 @@
 
 
 // Consts...
-
 const float LightScale = LIGHT_SCALE;
 const float LightScaleTimes2 = 2 * LIGHT_SCALE;
 

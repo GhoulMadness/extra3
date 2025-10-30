@@ -126,7 +126,7 @@ RandomMapAI_EntityWithBlockingDestroyed = function()
 			local posX, posY = Logic.GetEntityPosition(id)
 			-- was it just some building upgrade?
 			local newID = Logic.GetEntityAtPosition(posX, posY)
-			if newID > 0 and Logic.IsBuilding(newID) then
+			if newID > 0 and Logic.IsBuilding(newID) == 1 then
 				-- do nothing, blocking stays the same
 			else
 				local etype = Logic.GetEntityType(id)
@@ -362,10 +362,47 @@ RandomMapAI.ConstructionPlanSnippets = {
 	},
 	["Scaremonger"] = {
 		{ type = Entities["PB_Scaremonger0" .. math.random(1,6)], pos = "base", dirty = true, level = 0 }
+	},
+	["Industry1"] = {
+		{ type = Entities.PB_Market1, pos = "base", dirty = true, level = 0 },
+		{ type = Entities.PB_Blacksmith1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Farm1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Residence1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Blacksmith1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Farm1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Residence1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Blacksmith1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Farm1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Residence1, pos = "inherit", dirty = true, level = 0 }
+	},
+	["Industry2"] = {
+		{ type = Entities.PB_Market1, pos = "base", dirty = true, level = 0 },
+		{ type = Entities.PB_Sawmill1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Farm1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Residence1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Sawmill1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Farm1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Residence1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Sawmill1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Farm1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Residence1, pos = "inherit", dirty = true, level = 0 }
+	},
+	["Industry3"] = {
+		{ type = Entities.PB_Market1, pos = "base", dirty = true, level = 0 },
+		{ type = Entities.PB_Bank1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Farm1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Residence1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.CB_Mint1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Farm1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Residence1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Bank1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Farm1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Residence1, pos = "inherit", dirty = true, level = 0 }
 	}
 }
 RandomMapAI.ConstructionSnippetTypesToSnippetNames = {
 	["Mines"] 			= {"Gold", "Clay", "Stone", "Iron", "Sulfur", "Silver"},
+	["Industry"]		= {"Industry1", "Industry2", "Industry3"},
 	["Village"] 		= {"VillageCenter", "VillageHall", "Lighthouse"},
 	["Military"] 		= {"Barracks", "Archery", "Stables", "Foundry"},
 	["Civilization"] 	= {"Research", "Faith", "Market", "Entertainment"},
@@ -422,6 +459,11 @@ RandomMapAI.ConstructionSnippetTypesByPeacetime = {
 		"Military",
 		"Village",
 		"Civilization",
+		"Misc",
+		"Industry",
+		"Industry",
+		"Misc",
+		"Industry",
 		"Misc"
 	},
 	[10] = {
@@ -459,6 +501,12 @@ RandomMapAI.ConstructionSnippetTypesByPeacetime = {
 		"Mines",
 		"Military",
 		"Village",
+		"Misc",
+		"Industry",
+		"Misc",
+		"Industry",
+		"Misc",
+		"Industry",
 		"Misc"
 	},
 	[20] = {
@@ -496,7 +544,15 @@ RandomMapAI.ConstructionSnippetTypesByPeacetime = {
 		"Mines",
 		"Military",
 		"Village",
-		"Misc"
+		"Misc",
+		"Misc",
+		"Industry",
+		"Misc",
+		"Industry",
+		"Misc",
+		"Industry",
+		"Misc",
+		"Industry"
 	},
 	[30] = {
 		"Civilization",
@@ -533,7 +589,15 @@ RandomMapAI.ConstructionSnippetTypesByPeacetime = {
 		"Mines",
 		"Military",
 		"Village",
-		"Misc"
+		"Misc",
+		"Misc",
+		"Industry",
+		"Misc",
+		"Industry",
+		"Misc",
+		"Industry",
+		"Misc",
+		"Industry"
 	}
 }
 RandomMapAI.ConstructionSnippetTypesByPeacetime[40] = RandomMapAI.ConstructionSnippetTypesByPeacetime[30]
@@ -658,7 +722,7 @@ RandomMapAI.ProcessConstructionPlan = function(_AIData, _cPlan, _index)
 		posX, posY = posX * 100, posY * 100
 	end
 	local level = currTask.level
-	local secToNextProcess = MapEditor_Armies[player].description.rebuild.delay + math.random(MapEditor_Armies[player].description.rebuild.randomTime)
+	local secToNextProcess = MapEditor_Armies[player].description.rebuildData.delay + math.random(MapEditor_Armies[player].description.rebuildData.randomTime)
 	--
 	local csite = Logic.CreateConstructionSite(posX, posY, rot, etype, player)
 	if level > 0 then
@@ -991,20 +1055,19 @@ RandomMapAI.Init = function(_structData)
 		MapEditor_SetupAI(player, strength, mapsizeX, currAI.TechLVL - 1, "HQP" .. player, 3, currAI.PeaceTime * 60, true, 5000)
 		local description = MapEditor_GetArmyDefaultDescription(strength)
 		description.extracting = 1
-		description.rebuild = {
+		description.rebuildData = {
 			delay		= 4*(6-strength),
 			randomTime	= 2*(6-strength)
 		}
 		SetupPlayerAi(player, description)
-		MapEditor_Armies[player].description.rebuild.delay = description.rebuild.delay
-		MapEditor_Armies[player].description.rebuild.randomTime = description.rebuild.randomTime
+		MapEditor_Armies[player].description.rebuildData.delay = description.rebuildData.delay
+		MapEditor_Armies[player].description.rebuildData.randomTime = description.rebuildData.randomTime
 		StartCountdown((5/strength)*60+math.random(0,20), RandomMapAI.IncreaseSerfs, false, nil, player, strength, description.serfLimit)
 		StartCountdown((5+(14/strength))*60+math.random(0,120), RandomMapAI.UpgradeBuilding.UpgradeCommand, false, nil, currAI)
 		StartCountdown((2+(3/strength))*60+math.random(0,120), RandomMapAI.Research.ResearchCommand, false, nil, currAI)
 		SetPlayerName(player, RandomMapAI.PlayerNames[player - 1])
 		local cplan = RandomMapAI.GenerateConstructionPlan(currAI)
 		RandomMapAI.ProcessConstructionPlan(currAI, cplan, 1)
-		--FeedAiWithConstructionPlanFile(currAI.PlayerID, cplan)
 		--
 		local team = currAI.Team
 		playerInTeam[team] = playerInTeam[team] or {}

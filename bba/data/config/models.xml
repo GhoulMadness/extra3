@@ -609,7 +609,7 @@
     <SelectionRadius>65</SelectionRadius>
     <Effect>SettlerPlayerColor</Effect>
     <SelectionTexture>Selection_civilian</SelectionTexture>
-    <OcclusionReceiver>True</OcclusionReceiver>
+	<OcclusionReceiver>True</OcclusionReceiver>
   </Model>
 
   <Model id="PU_SerfAxe">
@@ -4286,5 +4286,97 @@
         <UseSurfaceHeight>True</UseSurfaceHeight>
         <UseAlphaBlending>True</UseAlphaBlending>
     </Model>
+	
+	<Model id="CU_Hermit_Shadow">
+    <SelectionRadius>80</SelectionRadius>
+    <Effect>SimpleUnitPlayerColorSpecular</Effect>
+	<UseAlphaBlending>True</UseAlphaBlending>
+    <OcclusionReceiver>True</OcclusionReceiver>
+  </Model>
+  
+  <Model id="PU_LeaderSword1_Spectral">
+    <SelectionRadius>80</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+  </Model>
+  
+  <Model id="PU_SoldierSword1_Spectral">
+    <SelectionRadius>75</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+    <SelectionTexture>Selection_Soldier</SelectionTexture>
+  </Model>
+  
+  <Model id="PU_LeaderPoleArm1_Spectral">
+    <SelectionRadius>80</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+  </Model>
+  
+  <Model id="PU_SoldierPoleArm1_Spectral">
+    <SelectionRadius>75</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+    <SelectionTexture>Selection_Soldier</SelectionTexture>
+  </Model>
+  
+  <Model id="PU_LeaderBow1_Spectral">
+    <SelectionRadius>80</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+  </Model>
+  
+  <Model id="PU_SoldierBow1_Spectral">
+    <SelectionRadius>75</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+    <SelectionTexture>Selection_Soldier</SelectionTexture>
+  </Model>
+  
+  <Model id="PU_LeaderRifle1_Spectral">
+    <SelectionRadius>80</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+  </Model>
+  
+  <Model id="PU_SoldierRifle1_Spectral">
+    <SelectionRadius>75</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+    <SelectionTexture>Selection_Soldier</SelectionTexture>
+  </Model>
+  
+  <Model id="PU_LeaderSword4_Spectral">
+    <SelectionRadius>80</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+  </Model>
+  
+  <Model id="PU_SoldierSword4_Spectral">
+    <SelectionRadius>75</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+    <SelectionTexture>Selection_Soldier</SelectionTexture>
+  </Model>
+  
+  <Model id="PU_Hero1c_Spectral">
+    <Effect>SettlerPlayerColorInvis</Effect>
+	<SelectionRadius>100</SelectionRadius>
+    <SelectionTexture>Selection_hero</SelectionTexture>
+  </Model>
+  
+  <Model id="PU_Hero2_Spectral">
+    <Effect>SettlerPlayerColorInvis</Effect>
+	<SelectionRadius>100</SelectionRadius>
+    <SelectionTexture>Selection_hero</SelectionTexture>
+  </Model>
+  
+  <Model id="PU_Hero4_Spectral">
+    <Effect>SettlerPlayerColorInvis</Effect>
+	<SelectionRadius>100</SelectionRadius>
+    <SelectionTexture>Selection_hero</SelectionTexture>
+  </Model>
+  
+  <Model id="PU_Hero5_Spectral">
+    <Effect>SettlerPlayerColorInvis</Effect>
+	<SelectionRadius>100</SelectionRadius>
+    <SelectionTexture>Selection_hero</SelectionTexture>
+  </Model>
+  
+  <Model id="PU_Hero10_Spectral">
+    <Effect>SettlerPlayerColorInvis</Effect>
+	<SelectionRadius>100</SelectionRadius>
+    <SelectionTexture>Selection_hero</SelectionTexture>
+  </Model>
 
 </root>

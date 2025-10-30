@@ -26,6 +26,8 @@ function Mission_OnSaveGameLoaded()
 	if gvEMSFlag then
 		CWidget.LoadGUINoPreserve("data/menu/projects/ingame.xml")
 	end
+	BS.CheckForAchievements(GUI.GetPlayerID())
+	BS.CheckForDateRestrictions(Framework.GetSystemTimeDateString())
 	if not CNetwork then
 		if GDB.IsKeyValid("Config\\SettlerServer\\ColorPlayer") then
 			local PlayerColor = GDB.GetValue("Config\\SettlerServer\\ColorPlayer")
@@ -74,7 +76,7 @@ function Mission_OnSaveGameLoaded()
 
 	GetAttachedEntitiesOrig = CEntity.GetAttachedEntities
 	CEntity.GetAttachedEntities = function(_id)
-		assert(IsValid(_id))
+		assert(IsValid(_id), "invalid entityID")
 		return GetAttachedEntitiesOrig(_id)
 	end
 
@@ -87,8 +89,8 @@ function Mission_OnSaveGameLoaded()
 
 	GroupAttackOrig = Logic.GroupAttack
 	Logic.GroupAttack = function(_id, _target)
-		assert(IsValid(_id))
-		assert(IsValid(_target))
+		assert(IsValid(_id), "invalid attacker ID")
+		assert(IsValid(_target), "invalid target ID")
 		return GroupAttackOrig(_id, _target)
 	end
 
@@ -190,6 +192,10 @@ function Mission_OnSaveGameLoaded()
 		XGUIEng.SetText(""..
 		"TopMainMenuTextButton", gvMapText ..
 		" @cr ".. DiffLVLToString(gvDiffLVL) .. " @cr @color:230,0,240 " .. gvMapVersion)
+	end
+	-- show StopWatch countdowns again after savegames
+	if GUIQuestTools.UltimatumTime and GUIQuestTools.UltimatumTime > 0 then
+		XGUIEng.ShowWidget("StopWatch", 1)
 	end
 	if next(gvFuncsToBeReloadedOnMapLoad) then
 		for i = 1, table.getn(gvFuncsToBeReloadedOnMapLoad) do
@@ -682,6 +688,12 @@ function GameCallback_GainedResourcesFromMine(_extractor, _e, _type, _amount)
 		end
 
     end
+	-- for playerAI rebuild behavior
+	if not IsPlayerHuman(playerID) and MapEditor_Armies and MapEditor_Armies[playerID] then
+		if _amount >= Logic.GetResourceAmountBelowMine(work) then
+			table.insert(MapEditor_Armies[playerID].RebuildExcludedIDs, work)
+		end
+	end
 	if GameCallback_GainedResourcesFromMineOrig then
 		return GameCallback_GainedResourcesFromMineOrig(_extractor, _e, _type, _amount)
     end
@@ -1115,6 +1127,8 @@ end
 function GameCallback_ResourceTaken(_id, _type, _amount)
 
 	local etype = Logic.GetEntityType(_id)
+	-- TODO: write logic so worker returns to take resource task, when not enough resources to take were there
+	--local needed =
 
 	if etype == Entities.PU_CoalMaker then
 		local work = Logic.GetSettlersWorkBuilding(_id)

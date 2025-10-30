@@ -1,7 +1,7 @@
 -- extra 3 campaign
 
 SPMenu.AO3Campaign_Maps= {	"01_Journey",
-							--"02_Kafarna",
+							"02_Kafarna",
 							--"03_Keshet",
 							--"04_Dunnotar"
 }

@@ -203,6 +203,9 @@ gvHeroTarget = {
 		assert(IsValid(_id) and IsValid(_heroID), "invalid entity ID")
 		local type = Logic.GetEntityType(_heroID)
 		local base = gvHeroTarget.BaseThreatVal[type]
+		if not base then
+			return 1
+		end
 		if type == Entities.PU_Hero6 then
 			if gvHeroTarget.AreEntitiesThreatenedByConvertSettler(_heroID) then
 				base = base * 3

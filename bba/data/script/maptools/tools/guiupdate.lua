@@ -1446,3 +1446,44 @@ function GUIUpdate_WoodcutterAmount()
 	local pretext = WCutter.TooltipText[string.lower(XNetworkUbiCom.Tool_GetCurrentLanguageShortName())]
 	XGUIEng.SetText(XGUIEng.GetCurrentWidgetID(), pretext .. amount)
 end
+
+function GUIUpdate_HeroFindButtons()
+
+	local PlayerID = GUI.GetPlayerID()
+
+	--Create Table with all heroes
+	local Hero = {}
+
+	Logic.GetHeroes(PlayerID, Hero)
+
+	for j = 1, table.getn(gvGUI_WidgetID.HeroFindButtons) do
+
+		if  Hero[j] ~= nil then
+
+			XGUIEng.ShowWidget(gvGUI_WidgetID.HeroFindButtons[j],1)
+
+			--AddOn: Show also BG
+			XGUIEng.ShowWidget(gvGUI_WidgetID.HeroBGIcon[j],1)
+
+			XGUIEng.SetBaseWidgetUserVariable(gvGUI_WidgetID.HeroFindButtons[j], 0,Hero[j])
+
+
+			--XGUIEng.ShowAllSubWidgets(gvGUI_WidgetID.HeroDeadIconContainer,0)
+			local Health = Logic.GetEntityHealth(Hero[j])
+			if Logic.GetEntityHealth(Hero[j]) == 0 then
+				XGUIEng.ShowWidget(gvGUI_WidgetID.HeroDeadIcon[j],1)
+			else
+				XGUIEng.ShowWidget(gvGUI_WidgetID.HeroDeadIcon[j],0)
+			end
+
+			--j = j + 1
+		else
+			XGUIEng.ShowWidget(gvGUI_WidgetID.HeroFindButtons[j],0)
+			--AddOn: disbale also BG
+			XGUIEng.ShowWidget(gvGUI_WidgetID.HeroBGIcon[j],0)
+			XGUIEng.ShowWidget(gvGUI_WidgetID.HeroDeadIcon[j],0)
+		end
+
+	end
+
+end

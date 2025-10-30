@@ -39,7 +39,7 @@ function FirstMapAction()
 
 	StartCountdown(1,AnfangsBriefing,false)
 	do
-	local pos = GetPosition("p3_hq_1")
+	local pos = GetPosition("p8_hq_1")
 	CreateEntity(1,Entities.XD_ScriptEntity,{X = pos.X , Y = pos.Y},"p1_enemy_view")
 	CreateEntity(2,Entities.XD_ScriptEntity,{X = pos.X -1/100, Y = pos.Y},"p2_enemy_view")
 	CreateEntity(3,Entities.XD_ScriptEntity,{X = pos.X, Y = pos.Y - 1/100},"p3_enemy_view")

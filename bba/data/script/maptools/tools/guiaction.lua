@@ -45,7 +45,7 @@ function GUIAction_ChangeView(_mode)
 		XGUIEng.ShowWidget("MinimapButtons_RPGView",1)
 	elseif _mode == 2 then
 		--RPG-Sichtmodus
-		gvCamera.DefaultFlag = 1
+		gvCamera.DefaultFlag = 0
 		gvCamera.ZoomAngleMin = 4
 		gvCamera.ZoomAngleMax = 16
 		Display.SetFarClipPlaneMinAndMax(0, 33000)
@@ -629,7 +629,7 @@ function GUIAction_Archers_Tower_AddSlot()
 
 end
 ------------------------------------------------- Army Creator ---------------------------------------------------
-function GUIAction_ArmyCreatorChangeAmount(_EntityType,_Modifier)
+function GUIAction_ArmyCreatorChangeAmount(_EntityType, _Modifier)
 
 	local pID = GUI.GetPlayerID()
 
@@ -682,18 +682,19 @@ function GUIAction_ArmyCreatorFinishSetup()
 	end
 	XGUIEng.ShowWidget("BS_ArmyCreator",0)
 
+	local playerID = GUI.GetPlayerID()
 	if CNetwork then
 
 		local toUnpack = {}
-		for k,v in pairs(ArmyCreator.PlayerTroops[GUI.GetPlayerID()]) do
-			table.insert(toUnpack,k)
-			table.insert(toUnpack,v)
+		for k, v in pairs(ArmyCreator.PlayerTroops[playerID]) do
+			table.insert(toUnpack, k)
+			table.insert(toUnpack, v)
 		end
-		CNetwork.SendCommand("Ghoul_ArmyCreator_SpawnTroops",GUI.GetPlayerID(),unpack(toUnpack))
+		CNetwork.SendCommand("Ghoul_ArmyCreator_SpawnTroops", playerID, unpack(toUnpack))
 
 	else
 
-		ArmyCreator.ReadyForTroopCreation(GUI.GetPlayerID(), ArmyCreator.PlayerTroops[1])
+		ArmyCreator.ReadyForTroopCreation(GUI.GetPlayerID(), ArmyCreator.PlayerTroops[playerID])
 
 	end
 	XGUIEng.ShowWidget("Normal",1)

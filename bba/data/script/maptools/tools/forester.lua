@@ -196,7 +196,7 @@ Forester.MaxRange = 3000
 -- respective distance between searching points
 Forester.SearchForFreeSpotRange = 500
 -- minimum distance allowed between already existing/planted tree and new tree/ below no tree will be planted
-Forester.AllowedInferenceRange = 300
+Forester.AllowedInterferenceRange = 300
 -- delay forester needs to wait between work cycles
 Forester.WorkCycleDelayBase = 10
 Forester.WorkCycleDelay = {}
@@ -338,12 +338,15 @@ Forester_FinishAnimCheck = function(_id, _buildingID, _posX, _posY, _terrType)
 	end
 
 	if Logic.GetCurrentTaskList(_id) == "TL_NPC_IDLE" then
-		Forester.PlaceTree(_id, _buildingID, _posX, _posY, _terrType)
+		if table_findvalue(Forester.TreeGrowingBlockedPos, {X = _posX, Y = _posY}) == 0 then
+			Forester.PlaceTree(_id, _buildingID, _posX, _posY, _terrType)
+		end
 		return true
 	end
 end
 Forester.PlaceTree = function(_id, _buildingID, _posX, _posY, _terrType)
 	local id = Logic.CreateEntity(Entities.XD_Rock1, _posX, _posY, 0, 0)
+	assert(id ~= 0, "placing tree failed!")
 	local suffixName = Forester.LandscapeTreeSets[Forester.LandscapeTypeBySoilTexture[_terrType]][math.random(table.getn(Forester.LandscapeTreeSets[Forester.LandscapeTypeBySoilTexture[_terrType]]))]
 	Logic.SetModelAndAnimSet(id, Models[suffixName])
 	SetEntitySize(id, Forester.InitialTreeSizeFactor)
@@ -393,7 +396,7 @@ Forester.FindNextTreePos = function(_id)
 				if sector ~= 0 and blockingtype == 0 and Forester.LandscapeTypeBySoilTexture[tempterrType] ~= nil and (height > CUtil.GetWaterHeight(x_/100, y_/100)) then
 
 					if Forester.TreeGrowingBlockedPos[1] == nil or table_findvalue(Forester.TreeGrowingBlockedPos, {X = x_, Y = y_}) == 0 then
-						if Forester.GetDistanceToNextPlantedTree(x_, y_) >= Forester.AllowedInferenceRange then
+						if Forester.GetDistanceToNextPlantedTree(x_, y_) >= Forester.AllowedInterferenceRange then
 							if not dmin or dmin > d then
 
 								dmin = d
@@ -492,12 +495,29 @@ function Forester_DelayedRespawn(_buildingID)
 	OnForester_Created(_buildingID)
 	return true
 end
+function Forester_Tree_OnTreeReplacedByResourceEntity(_id)
+
+	local entityID = Event.GetEntityID()
+	-- tree destroyed and replaced by resource entity...
+    if entityID == _id then
+		Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","Forester_DelayedCheckForTreeReplacedByResourceEntity",1,{},{Logic.GetEntityPosition(_id)})
+		return true
+	end
+end
+function Forester_DelayedCheckForTreeReplacedByResourceEntity(_x, _y)
+	local id = Logic.GetEntityAtPosition(_x, _y)
+	if id > 0 and Logic.GetEntityType(id) == Entities.XD_ResourceTree then
+		Forester.TriggerIDs.Tree.Cutted[id] = Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_DESTROYED,"","Forester_Tree_OnTreeCutted",1,{},{id})
+	end
+	return true
+end
 function Forester_Tree_OnTreeCutted(_id)
 
 	local entityID = Event.GetEntityID()
     if entityID == _id then
-		removetablekeyvalue(Forester.TreeGrowingBlockedPos,GetPosition(_id))
+		removetablekeyvalue(Forester.TreeGrowingBlockedPos, GetPosition(_id))
 		Trigger.UnrequestTrigger(Forester.TriggerIDs.Tree.Cutted[_id])
+		return true
 	end
 end
 Forester_PrepareForPauseJob = function(_id, _buildingID)
@@ -598,8 +618,13 @@ Forester_ArrivedAtDestinationCheck = function(_id, _buildingID, _posX, _posY, _t
 		return true
 	end
 	if GetDistance(GetPosition(_id), {X = _posX, Y = _posY}) <= 100 then
-		Forester.PlaceTree_StartAnim(_id, _buildingID, _posX, _posY, _terrType)
-		return true
+		if table_findvalue(Forester.TreeGrowingBlockedPos, {X = _posX, Y = _posY}) == 0 then
+			Forester.PlaceTree_StartAnim(_id, _buildingID, _posX, _posY, _terrType)
+			return true
+		else
+			Forester.FinishWorkCycle(_id, _buildingID)
+			return true
+		end
 	else
 		if Counter.Tick2("Forester_ArrivedAtDestinationCheck_".. _id, Forester.WorkCycleDelay[_id]) then
 			if Logic.GetSector(_id) == CUtil.GetSector(_posX/100, _posY/100) then
@@ -626,15 +651,19 @@ Forester_TreeGrowthControl = function(_id, _suffixName)
 			Forester.NumBlockedPointsBySuffix[_suffixName] = range
 		end
 		local posX, posY = Logic.GetEntityPosition(_id)
+		-- only replace when no settlers nearby
 		if Logic.GetEntitiesInArea(0, posX, posY, range*100, 1, 6) == 0 then
 			local newID = ReplaceEntity(_id, Entities[_suffixName])
-			Forester.TriggerIDs.Tree.Cutted[newID] = Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_DESTROYED,"","Forester_Tree_OnTreeCutted",1,{},{newID})
+			Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_DESTROYED,"","Forester_Tree_OnTreeReplacedByResourceEntity",1,{},{newID})
 			return true
 		end
 	else
 		if Counter.Tick2("Forester_TreeGrowthControl_".. _id, Forester.TreeGrowthTimeNeeded) then
 			local size = GetEntitySize(_id)
-			local __id = ReplaceEntity(_id, Entities.XD_Rock2)
+			local curr_etypename = Logic.GetEntityTypeName(Logic.GetEntityType(_id))
+			--local etype = Entities["XD_Rock" .. math.mod(string.sub(curr_etypename, string.len(curr_etypename)), 2) + 1]
+			local etype = Entities.XD_Flower1
+			local __id = ReplaceEntity(_id, etype)
 			if __id and __id > 0 then
 				SetEntitySize(__id, math.min(size + Forester.TreeGrowthAmount, 1))
 				Logic.SetModelAndAnimSet(__id, Models[_suffixName])

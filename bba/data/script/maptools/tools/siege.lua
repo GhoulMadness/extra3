@@ -213,7 +213,8 @@ Siege_NoDamageToWallsAndGates = function()
 	local target = Event.GetEntityID2()
 	if Logic.IsEntityInCategory(target, EntityCategories.Wall) == 1 or Logic.IsEntityInCategory(target, EntityCategories.Bridge) == 1 then
 		local attacker = Event.GetEntityID1()
-		if Logic.GetEntityType(attacker) ~= Entities.PV_Ram or Logic.GetEntityType(target) ~= Entities.XD_OSO_Wall_Gate_Slim_Closed2 then
+		if (Logic.GetEntityType(attacker) ~= Entities.PV_Ram and Logic.GetEntityType(attacker) ~= Entities.CU_Evil_Troll1)
+		or Logic.GetEntityType(target) ~= Entities.XD_OSO_Wall_Gate_Slim_Closed2 then
 			CEntity.TriggerSetDamage(0)
 		end
 	end

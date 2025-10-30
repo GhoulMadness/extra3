@@ -60,7 +60,12 @@ ArmyCreator = {
 		[Entities.PU_Hero10] = 28,
 		[Entities.PU_Hero11] = 23,
 		[Entities.PU_Hero13] = 26,
-		[Entities.PU_Hero14] = 25
+		[Entities.PU_Hero14] = 25,
+		[Entities.CU_Evil_LeaderSpearman1] = 9,
+		[Entities.CU_Evil_LeaderCavalry1] = 14,
+		[Entities.CU_Evil_Troll1] = 50,
+		[Entities.CU_Evil_Uruk1] = 25,
+		[Entities.CU_AggressiveScorpion1] = 2
 	},
 	BasePoints = 100,
 	PlayerPoints = 0,
@@ -93,7 +98,9 @@ ArmyCreator = {
 		[Entities.PV_Ram] = true,
 		[Entities.PU_Thief] = true,
 		[Entities.PU_BattleSerf] = true,
-		[Entities.PU_Scout] = true
+		[Entities.PU_Scout] = true,
+		[Entities.CU_Evil_Troll1] = true,
+		[Entities.CU_Evil_Uruk1] = true
 	},
 	PlayerTroops = { },
 	SpawnPos = { },
@@ -201,15 +208,16 @@ ArmyCreator.CreateTroops = function(_playerID, _trooptable)
 
 	for k,v in pairs(_trooptable) do
 
+		local id
 		if ArmyCreator.TroopException[k] and v == 1 then
-
-			Logic.CreateEntity(k, ArmyCreator.SpawnPos[_playerID].X, ArmyCreator.SpawnPos[_playerID].Y, math.random(360), _playerID)
+			id = Logic.CreateEntity(k, ArmyCreator.SpawnPos[_playerID].X, ArmyCreator.SpawnPos[_playerID].Y, math.random(360), _playerID)
+			SetEntitySize(id, AIResizedTypes[k] or 1)
 
 		elseif ArmyCreator.TroopOnlyLeader[k] then
-
 			if v >= 1 then
 				for i = 1,v do
-					Logic.CreateEntity(k, ArmyCreator.SpawnPos[_playerID].X, ArmyCreator.SpawnPos[_playerID].Y, math.random(360), _playerID)
+					id = Logic.CreateEntity(k, ArmyCreator.SpawnPos[_playerID].X, ArmyCreator.SpawnPos[_playerID].Y, math.random(360), _playerID)
+					SetEntitySize(id, AIResizedTypes[k] or 1)
 				end
 			end
 
@@ -217,7 +225,8 @@ ArmyCreator.CreateTroops = function(_playerID, _trooptable)
 
 			if v >= 1 then
 				for i = 1,v do
-					AI.Entity_CreateFormation(_playerID, k, 0, LeaderTypeGetMaximumNumberOfSoldiers(k), ArmyCreator.SpawnPos[_playerID].X, ArmyCreator.SpawnPos[_playerID].Y, 0, 0, 0, 0)
+					id = AI.Entity_CreateFormation(_playerID, k, 0, LeaderTypeGetMaximumNumberOfSoldiers(k), ArmyCreator.SpawnPos[_playerID].X, ArmyCreator.SpawnPos[_playerID].Y, 0, 0, 0, 0)
+					SetEntitySize(id, AIResizedTypes[k] or 1)
 				end
 			end
 

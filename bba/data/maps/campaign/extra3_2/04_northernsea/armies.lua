@@ -17,11 +17,16 @@ function CreateArmies()
 	CreateArmyP7_6()
 	CreateArmyP7_7()
 	--
+	CreatePatrolArmy7_1()
+	CreatePatrolArmy6_1()
+	CreatePatrolArmy6_2()
+	--
 	for i = 1,8 do
 		local id
 		CreateMilitaryGroup(6,Entities.PU_LeaderBow4,12,GetPosition("p6_bows" .. i), "p6_def_bow" .. i)
 		Logic.GroupStand(GetID("p6_def_bow" .. i))
 	end
+	--
 	StartCamps()
 end
 CampTroopTypes = {Entities["PU_LeaderBow" .. 5 - gvDiffLVL], Entities["PU_LeaderBow" .. 4 - gvDiffLVL], Entities["PU_LeaderSword" .. 5- gvDiffLVL], Entities["PU_LeaderSword" .. 4- gvDiffLVL],
@@ -88,12 +93,14 @@ function ControlRespawningArmies(_player, _id, _building, _behaviortype, ...)
 		else
 			Defend(army)
 		end
-	elseif _behaviortype == 3 then
+	elseif _behaviortype == 2 then
 		if main_armies_aggressive ~= 0 then
 			Advance(army)
 		else
 			Defend(army)
 		end
+	elseif _behaviortype == 3 then
+		Patrol(army)
 	else
 		Defend(army)
 	end
@@ -110,7 +117,7 @@ function CreateArmyP6_0()
     army.id 		= GetFirstFreeArmySlot(6)
     army.strength 	= round(6-gvDiffLVL)
     army.position 	= GetPosition("BanditSpawn1")
-    army.rodeLength = 2500
+    army.rodeLength = 5500
 	army.building	= GetID("BanditTower1")
 	army.trooptypes	= {Entities.CU_Barbarian_LeaderClub2}
 	SetupArmy(army)
@@ -134,7 +141,7 @@ function CreateArmyP6_1()
     army.id 		= GetFirstFreeArmySlot(6)
     army.strength 	= round(6-gvDiffLVL)
     army.position 	= GetPosition("BanditSpawn2")
-    army.rodeLength = 5000
+    army.rodeLength = 5400
 	army.building 	= GetID("BanditTower2")
 	army.trooptypes	= {Entities.PU_LeaderSword3}
 	SetupArmy(army)
@@ -158,7 +165,7 @@ function CreateArmyP6_2()
     army.id 		= GetFirstFreeArmySlot(6)
     army.strength 	= round(6-gvDiffLVL)
     army.position 	= GetPosition("BanditSpawn2")
-    army.rodeLength = 5000
+    army.rodeLength = 5400
 	army.building	= GetID("BanditTower2")
 	army.trooptypes = {Entities.PU_LeaderBow4, Entities.PU_LeaderRifle2}
 	SetupArmy(army)
@@ -189,7 +196,7 @@ function CreateArmyP6_3()
     army.id 		= GetFirstFreeArmySlot(6)
     army.strength 	= round(5-gvDiffLVL)
     army.position 	= GetPosition("BanditSpawn3")
-    army.rodeLength = 4200
+    army.rodeLength = 8200
 	army.building	= GetID("BanditTower3")
 	army.trooptypes = {Entities.CU_Barbarian_LeaderClub2}
 	SetupArmy(army)
@@ -211,7 +218,7 @@ function CreateArmyP6_4()
     army.id 		= GetFirstFreeArmySlot(6)
     army.strength 	= round(7-gvDiffLVL)
     army.position 	= GetPosition("BanditSpawn4")
-    army.rodeLength = 6000
+    army.rodeLength = 6400
 	army.building 	= GetID("BanditTower4")
 	army.trooptypes = {Entities.PU_LeaderCavalry2, Entities.PU_LeaderHeavyCavalry2}
 	SetupArmy(army)
@@ -240,7 +247,7 @@ function CreateArmyP6_5()
     army.id 		= GetFirstFreeArmySlot(6)
     army.strength 	= round(7-gvDiffLVL)
     army.position 	= GetPosition("BanditSpawn5")
-    army.rodeLength = 6000
+    army.rodeLength = 9000
 	army.building 	= GetID("BanditTower5")
 	army.trooptypes = {Entities.PU_LeaderPoleArm4, Entities.PU_LeaderPoleArm3}
 	SetupArmy(army)
@@ -271,7 +278,7 @@ function CreateArmyP6_6()
     army.id 		= GetFirstFreeArmySlot(6)
     army.strength 	= round(7-gvDiffLVL)
     army.position 	= GetPosition("Eisenspawn")
-    army.rodeLength = 4000
+    army.rodeLength = 5000
 	army.building 	= GetID("Eisenmine")
 	army.trooptypes = {Entities.PU_LeaderBow3, Entities.PU_LeaderBow4}
 	SetupArmy(army)
@@ -468,7 +475,7 @@ function CreateArmyP7_3()
     army.player 	= 7
     army.id 		= GetFirstFreeArmySlot(7)
     army.strength 	= round(8-gvDiffLVL)
-    army.position 	= GetPosition("KerberosBaseSpawn")
+    army.position 	= GetPosition("DarkCastleDef")
     army.rodeLength = 12500
 	army.building 	= GetID("KerberosHQ1")
 	army.trooptypes = {Entities.PU_LeaderSword4, Entities.PU_LeaderPoleArm4, Entities.PU_LeaderBow4}
@@ -507,7 +514,7 @@ function CreateArmyP7_4()
     army.player 	= 7
     army.id 		= GetFirstFreeArmySlot(7)
     army.strength 	= round(6-gvDiffLVL)
-    army.position 	= GetPosition("KerberosBaseSpawn")
+    army.position 	= GetPosition("KerberosCitadelDef")
     army.rodeLength = 11500
 	army.building 	= GetID("KerberosHQ2")
 	army.trooptypes = {Entities.PV_Cannon3}
@@ -529,8 +536,8 @@ function CreateArmyP7_5()
     army.player 	= 7
     army.id 		= GetFirstFreeArmySlot(7)
     army.strength 	= round(5-gvDiffLVL)
-    army.position 	= GetPosition("KerberosBaseSpawn")
-    army.rodeLength = 4500
+    army.position 	= GetPosition("DarkCastleDef")
+    army.rodeLength = 5500
 	army.building 	= GetID("KerberosHQ1")
 	army.trooptypes = {Entities["PV_Cannon" .. 8 - (2*gvDiffLVL)]}
 	SetupArmy(army)
@@ -551,7 +558,7 @@ function CreateArmyP7_6()
     army.player 	= 7
     army.id 		= GetFirstFreeArmySlot(7)
     army.strength 	= round(7-gvDiffLVL)
-    army.position 	= GetPosition("KerberosBaseSpawn")
+    army.position 	= GetPosition("KerberosCitadelDef")
     army.rodeLength = 14500
 	army.building 	= GetID("KerberosHQ2")
 	army.trooptypes = {Entities.PU_LeaderRifle2, Entities.CU_BlackKnight_LeaderSword3}
@@ -579,8 +586,8 @@ function CreateArmyP7_7()
     army.player 	= 7
     army.id 		= GetFirstFreeArmySlot(7)
     army.strength 	= round(6-gvDiffLVL)
-    army.position 	= GetPosition("KerberosBaseSpawn")
-    army.rodeLength = 11500
+    army.position 	= GetPosition("DarkCastleDef")
+    army.rodeLength = 12500
 	army.building 	= GetID("KerberosHQ1")
 	army.trooptypes = {Entities.CU_VeteranMajor}
 	SetupArmy(army)
@@ -594,6 +601,79 @@ function CreateArmyP7_7()
 	end
     --
     Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","ControlRespawningArmies",1,{},{army.player, army.id, army.building, 0, unpack(army.trooptypes)})
+end
+--------------------------------------------------------------------------------------------------------------------
+function CreatePatrolArmy7_1()
+
+	local army		= {}
+    army.player 	= 7
+    army.id 		= GetFirstFreeArmySlot(7)
+    army.strength 	= round(14-2*gvDiffLVL)
+	army.spawnPosition 	= GetPosition("LighthouseDefend")
+    army.position 	= GetPosition("LighthouseDefend")
+    army.rodeLength = 5000
+	army.building 	= GetID("Lighthouse")
+	army.trooptypes = {Entities.PU_LeaderBow4, Entities.PU_LeaderCavalry2}
+	--
+	army.PatrolPoints = {GetPosition("LighthouseRoute")}
+	army.PatrolPoints[1].WaitTime = 45
+	--
+	SetupArmy(army)
+
+    for i = 1, army.strength,1 do
+	    EnlargeArmy(army, {leaderType = army.trooptypes[math.random(table.getn(army.trooptypes))]})
+	end
+    Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","ControlRespawningArmies",1,{},{army.player, army.id, army.building, 3, unpack(army.trooptypes)})
+end
+function CreatePatrolArmy6_1()
+
+	local army		= {}
+    army.player 	= 6
+    army.id 		= GetFirstFreeArmySlot(6)
+    army.strength 	= round(12-2*gvDiffLVL)
+	army.spawnPosition 	= GetPosition("Barbaren")
+    army.position 	= GetPosition("Barbaren")
+    army.rodeLength = 5000
+	army.building 	= GetID("VargHaupt")
+	army.trooptypes = {Entities.CU_Barbarian_LeaderClub2, Entities.CU_VeteranLieutenant}
+	--
+	army.PatrolPoints = {GetPosition("Varg_Haupt")}
+	army.PatrolPoints[1].WaitTime = 45
+	--
+	SetupArmy(army)
+
+    for i = 1, army.strength,1 do
+	    EnlargeArmy(army, {leaderType = army.trooptypes[math.random(table.getn(army.trooptypes))]})
+	end
+    Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","ControlRespawningArmies",1,{},{army.player, army.id, army.building, 3, unpack(army.trooptypes)})
+end
+function CreatePatrolArmy6_2()
+
+	local army		= {}
+    army.player 	= 6
+    army.id 		= GetFirstFreeArmySlot(6)
+    army.strength 	= round(16-2*gvDiffLVL)
+	army.spawnPosition 	= GetPosition("VargHQDefense")
+    army.position 	= GetPosition("VargHQDefense")
+    army.rodeLength = 6000
+	army.building 	= GetID("VargHQ")
+	army.trooptypes = {Entities.CU_Barbarian_LeaderClub2, Entities.CU_VeteranLieutenant}
+	--
+	army.Patrol = {HomePositionWaitTime = 80}
+	army.PatrolPoints = {}
+	table.insert(army.PatrolPoints, GetPosition("BanditSpawn6"))
+	army.PatrolPoints[1].WaitTime = 55
+	table.insert(army.PatrolPoints, GetPosition("BanditSpawn7"))
+	army.PatrolPoints[2].WaitTime = 80
+	table.insert(army.PatrolPoints, GetPosition("VargFortressDefense"))
+	army.PatrolPoints[3].WaitTime = 80
+	--
+	SetupArmy(army)
+
+    for i = 1, army.strength,1 do
+	    EnlargeArmy(army, {leaderType = army.trooptypes[math.random(table.getn(army.trooptypes))]})
+	end
+    Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","ControlRespawningArmies",1,{},{army.player, army.id, army.building, 3, unpack(army.trooptypes)})
 end
 
 function Extra()
@@ -650,7 +730,7 @@ ChestSurpriseTroopTypes = {Entities.CU_VeteranLieutenant, Entities.CU_Barbarian_
 function ChestSurprise(_player, _pos, _strength)
 	local army = {}
 	army.player = _player
-	army.id = GetFirstFreeArmySlot(8)
+	army.id = GetFirstFreeArmySlot(_player)
 	army.position = _pos
 	army.strength = _strength
 	army.rodeLength = Logic.WorldGetSize()
@@ -660,6 +740,83 @@ function ChestSurprise(_player, _pos, _strength)
 	end
 	Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","ControlGenericArmies",1,{},{army.player, army.id})
 end
+function CreateRuinAmbushArmy(_index)
+	local army = {}
+	army.player = 2
+	army.id = GetFirstFreeArmySlot(2)
+	army.position = GetPosition("Ruinspawn")
+	army.strength = round(4 - gvDiffLVL + math.random(1, 5 - gvDiffLVL))
+	army.rodeLength = Logic.WorldGetSize()
+	SetupArmy(army)
+	for i = 1, army.strength do
+		EnlargeArmy(army, {leaderType = ChestSurpriseTroopTypes[math.random(table.getn(ChestSurpriseTroopTypes))]})
+	end
+	Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","ControlGenericArmies",1,{},{army.player, army.id})
+end
+AmbushSiegeTroopTypes = {Entities.CU_VeteranMajor, Entities.CU_BlackKnight_LeaderMace2, Entities.CU_BlackKnight_LeaderSword3, Entities.PU_LeaderBow4,
+	Entities.PV_Cannon2, Entities.PV_Cannon4, Entities.PV_Cannon5}
+if gvDiffLVL <= 1 then
+	table.insert(AmbushSiegeTroopTypes, Entities.PV_Cannon6)
+end
+function KerbFinalAmbushArmy()
+	do
+		local army = {}
+		army.player = 7
+		army.id = GetFirstFreeArmySlot(7)
+		army.position = GetPosition("Extra")
+		army.strength = round(24 - 4 * gvDiffLVL + math.random(1, 5 - gvDiffLVL))
+		army.rodeLength = Logic.WorldGetSize()
+		SetupArmy(army)
+		for i = 1, army.strength do
+			EnlargeArmy(army, {leaderType = AmbushSiegeTroopTypes[math.random(table.getn(AmbushSiegeTroopTypes))]})
+		end
+		Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","ControlGenericArmies",1,{},{army.player, army.id})
+	end
+	--
+	do
+		local army = {}
+		army.player = 7
+		army.id = GetFirstFreeArmySlot(7)
+		army.position = GetPosition("KerbAmbush")
+		army.strength = round(20 - 4 * gvDiffLVL + math.random(1, 5 - gvDiffLVL))
+		army.rodeLength = Logic.WorldGetSize()
+		SetupArmy(army)
+		for i = 1, army.strength do
+			EnlargeArmy(army, {leaderType = AmbushSiegeTroopTypes[math.random(table.getn(AmbushSiegeTroopTypes))]})
+		end
+		Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","ControlGenericArmies",1,{},{army.player, army.id})
+	end
+end
+function CreateVikRevolutionArmy()
+	local vikPlayer = 6
+	for i = 1, 3 do
+		local army = {}
+		army.player = vikPlayer
+		army.id = GetFirstFreeArmySlot(vikPlayer)
+		army.position = GetPosition("vik_settler" .. i)
+		army.strength = round(4-gvDiffLVL)
+		army.rodeLength = Logic.WorldGetSize()
+		SetupArmy(army)
+		for j = 1, army.strength do
+			EnlargeArmy(army, {leaderType = Entities.CU_VeteranLieutenant})
+		end
+		Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","ControlGenericArmies",1,{},{army.player, army.id})
+	end
+	--
+	for i = 1, 4 do
+		local army = {}
+		army.player = vikPlayer
+		army.id = GetFirstFreeArmySlot(vikPlayer)
+		army.position = GetPosition("vik_farmer" .. i)
+		army.strength = round(4-gvDiffLVL)
+		army.rodeLength = Logic.WorldGetSize()
+		SetupArmy(army)
+		for j = 1, army.strength do
+			EnlargeArmy(army, {leaderType = Entities.CU_VeteranLieutenant})
+		end
+		Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","ControlGenericArmies",1,{},{army.player, army.id})
+	end
+end
 function Attack_1()
 
 	sub_armies_aggressive = 1
@@ -667,24 +824,71 @@ function Attack_1()
 	StartWinter(5*60)
 end
 function Attack_2_Vorb()
-	StartCountdown(math.floor(87*60*math.sqrt(gvDiffLVL)),Attack_2,true)
+	local briefing = {}
+	local AP, ASP = AddPages(briefing)
+	ASP("Kerberos",ker,"Die Nordfeste leistet mehr Widerstand als erwartet.", false)
+	ASP("Lighthouse",ker,"Los meine Mannen. @cr Gebt das Signal, sodass sich alle verstreuten Schergen hier einfinden. @cr Schon bald wird die Nordfeste unser sein!", false)
+	ASP("fireguard",kerlhg,"Das Leuchtfeuer brennt bereits. @cr Schon bald werden weitere unserer Krieger das Nordmeer erreichen!", false)
+	ASP("Feste",ment,"Oh weh, das klingt gar nicht gut. @cr Eilt euch Herr, sonst ist die Nordfeste verloren!", false)
+	briefing.finished = function()
+		ChangePlayer("fireguard", 7)
+		EnableNpcMarker(GetEntityId("scout"))
+		Scout()
+		KerbCounter = StartCountdown(math.floor(120*60*math.sqrt(gvDiffLVL)),Attack_2, true)
+		Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_HURT_ENTITY, "", "DecreaseKerbCounter", 1)
+	end;
+	StartBriefing(briefing)
+end
+function DecreaseKerbCounter()
+	local entityID = Event.GetEntityID2()
+	local player = Logic.EntityGetPlayer(entityID)
+	local val = 0
+	if player == 2 or player == 6 or player == 8 then
+		local dmg = CEntity.TriggerGetDamage()
+		local health = Logic.GetEntityHealth(entityID)
+		if dmg >= health then
+			if Logic.IsBuilding(entityID) == 1 and Logic.IsConstructionComplete(entityID) == 1 then
+				if Logic.IsEntityInCategory(entityID, EntityCategories.MilitaryBuilding) == 1 then
+					val = 120
+				else
+					val = 30
+				end
+			elseif Logic.IsLeader(entityID) == 1 then
+				val = 10
+			end
+			CounterData = Counter["counter" .. KerbCounter]
+			CounterData.TickCount = math.min(CounterData.TickCount + val, CounterData.Limit)
+			GUIQuestTools.UltimatumStartTime = GUIQuestTools.UltimatumStartTime - val
+			if CounterData.TickCount >= CounterData.Limit then
+				return true
+			end
+		end
+	end
 end
 function Attack_2()
 
 	main_armies_aggressive = 1
+	if IsExisting("KerbBarrier") then
+		ReplaceEntity("KerbGate1", Entities.XD_WallStraightGate)
+		ReplaceEntity("KerbGate2", Entities.XD_WallStraightGate)
+		DestroyEntity("KerbBarrier")
+	end
+	--
 	if IsExisting("fireguard") then
 		LighthouseSupply()
 	end
 	SnowyDays_Start()
 
-	ForbidTechnology(Technologies.T_MakeSnow,1)
+	ForbidTechnology(Technologies.T_MakeSummer,1)
+	ForbidTechnology(Technologies.T_MakeRain,1)
+	ForbidTechnology(Technologies.T_MakeThunderstorm,1)
 end
 function SnowyDays_Start()
 	StartWinter(10*60)
 	StartCountdown(15*60,SnowyDays_Start,false)
 end
 function LighthouseSupplyVorb()
-	StartCountdown(60*60*math.sqrt(gvDiffLVL),LighthouseSupply,true)
+	LighthouseSupplyCounter = StartCountdown(60*60*math.sqrt(gvDiffLVL),LighthouseSupply,true)
 end
 LighthouseTroopTypes = {Entities.PU_LeaderHeavyCavalry2, Entities.PU_LeaderSword4, Entities.CU_BlackKnight_LeaderSword3, Entities.CU_VeteranMajor, Entities.PU_LeaderBow4}
 function LighthouseSupply()
@@ -722,12 +926,7 @@ function UpgradeKIa()
 		Logic.UpgradeSettlerCategory(UpgradeCategories.LeaderSword,i)
 		Logic.UpgradeSettlerCategory(UpgradeCategories.SoldierSword,i)
 
-		ResearchTechnology(Technologies.T_SoftArcherArmor,i)
-		ResearchTechnology(Technologies.T_LeatherMailArmor,i)
-		ResearchTechnology(Technologies.T_BetterTrainingBarracks,i)
-		ResearchTechnology(Technologies.T_BetterTrainingArchery,i)
-		ResearchTechnology(Technologies.T_Shoeing,i)
-		ResearchTechnology(Technologies.T_BetterChassis,i)
+		ResearchTroopUpgrades(i, true, true, false, false)
 	end
 	StartCountdown(90+(30*gvDiffLVL)*60,UpgradeKIb,false)
 end
@@ -746,18 +945,7 @@ function UpgradeKIb()
 		Logic.UpgradeSettlerCategory(UpgradeCategories.LeaderHeavyCavalry,i)
 		Logic.UpgradeSettlerCategory(UpgradeCategories.SoldierHeavyCavalry,i)
 
-		ResearchTechnology(Technologies.T_WoodAging,i)
-		ResearchTechnology(Technologies.T_Turnery,i)
-		ResearchTechnology(Technologies.T_MasterOfSmithery,i)
-		ResearchTechnology(Technologies.T_IronCasting,i)
-		ResearchTechnology(Technologies.T_Fletching,i)
-		ResearchTechnology(Technologies.T_BodkinArrow,i)
-		ResearchTechnology(Technologies.T_EnhancedGunPowder,i)
-		ResearchTechnology(Technologies.T_BlisteringCannonballs,i)
-		ResearchTechnology(Technologies.T_PaddedArcherArmor,i)
-		ResearchTechnology(Technologies.T_LeatherArcherArmor,i)
-		ResearchTechnology(Technologies.T_ChainMailArmor,i)
-		ResearchTechnology(Technologies.T_PlateMailArmor,i)
+		ResearchTroopUpgrades(i, false, false, true, false)
 	end
 	StartCountdown(150+(30*gvDiffLVL)*60,UpgradeKIc,false)
 end
@@ -770,14 +958,7 @@ function UpgradeKIc()
 		Logic.UpgradeSettlerCategory(UpgradeCategories.LeaderSword,i)
 		Logic.UpgradeSettlerCategory(UpgradeCategories.SoldierSword,i)
 
-		ResearchTechnology(Technologies.T_SilverSwords,i)
-		ResearchTechnology(Technologies.T_SilverBullets,i)
-		ResearchTechnology(Technologies.T_SilverMissiles,i)
-		ResearchTechnology(Technologies.T_SilverPlateArmor,i)
-		ResearchTechnology(Technologies.T_SilverArcherArmor,i)
-		ResearchTechnology(Technologies.T_SilverArrows,i)
-		ResearchTechnology(Technologies.T_SilverLance,i)
-		ResearchTechnology(Technologies.T_BloodRush,i)
+		ResearchTroopUpgrades(i, false, false, false, true)
 	end
 end
 function KerberosKI_Relocate()

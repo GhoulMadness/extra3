@@ -45,7 +45,7 @@
 		  <ArmorAmount>2</ArmorAmount> 
 		  <DodgeChance>0</DodgeChance> 
     	<IdleTaskList>TL_MILITARY_IDLE</IdleTaskList>
-    	<ExperiencePoints>0</ExperiencePoints>
+    	<ExperiencePoints>10</ExperiencePoints>
 
 	</Logic>
 	<Behavior>
@@ -95,7 +95,7 @@
 	        <HitAnim>CU_Barbarian_LeaderClub1_Hit</HitAnim>
 
 	        <DamageClass>DC_Strike</DamageClass>
-	        <DamageAmount>12</DamageAmount>
+	        <DamageAmount>14</DamageAmount>
 	        <MaxRandomDamageBonus>3</MaxRandomDamageBonus>
 	        
 	        <BattleWaitUntil>1600</BattleWaitUntil>

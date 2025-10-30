@@ -553,7 +553,7 @@ function DefeatJob()
 			table.insert(t, id)
 		end
 	end
-	if (Logic.GetNumberOfLeader(1) + Logic.GetNumberOfLeader(2) + Logic.GetNumberOfLeader(3) + table.getn(t3)) == 0 then
+	if (Logic.GetNumberOfLeader(1) + Logic.GetNumberOfLeader(2) + Logic.GetNumberOfLeader(3) + table.getn(t)) == 0 then
 		Defeat()
 		return true
 	end

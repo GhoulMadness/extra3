@@ -26,6 +26,7 @@
         <Category>Leader</Category>
         <Category>CavalryLight</Category>
         <Category>Melee</Category>
+		<Category>EvilLeader</Category>
 		  <AdjustWalkAnimSpeed>true</AdjustWalkAnimSpeed>
 		  <Exploration>30</Exploration>
 		  <ArmorClass>ArmorClassFur</ArmorClass>

@@ -2588,8 +2588,8 @@ function CheckSwordsmenQuestP7()
 				army.types 			= {Entities.PU_LeaderSword4}
 				SetupArmy(army)
 				for i = 1, table.getn(IDs) do
-					ChangePlayer(IDs[i], 7)
-					ConnectLeaderWithArmy(IDs[i], army)
+					local id = ChangePlayer(IDs[i], 7)
+					ConnectLeaderWithArmy(id, army)
 				end
 				Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","ControlRespawningArmies",1,{},{army.player, army.id, army.building, 0, army.respawnDelay, unpack(army.types)})
 

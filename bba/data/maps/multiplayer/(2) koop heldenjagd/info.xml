@@ -9,9 +9,9 @@
  <MPFlag>true</MPFlag>
  <MPPlayerCount>2</MPPlayerCount>
  <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
- <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop heldenjagd</MiniMapTextureName>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\externalmap</MiniMapTextureName>
  <Key>3</Key>
  <GUID>
-  <Data>198d6f8a-8234-4181-838f-1bc032927051</Data>
+  <Data>6d8c6488-c65c-457b-9cc3-91bcaef104ae</Data>
  </GUID>
 </root>

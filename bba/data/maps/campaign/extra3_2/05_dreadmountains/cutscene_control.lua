@@ -54,6 +54,54 @@ end
 function Cutscene_Intro_End()
 	Mission_EndMovie()
 end
+-----------------------------------------------------------------------------------------------------------------------
+--
+--	CUTSCENE: "OUTRO"
+--
+-----------------------------------------------------------------------------------------------------------------------
+function Cutscene_Outro_Init()
+	Mission_InitMovie()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Outro_Start()
+	Cutscene_Outro_Init()
+end
+------------------------------------------------------------------------------------
+------------------------------ Cutscene Data ---------------------------------------
+function Cutscene_Outro_Text1()
+	GUIAction_DisplayCinematicText("CM08_05_DreadMountains/Cutscene_Outro_Text1")
+end
+function Cutscene_Outro_Text2()
+	GUIAction_DisplayCinematicText("CM08_05_DreadMountains/Cutscene_Outro_Text2")
+end
+function Cutscene_Outro_Text3()
+	GUIAction_DisplayCinematicText("CM08_05_DreadMountains/Cutscene_Outro_Text3")
+end
+function Cutscene_Outro_Text4()
+	GUIAction_DisplayCinematicText("CM08_05_DreadMountains/Cutscene_Outro_Text4")
+end
+function Cutscene_Outro_Text5()
+	GUIAction_DisplayCinematicText("CM08_05_DreadMountains/Cutscene_Outro_Text5")
+end
+function Cutscene_Outro_Text6()
+	GUIAction_DisplayCinematicText("CM08_05_DreadMountains/Cutscene_Outro_Text6")
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Outro_Finished()
+	Cutscene_Outro_End()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Outro_Cancel()
+	Cutscene_Outro_End()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Outro_SetView()
+
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Outro_End()
+	Mission_EndMovie()
+end
 -------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------
 --*********************************************************************************************

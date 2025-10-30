@@ -63,9 +63,9 @@
 
         <Category>Military</Category>
         <Category>Leader</Category>
-        <Category>Sword</Category>
         <Category>Melee</Category>
         <Category>EvilLeader</Category>
+		<Category>Cannon</Category>
 		  <AdjustWalkAnimSpeed>true</AdjustWalkAnimSpeed>
 		  <Exploration>20</Exploration>
 		  <ArmorClass>ArmorClassFur</ArmorClass>
@@ -127,7 +127,7 @@
 
 	        <BattleWaitUntil>2000</BattleWaitUntil>
 
-	        <MaxRange>350</MaxRange>
+	        <MaxRange>600</MaxRange>
 	        <MinRange>0.0f</MinRange>
 	        <AutoAttackRange>2000</AutoAttackRange>
 

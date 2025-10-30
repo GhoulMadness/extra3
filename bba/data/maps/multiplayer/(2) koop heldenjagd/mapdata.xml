@@ -213590,10 +213590,10 @@
    <Scale>9.284219e-001</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>PB_Barracks1</Type>
+   <Type>PB_Archery1</Type>
    <Position>
-    <X>5.480000e+004</X>
-    <Y>2.690000e+004</Y>
+    <X>4.340000e+004</X>
+    <Y>2.740000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -249815,21 +249815,6 @@
    <Scale>1.101694e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_Plant2</Type>
-   <Position>
-    <X>4.401059e+004</X>
-    <Y>2.668682e+004</Y>
-   </Position>
-   <Orientation>2.947282e+002</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.166820e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_MiscTent1</Type>
    <Position>
     <X>4.328000e+004</X>
@@ -250668,36 +250653,6 @@
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.137364e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GreeneryBushHigh4</Type>
-   <Position>
-    <X>4.419920e+004</X>
-    <Y>2.673020e+004</Y>
-   </Position>
-   <Orientation>3.053853e+002</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.037385e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GreeneryVertical2</Type>
-   <Position>
-    <X>4.425275e+004</X>
-    <Y>2.854771e+004</Y>
-   </Position>
-   <Orientation>2.189971e+002</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.122385e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GreeneryBushHigh3</Type>
@@ -382953,21 +382908,6 @@
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType>AS_Campfire</AmbientSoundType>
    <Scale>5.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XS_Ambient</Type>
-   <Position>
-    <X>4.259803e+004</X>
-    <Y>2.678502e+004</Y>
-   </Position>
-   <Orientation>0.000000e+000</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
-   <Health>100</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType>AS_ForestEuropeDayTime</AmbientSoundType>
-   <Scale>2.500000e+001</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XS_Ambient</Type>

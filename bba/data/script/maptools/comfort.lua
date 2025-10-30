@@ -32,7 +32,7 @@ function StartBriefing(_briefing)
 		ExecuteBriefing(backupBriefing[1])
 		end
 	end
-	
+
 -------------------------------------------------------------------------------------------------------
 -- Resolve briefing page, hide exploration, remove marker, resolve quests etc. of given page.
 -- @param _page Table page that should be resolved.
@@ -89,12 +89,12 @@ function ResolveBriefing(_page)
 
 		if _page.explore ~= nil then
 			assert(_page.position ~= nil)
-			
+
 			if Game.IsDebugVersion() == 1 then
 			assert(_page.exploreId ~= nil)
 			end
-			
-			if _page.exploreId ~= 0 and _page.exploreId ~= nil then		
+
+			if _page.exploreId ~= 0 and _page.exploreId ~= nil then
 				Logic.DestroyEntity(_page.exploreId)
 				end
 			end
@@ -106,7 +106,7 @@ function ResolveBriefing(_page)
 			end
 
 	end
-	
+
 -------------------------------------------------------------------------------------------------------
 -- Creates a chest at every position, which is specified by an entity.  The entity needs a naming.
 -- syntax: GoldChest<number>. eg. GoldChest1 , GoldChest2 , GoldChest3 , ...
@@ -223,7 +223,7 @@ end
 function StartChestQuest()
 	StartJob("ChestJob")
 end
-	
+
 -------------------------------------------------------------------------------------------------------
 -- Returns the logic Id of an entity.
 -- @param _name String with the name of the entity.
@@ -270,23 +270,28 @@ function IsNear(_entity,_target,_distance)
 
 function ReplaceEntity(_Entity, _EntityType)
 	local entityId      = GetID(_Entity)
-	local pos 			= GetPosition(_Entity)
+	local pos 			= GetPosition(entityId)
 	local name 			= Logic.GetEntityName(entityId)
 	local player 		= Logic.EntityGetPlayer(entityId)
 	local orientation 	= Logic.GetEntityOrientation(entityId)
-	local wasSelected	= IsEntitySelected(_Entity)
+	local scale 		= GetEntitySize(entityId)
+	local wasSelected	= IsEntitySelected(entityId)
 	if wasSelected then
 		GUI.DeselectEntity(entityId)
-    	end
-	DestroyEntity(_Entity)
+    end
+	DestroyEntity(entityId)
 	local newEntityId = Logic.CreateEntity(_EntityType,pos.X,pos.Y,orientation,player)
+	assert(newEntityId > 0, "creating new entity failed!")
 	Logic.SetEntityName(newEntityId, name)
+	if scale ~= 1 then
+		SetEntitySize(newEntityId, scale)
+	end
 	if wasSelected then
 		GUI.SelectEntity(newEntityId)
-    	end
+    end
 	GroupSelection_EntityIDChanged(entityId, newEntityId)
 	return newEntityId
-    end
+end
 
 -------------------------------------------------------------------------------------------------------
 -- Informs the game about the victory of the human player.
@@ -297,7 +302,7 @@ function Victory()
 		Logic.PlayerSetGameStateToWon(gvMission.PlayerID)
     	end
 	do
-		
+
 		if SetGDBFlagForExtraCampaign ~= nil then
 			SetGDBFlagForExtraCampaign()
 		else
@@ -309,8 +314,8 @@ function Victory()
 			GDB.SetValue( KeyName, 1 )
 	    	end
 	    end
-    	
-    	
+
+
 	end
 
 -------------------------------------------------------------------------------------------------------
@@ -393,12 +398,12 @@ function SetPosition(_entity,_position)
 	local entityId = GetEntityId(_entity)
 	--	check entity
 		assert(entityId ~= 0)
-		
+
 		if (Logic.IsLeader(entityId) ~= 0) then
 			assert(Logic.LeaderGetNumberOfSoldiers(entityId) == 0)
 		end
-		
-				
+
+
 	--	collect information about entity
 		local health 		= Logic.GetEntityHealth(entityId)
 		local maxHealth 	= Logic.GetEntityMaxHealth(entityId)
@@ -1432,7 +1437,7 @@ function CreateNPC(_npc)
 
 	local npcId = GetEntityId(_npc.name)
 	assert(npcId~=0)
-	
+
 	NPC[npcId] 				= _npc
 
 	InitNPCLookAt(_npc.name)
@@ -1457,7 +1462,7 @@ function DestroyNPC(_npc)
 	NPC[npcId] = nil
 	DisableNpcMarker(_npc.name)
 	InitNPC(_npc.name)
-	
+
 end
 
 -------------------------------------------------------------------------------------------------------
@@ -1471,7 +1476,7 @@ function TalkedToNPC(_npc)
 
 	local npcId = GetEntityId(_npc.name)
 	assert(npcId~=0)
-	
+
 	if NPC[npcId] ~= nil then
 		return NPC[npcId].talkedTo == true
 	else
@@ -1490,7 +1495,7 @@ end
 function GetEntityName(_entity)
 
 	local id = GetEntityId(_entity)
-	
+
 	if id ~= 0 then
 		return Logic.GetEntityName(id)
 	end
@@ -1507,7 +1512,7 @@ end
 function SetEntityName(_entity, _name)
 
 	local id = GetEntityId(_entity)
-	
+
 	if id ~= 0 then
 		Logic.SetEntityName(id, _name)
 	end
@@ -1528,11 +1533,11 @@ end
 function CreateMilitaryGroup(_player,_entity,_soldiers,_position,_name,_lookAt)
 
 	local id = Tools.CreateGroup(_player, _entity, _soldiers, _position.X, _position.Y,0)
-	
+
 	if _name ~= nil then
 		SetEntityName(id,_name)
 	end
-	
+
 	if _lookAt ~= nil then
 		LookAt(id,_lookAt)
 	end
@@ -1574,7 +1579,7 @@ function CheckForSilverWeapons()
 	end
 end
 function CheckForGreatTactician()
-	if GetPlayerKillStatisticsProperties(1, 0) >= 10000 
+	if GetPlayerKillStatisticsProperties(1, 0) >= 10000
 	and GetPlayerKillStatisticsProperties(1, 0) <= 100 then
 		Message("Ihr habt mindestens 10.000 Feinde besiegt und dabei maximal 100 Soldaten verloren. Herzlichen Glückwunsch!")
 		GDB.SetValue("achievements\\killingspree", 1)

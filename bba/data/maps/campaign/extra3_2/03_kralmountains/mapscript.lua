@@ -127,6 +127,12 @@ function FirstMapAction()
 	LocalMusic.UseSet = DARKMOORMUSIC
 	gvDayCycleStartTime = Logic.GetTime()
 	TagNachtZyklus(32,1,1,(0-gvDiffLVL))
+	--
+	for eID in CEntityIterator.Iterator(CEntityIterator.OfAnyTypeFilter(Entities.XD_WallStraightGate, Entities.XD_WallStraightGate_Closed, Entities.XD_WallStraight,
+	Entities.XD_WallDistorted, Entities.XD_WallCorner, Entities.XD_DarkWallStraight, Entities.XD_DarkWallStraightGate, Entities.XD_DarkWallStraightGate_Closed,
+	Entities.XD_DarkWallDistorted, Entities.XD_DarkWallCorner)) do
+		ChangePlayer(eID, 6)
+	end
 end
 function FarbigeNamen()
 	orange 	= " @color:255,127,0 "
@@ -201,7 +207,7 @@ function Start()
 		{id = 3, position = GetPosition("P3_Spawn4"), building = GetID("KerberosBurg"),
 		troops = {}, rodeLength = 5500, strength = 10}},
 		[4] = {{id = 0, position = GetPosition("Wik2"), building = GetID("VikTower1"),
-		troops = {}, rodeLength = 3700, strength = 8},
+		troops = {}, rodeLength = 4300, strength = 8},
 		{id = 1, position = GetPosition("VikSpawn2"), building = GetID("VikTower2"),
 		troops = {}, rodeLength = 3700, strength = 6},
 		{id = 2, position = GetPosition("VikSpawn3"), building = GetID("VikTower3"),
@@ -424,11 +430,11 @@ function IncreaseAIStrength()
 		end
 	end
 	MapEditor_Armies[2].offensiveArmies.strength = MapEditor_Armies[2].offensiveArmies.strength + 2
-	StartCountdown(10 + (10*gvDiffLVL), IncreaseAIStrengthAgain, false)
+	StartCountdown(10 + (10*gvDiffLVL) * 60, IncreaseAIStrengthAgain, false)
 end
 function IncreaseAIStrengthAgain()
 	MapEditor_Armies[2].offensiveArmies.strength = MapEditor_Armies[2].offensiveArmies.strength + 1
-	StartCountdown(10 + (10*gvDiffLVL), IncreaseAIStrengthAgain, false)
+	StartCountdown(10 + (10*gvDiffLVL) * 60, IncreaseAIStrengthAgain, false)
 end
 function DarioQuest()
 	quest	= {
@@ -2120,6 +2126,201 @@ function CheckForRocksDestroyed()
 end
 
 --**********Abschnitt  Comfortfunctionen:**********--
+Briefing = function(_page,_firstPage)
+
+	--	by default
+
+	--	disable following camera
+
+	Camera.FollowEntity(0)
+
+	--	quest activated?
+
+	if _page.quest ~= nil then
+
+		assert(_page.quest.id 		~= nil)
+		assert(_page.quest.type 	~= nil)
+		assert(_page.quest.title 	~= nil)
+		assert(_page.quest.text 	~= nil)
+
+		-- position to quest
+		if _page.position ~= nil and _page.noScrolling ~= true then
+
+			Logic.AddQuestEx(
+				1,
+				_page.quest.id,
+				_page.quest.type,
+				_page.quest.title,
+				_page.quest.text,
+				_page.position.X,
+				_page.position.Y,
+				1
+			)
+
+		else
+
+			Logic.AddQuest(
+				1,
+				_page.quest.id,
+				_page.quest.type,
+				_page.quest.title,
+				_page.quest.text,
+				1
+			)
+
+		end
+	end
+
+	--	exploration activated?
+
+	if _page.explore ~= nil then
+		assert(_page.position ~= nil)
+		assert(_page.exploreId == nil)
+		_page.exploreId = GlobalMissionScripting.ExploreArea(_page.position.X,_page.position.Y,_page.explore / 100)
+		Logic.ForceFullExplorationUpdate()
+		assert(_page.exploreId ~= 0)
+	end
+
+	--	create minimap marker?
+
+	if _page.marker ~= nil then
+
+		if type(_page.marker) == "table" then
+
+			table.foreach(_page.marker, function(_,_marker) ShowBriefingMarker(_marker) end)
+
+		else
+
+			ShowBriefingMarker(_page)
+
+		end
+
+	end
+
+	--	position available?
+
+	if _page.position ~= nil then
+
+		--	deploy the camera directly, for the first page of the briefing report
+
+		if _page.noScrolling == nil then
+
+			if _page.dialogCamera == true then
+
+				Camera.ZoomSetDistance(DIALOG_ZOOMDISTANCE)
+				Camera.ZoomSetAngle(DIALOG_ZOOMANGLE)
+
+			else
+
+				Camera.ZoomSetDistance(BRIEFING_ZOOMDISTANCE)
+				Camera.ZoomSetAngle(BRIEFING_ZOOMANGLE)
+
+			end
+
+			Camera.ScrollSetLookAt(_page.position.X,_page.position.Y)
+
+		end
+
+		--	deploy minimap signal
+
+		GUI.ScriptSignal(_page.position.X,_page.position.Y,0)
+
+	end
+
+	--	npc available?
+
+	if _page.npc ~= nil then
+
+		if _page.npc.id ~= nil then
+
+			if _page.npc.isObserved == true then
+
+				Camera.FollowEntity(_page.npc.id)
+
+
+				if _page.dialogCamera == true then
+
+					Camera.ZoomSetDistance(DIALOG_ZOOMDISTANCE)
+					Camera.ZoomSetAngle(DIALOG_ZOOMANGLE)
+
+				else
+
+					Camera.ZoomSetDistance(BRIEFING_ZOOMDISTANCE)
+					Camera.ZoomSetAngle(BRIEFING_ZOOMANGLE)
+
+				end
+
+			end
+
+			EnableNpcMarker(_page.npc.id)
+
+		end
+
+	end
+
+	--	pointer available?
+
+	if _page.pointer ~= nil then
+
+		_page.pointerId = Logic.CreateEffect(GGL_Effects.FXTerrainPointer,_page.pointer.X,_page.pointer.Y,GUI.GetPlayerID())
+
+	end
+
+	--	stop speech
+	Stream.Stop()
+
+	-- external function
+	if Briefing_Extra ~= nil then
+		Briefing_Extra(_page, _firstPage)
+	end
+
+	--	title available?
+
+	if _page.title ~= nil then
+
+		local Title = GetBriefingTextFromStringKey(_page.title)
+
+		PrintBriefingHeadline("@color:255,250,200 "..Title)
+
+	end
+
+	--	text available?
+
+	if _page.text ~= nil then
+
+		if type(_page.text) == "table" then
+
+			briefingText = ""
+
+			table.foreach	(
+								_page.text,
+								function(_,_value)
+									local Text = GetBriefingTextFromStringKey(_value)
+
+									briefingText = briefingText..Text.."\n"
+								end
+							)
+
+			PrintBriefingText(briefingText)
+		else
+
+			local Text = GetBriefingTextFromStringKey(_page.text)
+
+			PrintBriefingText(Text)
+
+			--	start speech one tick after displaying text
+			Trigger.RequestTrigger(	Events.LOGIC_EVENT_EVERY_TURN,
+									nil,
+									"StartSpeech_Action",
+									1,
+									nil,
+									{_page.text})
+
+		end
+
+	end
+
+end
 function GetQuestId()
     gvMission.QuestId = (gvMission.QuestId or 0) + 1
     return gvMission.QuestId

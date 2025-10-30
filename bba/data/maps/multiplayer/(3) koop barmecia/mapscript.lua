@@ -10,7 +10,7 @@ gvDiffLVL = 0
 gvMapText = ""..
 		"@color:0,0,0,0 ................ @color:255,0,10   Menü @cr "..
 		" @cr @cr @cr @color:150,0,255 Ghoul @color:230,0,240 @cr (3) Barmecia "
-gvMapVersion = " v1.2 "
+gvMapVersion = " v1.21 "
 AttackTarget = {X = 59800,
 				Y = 46800}
 -- Include main function
@@ -332,6 +332,8 @@ function StartInitialize()
 			Scaremonger.MotiDebuff(_PlayerID, eType)
 		elseif eType == Entities.PB_ForestersHut1 then
 			OnForester_Created(_BuildingID)
+		elseif eType == Entities.PB_WoodcuttersHut1 then
+			OnWCutter_Created(_BuildingID)
 		elseif eType == Entities.PB_Beautification13 then
 			CUtil.AddToPlayersMotivationHardcap(_PlayerID, 0.25)
 
@@ -361,6 +363,33 @@ function StartInitialize()
 
 		elseif eType == Entities.PB_VictoryStatue4 then
 			Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_HURT_ENTITY, "", "VStatue4_CalculateDamageTrigger", 1, {}, {_BuildingID, _PlayerID})
+		elseif eType == Entities.PB_VictoryStatue5 then
+			local players = BS.GetAllEnemyPlayerIDs(_PlayerID)
+			for i = 1, table.getn(players) do
+				if CUtil.GetPlayersMotivationSoftcap(players[i]) > (2.75) then
+					CUtil.AddToPlayersMotivationSoftcap(players[i], 2.75 - CUtil.GetPlayersMotivationSoftcap(players[i]))
+				end
+			end
+			for eID in CEntityIterator.Iterator(CEntityIterator.OfAnyPlayerFilter(unpack(players)), CEntityIterator.OfCategoryFilter(EntityCategories.Worker)) do
+				CEntity.SetMotivation(eID, 2.75)
+			end
+
+		elseif eType == Entities.PB_VictoryStatue6 then
+			Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "", "VStatue6_ApplyDamageTrigger", 1, {}, {_BuildingID, _PlayerID})
+
+		elseif eType == Entities.PB_VictoryStatue7 then
+			gvVStatue7.Countdown[_PlayerID] = StartCountdown(10*60, gvVStatue7.VictoryTimer, true, "VStatue7_Victory_".. _PlayerID, _PlayerID)
+
+		elseif eType == Entities.PB_VictoryStatue8 then
+			Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_HURT_ENTITY, "", "VStatue8_CalculateDamageTrigger", 1, {}, {_BuildingID, _PlayerID})
+
+		elseif eType == Entities.PB_VictoryStatue9 then
+			gvVStatue9.Amount[_PlayerID] = gvVStatue9.Amount[_PlayerID] + 1
+
+		elseif eType == Entities.PB_Beautification_Anniversary20 then
+			local pos = {Logic.GetEntityPosition(_BuildingID)}
+			Logic.CreateEffect(GGL_Effects.FXAnni20Fireworks, pos[1], pos[2])
+			gvAnnivStatue20[_PlayerID].TriggerID = Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "", "AnnivStatue_Actions", 1,{},{_BuildingID, _PlayerID, pos[1], pos[2]})
 		end
 	end
 	function DomePlaced(_posX,_posY)

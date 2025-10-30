@@ -172,8 +172,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_CherryTree</Type>
    <Position>
-    <X>9.334494e+003</X>
-    <Y>2.835832e+004</Y>
+    <X>8.820000e+003</X>
+    <Y>2.808000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -59810,16 +59810,16 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ChestGold</Type>
+   <Type>XD_ScriptEntity</Type>
    <Position>
-    <X>1.165282e+004</X>
-    <Y>9.605428e+003</Y>
+    <X>2.535139e+004</X>
+    <Y>1.584449e+004</Y>
    </Position>
-   <Orientation>8.784502e+001</Orientation>
+   <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
+   <PlayerID>2</PlayerID>
    <Health>-1</Health>
-   <Name></Name>
+   <Name>bridge_start_pos</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>
@@ -59840,16 +59840,16 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ChestGold</Type>
+   <Type>XD_ScriptEntity</Type>
    <Position>
-    <X>1.099655e+004</X>
-    <Y>1.200016e+004</Y>
+    <X>1.185829e+004</X>
+    <Y>1.329543e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
+   <PlayerID>8</PlayerID>
    <Health>-1</Health>
-   <Name></Name>
+   <Name>chest11</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>
@@ -59910,21 +59910,6 @@
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScriptEntity</Type>
-   <Position>
-    <X>1.185829e+004</X>
-    <Y>1.329543e+004</Y>
-   </Position>
-   <Orientation>0.000000e+000</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>8</PlayerID>
-   <Health>-1</Health>
-   <Name>chest9</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>
@@ -62290,7 +62275,7 @@
     <X>1.561804e+004</X>
     <Y>4.797486e+003</Y>
    </Position>
-   <Orientation>9.748463e+001</Orientation>
+   <Orientation>9.748459e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -64210,7 +64195,7 @@
     <X>1.802996e+004</X>
     <Y>7.997844e+003</Y>
    </Position>
-   <Orientation>9.859428e+001</Orientation>
+   <Orientation>9.859425e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -68740,7 +68725,7 @@
     <X>2.011807e+004</X>
     <Y>1.363444e+004</Y>
    </Position>
-   <Orientation>8.784502e+001</Orientation>
+   <Orientation>8.784500e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>8</PlayerID>
    <Health>-1</Health>
@@ -68755,7 +68740,7 @@
     <X>2.012256e+004</X>
     <Y>1.414721e+004</Y>
    </Position>
-   <Orientation>8.784502e+001</Orientation>
+   <Orientation>8.784500e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>8</PlayerID>
    <Health>-1</Health>
@@ -68800,7 +68785,7 @@
     <X>1.532322e+004</X>
     <Y>1.495388e+004</Y>
    </Position>
-   <Orientation>8.784502e+001</Orientation>
+   <Orientation>8.784500e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>8</PlayerID>
    <Health>-1</Health>
@@ -68815,7 +68800,7 @@
     <X>1.532419e+004</X>
     <Y>1.547038e+004</Y>
    </Position>
-   <Orientation>8.784502e+001</Orientation>
+   <Orientation>8.784500e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>8</PlayerID>
    <Health>-1</Health>
@@ -69595,7 +69580,7 @@
     <X>1.202000e+004</X>
     <Y>3.675550e+003</Y>
    </Position>
-   <Orientation>9.548505e+001</Orientation>
+   <Orientation>9.548504e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -73927,14 +73912,14 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_ScriptEntity</Type>
    <Position>
-    <X>9.129117e+002</X>
+    <X>9.129100e+002</X>
     <Y>1.635050e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
    <PlayerID>7</PlayerID>
    <Health>-1</Health>
-   <Name>nv_spawn1</Name>
+   <Name>ev_spawn1</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>
@@ -77587,8 +77572,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_ScriptEntity</Type>
    <Position>
-    <X>7.728052e+003</X>
-    <Y>2.043198e+004</Y>
+    <X>6.387840e+003</X>
+    <Y>2.251218e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -82087,8 +82072,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_ScriptEntity</Type>
    <Position>
-    <X>3.485830e+003</X>
-    <Y>1.480887e+004</Y>
+    <X>3.279543e+003</X>
+    <Y>1.529341e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -82102,14 +82087,14 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_ScriptEntity</Type>
    <Position>
-    <X>3.702650e+003</X>
-    <Y>1.672711e+004</Y>
+    <X>2.944261e+003</X>
+    <Y>1.706413e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
    <PlayerID>6</PlayerID>
    <Health>-1</Health>
-   <Name>ev_spawn7</Name>
+   <Name>ev_spawn8</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>
@@ -82117,8 +82102,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_ScriptEntity</Type>
    <Position>
-    <X>3.854430e+003</X>
-    <Y>1.821619e+004</Y>
+    <X>3.719737e+003</X>
+    <Y>1.854628e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -82132,8 +82117,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_ScriptEntity</Type>
    <Position>
-    <X>3.089220e+003</X>
-    <Y>1.487772e+004</Y>
+    <X>2.559417e+003</X>
+    <Y>1.489558e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -82147,14 +82132,14 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_ScriptEntity</Type>
    <Position>
-    <X>3.296060e+003</X>
-    <Y>1.682840e+004</Y>
+    <X>3.350851e+003</X>
+    <Y>1.696284e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
    <PlayerID>6</PlayerID>
    <Health>-1</Health>
-   <Name>ev_spawn8</Name>
+   <Name>ev_spawn7</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>
@@ -83890,7 +83875,7 @@
     <X>2.775460e+003</X>
     <Y>1.535362e+004</Y>
    </Position>
-   <Orientation>8.784502e+001</Orientation>
+   <Orientation>8.784500e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>

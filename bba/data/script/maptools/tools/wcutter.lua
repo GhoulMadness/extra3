@@ -465,8 +465,7 @@ WCutter.CutTree = function(_id, _treeid, _buildingID)
 	Trigger.UnrequestTrigger(WCutter.TriggerIDs.TreeDestroyed[_treeid])
 	WCutter.TriggerIDs.TreeDestroyed[_treeid] = nil
 	local newID, etype = WCutter.BlockTree(_treeid, 2)
-	_treeid = newID
-	WCutter.TriggerIDs.CutTree[_id] = Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "", "WCutter_CutTreeDelay", 1, {}, {_id, _treeid, etype, res_amount})
+	WCutter.TriggerIDs.CutTree[_id] = Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "", "WCutter_CutTreeDelay", 1, {}, {_id, newID, etype, res_amount})
 	Logic.SetTaskList(_id, TaskLists.TL_CUT_TREE)
 end
 WCutter.BlockTree = function(_treeid, _flag)
@@ -475,9 +474,13 @@ WCutter.BlockTree = function(_treeid, _flag)
 	1: soft block - tree cannot be cut but approached
 	2: hard block - tree can neither be approached nor cut
 	]]
+	if not IsValid(_treeid) then
+		LuaDebugger.Break()
+		return
+	end
 	local etype = Logic.GetEntityType(_treeid)
 	local model = Models[Logic.GetEntityTypeName(etype)] or WCutter.DefaultTreeModel
-	local newID = ReplaceEntity(_treeid, WCutter.FakeTreeType[_flag + 1])
+	local newID = ReplaceEntityWithOffset(_treeid, WCutter.FakeTreeType[_flag + 1], math.random(-2^16,2^16)/10^5, math.random(-2^16,2^16)/10^5)
 
 	SetEntityModel(newID, model)
 	return newID, etype
@@ -491,8 +494,13 @@ WCutter_CutTreeDelay = function(_id, _treeid, _tree_type, _res_amount)
 	if Counter.Tick2("WCutter_CutTreeDelay_".._id.."_".._treeid, math.min(WCutter.BaseTimeNeeded + WCutter.TimeNeededPerRess * _res_amount, WCutter.MaxTimeNeeded)) then
 		local tempID, newID
 		if IsValid(_treeid) then
-			tempID = ReplaceEntity(_treeid, _tree_type)
-			newID = WCutter.BlockTree(tempID, 1)
+			tempID = ReplaceEntityWithOffset(_treeid, _tree_type, math.random(-2^16,2^16)/10^5, math.random(-2^16,2^16)/10^5)
+			if tempID > 0 then
+				newID = WCutter.BlockTree(tempID, 1)
+			else
+				-- something went terribly wrong...
+				LuaDebugger.Break()
+			end
 		end
 		if newID then
 			Logic.SetModelAndAnimSet(newID, Models.XD_Trunk1)

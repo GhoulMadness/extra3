@@ -370,13 +370,6 @@ function SetupAri()
 	MapEditor_SetupAI(6,3,7800,1,"P6HQ",3,0)
 	MapEditor_Armies[6].defensiveArmies.strength = round(6/gvDiffLVL)
 	MapEditor_Armies[6].offensiveArmies.strength = round(25/gvDiffLVL)
-	SetupPlayerAi(6, {
-	serfLimit = round(8/gvDiffLVL),
-	extracting = 0,
-	constructing = true,
-	repairing = true,
-	rebuild = {delay = round(15*gvDiffLVL), randomTime = 1}
-	})
 	ConnectLeaderWithArmy(GetID("Ari"), nil, "defensiveArmies")
 end
 
@@ -384,13 +377,6 @@ function SetupErec()
 	MapEditor_SetupAI(3,3,Mapsize,3,"P3HQ",3,0)
 	MapEditor_Armies[3].defensiveArmies.strength = round(9/gvDiffLVL)
 	MapEditor_Armies[3].offensiveArmies.strength = round(35/gvDiffLVL)
-	SetupPlayerAi(3, {
-		serfLimit = round(9/gvDiffLVL),
-		extracting = 1,
-		constructing = true,
-		repairing = true,
-		rebuild = {delay = round(12*gvDiffLVL), randomTime = 1}
-	})
 	ConnectLeaderWithArmy(GetID("Erec"), nil, "defensiveArmies")
 
 	local army = {}
@@ -435,17 +421,9 @@ ControlArmy = function(_player, _id, _spawnGenerator)
 end
 
 function SetupSalim()
-	-- remove peacetime param
 	MapEditor_SetupAI(4,3,Mapsize,3,"P4HQ",3,0)
 	MapEditor_Armies[4].defensiveArmies.strength = round(9/gvDiffLVL)
 	MapEditor_Armies[4].offensiveArmies.strength = round(30/gvDiffLVL)
-	SetupPlayerAi(4, {
-		serfLimit = round(10/gvDiffLVL),
-		extracting = 1,
-		constructing = true,
-		repairing = true,
-		rebuild = {delay = round(10*gvDiffLVL), randomTime = 1}
-	})
 	ConnectLeaderWithArmy(GetID("Salim"), nil, "defensiveArmies")
 end
 
@@ -453,13 +431,6 @@ function SetupPilgrim()
 	MapEditor_SetupAI(5,3,Mapsize,3,"P5HQ",3,0)
 	MapEditor_Armies[5].defensiveArmies.strength = round(10/gvDiffLVL)
 	MapEditor_Armies[5].offensiveArmies.strength = round(40/gvDiffLVL)
-	SetupPlayerAi(5, {
-		serfLimit = round(6/gvDiffLVL),
-		extracting = 0,
-		constructing = true,
-		repairing = true,
-		rebuild = {delay = round(10*gvDiffLVL), randomTime = 1}
-	})
 	ConnectLeaderWithArmy(GetID("Pilgrim"), nil, "defensiveArmies")
 end
 
@@ -475,13 +446,6 @@ function SetupHelias()
 	MapEditor_SetupAI(7,3,Mapsize,3,"P7HQ",3,0)
 	MapEditor_Armies[7].defensiveArmies.strength = round(12/gvDiffLVL)
 	MapEditor_Armies[7].offensiveArmies.strength = round(50/gvDiffLVL)
-	SetupPlayerAi(7, {
-		serfLimit = round(6/gvDiffLVL),
-		extracting = 0,
-		constructing = true,
-		repairing = true,
-		rebuild = {delay = round(10*gvDiffLVL), randomTime = 1}
-	})
 	ConnectLeaderWithArmy(GetID("Helias"), nil, "defensiveArmies")
 	--
 	local army = {}

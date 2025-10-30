@@ -1398,6 +1398,25 @@
 		<Entity>CU_Evil_SoldierCavalry1</Entity>
 		<Entity>CU_Evil_Uruk1</Entity>
 
+		<Entity>CU_Hermit_Shadow</Entity>
+
+		<Entity>PU_LeaderSword1_Spectral</Entity>
+		<Entity>PU_SoldierSword1_Spectral</Entity>
+		<Entity>PU_LeaderPoleArm1_Spectral</Entity>
+		<Entity>PU_SoldierPoleArm1_Spectral</Entity>
+		<Entity>PU_LeaderBow1_Spectral</Entity>
+		<Entity>PU_SoldierBow1_Spectral</Entity>
+		<Entity>PU_LeaderRifle1_Spectral</Entity>
+		<Entity>PU_SoldierRifle1_Spectral</Entity>
+
+		<Entity>PU_LeaderSword4_Spectral</Entity>
+		<Entity>PU_SoldierSword4_Spectral</Entity>
+		
+		<Entity>PU_Hero1c_Spectral</Entity>
+		<Entity>PU_Hero2_Spectral</Entity>
+		<Entity>PU_Hero4_Spectral</Entity>
+		<Entity>PU_Hero5_Spectral</Entity>
+		<Entity>PU_Hero10_Spectral</Entity>
 </root>
 
 

@@ -3,13 +3,12 @@
 
 #include "Skinning.fx"
 
-
 // Effect properties...
 
-const bool   EffectProperty_OcclusionReceiver    = true;
-const int    EffectProperty_Priority             = 20;
+const bool   EffectProperty_OcclusionReceiver    = false;
+const int    EffectProperty_Priority             = 9999;
 const bool   EffectProperty_RenderAlphaZOnlyPass = true;
-const bool   EffectProperty_RenderReflection     = true;
+const bool   EffectProperty_RenderReflection     = false;
 const string EffectProperty_ShadowEffect         = "ShadowSkinnedObject";
 const bool   EffectProperty_IsUnit               = true;
 
@@ -94,7 +93,7 @@ SVertexOutput VertexShaderSkinnedUnitWithSpecular(SVertexInput _In)
 
 	Out.m_Position = mul(float4(Position, 1), g_MatWorldViewProjection);
     Out.m_Color0 = g_MaterialDiffuseAmbient * (g_LightAmbient + g_LightDiffuse0 * max(0, dot(ViewNormal, -ViewLightDir)));
-    Out.m_Color1 = float4((float3) SpecularColor * pow(max(0, dot(ViewNormal, -ViewHalf)), SpecularReflectionPower), 0);
+    Out.m_Color1 = float4((float3) SpecularColor * pow(max(0, dot(ViewNormal, -ViewHalf)), SpecularReflectionPower), 1);
     Out.m_TexCoord0 = _In.m_TexCoord0;
     Out.m_TexCoord1 = _In.m_TexCoord0;
 
@@ -131,12 +130,7 @@ float4 PixelShaderPlayerColorSpecular(SVertexOutput _In) : COLOR
 {
     float4 Diffuse = tex2D(DiffuseSampler, _In.m_TexCoord0);
     float4 Specular = tex2D(SpecularSampler, _In.m_TexCoord1);
-
-    //return _In.m_Color0 * lerp(g_PlayerColor, Diffuse, Diffuse.a) + _In.m_Color1 * Specular;
-	if (Diffuse.a != 1.0f)
-		return float4((float3) _In.m_Color0 * lerp((float3) g_PlayerColor, (float3) Diffuse, Diffuse.a) + _In.m_Color1 * Specular, lerp(0, g_PlayerColor.a, Diffuse.a));
-	else
-		return float4((float3) _In.m_Color0 * lerp((float3) _In.m_Color1.r, (float3) Diffuse, Diffuse.a), lerp(g_PlayerColor.r, g_PlayerColor.g, g_PlayerColor.b));
+    return float4((float3) _In.m_Color0 * lerp((float3) g_PlayerColor, (float3) Diffuse, Diffuse.a) + (float3) (_In.m_Color1 * Specular), 0.5f);
 }
 
 
@@ -146,15 +140,19 @@ technique Default
 {
     pass Default
     {
-        VertexShader = compile vs_1_1 VertexShaderSkinnedUnitWithSpecular();
-        PixelShader = compile ps_2_0 PixelShaderPlayerColorSpecular();
+        
+        ZWriteEnable = true;
 
-        StencilRef = 0;
-        StencilFunc = ALWAYS;
-        StencilFail = KEEP;
-        StencilPass = REPLACE;
-        StencilZFail = INCR;
-        StencilWriteMask = 0xFFFFFFFF;
-        StencilMask = 0xFFFFFFFF;
+        AlphaTestEnable = true;
+        AlphaBlendEnable = true;
+
+        AlphaRef = 0xFF;
+        AlphaFunc = LESS;
+		
+        SrcBlend = SRCALPHA;
+        DestBlend = INVSRCALPHA;
+
+        VertexShader = compile vs_1_1 VertexShaderSkinnedUnitWithSpecular();
+        PixelShader = compile ps_1_1 PixelShaderPlayerColorSpecular();
     }
 }

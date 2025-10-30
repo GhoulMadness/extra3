@@ -110,6 +110,10 @@ function FirstMapAction()
 	IncludeLocals("Cutscene_Control")
 	LocalMusic.UseSet = MEDITERANEANMUSIC
 
+	table.insert(gvLightning.IgnoreIDs, GetID("ruin_farm"))
+	table.insert(gvLightning.IgnoreIDs, GetID("ruin_claymine"))
+	table.insert(gvLightning.IgnoreIDs, GetID("ruin_residence"))
+
 	-- Level 0 is deactivated...ignore
 	MapEditor_SetupAI(2, 4-gvDiffLVL, 8300, math.max(4-gvDiffLVL, 2), "P2Spawn", 3, 0)
 	MapEditor_Armies[2].TroopRecruitmentDelay = round(4*gvDiffLVL)
@@ -204,6 +208,9 @@ function FarbigeNamen()
 	he      = ""..orange.." Der wandernde Bernd "..lila..""
 	sm		= ""..orange.." Meistermechanikus "..lila..""
 	Ko		= ""..orange.." Kommandant von Nuamon "..lila..""
+	wan		= ""..orange.." Wanderer "..lila..""
+	alch	= ""..orange.." Eifriger Gelehrter "..lila..""
+	alchA  	= ""..orange.." Gehilfe des Gelehrten "..lila..""
 end
 function Start()
 	band_armies = {
@@ -271,11 +278,48 @@ function Start()
 		end
 		Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "ControlBanditArmy",1,{},{army.player, army.id})
 	end
+	for i = 1, 2 do
+		local army = {}
+		army.id = GetFirstFreeArmySlot(8)
+		army.player = 8
+		army.position = GetPosition("BandE")
+		army.strength = 6 - gvDiffLVL
+		army.rodeLength = 7700 - (500 * gvDiffLVL)
+		army.spawnTypes = {{Entities.CU_VeteranCaptain, 0}}
+		army.spawnPos = GetPosition("BandE")
+		army.spawnGenerator = GetID("EliteRobbersTower" .. i)
+		army.respawnTime = round(50*gvDiffLVL)
+		army.maxSpawnAmount = 1
+		army.endless = true
+		SetupArmy(army)
+		EnlargeArmy(army, {leaderType = army.spawnTypes[1][1]})
+		SetupAITroopSpawnGenerator("EliteRobbersArmy" .. i, army)
+		army.trigger = Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "ControlBanditArmy",1,{},{army.player, army.id})
+	end
+	--
+	do
+		local army = {}
+		army.id = GetFirstFreeArmySlot(3)
+		army.player = 3
+		army.position = GetPosition("FinalSpawn")
+		army.strength = 18 - 4 * gvDiffLVL
+		army.rodeLength = 7700 - (700 * gvDiffLVL)
+		army.spawnTypes = {{Entities.CU_VeteranCaptain, 0}}
+		army.spawnPos = GetPosition("FinalSpawn")
+		army.spawnGenerator = GetID("Burg1")
+		army.respawnTime = round(40*gvDiffLVL)
+		army.maxSpawnAmount = 1
+		army.endless = true
+		SetupArmy(army)
+		EnlargeArmy(army, {leaderType = army.spawnTypes[1][1]})
+		SetupAITroopSpawnGenerator("EliteKerbArmy", army)
+		army.trigger = Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "ControlBanditArmy",1,{},{army.player, army.id})
+	end
 	IntroNotes()
 end
 function ControlBanditArmy(_player, _id)
 	local army = ArmyTable[_player][_id + 1]
-	if IsDead(army) then
+	if IsDead(army) and (not army.trigger or IsDestroyed(army.spawnGenerator)) then
 		return true
 	end
 	Defend(army)
@@ -351,9 +395,11 @@ function Prolog()
 		EnableNpcMarker(GetEntityId("PrincessFather"))
 		EnableNpcMarker(GetEntityId("princess"))
 		EnableNpcMarker(GetEntityId("afraid_miner"))
+		EnableNpcMarker(GetEntityId("wanderer"))
 		Erec()
 		PrincessFather()
 		Afraid_Miner()
+		Wanderer()
 		Truhen()
 		StartCountdown(20*60*gvDiffLVL,VikingAttack, false)
 		StartCountdown(30*60*gvDiffLVL,KIStep1, false)
@@ -384,6 +430,9 @@ function KIStep1()
 	StartCountdown(20*60*gvDiffLVL,KIStep2, false)
 	--
 	MakeInvulnerable("P5VC")
+	for eID in CEntityIterator.Iterator(CEntityIterator.OfPlayerFilter(2), CEntityIterator.IsBuildingFilter()) do
+		MakeInvulnerable(eID)
+	end
 	SetHostile(1,2)
 end
 function KIStep2()
@@ -671,6 +720,10 @@ function Krathos_CutsceneDone()
 	ConnectLeaderWithArmy(GetID("Erec"), nil, "offensiveArmies")
 	--
 	SetHostile(1,2)
+	--
+	for eID in CEntityIterator.Iterator(CEntityIterator.OfPlayerFilter(2), CEntityIterator.IsBuildingFilter()) do
+		MakeVulnerable(eID)
+	end
 end
 function Thief()
 	local BeiTh = {
@@ -907,6 +960,10 @@ function Kroxon_CutsceneDone()
 	SetHostile(5, 7)
 	StartSimpleJob("Caves")
 	StartSimpleJob("Kroxon_Fallen")
+	--
+	KrathosDown = true
+	EnableNpcMarker(GetEntityId("wanderer"))
+	WandererInDebtBrief()
 end
 function CheckForKrathosDown()
 	if IsDestroyed("Burg3") then
@@ -1215,9 +1272,9 @@ function Afraid_Miner()
 			ChangePlayer("ruin_residence", 8)
 			ChangePlayer("ruin_claymine", 8)
 			ChangePlayer("ruin_farm", 8)
-			Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "InitRuinRepairing",1,{},{"residence_repair","ruin_residence","ruin_residence_rep1","ruin_residence_rep2","ruin_residence_rep3","ruin_residence_rep4",Entities.PB_Residence3,round(80*2/gvDiffLVL),6})
-			Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "InitRuinRepairing",1,{},{"claymine_repair","ruin_claymine","ruin_claymine_rep1","ruin_claymine_rep2","ruin_claymine_rep3","ruin_claymine_rep4",Entities.PB_ClayMine3,round(120*2/gvDiffLVL),6})
-			Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "InitRuinRepairing",1,{},{"farm_repair","ruin_farm","ruin_farm_rep1","ruin_farm_rep2","ruin_farm_rep3","ruin_farm_rep4",Entities.PB_Farm3,round(80*2/gvDiffLVL),6})
+			Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "InitRuinRepairing",1,{},{"residence_repair","ruin_residence","ruin_residence_rep1","ruin_residence_rep2","ruin_residence_rep3","ruin_residence_rep4", Entities.PB_Residence3, round(80*2/gvDiffLVL), nil, 6})
+			Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "InitRuinRepairing",1,{},{"claymine_repair","ruin_claymine","ruin_claymine_rep1","ruin_claymine_rep2","ruin_claymine_rep3","ruin_claymine_rep4", Entities.PB_ClayMine3, round(120*2/gvDiffLVL), nil, 6})
+			Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "InitRuinRepairing",1,{},{"farm_repair","ruin_farm","ruin_farm_rep1","ruin_farm_rep2","ruin_farm_rep3","ruin_farm_rep4", Entities.PB_Farm3, round(80*2/gvDiffLVL), nil, 6})
 		end
 		StartBriefing(briefing)
 	end}
@@ -1303,6 +1360,137 @@ function Afraid_Miner_Done_Brief()
 	end
 	}
 	SetupExpedition(BeiMi)
+end
+function Wanderer()
+	local BeiWa = {
+	EntityName = "Dario",
+    TargetName = "wanderer",
+    Distance = 300,
+    Callback = function()
+		LookAt("wanderer", "Dario");LookAt("Dario", "wanderer")
+		DisableNpcMarker(GetEntityId("wanderer"))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP("wanderer",wan,"Menschen? @cr So weit hier draußen? @cr Was treibt Euch denn hierher?", true)
+		ASP("Dario",dario,"Nun, ich bin auf der Reise zur Feste Nuamyr, um einen alten Freund zu besuchen. @cr Wären da nicht all die zerstörten Brücken, wäre ich auch schon längst da...", true)
+		ASP("wanderer",wan,"Nun, die Brücken sollten nicht Euer Hauptaugenmerk sein. @cr Es gibt hier in der Gegend weit größere Probleme...", true)
+		ASP("BandE",wan,"Dort hinten haben Räuber ihr Lager aufgeschlagen. @cr Hier ganz in der Nähe gab es mal eine alte Siedlung, jedoch sind alle Bewohner geflüchtet, da sie gegen die Räuber nichts ausrichten konnten...", false)
+		ASP("BandE",wan,"Man munkelt, die Räuber haben große Reichtümer angehäuft. @cr Gebt allerdings Acht, einige ganz üble Gesellen sollen sich deren Truppe angeschlossen haben!", false)
+		briefing.finished = function()
+			StartSimpleJob("EliteRobbersDown")
+		end
+		StartBriefing(briefing)
+	end
+	}
+	SetupExpedition(BeiWa)
+end
+function EliteRobbersDown()
+	if IsDestroyed("EliteRobbersTower1") and IsDestroyed("EliteRobbersTower2") and Logic.GetPlayerEntitiesInArea(8, 0, 46300, 17800, 3000, 1) == 0 then
+		local briefing = {}
+		local AP, ASP = AddPages(briefing);
+		ASP("BandE",wan,"Sehr gut, ihr habt die Räuber vernichtend geschlagen.", false)
+		ASP("wanderer",wan,"Nun, ich muss Euch leider gestehen, dass es nie einen Schatz gegeben hat. @cr Ich fürchtete, Euch nicht anders überzeugen zu können...", true)
+		ASP("wanderer",wan,"Ich komme nicht umher, mich nun ein wenig schlecht zu fühlen. @cr Um mein Gewissen zu beruhigen, werde ich mich bei Euch bei Gelegenheit bei Euren Miseren unterstützen.", true)
+		briefing.finished = function()
+			if KrathosDown then
+				StartCountdown(math.random(3,5) * 60, function() EnableNpcMarker(GetEntityId("wanderer")); WandererInDebtBrief() end, false)
+			else
+				WandererInDebt = true
+			end
+		end
+		StartBriefing(briefing)
+		return true
+	end
+end
+function WandererInDebtBrief()
+	local BeiWa = {
+	EntityName = "Dario",
+    TargetName = "wanderer",
+    Distance = 300,
+    Callback = function()
+		LookAt("wanderer", "Dario");LookAt("Dario", "wanderer")
+		DisableNpcMarker(GetEntityId("wanderer"))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP("wanderer",wan,"Oh, ihr seid es wieder... @cr Nun, wieso so trübselig?", true)
+		ASP("Dario",dario,"Die Idylle trügt und der Ausritt ist zu einer wahrhaftigen Militäroperation verkommen. @cr Nun, der Feind ist dazu auch leider noch sehr mächtig...", true)
+		ASP("wanderer",wan,"Ich stehe zu meinem Wort. @cr Ich werde Euch ein Empfehlungsschreiben für die Universität von Nuamon ausstellen. @cr Ich war dort einst ein angesehener Dekan.", true)
+		ASP("alchemist",wan,"Mein damaliger Schüler war sehr eifrig und studierte sämtliche Schriften der angewandten Wissenschaften. @cr Mit dem von mir ausgestellten Schreiben wird er Euch sicherlich helfen.", false)
+		briefing.finished = function()
+			EnableNpcMarker(GetEntityId("alchemist"))
+			Alchemist()
+		end
+		StartBriefing(briefing)
+	end
+	}
+	SetupExpedition(BeiWa)
+end
+function Alchemist()
+	local BeiAl = {
+	EntityName = "Dario",
+    TargetName = "alchemist",
+    Distance = 300,
+    Callback = function()
+		LookAt("alchemist", "Dario");LookAt("Dario", "alchemist")
+		DisableNpcMarker(GetEntityId("alchemist"))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP("alchemist",alch,"Oh, ein Empfehlungsschreiben meines alten Meisters... @cr Nun, wie kann ich Euch in Eurer Suche nach Wissen erleuchten?", true)
+		ASP("Dario",dario,"Der Kampf gegen die schwarze Feste wirkt hoffnungslos. @cr Habt ihr eine Weisheit für mich, wie wir der Übermacht Herr werden können.", true)
+		ASP("alchemist",alch,"Nun, oft liegt der Schlüssel zum Sieg in der Einkesselung des Feindes. @cr Wie der Zufall es so will, habe ich bei der Kartierung der westlichen Berge einen schmalen, kaum begehbaren Berggrat entdeckt.", true)
+		ASP("western_path",alch,"Gebt mir ein wenig Schwefel und Kohle und ich werde meinen Assistenten damit beauftragen, dort eine kleine Sprengladung anzubringen. @cr Wenn sich dort ein schmaler Pfad auftut, wird dieser zwar kaum zum Vorrücken geeignet sein, jedoch bindet ihr so vielleicht einige Feindestruppen und könnt an anderer Stelle leichter vorrücken...", false)
+		briefing.finished = function()
+			AlchTribute()
+		end
+		StartBriefing(briefing)
+	end
+	}
+	SetupExpedition(BeiAl)
+end
+function AlchTribute()
+	local TrAl =  {}
+	TrAl.playerId = 1
+	TrAl.text = "Zahlt ".. round(7500/gvDiffLVL) .." Schwefel und ".. round(3000/gvDiffLVL) .." Kohle, damit der Gehilfe des eifrigen Gelehrten eine Sprengladung in den westlichen Bergen anbringen kann."
+	TrAl.cost = { Sulfur = round(7500/gvDiffLVL), Knowledge = round(3000/gvDiffLVL) }
+	TrAl.Callback = TributePaid_Al
+	TAl = AddTribute(TrAl)
+end
+function TributePaid_Al()
+	local briefing = {}
+	local AP, ASP = AddPages(briefing);
+    ASP("alchemist",alch,"Sehr gut. @cr Mein Gehilfe wird sich sogleich auf den weiten Weg begeben.", true)
+    briefing.finished = function()
+		local id = Logic.CreateEntity(Entities.PU_Travelling_Salesman, 60600, 22900, 180, 6)
+		Logic.SetEntityName(id, "alch_assistent")
+		StartSimpleJob("ControlAlchAssistent")
+	end
+    StartBriefing(briefing)
+end
+function ControlAlchAssistent()
+	if IsNear("alch_assistent", "badabumm", 300) then
+		local briefing = {}
+		local AP, ASP = AddPages(briefing);
+		ASP("alch_assistent",alchA,"Ich habe den Zielort erreicht. @cr Lasst uns nun mit der Sprengung beginnen...", false)
+		briefing.finished = function()
+			local posX, posY = Logic.GetEntityPosition(GetID("western_path"))
+			for X = -200, 200, 100 do
+				for Y = -300, 1600, 100 do
+					if math.random(1,2) == 2 then
+						Logic.CreateEffect(GGL_Effects.FXExplosionPilgrim, posX + X, posY + Y)
+					else
+						StartCountdown(2, function(_X, _Y) Logic.CreateEffect(GGL_Effects.FXExplosionPilgrim, _X, _Y) end, false, nil, posX + X, posY + Y)
+					end
+				end
+			end
+			StartCountdown(3, function() Script.Load(Folders.Map .. "mountain_path.lua") end, false)
+		end
+		StartBriefing(briefing)
+		return true
+	else
+		if Counter.Tick2("ControlAlchAssistent_Counter", 5) then
+			Move("alch_assistent", "badabumm")
+		end
+	end
 end
 function ErecQuest()
 	local quest	= {

@@ -878,8 +878,6 @@ function CreateShering()
 
 	description.serflimit = 9
 	description.extracting = 1
-	description.constructing = true
-	description.repairing = true
 
 	SetupPlayerAi(3,description)
 end

@@ -1508,8 +1508,8 @@ end
 function TributeTrP8_3()
 	local Tr =  {}
 	Tr.playerId = 1
-	Tr.text = "Zahlt ".. round(6000/gvDiffLVL) .." Taler für 2000 Kohle und 80 Silber."
-	Tr.cost = { Gold = round(6000/gvDiffLVL) }
+	Tr.text = "Zahlt ".. round(9000/gvDiffLVL) .." Taler für 2000 Kohle und 80 Silber."
+	Tr.cost = { Gold = round(9000/gvDiffLVL) }
 	Tr.Callback = TributePaid_P8_3
 	TrP8_3 = AddTribute(Tr)
 end
@@ -1671,7 +1671,7 @@ function Goldmine_Robbers_Surprise()
 		army.strength	= round(8-(2*gvDiffLVL))
 		SetupArmy(army)
 		for i = 1, army.strength do
-			EnlargeArmy(army, {leaderType = WikTroopTypes[math.random(table.getn(trooptypes))]})
+			EnlargeArmy(army, {leaderType = WikTroopTypes[math.random(table.getn(WikTroopTypes))]})
 		end
 		Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","ControlGenericArmies",1,{},{army.player, army.id})
 		return true

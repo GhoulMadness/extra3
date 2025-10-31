@@ -43,6 +43,8 @@ for i = 1, XNetwork.GameInformation_GetMapMaximumNumberOfHumanPlayer() do
 
 end
 Input.KeyBindDown(Keys.ModifierControl + Keys.ModifierAlt + Keys.Enter, "CreateMiniMapScreenshot()", 2)
+Input.KeyBindDown(Keys.OemPlus, "", 2)
+Input.KeyBindDown(Keys.OemMinus, "", 2)
 -----------------------------------------------------------------------------------------------
 -- Added Castles to win condition -------------------------------------------------------------
 -----------------------------------------------------------------------------------------------

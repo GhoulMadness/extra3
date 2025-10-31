@@ -89,6 +89,8 @@ function FarbigeNamen()
 	gu1		= ""..orange.." Mürrischer Torwächter "..lila..""
 	gu2		= ""..orange.." Entnervte Torwache "..lila..""
 	set 	= ""..orange.." Niedergeschlagener Siedler "..lila..""
+	al 		= ""..orange.." Alchemist Kafarnas "..lila..""
+	mj		= ""..orange.." Bürgermeister Kafarnas "..lila..""
 end
 
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -286,7 +288,7 @@ function DarioQuest_3()
 	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
 	DarioQID_3 = quest.id
 end
-function DarioQuest_3()
+function DarioQuest_3_Finished()
 	local quest	= {
 	id		= GetQuestId(),
 	type	= MAINQUEST_CLOSED,
@@ -314,9 +316,146 @@ function StoneBarrierReached()
 	end
 end
 function Settler()
+	local NPCName = "settler"
+	local NPCTitle = set
+	local NPC = {
+	--EntityName = "Dario",
+	Heroes = true,
+	TargetName = NPCName,
+	Distance = 300,
+	Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt(NPCName,id);LookAt(id,NPCName)
+		DisableNpcMarker(GetID(NPCName))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP(NPCName,NPCTitle,"Einst hatte ich hier eine prachtvolle Hütte am Hang des Berges. @cr Doch vor einiger Zeit kam es hier zu einem verheerenden Bergrutsch... @cr Ich verlor alles... @cr Mein Haus, mein Leben, einfach alles...", false)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Das ist sehr traurig. @cr Doch nun sagt, guter Herr: Gibt es hier einen anderen Weg nach Osten?", true)
+		ASP(NPCName,NPCTitle,"Nun, ich fürchte nein. @cr Es gibt hier nur zwei Wege. @cr Diesen Weg, der nun ja leider verschüttet ist und dann noch den Weg über die alte Brücke. @cr Seit sich die beiden Brüder verstritten haben, ist das Tor in die Nachbarstadt jedoch verschlossen...", true)
+		briefing.finished = function()
+			Logic.RemoveQuest(1, DarioQID_3)
+			DarioQuest_3_Finished()
+			DarioQuest_4()
+			EnableNpcMarker(GetID("alchemist"))
+			Alchemist()
+		end
+		StartBriefing(briefing)
+	end
+	}
+	SetupExpedition(NPC)
+end
+function DarioQuest_4()
+	local quest	= {
+	id		= GetQuestId(),
+	type	= MAINQUEST_OPEN,
+	title	= "Der versperrte Weg",
+	text	= "Der Weg dem Ufer entlang ist durch einen Bergrutsch verschüttet. @cr Ihr solltet einen Weg finden, den Weg wieder frei zu räumen. @cr Vielleicht lässt sich der Weg ja mit etwas Sprengstoff freiräumen...",
+	}
+	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
+	DarioQID_4 = quest.id
+end
+function DarioQuest_4_Finished()
+	local quest	= {
+	id		= GetQuestId(),
+	type	= MAINQUEST_CLOSED,
+	title	= "Der versperrte Weg",
+	text	= "Der Weg dem Ufer entlang ist durch einen Bergrutsch verschüttet. @cr Ihr solltet einen Weg finden, den Weg wieder frei zu räumen. @cr Vielleicht lässt sich der Weg ja mit etwas Sprengstoff freiräumen...",
+	}
+	Logic.AddQuest(1, quest.id, quest.type, quest.title, quest.text,1)
+	DarioQID_4 = quest.id
+end
+function Alchemist()
+	local NPCName = "alchemist"
+	local NPCTitle = al
+	local NPC = {
+	--EntityName = "Dario",
+	Heroes = true,
+	TargetName = NPCName,
+	Distance = 300,
+	Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt(NPCName,id);LookAt(id,NPCName)
+		DisableNpcMarker(GetID(NPCName))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Ihr seht aus wie ein fachkundiger Alchemist. @cr Versteht ihr etwas von Sprengstoff?", true)
+		ASP(NPCName,NPCTitle,"Guten Tag, der Herr. @cr Aber natürlich verstehe ich etwas von Sprengstoff. @cr Viele wissen, woraus Sprengstoff besteht, aber nur die wenigsten kennen das Mischungsverhältnis. @cr Und es kommt NUR auf die Mischung an...", true)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Äh ja, so genau wollte ich das gar nicht wissen. @cr Könntet ihr uns dabei helfen, einen verschütteten Weg mithilfe von Sprengstoff wieder frei zu räumen.", true)
+		ASP(NPCName,NPCTitle,"Ob ich dazu instande bin? @cr Aber ja doch. Ihr meint sicherlich die massiven Felsblöcke, die beim letzten Erdrutsch bis zum Fluss heruntergepurzelt sind. @cr Für solch massive Felsblöcke benötige ich jedoch große Mengen an Schwefel und Kohle...", true)
+		ASP(NPCName,NPCTitle,"Sobald ihr mir die nötigen Ressourcen geschickt habt, kann ich mit der Herstellung des Sprengstoffs beginnen. @cr Und legt noch einige Goldmünzen oben drauf. @cr Auch meine Dienste sind nicht gratis...", true)
+		briefing.finished = function()
+			StartCountdown(20, DarioMonologue_2, false)
+			AlchemistTribute()
+		end
+		StartBriefing(briefing)
+	end
+	}
+	SetupExpedition(NPC)
+end
+function DarioMonologue_2()
+	local briefing = {}
+	local AP, ASP = AddPages(briefing)
+	ASP("dario",dario,"Wie kommen wir denn nur an solch große Mengen Schwefel und Kohle? @cr Und das ganz ohne Siedlung...", false)
+	ASP("dario",dario,"Vielleicht kann uns ja der Bürgermeister Kafarnas weiterhelfen... @cr Wir sollten ihn schnellstmöglich aufsuchen.", false)
+	briefing.finished = function()
+		EnableNpcMarker(GetID("major"))
+		Major()
+	end
+	StartBriefing(briefing)
+end
+function AlchemistTribute()
+	local tribute =  {}
+	tribute.playerId = 1;
+	tribute.text = "Gebt dem Alchemisten " .. 5000 + round(3000/gvDiffLVL) .. " Schwefel und " .. 4000 + round(6000/gvDiffLVL) .. " Kohle, damit dieser damit Sprengstoff herstellen kann.";
+	tribute.cost = {Sulfur = 5000 + round(3000/gvDiffLVL), Knowledge = 4000 + round(6000/gvDiffLVL)}
+	tribute.Callback = AlchemistTributePayed
+	AlchemistTributeTID = AddTribute( tribute )
+end
+function AlchemistTributePayed()
+	local NPCName = "alchemist"
+	local NPCTitle = al
+	local briefing = {}
+	local AP, ASP = AddPages(briefing)
+	ASP(NPCName, NPCTitle,"Ah, sehr gut, ihr konntet die benötigten Ressourcen auftreiben.", false)
+	ASP(NPCName, NPCTitle,"Ich werde nun mit der Herstellung des Sprengstoffs beginnen. @cr Sobald ich fertig bin, werde ich mich auf den Weg machen und den Sprengsatz anbringen.", false)
+	briefing.finished = function()
+		StartCountdown(2*60, ExplosivesReady, false)
+	end
+	StartBriefing(briefing)
+end
+function ExplosivesReady()
 
 end
-
+function Major()
+	local NPCName = "major"
+	local NPCTitle = mj
+	local NPC = {
+	--EntityName = "Dario",
+	Heroes = true,
+	TargetName = NPCName,
+	Distance = 300,
+	Callback = function()
+		local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+		LookAt(NPCName,id);LookAt(id,NPCName)
+		DisableNpcMarker(GetID(NPCName))
+		local briefing = {}
+		local AP, ASP = AddPages(briefing)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Ihr seht aus wie ein fachkundiger Alchemist. @cr Versteht ihr etwas von Sprengstoff?", true)
+		ASP(NPCName,NPCTitle,"Guten Tag, der Herr. @cr Aber natürlich verstehe ich etwas von Sprengstoff. @cr Viele wissen, woraus Sprengstoff besteht, aber nur die wenigsten kennen das Mischungsverhältnis. @cr Und es kommt NUR auf die Mischung an...", true)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Äh ja, so genau wollte ich das gar nicht wissen. @cr Könntet ihr uns dabei helfen, einen verschütteten Weg mithilfe von Sprengstoff wieder frei zu räumen.", true)
+		ASP(NPCName,NPCTitle,"Ob ich dazu instande bin? @cr Aber ja doch. Ihr meint sicherlich die massiven Felsblöcke, die beim letzten Erdrutsch bis zum Fluss heruntergepurzelt sind. @cr Für solch massive Felsblöcke benötige ich jedoch große Mengen an Schwefel und Kohle...", true)
+		ASP(NPCName,NPCTitle,"Sobald ihr mir die nötigen Ressourcen geschickt habt, kann ich mit der Herstellung des Sprengstoffs beginnen. @cr Und legt noch einige Goldmünzen oben drauf. @cr Auch meine Dienste sind nicht gratis...", true)
+		briefing.finished = function()
+			--
+		end
+		StartBriefing(briefing)
+	end
+	}
+	SetupExpedition(NPC)
+end
 function InitAchievementChecks()
 	-- TODO: implement this later...
 end

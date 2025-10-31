@@ -792,7 +792,7 @@ MapEditor_SetupAI = function(_playerId, _strength, _range, _techlevel, _position
 			aggressiveLVL =	_aggressiveLevel,
 			TroopRecruitmentDelay = 11 - (3*_aggressiveLevel),
 			ForbiddenTypes = {},
-			RebuildExcludedTypes = {Entities.PB_Headquarters1, Entities.PB_Headquarters2, Entities.PB_Headquarters3},
+			RebuildExcludedTypes = {Entities.PB_Headquarters1, Entities.PB_Headquarters2, Entities.PB_Headquarters3, Entities.CB_RobberyTower1},
 			RebuildExcludedIDs = {},
 			offensiveArmies = {
 				strength	= 5 + _strength * 10,
@@ -963,19 +963,17 @@ MapEditor_Armies_Rebuild = function(_playerId, _uCat, _rotation, _level, _posX, 
 			local minX, minY = math.min(bX1, bX2), math.min(bY1, bY2)
 			local maxX, maxY = math.max(bX1, bX2), math.max(bY1, bY2)
 
-			local rectWidth = dekaround(maxX - minX + 100)
-			local rectHeight = dekaround(maxY - minY + 100)
-			
-			--LuaDebugger.Log(Logic.GetEntityTypeName(Logic.GetBuildingTypeByUpgradeCategory(_uCat, _playerId)) .. " width: " .. rectWidth .. ", height: " .. rectHeight)
+			local rectWidth = dekaround(maxX - minX)
+			local rectHeight = dekaround(maxY - minY)
 
 			if _iteration and _iteration > MapEditor_Armies[_playerId].description.rebuildData.MaxAttemptsPreferredPosition then
 				local baseX, baseY = MapEditor_Armies[_playerId].defensiveArmies.position.X, MapEditor_Armies[_playerId].defensiveArmies.position.Y
 				x, y = EvaluateNearestUnblockedAreaWithinVisionRangeOfPlayer(_playerId, baseX, baseY, rectWidth, rectHeight, 5000, 100, true)
 			else
-				x, y = EvaluateNearestUnblockedAreaWithinVisionRangeOfPlayer(_playerId, _posX, _posY, rectWidth, rectHeight, 5000, 100, true)
+				x, y = EvaluateNearestUnblockedAreaWithinVisionRangeOfPlayer(_playerId, _posX, _posY, rectWidth, rectHeight, 2000 * (1 + (_iteration or 0)), 100, true)
 			end
-			if not x or not y then
-				Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "", "MapEditor_Armies_Rebuild", 1, {}, {_playerId, _uCat, _rotation, _level, _posX, _posY, _delay, _builtOnType, (_iteration or 0) + 1})
+			if not x or not y or (MapEditor_Armies[_playerId].Sector ~= CUtil.GetSector(dekaround(x/100), dekaround(y/100))) then
+				Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "", "MapEditor_Armies_Rebuild", 1, {}, {_playerId, _uCat, _rotation, _level, _posX, _posY, _delay, nil, (_iteration or 0) + 1})
 				return true
 			end
 		-- is built on a mine?

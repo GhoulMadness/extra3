@@ -62275,7 +62275,7 @@
     <X>1.561804e+004</X>
     <Y>4.797486e+003</Y>
    </Position>
-   <Orientation>9.748459e+001</Orientation>
+   <Orientation>9.748458e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -89895,6 +89895,21 @@
    <PlayerID>2</PlayerID>
    <Health>-1</Health>
    <Name>endpos</Name>
+   <ScriptCommandLine></ScriptCommandLine>
+   <AmbientSoundType></AmbientSoundType>
+   <Scale>1.000000e+000</Scale>
+  </Entity>
+  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
+   <Type>XD_RockDestroyableMedium1</Type>
+   <Position>
+    <X>2.354190e+004</X>
+    <Y>2.241197e+004</Y>
+   </Position>
+   <Orientation>0.000000e+000</Orientation>
+   <Flags>0</Flags>
+   <PlayerID>0</PlayerID>
+   <Health>-1</Health>
+   <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>

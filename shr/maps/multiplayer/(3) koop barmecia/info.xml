@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>MapDescription/CM01_08_Barmecia_name</NameKey>
+ <DescKey>MapDescription/CM01_08_Barmecia_desc</DescKey>
+ <Name>(3) @color:255,255,51 Koop @color:255,255,255 Barmecia</Name>
+ <Desc>Nun gilt es sich mit der zweiten der kontrahierenden Städte auseinander zu setzen: Barmecia! Nach bisherigen Informationen scheinen sie sehr daran interessiert zu sein, einen Dom zu errichten. Doch kamen sie bisher damit kaum voran. @cr @cr Schafft Ihr es, trotz aller Widrigkeiten innerhalb eines Zeitlimits ihr Anliegen zu erfüllen? </Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>3</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\externalmap</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>9aaf19b8-f55a-4537-8fc4-9ce9b09c8b89</Data>
+ </GUID>
+</root>

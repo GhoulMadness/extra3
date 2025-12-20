@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2exMapDescription/CM08_01_Nuamyr_name</NameKey>
+ <DescKey>AO2exMapDescription/CM08_01_Nuamyr_desc</DescKey>
+ <Name></Name>
+ <Desc></Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>false</MPFlag>
+ <MPPlayerCount>0</MPPlayerCount>
+ <MPGameOptionFlagSet>0</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\externalmap</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>7a62cf27-8051-4e2c-b79e-63b6f2db1e96</Data>
+ </GUID>
+</root>

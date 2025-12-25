@@ -45,7 +45,6 @@ function LoadScreen_Init(_LoadSaveGameFlag, _MapName, _MapType, _MapCampaignName
 	end
 	--
 	Script.Load("data\\script\\maptools\\tools\\mapload.lua")
-
 end
 
 ----------------------------------------------------------------------------------------------------

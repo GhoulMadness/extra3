@@ -64250,7 +64250,7 @@
                     <DisabledFlag>False</DisabledFlag>
                     <HighLightedFlag>False</HighLightedFlag>
                     <ActionFunction>
-                      <LuaCommand>MPMenu.S20_Button_StartGame()</LuaCommand>
+                      <LuaCommand>MPMenuEx.S20_Button_StartGame_Ex()</LuaCommand>
                     </ActionFunction>
                     <ShortCutString>
                       <StringTableKey></StringTableKey>

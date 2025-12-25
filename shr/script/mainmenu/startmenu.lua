@@ -263,3 +263,20 @@ end
 function QuitGame_Button_Cancel()
 	XGUIEng.ShowWidget( "QuitGameOverlayScreen", 0)
 end
+
+MPMenuEx = {}
+function
+MPMenuEx.S20_Button_StartGame_Ex()
+
+	--set reload fix default to false
+	local string = XNetwork.EXTENDED_GameInformation_GetCustomString();
+	local d = CustomStringHelper.FromString(string);
+
+	if CustomStringHelper.IsKeySet(d, "RELOAD_FIX") then
+		CustomStringHelper.ResetKey(d, "RELOAD_FIX");
+		local str = CustomStringHelper.ToString(d);
+		XNetwork.EXTENDED_GameInformation_SetCustomString(str);
+	end
+	MPMenu.S20_Button_StartGame()
+
+end

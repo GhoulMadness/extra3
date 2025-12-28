@@ -288,6 +288,12 @@
     <TerrainVertexColorPortion>0.1</TerrainVertexColorPortion>
   </Model>
 
+  <Model id="XD_Ruin_Mansion">
+    <CastShadow>True</CastShadow>
+    <ShareShadowRaster>True</ShareShadowRaster>
+   <TerrainLightColorPortion>0.5</TerrainLightColorPortion>
+    <TerrainVertexColorPortion>0.5</TerrainVertexColorPortion>
+  </Model>
     <Model id="XD_Ruin_Claymine">
      <CastShadow>False</CastShadow>
    <TerrainLightColorPortion>0.3</TerrainLightColorPortion>
@@ -527,12 +533,6 @@
     <OcclusionReceiver>True</OcclusionReceiver>
   </Model>
 
-  <Model id="PU_SoldierUlan">
-    <Effect>SettlerPlayerColorSpecular</Effect>
-	<SelectionTexture>Selection_Soldier</SelectionTexture>
-    <OcclusionReceiver>True</OcclusionReceiver>
-  </Model>
-
   <Model id="PU_LeaderPoleArm1">
     <Effect>SettlerPlayerColorSpecular</Effect>
     <OcclusionReceiver>True</OcclusionReceiver>
@@ -716,6 +716,11 @@
     <OcclusionReceiver>True</OcclusionReceiver>
   </Model>
 
+  <Model id="PU_SoldierUlan">
+    <Effect>SettlerPlayerColorSpecular</Effect>
+	<SelectionTexture>Selection_Soldier</SelectionTexture>
+    <OcclusionReceiver>True</OcclusionReceiver>
+  </Model>
   <Model id="PU_SoldierPoleArm1">
     <SelectionRadius>55</SelectionRadius>
     <Effect>SettlerPlayerColorSpecular</Effect>
@@ -959,6 +964,9 @@
     <SelectionTexture>Selection_Building</SelectionTexture>
   </Model>
   <Model id="PB_Victory_Statue_ET2024">
+    <SelectionTexture>Selection_Building</SelectionTexture>
+  </Model>
+  <Model id="PB_Victory_Statue_ET2025">
     <SelectionTexture>Selection_Building</SelectionTexture>
   </Model>
   <Model id="PB_Victory_Statue_1">
@@ -3494,6 +3502,10 @@
     <OcclusionReceiver>True</OcclusionReceiver>
   </Model>
 
+  <Model id="CU_Evil_Rider1">
+    <Effect>SettlerPlayerColor</Effect>
+    <OcclusionReceiver>True</OcclusionReceiver>
+  </Model>
   <Model id="PU_Hero14_Bearman">
     <SelectionRadius>80</SelectionRadius>
     <Effect>SettlerPlayerColor</Effect>
@@ -4278,5 +4290,96 @@
         <UseSurfaceHeight>True</UseSurfaceHeight>
         <UseAlphaBlending>True</UseAlphaBlending>
     </Model>
+  <Model id="CU_Hermit_Shadow">
+    <SelectionRadius>80</SelectionRadius>
+    <Effect>SimpleUnitPlayerColorSpecular</Effect>
+	<UseAlphaBlending>True</UseAlphaBlending>
+    <OcclusionReceiver>True</OcclusionReceiver>
+  </Model>
+
+  <Model id="PU_LeaderSword1_Spectral">
+    <SelectionRadius>80</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+  </Model>
+
+  <Model id="PU_SoldierSword1_Spectral">
+    <SelectionRadius>75</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+    <SelectionTexture>Selection_Soldier</SelectionTexture>
+  </Model>
+
+  <Model id="PU_LeaderPoleArm1_Spectral">
+    <SelectionRadius>80</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+  </Model>
+
+  <Model id="PU_SoldierPoleArm1_Spectral">
+    <SelectionRadius>75</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+    <SelectionTexture>Selection_Soldier</SelectionTexture>
+  </Model>
+
+  <Model id="PU_LeaderBow1_Spectral">
+    <SelectionRadius>80</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+  </Model>
+
+  <Model id="PU_SoldierBow1_Spectral">
+    <SelectionRadius>75</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+    <SelectionTexture>Selection_Soldier</SelectionTexture>
+  </Model>
+
+  <Model id="PU_LeaderRifle1_Spectral">
+    <SelectionRadius>80</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+  </Model>
+
+  <Model id="PU_SoldierRifle1_Spectral">
+    <SelectionRadius>75</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+    <SelectionTexture>Selection_Soldier</SelectionTexture>
+  </Model>
+
+  <Model id="PU_LeaderSword4_Spectral">
+    <SelectionRadius>80</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+  </Model>
+
+  <Model id="PU_SoldierSword4_Spectral">
+    <SelectionRadius>75</SelectionRadius>
+    <Effect>SettlerPlayerColorInvis</Effect>
+    <SelectionTexture>Selection_Soldier</SelectionTexture>
+  </Model>
+
+  <Model id="PU_Hero1c_Spectral">
+    <Effect>SettlerPlayerColorInvis</Effect>
+	<SelectionRadius>100</SelectionRadius>
+    <SelectionTexture>Selection_hero</SelectionTexture>
+  </Model>
+
+  <Model id="PU_Hero2_Spectral">
+    <Effect>SettlerPlayerColorInvis</Effect>
+	<SelectionRadius>100</SelectionRadius>
+    <SelectionTexture>Selection_hero</SelectionTexture>
+  </Model>
+
+  <Model id="PU_Hero4_Spectral">
+    <Effect>SettlerPlayerColorInvis</Effect>
+	<SelectionRadius>100</SelectionRadius>
+    <SelectionTexture>Selection_hero</SelectionTexture>
+  </Model>
+
+  <Model id="PU_Hero5_Spectral">
+    <Effect>SettlerPlayerColorInvis</Effect>
+	<SelectionRadius>100</SelectionRadius>
+    <SelectionTexture>Selection_hero</SelectionTexture>
+  </Model>
+
+  <Model id="PU_Hero10_Spectral">
+    <Effect>SettlerPlayerColorInvis</Effect>
+	<SelectionRadius>100</SelectionRadius>
+    <SelectionTexture>Selection_hero</SelectionTexture>
+  </Model>
 
 </root>

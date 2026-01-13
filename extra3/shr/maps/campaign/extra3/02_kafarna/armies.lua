@@ -1,6 +1,8 @@
 function CreateArmies()
 	SetHostile(1,6)
 	SetHostile(6,8)
+	
+	-- NV
 	NVTroopTypes = {Entities.CU_Evil_LeaderBearman1, Entities.CU_Evil_LeaderSkirmisher1, Entities.CU_Evil_LeaderSpearman1}
 
 	ArmyData = {
@@ -17,11 +19,11 @@ function CreateArmies()
 			troops = {}, rodeLength = 2400, strength = round(5-gvDiffLVL)},
 			{id = 5, position = GetPosition("ev_spawn6"), building = GetID("ev_tower6"),
 			troops = {}, rodeLength = 3000, strength = round(10-(2.5*gvDiffLVL))},
-			{id = 5, position = GetPosition("ev_spawn7"), building = GetID("ev_tower7"),
+			{id = 6, position = GetPosition("ev_spawn7"), building = GetID("ev_tower7"),
 			troops = {}, rodeLength = 2200, strength = round(8-(2*gvDiffLVL))},
-			{id = 5, position = GetPosition("ev_spawn8"), building = GetID("ev_tower8"),
+			{id = 7, position = GetPosition("ev_spawn8"), building = GetID("ev_tower8"),
 			troops = {}, rodeLength = 3000, strength = round(8-(2*gvDiffLVL))},
-			{id = 5, position = GetPosition("ev_spawn9"), building = GetID("ev_tower9"),
+			{id = 8, position = GetPosition("ev_spawn9"), building = GetID("ev_tower9"),
 			troops = {}, rodeLength = 2500, strength = round(8-(2*gvDiffLVL))}
 		}
 	}
@@ -38,6 +40,12 @@ function CreateArmies()
 			RefreshArmy(army.player, army.id, army.building)
 		end
 	end
+	-- Kafarna
+	MapEditor_SetupAI(8, 1, 4700, 2, "P8", 3, 0)
+	AI.Village_SetSerfLimit(8,0)
+	SetNeutral(1,8)
+	--
+	AI.Player_EnableAi(7)
 end
 function RefreshArmy(_player, _id, _building, _types)
 	local army = ArmyTable[_player][_id + 1]

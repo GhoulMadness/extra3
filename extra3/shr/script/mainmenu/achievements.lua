@@ -74,7 +74,7 @@ function AchievementMenu.S00_Start()
 											[20]	=	{Name = "dreadmountainsnodeath", Preview = false, Key = "achievements\\dreadmountainsnodeath", Value = 1},
 											[21]	=	{Name = "dreadmountainscaves", Preview = false, Key = "achievements\\dreadmountainscaves", Value = 1},
 											[22]	=	{Name = "dreadmountainstroops", Preview = false, Key = "achievements\\dreadmountainstroops", Value = 1},
-											[23]	=	{Name = "losttoherodeaths", Preview = false, Key = "achievements\\losttoherodeaths", Value = 25},
+											[23]	=	{Name = "losttoherodeaths", Preview = false, Key = "achievements\\losttoherodeaths", Value = 50},
 											[24]	=	{Name = "masterofthenorth", Preview = true, Key = "achievements\\masterofthenorth", Value = 1}
 										},
 								[3]	=
@@ -82,9 +82,9 @@ function AchievementMenu.S00_Start()
 											[2]		=	{Name = "wonmapshard", Preview = true, Key = "achievements\\wonmapshard_campaignExtra3", Value = 1},
 											[3]		=	{Name = "journeylarinaallbuildings", Preview = false, Key = "achievements\\journeylarinaallbuildings", Value = 1},
 											[4]		=	{Name = "journeybridgeruinstillthere", Preview = false, Key = "achievements\\journeybridgeruinstillthere", Value = 1},
-											[5]		=	{Name = "", Preview = false, Key = "achievements\\", Value = 1},
-											[6]		=	{Name = "", Preview = false, Key = "achievements\\", Value = 1},
-											[7]		=	{Name = "", Preview = false, Key = "achievements\\", Value = 1},
+											[5]		=	{Name = "kafarnanobattle", Preview = false, Key = "achievements\\kafarnanobattle", Value = 1},
+											[6]		=	{Name = "kafarnaevilbloodbath", Preview = false, Key = "achievements\\kafarnaevilbloodbath", Value = 1},
+											[7]		=	{Name = "kafarnafastvictory", Preview = true, Key = "achievements\\kafarnafastvictory", Value = 1},
 											[8]		=	{Name = "", Preview = false, Key = "achievements\\", Value = 1},
 											[9]		=	{Name = "", Preview = false, Key = "achievements\\", Value = 1},
 											[10]	=	{Name = "", Preview = false, Key = "achievements\\", Value = 1},

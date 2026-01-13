@@ -325,7 +325,6 @@ function StartInitialize()
 	for i = 1,2 do
 		ActivateShareExploration(i,6,true)
 		SetFriendly(i,6)
-		Logic.SetEntityExplorationRange(Logic.CreateEntity(Entities.XD_ScriptEntity, centerpos + (i/100), centerpos, 0, i), 10000)
 	end
 	Mission_InitLocalResources()
 
@@ -442,9 +441,6 @@ function AnfangsBriefing()
 		action = function()
 			StartCountdown(3,ShowArmyCreatorGUI,false)
 			StartCountdown(6,Mission_InitGroups,false)
-			for i = 1,2 do
-				Logic.SetEntityExplorationRange(({Logic.GetPlayerEntities(i, Entities.XD_ScriptEntity, 1)})[2],0)
-			end
 		end
 
     }

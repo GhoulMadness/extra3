@@ -8,7 +8,7 @@ gvDiffLVL = 0
 gvMapText = ""..
 		"TopMainMenuTextButton", "@color:0,0,0,0 ....... @color:255,0,10   Menü @cr "..
 		" @cr @cr @cr @color:150,0,255 Ghoul @color:230,0,240 @cr (4) Belagerung von Velborg"
-gvMapVersion = " v1.0 "
+gvMapVersion = " v1.1 "
 
 -- Include main function
 Script.Load( Folders.MapTools.."Main.lua" )
@@ -238,10 +238,6 @@ function TributePaid_P1_Insane()
 end
 function StartInitialize()
 
-	local centerpos = Logic.WorldGetSize()/2
-	for i = 1,4 do
-		Logic.SetEntityExplorationRange(Logic.CreateEntity(Entities.XD_ScriptEntity, centerpos + (i/100), centerpos, 0, i), 10000)
-	end
 	Mission_InitLocalResources()
 
 	IncludeGlobals("Tools\\ArmyCreator")
@@ -364,9 +360,6 @@ function AnfangsBriefing()
 		action = function()
 			StartCountdown(3,ShowArmyCreatorGUI,false)
 			StartCountdown(6,Mission_InitGroups,false)
-			for i = 1,4 do
-				Logic.SetEntityExplorationRange(({Logic.GetPlayerEntities(i, Entities.XD_ScriptEntity, 1)})[2],0)
-			end
 		end
 
     }
@@ -872,9 +865,9 @@ function DefeatTimer()
 
 end
 function DefeatJob()
-	local t1,t2,t3,t4 = {},{},{},{}
+	local t = {{},{},{},{}}
 	for i = 1, 4 do
-		local tab = _G["t"..i]
+		local tab = t[i]
 		Logic.GetHeroes(i, tab)
 		if tab and next(tab) then
 			for k = 1, table.getn(tab) do
@@ -885,7 +878,7 @@ function DefeatJob()
 		end
 	end
 	if (Logic.GetNumberOfLeader(1) + Logic.GetNumberOfLeader(2) + Logic.GetNumberOfLeader(3) + Logic.GetNumberOfLeader(4)
-	+ table.getn(t1) + table.getn(t2) + table.getn(t3) + table.getn(t4)) == 0 then
+	+ table.getn(t[1]) + table.getn(t[2]) + table.getn(t[3]) + table.getn(t[4])) == 0 then
 		Defeat()
 		return true
 	end

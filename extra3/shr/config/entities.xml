@@ -1346,50 +1346,6 @@
 		<Entity>XA_WildBoar2</Entity>
 		<Entity>XA_WildBoar3</Entity>
 
-        <!-- Cadaver -->
-        <Entity>XD_Cadaver_Cow1</Entity>
-        <Entity>XD_Cadaver_Cow2</Entity>
-        <Entity>XD_Cadaver_Cow3</Entity>
-        <Entity>XD_Cadaver_Dromedary</Entity>
-        <Entity>XD_Cadaver_Gazelle</Entity>
-        <Entity>XD_Cadaver_Rabbit1</Entity>
-        <Entity>XD_Cadaver_Rabbit2</Entity>
-        <Entity>XD_Cadaver_Rabbit3</Entity>
-        <Entity>XD_Cadaver_RedDeer</Entity>
-        <Entity>XD_Cadaver_RedDoe</Entity>
-		<Entity>XD_Cadaver_Reindeer1</Entity>
-		<Entity>XD_Cadaver_Reindeer2</Entity>
-		<Entity>XD_Cadaver_Reindeer3</Entity>
-        <Entity>XD_Cadaver_Sheep1</Entity>
-        <Entity>XD_Cadaver_Sheep2</Entity>
-        <Entity>XD_Cadaver_Sheep3</Entity>
-		<Entity>XD_Cadaver_WildBoar1</Entity>
-		<Entity>XD_Cadaver_WildBoar2</Entity>
-		<Entity>XD_Cadaver_WildBoar3</Entity>
-        <Entity>XD_Cadaver_Zebra</Entity>
-
-        <!-- Cadaver spawner -->
-        <Entity>CU_Cow1_CorpsDropper</Entity>
-        <Entity>CU_Cow2_CorpsDropper</Entity>
-        <Entity>CU_Cow3_CorpsDropper</Entity>
-        <Entity>CU_Dromedary1_CorpsDropper</Entity>
-        <Entity>CU_Gazelle1_CorpsDropper</Entity>
-        <Entity>CU_Rabbit1_CorpsDropper</Entity>
-        <Entity>CU_Rabbit2_CorpsDropper</Entity>
-        <Entity>CU_Rabbit3_CorpsDropper</Entity>
-        <Entity>CU_RedDeer1_CorpsDropper</Entity>
-        <Entity>CU_RedDeer2_CorpsDropper</Entity>
-        <Entity>CU_Reindeer1_CorpsDropper</Entity>
-        <Entity>CU_Reindeer2_CorpsDropper</Entity>
-        <Entity>CU_Reindeer3_CorpsDropper</Entity>
-        <Entity>CU_Sheep1_CorpsDropper</Entity>
-		<Entity>CU_Sheep2_CorpsDropper</Entity>
-		<Entity>CU_Sheep3_CorpsDropper</Entity>
-        <Entity>CU_WildBoar1_CorpsDropper</Entity>
-		<Entity>CU_WildBoar2_CorpsDropper</Entity>
-		<Entity>CU_WildBoar3_CorpsDropper</Entity>
-        <Entity>CU_Zebra1_CorpsDropper</Entity>
-
 		<Entity>CU_Evil_LeaderSpearman1</Entity>
 		<Entity>CU_Evil_SoldierSpearman1</Entity>
 		<Entity>CU_Evil_Merchant</Entity>
@@ -1411,12 +1367,79 @@
 
 		<Entity>PU_LeaderSword4_Spectral</Entity>
 		<Entity>PU_SoldierSword4_Spectral</Entity>
-		
+
 		<Entity>PU_Hero1c_Spectral</Entity>
 		<Entity>PU_Hero2_Spectral</Entity>
 		<Entity>PU_Hero4_Spectral</Entity>
 		<Entity>PU_Hero5_Spectral</Entity>
 		<Entity>PU_Hero10_Spectral</Entity>
+		
+		<Entity>CU_LeaderIdle</Entity>
+
+		<Entity>XD_RockDestroyableMediterranean</Entity>
+		<Entity>XD_RockDestroyableEvelance</Entity>
+		<Entity>XD_RockDestroyableMoor</Entity>
+		<Entity>XD_RockDestroyableTideland</Entity>
+
+		<Entity>XD_Fir03</Entity>
+		<Entity>XD_Fir04</Entity>
+		<Entity>XD_Fir05</Entity>
+		<Entity>XD_Fir06</Entity>
+		<Entity>XD_Fir07</Entity>
+		<Entity>XD_Fir08</Entity>
+		<Entity>XD_Fir09</Entity>
+		<Entity>XD_Fir10</Entity>
+		<Entity>XD_Fir11</Entity>
+		<Entity>XD_Fir12</Entity>
+		<Entity>XD_Fir13</Entity>
+		<Entity>XD_Fir14</Entity>
+		<Entity>XD_Fir15</Entity>
+		
+		<Entity>XD_PineSmall1</Entity>
+
+		<!-- Cadaver -->
+        <Entity>XD_Cadaver_Cow1</Entity>
+        <Entity>XD_Cadaver_Cow2</Entity>
+        <Entity>XD_Cadaver_Cow3</Entity>
+        <Entity>XD_Cadaver_Dromedary</Entity>
+        <Entity>XD_Cadaver_Gazelle</Entity>
+        <Entity>XD_Cadaver_Rabbit1</Entity>
+        <Entity>XD_Cadaver_Rabbit2</Entity>
+        <Entity>XD_Cadaver_Rabbit3</Entity>
+        <Entity>XD_Cadaver_RedDeer</Entity>
+        <Entity>XD_Cadaver_RedDoe</Entity>
+		<Entity>XD_Cadaver_Reindeer1</Entity>
+		<Entity>XD_Cadaver_Reindeer2</Entity>
+		<Entity>XD_Cadaver_Reindeer3</Entity>
+        <Entity>XD_Cadaver_Sheep1</Entity>
+        <Entity>XD_Cadaver_Sheep2</Entity>
+        <Entity>XD_Cadaver_Sheep3</Entity>
+		<Entity>XD_Cadaver_WildBoar1</Entity>
+		<Entity>XD_Cadaver_WildBoar2</Entity>
+		<Entity>XD_Cadaver_WildBoar3</Entity>
+        <Entity>XD_Cadaver_Zebra</Entity>
+
+		<!-- Cadaver spawner -->
+        <Entity>CU_Cow1_CorpsDropper</Entity>
+        <Entity>CU_Cow2_CorpsDropper</Entity>
+        <Entity>CU_Cow3_CorpsDropper</Entity>
+        <Entity>CU_Dromedary1_CorpsDropper</Entity>
+        <Entity>CU_Gazelle1_CorpsDropper</Entity>
+        <Entity>CU_Rabbit1_CorpsDropper</Entity>
+        <Entity>CU_Rabbit2_CorpsDropper</Entity>
+        <Entity>CU_Rabbit3_CorpsDropper</Entity>
+        <Entity>CU_RedDeer1_CorpsDropper</Entity>
+        <Entity>CU_RedDeer2_CorpsDropper</Entity>
+        <Entity>CU_Reindeer1_CorpsDropper</Entity>
+        <Entity>CU_Reindeer2_CorpsDropper</Entity>
+        <Entity>CU_Reindeer3_CorpsDropper</Entity>
+        <Entity>CU_Sheep1_CorpsDropper</Entity>
+		<Entity>CU_Sheep2_CorpsDropper</Entity>
+		<Entity>CU_Sheep3_CorpsDropper</Entity>
+        <Entity>CU_WildBoar1_CorpsDropper</Entity>
+		<Entity>CU_WildBoar2_CorpsDropper</Entity>
+		<Entity>CU_WildBoar3_CorpsDropper</Entity>
+        <Entity>CU_Zebra1_CorpsDropper</Entity>
 </root>
 
 

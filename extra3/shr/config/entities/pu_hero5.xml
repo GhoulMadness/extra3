@@ -3,7 +3,7 @@
 <root>
 	<Display classname="ED::CDisplayEntityProps">
 		  <Class>GD::CDisplaySettler</Class>
-		  <Model>PU_Hero5</Model> 
+		  <Model>PU_Hero5</Model>
 		  <DrawPlayerColor>True</DrawPlayerColor>
 		  <Anim>PU_Hero5_Walk</Anim>
 		  <Anim>PU_Hero5_Hit</Anim>
@@ -12,11 +12,11 @@
 		  <Anim>PU_Hero5_Attack1</Anim>
 		  <Anim>PU_Hero5_Dying1</Anim>
 		  <Anim>PU_Hero5_Run1</Anim>
-		  <Anim>PU_Hero5_Dead</Anim>		
+		  <Anim>PU_Hero5_Dead</Anim>
 	</Display>
 	<Logic classname="GGL::CGLSettlerProps">
 		  <Class>GGL::CSettler</Class>
-		  <AccessCategory>AccessCategorySettler</AccessCategory>		
+		  <AccessCategory>AccessCategorySettler</AccessCategory>
 		  <MaxHealth>500</MaxHealth>
 		  <NeedsPlayer>true</NeedsPlayer>
 		  <ForceNoPlayer>false</ForceNoPlayer>
@@ -32,39 +32,34 @@
 		  <AdjustWalkAnimSpeed>true</AdjustWalkAnimSpeed>
 		  <Exploration>32</Exploration>
 		  <ArmorClass>ArmorClassHero</ArmorClass>
-		  <ArmorAmount>2</ArmorAmount> 
-		  <DodgeChance>0</DodgeChance> 
+		  <ArmorAmount>2</ArmorAmount>
+		  <DodgeChance>0</DodgeChance>
         <IdleTaskList>TL_MILITARY_IDLE</IdleTaskList>
         <ExperiencePoints>20</ExperiencePoints>
-				
-		
-		
+
+
 	<!--Armor modifier-->
         <ModifyArmor>
         	<Technology>T_HeroicArmor</Technology>
         </ModifyArmor>
 
-    
-
     <!-- Damage Modifier-->
          <ModifyDamage>
         	<Technology>T_HeroicWeapon</Technology>
         </ModifyDamage>
-      
-    
 
-    
+
 	<!-- Speed Modifier-->
         <ModifySpeed>
         	<Technology>T_HeroicShoes</Technology>
         </ModifySpeed>
-		
-		
+
+
 	</Logic>
 	<Behavior>
 		  <Logic classname="GGL::CGLAnimationBehaviorExProps">
-			  <Class>GGL::CGLBehaviorAnimationEx</Class>			
-			  <SuspensionAnimation>PU_Hero5_Idle1</SuspensionAnimation>			
+			  <Class>GGL::CGLBehaviorAnimationEx</Class>
+			  <SuspensionAnimation>PU_Hero5_Idle1</SuspensionAnimation>
 			  <AnimSet>SET_HERO5</AnimSet>
 		</Logic>
 		  <Display classname="ED::CBehaviorProps">
@@ -83,7 +78,7 @@
 			  <Class>ED::CDisplayBehaviorMovement</Class>
 		</Display>
 	</Behavior>
-	<Behavior> 
+	<Behavior>
 		  <Logic classname="EGL::CGLEBehaviorProps">
 			  <Class>GGL::CBehaviorWalkCommand</Class>
 		</Logic>
@@ -92,9 +87,9 @@
 		  <Logic classname="GGL::CLeaderBehaviorProps">
 			  <Class>GGL::CLeaderBehavior</Class>
 			  <SoldierType>PU_SoldierSword4</SoldierType>
-			
+
 	        <BattleTaskList>TL_BATTLE_HEROBOW</BattleTaskList>
-	        
+
 	        <NormalAttackAnim1>PU_Hero5_Attack1</NormalAttackAnim1>
 	        <NormalAttackAnim2>PU_Hero5_Attack1</NormalAttackAnim2>
 	        <CounterAttackAnim>PU_Hero5_Attack1</CounterAttackAnim>
@@ -103,19 +98,19 @@
 	        <BattleIdleAnim>PU_Hero5_IdleAttack1</BattleIdleAnim>
 	        <BattleWalkAnim>PU_Hero5_Run1</BattleWalkAnim>
 	        <HitAnim>PU_Hero5_Hit</HitAnim>
-	        
+
 	        <DamageClass>DC_Hero</DamageClass>
-	        <DamageAmount>23</DamageAmount>
+	        <DamageAmount>24</DamageAmount>
 	        <MaxRandomDamageBonus>6</MaxRandomDamageBonus>
-	        
+
 	        <ProjectileEffectID>FXArrow</ProjectileEffectID>
-	        
-	        <MaxRange>3100</MaxRange>
+
+	        <MaxRange>2800</MaxRange>
 	        <MinRange>500.0f</MinRange>
-	        <AutoAttackRange>3100</AutoAttackRange>
-	        
+	        <AutoAttackRange>2800</AutoAttackRange>
+
 	        <BattleWaitUntil>1100</BattleWaitUntil>
-	        
+
 	        <MissChance>2</MissChance>
 
 	        <HealingPoints>8</HealingPoints>
@@ -123,15 +118,15 @@
 		</Logic>
 	</Behavior>
 
-	
-	
+
+
 	<Behavior>
 		  <Logic classname="GGL::CGLBehaviorPropsDying">
 			  <Class>GGL::CGLBehaviorDying</Class>
 			  <DyingTaskList>TL_DIE_HERO</DyingTaskList>
 		</Logic>
 	</Behavior>
-	
+
     <Behavior>
         <Logic classname="GGL::CHeroBehaviorProps">
             <Class>GGL::CHeroBehavior</Class>
@@ -150,7 +145,7 @@
 	        <BasePriority>500</BasePriority>
 	    </Logic>
 	</Behavior>
-	
+
 	<Behavior>
 	    <Logic classname="GGL::CCamouflageBehaviorProps">
 	        <Class>GGL::CCamouflageBehavior</Class>
@@ -164,8 +159,8 @@
 	        <CamouflageAlpha>100</CamouflageAlpha>
 	    </Display>
 	</Behavior>
-	
-	
+
+
 	<Behavior>
 	    <Logic classname="GGL::CSummonBehaviorProps">
 	        <Class>GGL::CSummonBehavior</Class>
@@ -175,5 +170,5 @@
 	        <SummonTaskList>TL_HERO5_SUMMON</SummonTaskList>
 	    </Logic>
 	</Behavior>
-	
+
 </root>

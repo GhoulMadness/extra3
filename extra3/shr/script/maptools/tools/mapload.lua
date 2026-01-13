@@ -1,6 +1,6 @@
 local month = tonumber(string.sub(Framework.GetSystemTimeDateString(), 6, 7))
 local day = tonumber(string.sub(Framework.GetSystemTimeDateString(), 9, 10))
-if (month == 12 and day >= 1) or (month == 1 and day <= 10) then
+if (month == 12 and day >= 1) or (month == 1 and day <= 31) then
 	CMod.PushArchive("..\\..\\..\\bba\\xmas.bba")
 end
 --[[

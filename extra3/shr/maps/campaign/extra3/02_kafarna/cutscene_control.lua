@@ -62,14 +62,18 @@ end
 ------------------------------------------------------------------------------------
 ------------------------------ Cutscene Data ---------------------------------------
 function Cutscene_Outro_Text1()
-	GUIAction_DisplayCinematicText("CM09_01_Journey/Cutscene_Outro_Text1")
+	GUIAction_DisplayCinematicText("CM09_02_Kafarna/Cutscene_Outro_Text1")
 end
 function Cutscene_Outro_Text2()
-	GUIAction_DisplayCinematicText("CM09_01_Journey/Cutscene_Outro_Text2")
+	GUIAction_DisplayCinematicText("CM09_02_Kafarna/Cutscene_Outro_Text2")
+end
+--[[
+function Cutscene_Outro_Text3()
+	GUIAction_DisplayCinematicText("CM09_02_Kafarna/Cutscene_Outro_Text2")
 end
 function Cutscene_Outro_Text3()
-	GUIAction_DisplayCinematicText("CM09_01_Journey/Cutscene_Outro_Text2")
-end
+	GUIAction_DisplayCinematicText("CM09_02_Kafarna/Cutscene_Outro_Text2")
+end]]
 -------------------------------------------------------------------------------------------------------------------------
 function Cutscene_Outro_Finished()
 	Cutscene_Outro_End()

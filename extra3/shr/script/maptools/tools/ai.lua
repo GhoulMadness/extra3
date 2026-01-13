@@ -1394,6 +1394,7 @@ AITroopGenerator_EvaluateMilitaryBuildingsPriority = function(_player, _forbidde
 
 	local num = {}
 	num.Barracks, num.Archery, num.Stable, num.Foundry = AI.Village_GetNumberOfMilitaryBuildings(_player)
+	num.MercenaryTower = Logic.GetNumberOfEntitiesOfTypeOfPlayer(_player, Entities.PB_MercenaryTower)
 	if MapEditor_Armies[_player].prioritylist_lastUpdate == 0 or Logic.GetTime() > MapEditor_Armies[_player].prioritylist_lastUpdate + 30 then
 		local armorclasspercT = GetPercentageOfLeadersPerArmorClass(AIEnemiesAC[_player])
 		for i = 1,7 do
@@ -1434,10 +1435,18 @@ AITroopGenerator_EvaluateMilitaryBuildingsPriority = function(_player, _forbidde
 			end
 		end
 		for k, v in pairs(MapEditor_Armies[_player].prioritylist) do
-			for id in CEntityIterator.Iterator(CEntityIterator.OfPlayerFilter(_player), CEntityIterator.OfAnyTypeFilter(Entities["PB_"..v.name.."1"], Entities["PB_"..v.name.."2"])) do
-				if Logic.GetEntityType(id) ~= Entities.PB_Foundry1 then
+			if v.name == "MercenaryTower" then
+				for id in CEntityIterator.Iterator(CEntityIterator.OfPlayerFilter(_player), CEntityIterator.OfAnyTypeFilter(Entities["PB_"..v.name])) do
 					if MilitaryBuildingIsTrainingSlotFree(id) then
 						return v.typ, id
+					end
+				end
+			else
+				for id in CEntityIterator.Iterator(CEntityIterator.OfPlayerFilter(_player), CEntityIterator.OfAnyTypeFilter(Entities["PB_"..v.name.."1"], Entities["PB_"..v.name.."2"])) do
+					if Logic.GetEntityType(id) ~= Entities.PB_Foundry1 then
+						if MilitaryBuildingIsTrainingSlotFree(id) then
+							return v.typ, id
+						end
 					end
 				end
 			end
@@ -1453,7 +1462,7 @@ AITroopGenerator_EvaluateMilitaryBuildingsPriority = function(_player, _forbidde
 			return (next(types) and types[math.random(1, table.getn(types))])
 		end
 		for k, v in pairs(MapEditor_Armies[_player].prioritylist) do
-			local entity = ({Logic.GetPlayerEntities(_player, Entities["PB_"..v.name.."1"], 1)})[2] or ({Logic.GetPlayerEntities(_player, Entities["PB_"..v.name.."2"], 1)})[2]
+			local entity = ({Logic.GetPlayerEntities(_player, Entities["PB_"..v.name.."1"], 1)})[2] or ({Logic.GetPlayerEntities(_player, Entities["PB_"..v.name.."2"], 1)})[2] or ({Logic.GetPlayerEntities(_player, Entities["PB_"..v.name], 1)})[2]
 			if entity then
 				if MilitaryBuildingIsTrainingSlotFree(entity) then
 					return v.typ

@@ -1131,6 +1131,9 @@ function ReachedEndPosJob()
 	local posX, posY = Logic.GetEntityPosition(GetID("gate_kafarna"))
 	if Logic.GetPlayerEntitiesInArea(1, 0, posX, posY, 500, 1) > 0 then
 		Logic.RemoveQuest(1, ReachEndPosQID)
+		if GDB.GetValue("myths\\journeysulfurstored") > 0 and not SulfurQuestUsed then
+			GDB.SetValue("myths\\journeysulfurstored", 0)
+		end
 		StartCutscene("Outro", Victory)
 		return true
 	end
@@ -1297,7 +1300,6 @@ function Hermit()
 		DisableNpcMarker(GetEntityId("hermit"))
 		local briefing = {}
 		local AP, ASP = AddPages(briefing)
-		local riddle, answer = randomRiddle(GetNPCDefaultNameByID(id))
 		ASP("hermit",herm,"Oh, Besucher, so weit hier draußen? @cr Nun, das will belohnt werden.", false)
 		ASP("hermit",herm,"Ich habe da so ein Gespür, dass ihr auf Euren Reisen etwas Schwefel benötigen werdet. @cr Nun, für Sprengstoff, Kanonen oder alchemische Forschungen spielt da wohl keine Rolle.", false)
 		ASP("hermit",herm,"Liefert mir ein wenig Schwefel und ich werde ihn für Euch einlagern. @cr Ihr könnt ihn dann später wieder abholen.", false)
@@ -1347,6 +1349,7 @@ function HermitSulfurTributePayed()
 				ASP("hermit",herm,"Oh, die Karavanen sind eingetroffen. @cr Sehr gute Arbeit.", false)
 				briefing.finished = function()
 					GDB.SetValue("myths\\journeysulfurstored", round(500*_Quest.ArrivedCount))
+					SulfurQuestUsed = true
 				end;
 				StartBriefing(briefing);
 			elseif _Quest.ArrivedCount > 0 then
@@ -1355,6 +1358,7 @@ function HermitSulfurTributePayed()
 				ASP("hermit",herm,"Ohweh, nicht alle Karavanen sind eingetroffen. @cr Nun, ich werde das einlagern, das eingetroffen ist.", false)
 				briefing.finished = function()
 					GDB.SetValue("myths\\journeysulfurstored", round(500*_Quest.ArrivedCount))
+					SulfurQuestUsed = true
 				end;
 				StartBriefing(briefing);
 			else
@@ -1362,7 +1366,8 @@ function HermitSulfurTributePayed()
 				local AP, ASP = AddPages(briefing)
 				ASP("hermit",tra,"Ohweh, keine der Karavanen hat es überstanden. @cr Nun, so werde ich für Euch keine Ressourcen einlagern können...", false)
 				briefing.finished = function()
-					GDB.SetValue("myths\\journeysulfurstored", round(500*_Quest.ArrivedCount))
+					GDB.SetValue("myths\\journeysulfurstored", 0)
+					SulfurQuestUsed = true
 				end;
 				StartBriefing(briefing);
 			end

@@ -10,15 +10,15 @@
 		<AccessCategory>AccessCategorySettler</AccessCategory>
 		<DoNotExecute>false</DoNotExecute>
 		<ForceNoPlayer>false</ForceNoPlayer>
-		<Exploration>30</Exploration>	
+		<Exploration>30</Exploration>
     <Category>MilitaryBuilding</Category>
-		<Category>Military</Category> 
-		<Category>Cannon</Category> 	
+		<Category>Military</Category>
+		<Category>Cannon</Category>
         <!--NumBlockedPoints>2</NumBlockedPoints-->
         <SnapTolerance>30.0f</SnapTolerance>
 		<MapFileDontSave>true</MapFileDontSave>
 	</Logic>
-	
+
 	<Behavior>
     	<Logic classname="GGL::CAutoCannonBehaviorProps">
     	    <Class>GGL::CAutoCannonBehavior</Class>

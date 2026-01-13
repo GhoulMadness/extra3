@@ -9,9 +9,9 @@
  <MPFlag>true</MPFlag>
  <MPPlayerCount>2</MPPlayerCount>
  <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
- <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(2) koop wettlauf mit der zeit</MiniMapTextureName>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\externalmap</MiniMapTextureName>
  <Key>3</Key>
  <GUID>
-  <Data>63baee0a-c4b2-457b-9376-dee2992318c2</Data>
+  <Data>d4eb3a35-4fa6-4365-9d39-602ff4e637f1</Data>
  </GUID>
 </root>

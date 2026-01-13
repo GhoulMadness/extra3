@@ -4,7 +4,7 @@
 gvMapText = ""..
 		"@color:0,0,0,0 ........... @color:255,0,10   Menü @cr "..
 		" @cr @cr @cr @color:166,212,35 P4F @color:230,0,240 @cr (2) Silbertal "
-gvMapVersion = " v1.1 "
+gvMapVersion = " v1.2 "
 
 -- Include main function
 Script.Load( Folders.MapTools.."Main.lua" )
@@ -116,7 +116,7 @@ function TributePaid_P1_Easy()
 	Logic.RemoveTribute(1,TP1_H)
 	--
 	MultiplayerTools.GiveBuyableHerosToHumanPlayer( 5 )
-	gvDiffLVL = 2.2
+	gvDiffLVL = 2.0
 
 	--RecreateVillageCenters()
 	SetPlayerEntitiesSelectable()
@@ -138,7 +138,7 @@ function TributePaid_P1_Normal()
 	Logic.RemoveTribute(1,TP1_H)
 	--
 	MultiplayerTools.GiveBuyableHerosToHumanPlayer( 4 )
-	gvDiffLVL = 1.6
+	gvDiffLVL = 1.5
 
 	--RecreateVillageCenters()
 	SetPlayerEntitiesSelectable()
@@ -200,7 +200,7 @@ end
 function SetupMary()
 
 	-- Spieler 3 - Mary
-    MapEditor_SetupAI(3,4-round(gvDiffLVL),8000,1,"posP3",3,35*60*gvDiffLVL)
+    MapEditor_SetupAI(3,4-round(gvDiffLVL),8000,1,"P3",3,35*60*gvDiffLVL)
 	SetupPlayerAi(3, {
 	serfLimit = 12,
 	extracting = 1,
@@ -216,7 +216,7 @@ end
 function SetupKerberos()
 
 	-- Spieler 4 - Kerberos
-    MapEditor_SetupAI(4,4-round(gvDiffLVL),8000,1,"posP4",3,30*60*gvDiffLVL)
+    MapEditor_SetupAI(4,4-round(gvDiffLVL),8000,1,"P4",3,30*60*gvDiffLVL)
 	SetupPlayerAi(4, {
 	serfLimit = 12,
 	extracting = 1,
@@ -232,7 +232,7 @@ end
 function SetupVarg()
 
 	-- Spieler 5 - Varg
-    MapEditor_SetupAI(5,4-round(gvDiffLVL),8000,1,"posP5",3,30*60*gvDiffLVL)
+    MapEditor_SetupAI(5,4-round(gvDiffLVL),8000,1,"P5",3,30*60*gvDiffLVL)
 	SetupPlayerAi(5, {
 	serfLimit = 12,
 	extracting = 1,
@@ -248,7 +248,7 @@ end
 function SetupKala()
 
 	-- Spieler 6 - Kala
-    MapEditor_SetupAI(6,4-round(gvDiffLVL),8000,1,"posP6",3,35*60*gvDiffLVL)
+    MapEditor_SetupAI(6,4-round(gvDiffLVL),8000,1,"P6",3,35*60*gvDiffLVL)
 	SetupPlayerAi(6, {
 	serfLimit = 12,
 	extracting = 1,
@@ -627,6 +627,7 @@ function SJ_DestroyHQ3Message()
 	if IsDead("P3HQ") then
 		Message("Marys Burg wurde zerstört!")
 		Sound.PlayGUISound(Sounds.fanfare,70)
+		MapEditor_Armies[4].offensiveArmies.rodeLength = MapEditor_Armies[4].offensiveArmies.rodeLength * 1.5
 		return true
 	end
 end
@@ -636,6 +637,7 @@ function SJ_DestroyHQ4Message()
 	if IsDead("P4HQ") then
 		Message("Kerberos Burg wurde zerstört!")
 		Sound.PlayGUISound(Sounds.fanfare,70)
+		MapEditor_Armies[3].offensiveArmies.rodeLength = MapEditor_Armies[4].offensiveArmies.rodeLength * 1.5
 		return true
 	end
 end
@@ -645,6 +647,7 @@ function SJ_DestroyHQ5Message()
 	if IsDead("P5HQ") then
 		Message("Vargs Burg wurde zerstört!")
 		Sound.PlayGUISound(Sounds.fanfare,70)
+		MapEditor_Armies[6].offensiveArmies.rodeLength = MapEditor_Armies[4].offensiveArmies.rodeLength * 1.5
 		return true
 	end
 end
@@ -654,6 +657,7 @@ function SJ_DestroyHQ6Message()
 	if IsDead("P6HQ") then
 		Message("Kalas Burg wurde zerstört!")
 		Sound.PlayGUISound(Sounds.fanfare,70)
+		MapEditor_Armies[5].offensiveArmies.rodeLength = MapEditor_Armies[4].offensiveArmies.rodeLength * 1.5
 		return true
 	end
 end

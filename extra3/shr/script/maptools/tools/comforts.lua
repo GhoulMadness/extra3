@@ -4577,7 +4577,8 @@ function CheckForBetterTarget(_eID, _target, _range)
 	local sector = Logic.GetSector(_eID)
 	local player = Logic.EntityGetPlayer(_eID)
 	local etype = Logic.GetEntityType(_eID)
-	local IsTower = (Logic.IsEntityInCategory(_eID, EntityCategories.MilitaryBuilding) == 1 and Logic.GetFoundationTop(_eID) ~= 0)
+	local IsTower = (Logic.IsEntityInCategory(_eID, EntityCategories.MilitaryBuilding) == 1
+		and CEntity.GetAttachedEntities(_eID)[55] and _eID == Logic.GetFoundationTop(CEntity.GetAttachedEntities(_eID)[55][1]))
 	local IsMelee = (Logic.IsEntityInCategory(_eID, EntityCategories.Melee) == 1)
 	local IsHero = (Logic.IsEntityInCategory(_eID, EntityCategories.Hero) == 1)
 	local posX, posY = Logic.GetEntityPosition(_eID)
@@ -4677,7 +4678,7 @@ function CheckForBetterTarget(_eID, _target, _range)
 			end
 			attach = CEntity.GetAttachedEntities(entities[i])[37]
 			local damagefactor = DamageFactorToArmorClass[damageclass][GetEntityTypeArmorClass(ety)]
-			if damagerange > 0 and (not gvAntiBuildingCannonsRange[etype] or etype == Entities.PV_Cannon6) then
+			if damagerange > 0 and (not gvAntiBuildingCannonsRange[etype] or etype == Entities.PV_Cannon6 or etype == Entities.PV_Cannon6_2) then
 				local mul = 1
 				if Logic.IsLeader(entities[i]) == 1 then
 					mul = 1 + Logic.LeaderGetNumberOfSoldiers(entities[i])
@@ -4688,15 +4689,11 @@ function CheckForBetterTarget(_eID, _target, _range)
 		end
 	end
 	local attachN = attach and table.getn(attach) or 0
-	if damagerange > 0 and (not gvAntiBuildingCannonsRange[etype] or etype == Entities.PV_Cannon6) then
+	if damagerange > 0 and (not gvAntiBuildingCannonsRange[etype] or etype == Entities.PV_Cannon6 or etype == Entities.PV_Cannon6_2) then
 		if next(postable) then
 			clumppos, score = GetPositionClump(postable, damagerange, 100)
 			for i = 1, table.getn(calcT) do
-				if IsTower then
-					calcT[i].clumpscore = score
-				else
-					calcT[i].clumpscore = score / GetDistance(clumppos, GetPosition(calcT[i].id))
-				end
+				calcT[i].clumpscore = score / GetDistance(clumppos, GetPosition(calcT[i].id))
 			end
 		end
 	end
@@ -4714,7 +4711,7 @@ function CheckForBetterTarget(_eID, _target, _range)
 	table.sort(calcT, function(p1, p2)
 		if p1.clumpscore then
 			if IsTower then
-				return p1.clumpscore > p2.clumpscore
+				return p1.clumpscore * p1.factor > p2.clumpscore * p2.factor
 			else
 				return p1.clumpscore + p1.factor - distval(p1.dist, maxrange) > p2.clumpscore + p2.factor - distval(p2.dist, maxrange)
 			end
@@ -4884,8 +4881,8 @@ BS.GetBestDamageClassByArmorClass = function(_ACid)
 	end
 end
 -- table filled with upgrade categories in respective damageclass
-BS.GetUpgradeCategoryByDamageClass = {	[1] = {UpgradeCategories.LeaderSword, Entities.PV_Cannon1},
-										[2] = UpgradeCategories.LeaderBow,
+BS.GetUpgradeCategoryByDamageClass = {	[1] = {UpgradeCategories.LeaderSword, Entities.PV_Cannon1, UpgradeCategories.BlackKnightLeaderSword3, UpgradeCategories.BlackKnightLeaderMace1, UpgradeCategories.LeaderBandit, UpgradeCategories.LeaderBarbarian, UpgradeCategories.LeaderElite},
+										[2] = {UpgradeCategories.LeaderBow, UpgradeCategories.LeaderBanditBow},
 										[3] = UpgradeCategories.LeaderHeavyCavalry,
 										[4] = Entities.PV_Cannon2,
 										[5] = UpgradeCategories.LeaderElite,
@@ -4895,11 +4892,11 @@ BS.GetUpgradeCategoryByDamageClass = {	[1] = {UpgradeCategories.LeaderSword, Ent
 										[9] = {UpgradeCategories.LeaderCavalry, UpgradeCategories.LeaderUlan}
 										}
 -- table filled with upgrade categories by barrack building type string key
-BS.CategoriesInMilitaryBuilding = {	["Barracks"] = {UpgradeCategories.LeaderSword, UpgradeCategories.LeaderPoleArm, UpgradeCategories.LeaderElite, UpgradeCategories.BlackKnightLeaderSword3, UpgradeCategories.BlackKnightLeaderMace1, UpgradeCategories.LeaderBandit, UpgradeCategories.LeaderBarbarian},
-									["Archery"] = {UpgradeCategories.LeaderBow, UpgradeCategories.LeaderRifle, UpgradeCategories.LeaderBanditBow},
+BS.CategoriesInMilitaryBuilding = {	["Barracks"] = {UpgradeCategories.LeaderSword, UpgradeCategories.LeaderPoleArm},
+									["Archery"] = {UpgradeCategories.LeaderBow, UpgradeCategories.LeaderRifle},
 									["Stable"] = {UpgradeCategories.LeaderCavalry, UpgradeCategories.LeaderHeavyCavalry, UpgradeCategories.LeaderUlan},
 									["Foundry"] = {Entities.PV_Cannon1, Entities.PV_Cannon2, Entities.PV_Cannon3, Entities.PV_Cannon4},
-									["MercenaryTower"] = {Entities.CU_VeteranLieutenant, Entities.CU_VeteranMajor}
+									["MercenaryTower"] = {UpgradeCategories.BlackKnightLeaderSword3, UpgradeCategories.BlackKnightLeaderMace1, UpgradeCategories.LeaderBandit, UpgradeCategories.LeaderBarbarian, UpgradeCategories.LeaderElite, UpgradeCategories.LeaderBanditBow, UpgradeCategories.Evil_LeaderBearman, UpgradeCategories.Evil_LeaderSkirmisher}
 									}
 GetUpgradeCategoryInDamageClass = function(_dclass)
 	if type(BS.GetUpgradeCategoryByDamageClass[_dclass]) == "table" then

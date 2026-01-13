@@ -5,18 +5,18 @@
 		  <DrawPlayerColor>True</DrawPlayerColor>
 		  <Anim>CU_BlackKnight_LeaderMace1_Walk</Anim>
 		  <Anim>CU_BlackKnight_LeaderMace1_Run1</Anim>
-		  <Anim>CU_BlackKnight_LeaderMace1_Idle1</Anim>		
-		  <Anim>CU_BlackKnight_LeaderMace1_Idle2</Anim>	
-		  <Anim>CU_BlackKnight_LeaderMace1_Idle3</Anim>	
-		  <Anim>CU_BlackKnight_LeaderMace1_Idle4</Anim>	
-		  <Anim>CU_BlackKnight_LeaderMace1_Idle5</Anim>	
-		  <Anim>CU_BlackKnight_LeaderMace1_Idle6</Anim>	
+		  <Anim>CU_BlackKnight_LeaderMace1_Idle1</Anim>
+		  <Anim>CU_BlackKnight_LeaderMace1_Idle2</Anim>
+		  <Anim>CU_BlackKnight_LeaderMace1_Idle3</Anim>
+		  <Anim>CU_BlackKnight_LeaderMace1_Idle4</Anim>
+		  <Anim>CU_BlackKnight_LeaderMace1_Idle5</Anim>
+		  <Anim>CU_BlackKnight_LeaderMace1_Idle6</Anim>
 		  <Anim>CU_BlackKnight_LeaderMace1_Attack1</Anim>
 		  <Anim>CU_BlackKnight_LeaderMace1_Attack2</Anim>
 		  <Anim>CU_BlackKnight_LeaderMace1_IdleAttack1</Anim>
 		  <Anim>CU_BlackKnight_LeaderMace1_Finish</Anim>
 		  <Anim>CU_BlackKnight_LeaderMace1_Dying1</Anim>
-		  <Anim>CU_BlackKnight_LeaderMace1_Hit</Anim>	
+		  <Anim>CU_BlackKnight_LeaderMace1_Hit</Anim>
 	</Display>
 	<Logic classname="GGL::CGLSettlerProps">
 		  <Class>GGL::CSettler</Class>

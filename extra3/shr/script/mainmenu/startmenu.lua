@@ -2,7 +2,7 @@
 -- Start menu stuff
 ----------------------------------------------------------------------------------------------------
 -- Table
-Ex3 = {Version = 0.774}
+Ex3 = {Version = 0.775}
 StartMenu = {}
 -- only high tex quality supported
 if GDB.IsKeyValid( "Config\\Display\\TextureResolution" ) then
@@ -183,8 +183,11 @@ function StartMenu.GEN_Update()
 			if StartMenu.GEN_VideoRunning == 0 then
 				local month = tonumber(string.sub(Framework.GetSystemTimeDateString(), 6, 7))
 				local day = tonumber(string.sub(Framework.GetSystemTimeDateString(), 9, 10))
-				if (month == 12 and day >= 1) or (month == 1 and day <= 10) then
+				if (month == 12 and day >= 1) or (month == 1 and day <= 31) then
 					CMod.PushArchive("..\\..\\..\\bba\\xmas.bba")
+					--
+					CMod.UpdateTexture("data\\graphics\\textures\\gui\\mainmenu\\title.png")
+					CMod.UpdateTexture("data\\graphics\\textures\\gui\\mainmenu\\right_logo.png")
 				end
 				XGUIEng.StartVideoPlayback("StartMenu_BG_Video", "data\\graphics\\videos\\Menu\\FightScene.bik", 1)
 				StartMenu.GEN_VideoRunning = 1

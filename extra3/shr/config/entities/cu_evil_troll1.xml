@@ -12,7 +12,7 @@
 	<Logic classname="GGL::CGLSettlerProps">
 		  <Class>GGL::CSettler</Class>
 		  <AccessCategory>AccessCategorySettler</AccessCategory>
-		  <MaxHealth>2000</MaxHealth>
+		  <MaxHealth>2500</MaxHealth>
 		  <NeedsPlayer>true</NeedsPlayer>
 		  <ForceNoPlayer>false</ForceNoPlayer>
 		  <Fearless>true</Fearless>
@@ -69,10 +69,10 @@
 		  <AdjustWalkAnimSpeed>true</AdjustWalkAnimSpeed>
 		  <Exploration>20</Exploration>
 		  <ArmorClass>ArmorClassFur</ArmorClass>
-		  <ArmorAmount>7</ArmorAmount>
+		  <ArmorAmount>5</ArmorAmount>
 		  <DodgeChance>10</DodgeChance>
     	<IdleTaskList>TL_MILITARY_IDLE</IdleTaskList>
-    	<ExperiencePoints>200</ExperiencePoints>
+    	<ExperiencePoints>500</ExperiencePoints>
 
 	</Logic>
 	<Behavior>
@@ -88,7 +88,7 @@
 	<Behavior>
 		  <Logic classname="EGL::CMovementBehaviorProps">
 			  <Class>GGL::CLeaderMovement</Class>
-			  <Speed>220</Speed>
+			  <Speed>240</Speed>
 			  <RotationSpeed>20</RotationSpeed>
 			  <MoveTaskList>TL_LEADER_WALK</MoveTaskList>
 			  <MoveIdleAnim>CU_Troll_Idle1</MoveIdleAnim>
@@ -131,7 +131,7 @@
 	        <MinRange>0.0f</MinRange>
 	        <AutoAttackRange>2000</AutoAttackRange>
 
-			  <HealingPoints>40</HealingPoints>
+			  <HealingPoints>50</HealingPoints>
 	        <HealingSeconds>2</HealingSeconds>
 		  </Logic>
 	</Behavior>

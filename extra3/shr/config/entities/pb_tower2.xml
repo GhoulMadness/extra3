@@ -30,11 +30,11 @@
 		
         <Upgrade>
 			  <Category>Tower</Category> 
-			  <Time>75.0</Time>  
+			  <Time>60.0</Time>  
             <Cost>
 				    <Clay>0</Clay>
 				    <Wood/>
-				    <Stone>800</Stone>
+				    <Stone>600</Stone>
 				    <Gold>1000</Gold>
 				    <Iron>0</Iron>
 				    <Sulfur>1250</Sulfur>

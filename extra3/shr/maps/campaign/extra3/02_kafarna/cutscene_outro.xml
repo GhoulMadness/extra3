@@ -11,9 +11,9 @@
               <Data>
                 <Position>
                   <Position>
-                    <x>2.096185e+004</x>
-                    <y>2.017820e+004</y>
-                    <z>2.658519e+003</z>
+                    <x>2.199469e+004</x>
+                    <y>1.666915e+004</y>
+                    <z>4.101513e+003</z>
                   </Position>
                 </Position>
                 <InTangent>
@@ -33,79 +33,27 @@
               </Data>
             </Element>
             <Element>
-              <Time>3.301159e+000</Time>
+              <Time>2.021874e+001</Time>
               <Data>
                 <Position>
                   <Position>
-                    <x>2.235713e+004</x>
-                    <y>2.241474e+004</y>
-                    <z>2.498607e+003</z>
+                    <x>2.432733e+004</x>
+                    <y>2.429257e+004</y>
+                    <z>2.741429e+003</z>
                   </Position>
                 </Position>
                 <InTangent>
                   <Position>
-                    <x>2.106596e+003</x>
-                    <y>3.350574e+003</y>
-                    <z>-1.496633e+002</z>
+                    <x>1.050439e+003</x>
+                    <y>3.740783e+003</y>
+                    <z>-7.404565e+002</z>
                   </Position>
                 </InTangent>
                 <OutTangent>
                   <Position>
-                    <x>2.875521e+003</x>
-                    <y>4.573570e+003</y>
-                    <z>-2.042917e+002</z>
-                  </Position>
-                </OutTangent>
-              </Data>
-            </Element>
-            <Element>
-              <Time>7.807273e+000</Time>
-              <Data>
-                <Position>
-                  <Position>
-                    <x>2.428327e+004</x>
-                    <y>2.546096e+004</y>
-                    <z>2.422549e+003</z>
-                  </Position>
-                </Position>
-                <InTangent>
-                  <Position>
-                    <x>2.982393e+003</x>
-                    <y>4.504951e+003</y>
-                    <z>-7.712158e+001</z>
-                  </Position>
-                </InTangent>
-                <OutTangent>
-                  <Position>
-                    <x>9.596543e+002</x>
-                    <y>1.449580e+003</y>
-                    <z>-2.481592e+001</z>
-                  </Position>
-                </OutTangent>
-              </Data>
-            </Element>
-            <Element>
-              <Time>9.257225e+000</Time>
-              <Data>
-                <Position>
-                  <Position>
-                    <x>2.498516e+004</x>
-                    <y>2.638443e+004</y>
-                    <z>2.430649e+003</z>
-                  </Position>
-                </Position>
-                <InTangent>
-                  <Position>
-                    <x>0.000000e+000</x>
-                    <y>0.000000e+000</y>
-                    <z>0.000000e+000</z>
-                  </Position>
-                </InTangent>
-                <OutTangent>
-                  <Position>
-                    <x>0.000000e+000</x>
-                    <y>0.000000e+000</y>
-                    <z>0.000000e+000</z>
+                    <x>5.342168e+002</x>
+                    <y>1.902428e+003</y>
+                    <z>-3.765703e+002</z>
                   </Position>
                 </OutTangent>
               </Data>
@@ -126,9 +74,9 @@
               <Data>
                 <Position>
                   <Position>
-                    <x>2.165246e+004</x>
-                    <y>2.089085e+004</y>
-                    <z>2.535243e+003</z>
+                    <x>2.231294e+004</x>
+                    <y>1.760044e+004</y>
+                    <z>3.924317e+003</z>
                   </Position>
                 </Position>
                 <InTangent>
@@ -148,79 +96,27 @@
               </Data>
             </Element>
             <Element>
-              <Time>3.301159e+000</Time>
+              <Time>2.021874e+001</Time>
               <Data>
                 <Position>
                   <Position>
-                    <x>2.277706e+004</x>
-                    <y>2.332225e+004</y>
-                    <z>2.489227e+003</z>
+                    <x>2.473376e+004</x>
+                    <y>2.520041e+004</y>
+                    <z>2.638306e+003</z>
                   </Position>
                 </Position>
                 <InTangent>
                   <Position>
-                    <x>2.065863e+003</x>
-                    <y>3.425893e+003</y>
-                    <z>-6.748853e+001</z>
+                    <x>9.792539e+002</x>
+                    <y>3.756947e+003</y>
+                    <z>-7.574934e+002</z>
                   </Position>
                 </InTangent>
                 <OutTangent>
                   <Position>
-                    <x>2.788012e+003</x>
-                    <y>4.623443e+003</y>
-                    <z>-9.107983e+001</z>
-                  </Position>
-                </OutTangent>
-              </Data>
-            </Element>
-            <Element>
-              <Time>7.807273e+000</Time>
-              <Data>
-                <Position>
-                  <Position>
-                    <x>2.488838e+004</x>
-                    <y>2.625707e+004</y>
-                    <z>2.429531e+003</z>
-                  </Position>
-                </Position>
-                <InTangent>
-                  <Position>
-                    <x>3.194889e+003</x>
-                    <y>4.381775e+003</y>
-                    <z>-5.859692e+001</z>
-                  </Position>
-                </InTangent>
-                <OutTangent>
-                  <Position>
-                    <x>1.024916e+003</x>
-                    <y>1.405670e+003</y>
-                    <z>-1.879761e+001</z>
-                  </Position>
-                </OutTangent>
-              </Data>
-            </Element>
-            <Element>
-              <Time>9.257225e+000</Time>
-              <Data>
-                <Position>
-                  <Position>
-                    <x>2.559027e+004</x>
-                    <y>2.718054e+004</y>
-                    <z>2.437631e+003</z>
-                  </Position>
-                </Position>
-                <InTangent>
-                  <Position>
-                    <x>0.000000e+000</x>
-                    <y>0.000000e+000</y>
-                    <z>0.000000e+000</z>
-                  </Position>
-                </InTangent>
-                <OutTangent>
-                  <Position>
-                    <x>0.000000e+000</x>
-                    <y>0.000000e+000</y>
-                    <z>0.000000e+000</z>
+                    <x>4.986680e+002</x>
+                    <y>1.913170e+003</y>
+                    <z>-3.857410e+002</z>
                   </Position>
                 </OutTangent>
               </Data>
@@ -234,7 +130,16 @@
     <Flights>
       <Element>
         <Time>0.000000e+000</Time>
-        <Data />
+        <Data>
+			<Element>
+              <Time>0.000000e+000</Time>
+			  <FuncName>Text1</FuncName>
+            </Element>
+            <Element>
+              <Time>1.011874e+001</Time>
+			  <FuncName>Text2</FuncName>
+            </Element>
+		</Data>
       </Element>
     </Flights>
   </LuaFunctions>

@@ -4,7 +4,20 @@
 		  <Class>GD::CDisplaySettler</Class>
 		  <Model>CU_Evil_Uruk1</Model>
 		  <DrawPlayerColor>True</DrawPlayerColor>
+		  <Anim>CU_Evil_Uruk1_Walk</Anim>
+		  <Anim>CU_Evil_Uruk1_Run1</Anim>
+		  <Anim>CU_Evil_Uruk1_Idle1</Anim>
+		  <Anim>CU_Evil_Uruk1_Idle2</Anim>
+		  <Anim>CU_Evil_Uruk1_Idle3</Anim>
+		  <Anim>CU_Evil_Uruk1_Idle4</Anim>
+		  <Anim>CU_Evil_Uruk1_Idle5</Anim>
+		  <Anim>CU_Evil_Uruk1_Idle6</Anim>
 		  <Anim>CU_Evil_Uruk1_Attack1</Anim>
+		  <Anim>CU_Evil_Uruk1_Attack2</Anim>
+		  <Anim>CU_Evil_Uruk1_IdleAttack1</Anim>
+		  <Anim>CU_Evil_Uruk1_Finish</Anim>
+		  <Anim>CU_Evil_Uruk1_Dying1</Anim>
+		  <Anim>CU_Evil_Uruk1_Hit</Anim>
 	</Display>
 	<Logic classname="GGL::CGLSettlerProps">
 		  <Class>GGL::CSettler</Class>
@@ -74,7 +87,7 @@
 	<Behavior>
 		  <Logic classname="GGL::CGLAnimationBehaviorExProps">
 			  <Class>GGL::CGLBehaviorAnimationEx</Class>
-			  <SuspensionAnimation>CU_Evil_Uruk1_Attack1</SuspensionAnimation>
+			  <SuspensionAnimation>CU_Evil_Uruk1_Idle1</SuspensionAnimation>
 			  <AnimSet>SET_CU_EVIL_URUK1</AnimSet>
 		  </Logic>
 		  <Display classname="ED::CBehaviorProps">
@@ -87,7 +100,7 @@
 			  <Speed>450</Speed>
 			  <RotationSpeed>30</RotationSpeed>
 			  <MoveTaskList>TL_LEADER_WALK</MoveTaskList>
-			  <MoveIdleAnim>CU_Evil_Uruk1_Attack1</MoveIdleAnim>
+			  <MoveIdleAnim>CU_Evil_Uruk1_Idle1</MoveIdleAnim>
 		</Logic>
 		  <Display classname="ED::CBehaviorProps">
 			  <Class>ED::CDisplayBehaviorMovement</Class>
@@ -109,13 +122,13 @@
 	        <BattleTaskList>TL_BATTLE_CLAW</BattleTaskList>
 
 	        <NormalAttackAnim1>CU_Evil_Uruk1_Attack1</NormalAttackAnim1>
-	        <NormalAttackAnim2>CU_Evil_Uruk1_Attack1</NormalAttackAnim2>
-	        <CounterAttackAnim>CU_Evil_Uruk1_Attack1</CounterAttackAnim>
+	        <NormalAttackAnim2>CU_Evil_Uruk1_Attack2</NormalAttackAnim2>
+	        <CounterAttackAnim>CU_Evil_Uruk1_Finish</CounterAttackAnim>
 	        <FinishingMoveAnim>CU_Evil_Uruk1_Attack1</FinishingMoveAnim>
 	        <MissAttackAnim>CU_Evil_Uruk1_Attack1</MissAttackAnim>
-	        <BattleIdleAnim>CU_Evil_Uruk1_Attack1</BattleIdleAnim>
-	        <BattleWalkAnim>CU_Evil_Uruk1_Attack1</BattleWalkAnim>
-	        <HitAnim>CU_Evil_Uruk1_Attack1</HitAnim>
+	        <BattleIdleAnim>CU_Evil_Uruk1_IdleAttack1</BattleIdleAnim>
+	        <BattleWalkAnim>CU_Evil_Uruk1_Run1</BattleWalkAnim>
+	        <HitAnim>CU_Evil_Uruk1_Hit</HitAnim>
 
 	        <DamageClass>DC_Evil</DamageClass>
 	        <DamageAmount>70</DamageAmount>

@@ -1,9 +1,9 @@
 ----------------------------------
 -- CUTSCENES
 --
--- Map: 	01_Journey
+-- Map: 	02_Kafarna
 -- Author: 	Ghoul
--- Status: 	in_progress
+-- Status: 	complete
 ----------------------------------
 SetAdvancedCutsceneClipping()
 -----------------------------------------------------------------------------------------------------------------------
@@ -67,13 +67,6 @@ end
 function Cutscene_Outro_Text2()
 	GUIAction_DisplayCinematicText("CM09_02_Kafarna/Cutscene_Outro_Text2")
 end
---[[
-function Cutscene_Outro_Text3()
-	GUIAction_DisplayCinematicText("CM09_02_Kafarna/Cutscene_Outro_Text2")
-end
-function Cutscene_Outro_Text3()
-	GUIAction_DisplayCinematicText("CM09_02_Kafarna/Cutscene_Outro_Text2")
-end]]
 -------------------------------------------------------------------------------------------------------------------------
 function Cutscene_Outro_Finished()
 	Cutscene_Outro_End()
@@ -93,24 +86,14 @@ end
 -------------------------------------------------------------------------------------------------------------------------
 --*********************************************************************************************
 function Mission_InitMovie()
-
-	--local currGFX = GetCurrentWeatherGfxSet()
-	--local dummyGFX = 99
-	--Display.GfxSetCloneFogParams(dummyGFX, currGFX)
 	Display.SetRenderUseGfxSets(0)
-	--Display.SetRenderFog(0)
 	Display.SetFogStartAndEnd(500, 60000)
 	Display.SetFarClipPlaneMinAndMax(0, 60000)
 	Interface_SetCinematicMode(1)
 
 end
 function Mission_EndMovie()
-
-	--local currGFX = GetCurrentWeatherGfxSet()
-	--local dummyGFX = 99
-	--Display.GfxSetCloneFogParams(currGFX, dummyGFX)
 	Display.SetRenderUseGfxSets(1)
-	--Display.SetRenderFog(1)
 	Interface_SetCinematicMode(0)
 	Display.SetFarClipPlaneMinAndMax(0, 0)
 

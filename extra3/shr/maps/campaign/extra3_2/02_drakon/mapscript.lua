@@ -67,21 +67,22 @@ function InitPlayerColorMapping()
 		"TopMainMenuTextButton", gvMapText ..
 		" @cr ".. DiffLVLToString(gvDiffLVL) .. " @cr @color:230,0,240 " .. gvMapVersion)
 	XGUIEng.ShowWidget(XGUIEng.GetWidgetID("CinematicBar00"),0)
-	XGUIEng.ShowWidget(XGUIEng.GetWidgetID("CinematicBar01"),1)
+	XGUIEng.ShowWidget(XGUIEng.GetWidgetID("CinematicBar01"),0)
 	XGUIEng.ShowWidget(XGUIEng.GetWidgetID("CinematicBar02"),1)
 	XGUIEng.ShowWidget(XGUIEng.GetWidgetID("CinematicFrame"),0)
 	XGUIEng.ShowWidget(XGUIEng.GetWidgetID("CinematicMiniMapOverlay"),0)
 	XGUIEng.ShowWidget(XGUIEng.GetWidgetID("CinematicMiniMap"),0)
 	XGUIEng.ShowWidget(XGUIEng.GetWidgetID("CinematicFrameBG"),0)
-	--**
+--**
 	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("CinematicMC_Container"),0,0,1400,1000)
 	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("CinematicMC_Button1"),100,800,425,33)
 	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("CinematicMC_Button2"),550,800,425,33)
 	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("CinematicMC_Headline"),120,642,500,80)
 	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("CinematicMC_Text"),100,669,850,48)
-	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("Cinematic_Headline"),120,642,500,80)
+	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("Cinematic_Headline"),100,640,500,30)
 	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("Cinematic_Text"),100,669,850,77)
-	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("CinematicBar02"),0,1000,1200,128)
+	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("CinematicBar02"), 0, 2400, 3200, 140)
+	XGUIEng.SetMaterialColor(XGUIEng.GetWidgetID("CinematicBar02"), 0, 0, 0, 0, 160)
 	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("CinematicBar01"),70,625,600,100)
 	FarbigeNamen()
 	InitBriefingData()
@@ -95,6 +96,8 @@ end
 --**
 function FirstMapAction()
 	IncludeGlobals("Cutscene")
+	-- Include Cutscene control
+	IncludeLocals("Cutscene_Control")
 	IncludeLocals("armies")
 	MapEditor_SetupAI(2, 4-gvDiffLVL, 11500, 3, "KerberosBurg", 3, 0)
 	SetupPlayerAi( 2, {constructing = true, extracting = false, repairing = true, serfLimit = 9} )
@@ -262,8 +265,17 @@ function StarteSpiel()
 	SetHealth("hqSP",50)
 	--**
 	--Prolog()
+	Move("Bogen", "moveBow")
+	Move("Dario", "moveDario")
+	Move("Ari", "moveAri")
+	Move("serf1", "moveSerf1")
+	Move("serf2", "moveSerf3")
+	Move("Settler", "moveSerf4")
+	Move("Serf", "moveSerf2")
+	--
 	SetupNPCSystem()
-	IntroCutscene()
+	StartCutscene("Intro", IntroBrief)
+	--IntroCutscene()
 	SetHostile(1,2)
 	SetHostile(1,3)
 	SetHostile(1,4)
@@ -327,13 +339,13 @@ end
 function IntroBrief()
 	local briefing = {}
 	local AP, ASP = AddPages(briefing);
-	ASP("start_pos",ment,"Dario und Ari sind in den Norden des Königreiches aufgebrochen, um dort nach dem Rechten zu sehen.", true)
-	ASP("start_pos",ment,"Im Königreich geht das Gerücht um, das Kerberos, Varg und Mary wieder einmal vereint sind.", true)
-	ASP("start_pos",ment,"Sie würden erneut versuchen, die Macht über das Reich von Norden her an sich zu reißen...", true)
+	ASP("moveBow",ment,"Dario und Ari sind in den Norden des Königreiches aufgebrochen, um dort nach dem Rechten zu sehen.", true)
+	ASP("moveBow",ment,"Im Königreich geht das Gerücht um, das Kerberos, Varg und Mary wieder einmal vereint sind.", true)
+	ASP("moveBow",ment,"Sie würden erneut versuchen, die Macht über das Reich von Norden her an sich zu reißen...", true)
 	ASP("Ari",ari,"Wir sollten uns zunächst bei den Leuten hier in der Nähe informieren, sie wissen bestimmt mehr als wir.", true)
 	ASP("Dario",dari,"Wir wissen jedoch nicht was uns erwartet. Wir sollten auch eine Siedlung errichten, um auf alles gefasst zu sein.",true)
 	ASP("Ari",ari,"Dann lass uns aufbrechen und einen Siedlungsplatz suchen.",true)
-	ASP("start_pos",ment,"Herr, gebt gut auf diese Leibeigenen Acht. @cr Ihr werdet so schnell keine weiteren bekommen können.",true)
+	ASP("moveSerf2",ment,"Herr, gebt gut auf diese Leibeigenen Acht. @cr Ihr werdet so schnell keine weiteren bekommen können.",true)
 	briefing.finished = function()
 		Truhen()
 		QuestVillageSearch()
@@ -352,16 +364,16 @@ function IntroBrief()
 		if gvDiffLVL == 3 then
 			DefCount = StartCountdown(2.4*60,Defeat,true)
 			CreateMilitaryGroup(3,Entities.CU_BanditLeaderBow1,6,GetPosition("Wegelagerer2"))
-			CreateMilitaryGroup(3,Entities.CU_BanditLeaderSword2,6,GetPosition("Wegelagerer1"))
+			CreateMilitaryGroup(3,Entities.CU_BanditLeaderSword1,6,GetPosition("Wegelagerer1"))
 		elseif gvDiffLVL == 2 then
 			DefCount = StartCountdown(2.2*60,Defeat,true)
 			CreateMilitaryGroup(3,Entities.CU_BanditLeaderBow1,10,GetPosition("Wegelagerer2"))
-			CreateMilitaryGroup(3,Entities.CU_BanditLeaderSword2,8,GetPosition("Wegelagerer1"))
+			CreateMilitaryGroup(3,Entities.CU_BanditLeaderSword1,8,GetPosition("Wegelagerer1"))
 		elseif gvDiffLVL == 1 then
 			DefCount = StartCountdown(1.7*60,Defeat,true)
 			for i = 1,2 do
 				CreateMilitaryGroup(3,Entities.CU_BanditLeaderBow1,10,GetPosition("Wegelagerer2"))
-				CreateMilitaryGroup(3,Entities.CU_BanditLeaderSword2,8,GetPosition("Wegelagerer1"))
+				CreateMilitaryGroup(3,Entities.CU_BanditLeaderSword1,10,GetPosition("Wegelagerer1"))
 			end
 		end
 		gvDayCycleStartTime = Logic.GetTime()
@@ -937,16 +949,19 @@ function BuergermeisterBrief_1()
 			StopCountdown(DefCount)
 			Logic.RemoveQuest(1,BuergermeisterQuest)
 			GUI.DestroyMinimapPulse(Logic.GetEntityPosition(Logic.GetEntityIDByName("Major")))
-			QuestBuergermeister2()
-			gvCaravanCounters[1] = StartCountdown(2.5*60*gvDiffLVL,CaravanStart,false)
-			ActivateCaravanQuestGUI()
-			table.insert(gvFuncsToBeReloadedOnMapLoad, {fname = ActivateCaravanQuestGUI, params = {}})
-			EnableNpcMarker(GetEntityId("Trader"))
-			TraderP8()
+			StartCutscene("Drakon", DrakonCutsceneDone)
 		end
 		StartBriefing(briefing)
 	end}
 	SetupExpedition(BeiBM)
+end
+function DrakonCutsceneDone()
+	QuestBuergermeister2()
+	gvCaravanCounters[1] = StartCountdown(2.5*60*gvDiffLVL,CaravanStart,false)
+	ActivateCaravanQuestGUI()
+	table.insert(gvFuncsToBeReloadedOnMapLoad, {fname = ActivateCaravanQuestGUI, params = {}})
+	EnableNpcMarker(GetEntityId("Trader"))
+	TraderP8()
 end
 function ActivateCaravanQuestGUI()
 	if caravans_arrived < 30/gvDiffLVL then
@@ -1413,7 +1428,8 @@ function MajorP5_1()
 			ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Guten Tag, der Herr...", true)
 			ASP("MajorP5",mjP5,"Gut?.. Guuut?!?! Bis ihr hier aufgetaucht seid, war er das vielleicht.. Doch jetzt...", true)
 			briefing.finished = function()
-				Cutscene_P5(id)
+				StartCutscene("Ehernberg", EhernbergCutsceneDone)
+				--Cutscene_P5(id)
 			end;
 			StartBriefing(briefing)
 		end}
@@ -1466,6 +1482,20 @@ function Cutscene_P5(_id)
 		end
 	}
 	Start_Cutscene(cutsceneTable)
+end
+function EhernbergCutsceneDone()
+	if MtVillagesDiploCheck(5) == true then
+		EnableNpcMarker(GetEntityId("serf_p5"))
+		EnableNpcMarker(GetEntityId("settler_p5"))
+		EnableNpcMarker(GetEntityId("farmer_p5"))
+		EnableNpcMarker(GetEntityId("miner_p5"))
+		EnableNpcMarker(GetEntityId("cavalry_p5"))
+		Serf_P5_1()
+		Settler_P5_1()
+		Farmer_P5_1()
+		Miner_P5_1()
+		Cavalry_P5_1()
+	end
 end
 function Serf_P5_1()
 	if MtVillagesDiploCheck(5) == true then
@@ -1986,7 +2016,8 @@ function MajorP6_1()
 		ASP("MajorP6",mjP6,"... Und es lief in letzter Zeit nicht allzu gut für uns. @cr Schlechte Auftragslage... @cr Missernten ... @cr Keine Beute mehr zu holen ...", false)
 		ASP("MajorP6",mjP6,"Kommt den Bitten unsrer Dörfler nach und wir überdenken Euer Ansinnen.", true)
 		briefing.finished = function()
-			Cutscene_P6()
+			StartCutscene("Gueldfurt", GueldfurtCutsceneDone)
+			--Cutscene_P6()
 		end;
 		StartBriefing(briefing)
 		end
@@ -2036,6 +2067,16 @@ function Cutscene_P6()
 
 	}
 	Start_Cutscene(cutsceneTable)
+end
+function GueldfurtCutsceneDone()
+	if MtVillagesDiploCheck(6) == true then
+		EnableNpcMarker(GetEntityId("guard_p6"))
+		EnableNpcMarker(GetEntityId("settler_p6"))
+		EnableNpcMarker(GetEntityId("farmer_p6"))
+		Guard_P6_1()
+		Settler_P6_1()
+		Farmer_P6_1()
+	end
 end
 function Guard_P6_1()
 	if MtVillagesDiploCheck(6) == true then
@@ -2468,7 +2509,8 @@ function MajorP7_1()
 		ASP("MajorP7",mjP7,"Diese fordern wir wieder ein. @cr Aber redet für die Einzelheiten mit den zuständigen Dörflern. @cr Ihr werdet alle ihre Aufgaben erfüllen müssen, damit wir an Eurer Seite kämpfen werden.", true)
 
 		briefing.finished = function()
-			Cutscene_P7()
+			StartCutscene("Hohenberge", HohenbergeCutsceneDone)
+			--Cutscene_P7()
 		end;
 		StartBriefing(briefing)
 	end}
@@ -2517,6 +2559,16 @@ function Cutscene_P7()
 
 	}
 	Start_Cutscene(cutsceneTable)
+end
+function HohenbergeCutsceneDone()
+	if MtVillagesDiploCheck(7) == true then
+		EnableNpcMarker(GetEntityId("guard_p7"))
+		EnableNpcMarker(GetEntityId("settler_p7"))
+		EnableNpcMarker(GetEntityId("thief_p7"))
+		Guard_P7_1()
+		Settler_P7_1()
+		Thief_P7_1()
+	end
 end
 function Guard_P7_1()
 	if MtVillagesDiploCheck(7) == true then

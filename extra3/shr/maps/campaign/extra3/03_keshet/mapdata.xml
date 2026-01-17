@@ -40955,14 +40955,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>5.457882e+004</X>
-    <Y>1.092905e+004</Y>
+    <X>5.459000e+004</X>
+    <Y>1.091000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -40970,14 +40970,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>5.447478e+004</X>
-    <Y>1.096513e+004</Y>
+    <X>5.449000e+004</X>
+    <Y>1.099000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -40985,14 +40985,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>5.437206e+004</X>
+    <X>5.439000e+004</X>
     <Y>1.099860e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -41000,14 +41000,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>5.425513e+004</X>
-    <Y>1.103964e+004</Y>
+    <X>5.429000e+004</X>
+    <Y>1.101000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -41015,14 +41015,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>5.416778e+004</X>
-    <Y>1.107913e+004</Y>
+    <X>5.419000e+004</X>
+    <Y>1.109000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -41030,14 +41030,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
     <X>5.409747e+004</X>
-    <Y>1.115044e+004</Y>
+    <Y>1.119000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -41045,14 +41045,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
     <X>5.459143e+004</X>
     <Y>1.070345e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -41060,14 +41060,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
     <X>5.450594e+004</X>
-    <Y>1.072661e+004</Y>
+    <Y>1.071000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -41075,14 +41075,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
     <X>5.439991e+004</X>
-    <Y>1.073380e+004</Y>
+    <Y>1.071000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -41090,14 +41090,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>5.427307e+004</X>
-    <Y>1.073558e+004</Y>
+    <X>5.429000e+004</X>
+    <Y>1.071000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -41105,14 +41105,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>5.417505e+004</X>
-    <Y>1.072174e+004</Y>
+    <X>5.419000e+004</X>
+    <Y>1.071000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -41120,14 +41120,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>5.403740e+004</X>
-    <Y>1.071470e+004</Y>
+    <X>5.401000e+004</X>
+    <Y>1.071000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -41135,14 +41135,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>5.394926e+004</X>
-    <Y>1.067721e+004</Y>
+    <X>5.391000e+004</X>
+    <Y>1.069000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -41150,14 +41150,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>5.404625e+004</X>
-    <Y>1.126353e+004</Y>
+    <X>5.401000e+004</X>
+    <Y>1.129000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -41165,14 +41165,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
     <X>5.380040e+004</X>
-    <Y>1.065547e+004</Y>
+    <Y>1.069000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -72817,8 +72817,38 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>3.544023e+004</X>
-    <Y>6.489686e+003</Y>
+    <X>3.541000e+004</X>
+    <Y>6.490000e+003</Y>
+   </Position>
+   <Orientation>0.000000e+000</Orientation>
+   <Flags>0</Flags>
+   <PlayerID>0</PlayerID>
+   <Health>-1</Health>
+   <Name></Name>
+   <ScriptCommandLine></ScriptCommandLine>
+   <AmbientSoundType></AmbientSoundType>
+   <Scale>1.000000e+000</Scale>
+  </Entity>
+  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
+   <Type>PU_Hero1c</Type>
+   <Position>
+    <X>1.621224e+004</X>
+    <Y>5.223500e+003</Y>
+   </Position>
+   <Orientation>4.297000e+001</Orientation>
+   <Flags>0</Flags>
+   <PlayerID>1</PlayerID>
+   <Health>-1</Health>
+   <Name>dario</Name>
+   <ScriptCommandLine></ScriptCommandLine>
+   <AmbientSoundType></AmbientSoundType>
+   <Scale>1.000000e+000</Scale>
+  </Entity>
+  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
+   <Type>XD_GraveComplete7</Type>
+   <Position>
+    <X>3.549000e+004</X>
+    <Y>6.390000e+003</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -72832,8 +72862,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>3.542492e+004</X>
-    <Y>6.489686e+003</Y>
+    <X>3.541000e+004</X>
+    <Y>6.310000e+003</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -72847,8 +72877,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>3.545114e+004</X>
-    <Y>6.389665e+003</Y>
+    <X>3.539000e+004</X>
+    <Y>6.390000e+003</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -72860,61 +72890,16 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GraveComplete7</Type>
+   <Type>PU_Hero4</Type>
    <Position>
-    <X>3.542689e+004</X>
-    <Y>6.316351e+003</Y>
+    <X>1.604831e+004</X>
+    <Y>5.339400e+003</Y>
    </Position>
-   <Orientation>0.000000e+000</Orientation>
+   <Orientation>4.297000e+001</Orientation>
    <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
+   <PlayerID>1</PlayerID>
    <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GraveComplete7</Type>
-   <Position>
-    <X>3.538163e+004</X>
-    <Y>6.356833e+003</Y>
-   </Position>
-   <Orientation>0.000000e+000</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GraveComplete7</Type>
-   <Position>
-    <X>3.538367e+004</X>
-    <Y>6.383077e+003</Y>
-   </Position>
-   <Orientation>0.000000e+000</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GraveComplete7</Type>
-   <Position>
-    <X>3.541126e+004</X>
-    <Y>6.462819e+003</Y>
-   </Position>
-   <Orientation>0.000000e+000</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
+   <Name>erec</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>
@@ -72923,7 +72908,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>3.540369e+004</X>
-    <Y>6.271175e+003</Y>
+    <Y>6.290000e+003</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -72937,8 +72922,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>3.504477e+004</X>
-    <Y>6.228414e+003</Y>
+    <X>3.501000e+004</X>
+    <Y>6.210000e+003</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -72952,7 +72937,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>3.493668e+004</X>
+    <X>3.491000e+004</X>
     <Y>6.203158e+003</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
@@ -72967,8 +72952,68 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>3.493516e+004</X>
-    <Y>6.119838e+003</Y>
+    <X>3.491000e+004</X>
+    <Y>6.110000e+003</Y>
+   </Position>
+   <Orientation>0.000000e+000</Orientation>
+   <Flags>0</Flags>
+   <PlayerID>0</PlayerID>
+   <Health>-1</Health>
+   <Name></Name>
+   <ScriptCommandLine></ScriptCommandLine>
+   <AmbientSoundType></AmbientSoundType>
+   <Scale>1.000000e+000</Scale>
+  </Entity>
+  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
+   <Type>PU_Hero5</Type>
+   <Position>
+    <X>1.634688e+004</X>
+    <Y>5.059630e+003</Y>
+   </Position>
+   <Orientation>4.297000e+001</Orientation>
+   <Flags>0</Flags>
+   <PlayerID>1</PlayerID>
+   <Health>-1</Health>
+   <Name>ari</Name>
+   <ScriptCommandLine></ScriptCommandLine>
+   <AmbientSoundType></AmbientSoundType>
+   <Scale>1.000000e+000</Scale>
+  </Entity>
+  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
+   <Type>XD_GraveComplete7</Type>
+   <Position>
+    <X>3.529000e+004</X>
+    <Y>6.290000e+003</Y>
+   </Position>
+   <Orientation>0.000000e+000</Orientation>
+   <Flags>0</Flags>
+   <PlayerID>0</PlayerID>
+   <Health>-1</Health>
+   <Name></Name>
+   <ScriptCommandLine></ScriptCommandLine>
+   <AmbientSoundType></AmbientSoundType>
+   <Scale>1.000000e+000</Scale>
+  </Entity>
+  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
+   <Type>XD_ScriptEntity</Type>
+   <Position>
+    <X>1.787637e+004</X>
+    <Y>7.254870e+003</Y>
+   </Position>
+   <Orientation>0.000000e+000</Orientation>
+   <Flags>0</Flags>
+   <PlayerID>1</PlayerID>
+   <Health>-1</Health>
+   <Name>moveErec</Name>
+   <ScriptCommandLine></ScriptCommandLine>
+   <AmbientSoundType></AmbientSoundType>
+   <Scale>1.000000e+000</Scale>
+  </Entity>
+  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
+   <Type>XD_GraveComplete7</Type>
+   <Position>
+    <X>3.551000e+004</X>
+    <Y>6.290000e+003</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -72982,67 +73027,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>3.494685e+004</X>
-    <Y>6.113665e+003</Y>
-   </Position>
-   <Orientation>0.000000e+000</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GraveComplete7</Type>
-   <Position>
-    <X>3.526822e+004</X>
-    <Y>6.260205e+003</Y>
-   </Position>
-   <Orientation>0.000000e+000</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GraveComplete7</Type>
-   <Position>
-    <X>3.544710e+004</X>
-    <Y>6.318056e+003</Y>
-   </Position>
-   <Orientation>0.000000e+000</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GraveComplete7</Type>
-   <Position>
-    <X>3.551495e+004</X>
-    <Y>6.271175e+003</Y>
-   </Position>
-   <Orientation>0.000000e+000</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GraveComplete7</Type>
-   <Position>
-    <X>3.555397e+004</X>
+    <X>3.559000e+004</X>
     <Y>6.309868e+003</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
@@ -73057,8 +73042,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>3.553593e+004</X>
-    <Y>6.489686e+003</Y>
+    <X>3.551000e+004</X>
+    <Y>6.490000e+003</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -73072,7 +73057,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>3.551580e+004</X>
+    <X>3.551000e+004</X>
     <Y>6.509947e+003</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
@@ -73087,7 +73072,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete6</Type>
    <Position>
-    <X>3.546936e+004</X>
+    <X>3.549000e+004</X>
     <Y>6.290476e+003</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
@@ -73103,7 +73088,7 @@
    <Type>XD_GraveComplete5</Type>
    <Position>
     <X>3.519611e+004</X>
-    <Y>6.234753e+003</Y>
+    <Y>6.210000e+003</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -73117,8 +73102,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete4</Type>
    <Position>
-    <X>3.574736e+004</X>
-    <Y>6.139103e+003</Y>
+    <X>3.571000e+004</X>
+    <Y>6.110000e+003</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -73132,8 +73117,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete6</Type>
    <Position>
-    <X>3.535769e+004</X>
-    <Y>5.230670e+003</Y>
+    <X>3.539000e+004</X>
+    <Y>5.210000e+003</Y>
    </Position>
    <Orientation>1.737887e+002</Orientation>
    <Flags>0</Flags>
@@ -131982,7 +131967,7 @@
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>2</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137300,14 +137285,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>6.145755e+004</X>
-    <Y>4.247139e+004</Y>
+    <X>6.149000e+004</X>
+    <Y>4.249000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137315,14 +137300,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>6.081927e+004</X>
+    <X>6.081000e+004</X>
     <Y>4.360661e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137330,59 +137315,59 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>6.083044e+004</X>
-    <Y>4.361102e+004</Y>
+    <X>6.081000e+004</X>
+    <Y>4.361000e+004</Y>
+   </Position>
+   <Orientation>0.000000e+000</Orientation>
+   <Flags>0</Flags>
+   <PlayerID>0</PlayerID>
+   <Health>-1</Health>
+   <Name></Name>
+   <ScriptCommandLine></ScriptCommandLine>
+   <AmbientSoundType></AmbientSoundType>
+   <Scale>1.000000e+000</Scale>
+  </Entity>
+  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
+   <Type>XD_Torch</Type>
+   <Position>
+    <X>6.089000e+004</X>
+    <Y>4.351000e+004</Y>
+   </Position>
+   <Orientation>0.000000e+000</Orientation>
+   <Flags>0</Flags>
+   <PlayerID>0</PlayerID>
+   <Health>-1</Health>
+   <Name></Name>
+   <ScriptCommandLine></ScriptCommandLine>
+   <AmbientSoundType></AmbientSoundType>
+   <Scale>1.000000e+000</Scale>
+  </Entity>
+  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
+   <Type>XD_ScriptEntity</Type>
+   <Position>
+    <X>1.805888e+004</X>
+    <Y>6.988550e+003</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
    <PlayerID>1</PlayerID>
    <Health>-1</Health>
-   <Name></Name>
+   <Name>moveDario</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>6.086360e+004</X>
-    <Y>4.353257e+004</Y>
-   </Position>
-   <Orientation>0.000000e+000</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
-   <Position>
-    <X>6.087925e+004</X>
-    <Y>4.351060e+004</Y>
-   </Position>
-   <Orientation>0.000000e+000</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
-   <Position>
-    <X>6.075395e+004</X>
-    <Y>4.355631e+004</Y>
+    <X>6.079000e+004</X>
+    <Y>4.359000e+004</Y>
    </Position>
    <Orientation>1.999998e+001</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137390,14 +137375,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>6.073963e+004</X>
+    <X>6.071000e+004</X>
     <Y>4.359416e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137405,14 +137390,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>6.106145e+004</X>
-    <Y>4.363618e+004</Y>
+    <X>6.109000e+004</X>
+    <Y>4.361000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137420,14 +137405,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
     <X>6.119419e+004</X>
-    <Y>4.351989e+004</Y>
+    <Y>4.351000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137435,14 +137420,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>6.105604e+004</X>
-    <Y>4.367204e+004</Y>
+    <X>6.109000e+004</X>
+    <Y>4.369000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137450,14 +137435,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
     <X>6.109298e+004</X>
     <Y>4.359010e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137465,14 +137450,14 @@
    <Scale>6.000000e-001</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>6.067271e+004</X>
-    <Y>4.355424e+004</Y>
+    <X>6.069000e+004</X>
+    <Y>4.359000e+004</Y>
    </Position>
    <Orientation>1.999998e+001</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137525,14 +137510,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>6.026514e+004</X>
-    <Y>4.298489e+004</Y>
+    <X>6.029000e+004</X>
+    <Y>4.299000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137540,14 +137525,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>6.046963e+004</X>
-    <Y>4.232761e+004</Y>
+    <X>6.049000e+004</X>
+    <Y>4.231000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137555,14 +137540,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>6.052214e+004</X>
+    <X>6.051000e+004</X>
     <Y>4.229013e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137570,14 +137555,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>6.043126e+004</X>
+    <X>6.041000e+004</X>
     <Y>4.239322e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137585,14 +137570,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
     <X>6.090975e+004</X>
-    <Y>4.217698e+004</Y>
+    <Y>4.219000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137600,14 +137585,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>6.112226e+004</X>
+    <X>6.111000e+004</X>
     <Y>4.220604e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137615,14 +137600,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>6.122323e+004</X>
-    <Y>4.212868e+004</Y>
+    <X>6.121000e+004</X>
+    <Y>4.211000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137630,14 +137615,14 @@
    <Scale>1.000000e+000</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
     <X>6.149021e+004</X>
-    <Y>4.242489e+004</Y>
+    <Y>4.241000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137645,14 +137630,14 @@
    <Scale>7.000000e-001</Scale>
   </Entity>
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_ScoutTorch</Type>
+   <Type>XD_Torch</Type>
    <Position>
-    <X>6.121181e+004</X>
-    <Y>4.208059e+004</Y>
+    <X>6.121000e+004</X>
+    <Y>4.209000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -137678,7 +137663,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>6.110257e+004</X>
-    <Y>4.305730e+004</Y>
+    <Y>4.309000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -137692,8 +137677,38 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.116822e+004</X>
-    <Y>4.301178e+004</Y>
+    <X>6.119000e+004</X>
+    <Y>4.301000e+004</Y>
+   </Position>
+   <Orientation>2.883803e+002</Orientation>
+   <Flags>0</Flags>
+   <PlayerID>0</PlayerID>
+   <Health>-1</Health>
+   <Name></Name>
+   <ScriptCommandLine></ScriptCommandLine>
+   <AmbientSoundType></AmbientSoundType>
+   <Scale>1.000000e+000</Scale>
+  </Entity>
+  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
+   <Type>XD_ScriptEntity</Type>
+   <Position>
+    <X>1.826281e+004</X>
+    <Y>6.713890e+003</Y>
+   </Position>
+   <Orientation>0.000000e+000</Orientation>
+   <Flags>0</Flags>
+   <PlayerID>1</PlayerID>
+   <Health>-1</Health>
+   <Name>moveAri</Name>
+   <ScriptCommandLine></ScriptCommandLine>
+   <AmbientSoundType></AmbientSoundType>
+   <Scale>1.000000e+000</Scale>
+  </Entity>
+  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
+   <Type>XD_GraveComplete7</Type>
+   <Position>
+    <X>6.139000e+004</X>
+    <Y>4.311000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -137707,37 +137722,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.117474e+004</X>
-    <Y>4.302897e+004</Y>
-   </Position>
-   <Orientation>2.883803e+002</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GraveComplete7</Type>
-   <Position>
-    <X>6.136455e+004</X>
-    <Y>4.314761e+004</Y>
-   </Position>
-   <Orientation>2.883803e+002</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GraveComplete7</Type>
-   <Position>
-    <X>6.134761e+004</X>
+    <X>6.131000e+004</X>
     <Y>4.319559e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
@@ -137752,8 +137737,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.123875e+004</X>
-    <Y>4.313462e+004</Y>
+    <X>6.121000e+004</X>
+    <Y>4.311000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -137768,7 +137753,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>6.119629e+004</X>
-    <Y>4.302844e+004</Y>
+    <Y>4.301000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -137782,8 +137767,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.122554e+004</X>
-    <Y>4.304585e+004</Y>
+    <X>6.121000e+004</X>
+    <Y>4.301000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -137797,7 +137782,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.123284e+004</X>
+    <X>6.121000e+004</X>
     <Y>4.300616e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
@@ -137812,7 +137797,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.125722e+004</X>
+    <X>6.129000e+004</X>
     <Y>4.300088e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
@@ -137827,22 +137812,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.124382e+004</X>
-    <Y>4.302869e+004</Y>
-   </Position>
-   <Orientation>2.883803e+002</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GraveComplete7</Type>
-   <Position>
-    <X>6.127261e+004</X>
+    <X>6.129000e+004</X>
     <Y>4.309582e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
@@ -137857,8 +137827,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.126695e+004</X>
-    <Y>4.311136e+004</Y>
+    <X>6.129000e+004</X>
+    <Y>4.311000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -137872,7 +137842,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.131070e+004</X>
+    <X>6.131000e+004</X>
     <Y>4.310059e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
@@ -137887,8 +137857,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.131070e+004</X>
-    <Y>4.310059e+004</Y>
+    <X>6.149000e+004</X>
+    <Y>4.319000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -137902,8 +137872,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.148730e+004</X>
-    <Y>4.316420e+004</Y>
+    <X>6.149000e+004</X>
+    <Y>4.309000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -137917,22 +137887,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.147021e+004</X>
-    <Y>4.307249e+004</Y>
-   </Position>
-   <Orientation>2.883803e+002</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GraveComplete7</Type>
-   <Position>
-    <X>6.142479e+004</X>
+    <X>6.141000e+004</X>
     <Y>4.300477e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
@@ -137947,8 +137902,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.114277e+004</X>
-    <Y>4.295702e+004</Y>
+    <X>6.111000e+004</X>
+    <Y>4.299000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -137962,8 +137917,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.095590e+004</X>
-    <Y>4.302232e+004</Y>
+    <X>6.099000e+004</X>
+    <Y>4.301000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -137978,7 +137933,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>6.089034e+004</X>
-    <Y>4.304681e+004</Y>
+    <Y>4.301000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -137992,7 +137947,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.102379e+004</X>
+    <X>6.101000e+004</X>
     <Y>4.310630e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
@@ -138007,8 +137962,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.118999e+004</X>
-    <Y>4.305917e+004</Y>
+    <X>6.119000e+004</X>
+    <Y>4.309000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -138023,7 +137978,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>6.129365e+004</X>
-    <Y>4.298939e+004</Y>
+    <Y>4.299000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -138037,7 +137992,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.137381e+004</X>
+    <X>6.139000e+004</X>
     <Y>4.300816e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
@@ -138052,8 +138007,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.137202e+004</X>
-    <Y>4.317741e+004</Y>
+    <X>6.139000e+004</X>
+    <Y>4.319000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -138067,8 +138022,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.133440e+004</X>
-    <Y>4.308011e+004</Y>
+    <X>6.131000e+004</X>
+    <Y>4.309000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -138082,23 +138037,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.115329e+004</X>
-    <Y>4.307304e+004</Y>
-   </Position>
-   <Orientation>2.883803e+002</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GraveComplete7</Type>
-   <Position>
-    <X>6.176445e+004</X>
-    <Y>4.193716e+004</Y>
+    <X>6.179000e+004</X>
+    <Y>4.191000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -138113,7 +138053,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>6.140313e+004</X>
-    <Y>4.302446e+004</Y>
+    <Y>4.301000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -138127,7 +138067,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.143673e+004</X>
+    <X>6.141000e+004</X>
     <Y>4.309929e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
@@ -138142,8 +138082,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.143400e+004</X>
-    <Y>4.308866e+004</Y>
+    <X>6.141000e+004</X>
+    <Y>4.309000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -138157,22 +138097,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.143534e+004</X>
-    <Y>4.307398e+004</Y>
-   </Position>
-   <Orientation>2.883803e+002</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GraveComplete7</Type>
-   <Position>
-    <X>6.137979e+004</X>
+    <X>6.139000e+004</X>
     <Y>4.300218e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
@@ -138187,7 +138112,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.128807e+004</X>
+    <X>6.129000e+004</X>
     <Y>4.299893e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
@@ -138203,7 +138128,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>6.109784e+004</X>
-    <Y>4.302023e+004</Y>
+    <Y>4.301000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -138217,22 +138142,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.095400e+004</X>
-    <Y>4.302423e+004</Y>
-   </Position>
-   <Orientation>2.883803e+002</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GraveComplete7</Type>
-   <Position>
-    <X>6.063755e+004</X>
+    <X>6.061000e+004</X>
     <Y>4.289679e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
@@ -138247,8 +138157,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.081466e+004</X>
-    <Y>4.285743e+004</Y>
+    <X>6.081000e+004</X>
+    <Y>4.289000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -138262,8 +138172,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.117793e+004</X>
-    <Y>4.293387e+004</Y>
+    <X>6.119000e+004</X>
+    <Y>4.291000e+004</Y>
    </Position>
    <Orientation>2.883803e+002</Orientation>
    <Flags>0</Flags>
@@ -138277,23 +138187,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.118210e+004</X>
-    <Y>4.291161e+004</Y>
-   </Position>
-   <Orientation>2.883803e+002</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GraveComplete7</Type>
-   <Position>
-    <X>6.113980e+004</X>
-    <Y>4.311351e+004</Y>
+    <X>6.111000e+004</X>
+    <Y>4.311000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138307,7 +138202,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.114986e+004</X>
+    <X>6.111000e+004</X>
     <Y>4.309391e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
@@ -138322,8 +138217,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.121423e+004</X>
-    <Y>4.317398e+004</Y>
+    <X>6.121000e+004</X>
+    <Y>4.319000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138337,8 +138232,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.117232e+004</X>
-    <Y>4.321898e+004</Y>
+    <X>6.119000e+004</X>
+    <Y>4.321000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138353,7 +138248,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>6.119493e+004</X>
-    <Y>4.331215e+004</Y>
+    <Y>4.331000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138367,7 +138262,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.125170e+004</X>
+    <X>6.129000e+004</X>
     <Y>4.329153e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
@@ -138382,8 +138277,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.135734e+004</X>
-    <Y>4.317125e+004</Y>
+    <X>6.089000e+004</X>
+    <Y>4.299000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138397,22 +138292,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.085461e+004</X>
-    <Y>4.295087e+004</Y>
-   </Position>
-   <Orientation>0.000000e+000</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GraveComplete7</Type>
-   <Position>
-    <X>6.064445e+004</X>
+    <X>6.061000e+004</X>
     <Y>4.299941e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
@@ -138427,8 +138307,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.051520e+004</X>
-    <Y>4.296745e+004</Y>
+    <X>6.051000e+004</X>
+    <Y>4.299000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138458,7 +138338,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>6.079311e+004</X>
-    <Y>4.312259e+004</Y>
+    <Y>4.311000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138472,8 +138352,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.108730e+004</X>
-    <Y>4.312705e+004</Y>
+    <X>6.109000e+004</X>
+    <Y>4.311000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138487,8 +138367,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.131484e+004</X>
-    <Y>4.291364e+004</Y>
+    <X>6.131000e+004</X>
+    <Y>4.291000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138502,7 +138382,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.147945e+004</X>
+    <X>6.149000e+004</X>
     <Y>4.289391e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
@@ -138517,8 +138397,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.154779e+004</X>
-    <Y>4.294379e+004</Y>
+    <X>6.151000e+004</X>
+    <Y>4.291000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138547,8 +138427,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.152757e+004</X>
-    <Y>4.316440e+004</Y>
+    <X>6.151000e+004</X>
+    <Y>4.319000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138562,8 +138442,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.156829e+004</X>
-    <Y>4.324253e+004</Y>
+    <X>6.159000e+004</X>
+    <Y>4.321000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138578,7 +138458,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>6.100436e+004</X>
-    <Y>4.294595e+004</Y>
+    <Y>4.291000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138593,7 +138473,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>6.090377e+004</X>
-    <Y>4.278984e+004</Y>
+    <Y>4.279000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138607,8 +138487,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.071938e+004</X>
-    <Y>4.278941e+004</Y>
+    <X>6.071000e+004</X>
+    <Y>4.279000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138622,8 +138502,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.057571e+004</X>
-    <Y>4.301766e+004</Y>
+    <X>6.059000e+004</X>
+    <Y>4.301000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138637,8 +138517,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.952841e+004</X>
-    <Y>4.432945e+004</Y>
+    <X>5.951000e+004</X>
+    <Y>4.431000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138652,8 +138532,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.944391e+004</X>
-    <Y>4.428988e+004</Y>
+    <X>5.941000e+004</X>
+    <Y>4.429000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138667,8 +138547,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.958668e+004</X>
-    <Y>4.432774e+004</Y>
+    <X>5.959000e+004</X>
+    <Y>4.431000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138682,8 +138562,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.977273e+004</X>
-    <Y>4.455040e+004</Y>
+    <X>5.979000e+004</X>
+    <Y>4.459000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138697,8 +138577,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.978170e+004</X>
-    <Y>4.455381e+004</Y>
+    <X>5.959000e+004</X>
+    <Y>4.439000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138712,8 +138592,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.958160e+004</X>
-    <Y>4.438617e+004</Y>
+    <X>5.949000e+004</X>
+    <Y>4.439000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138727,8 +138607,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.946618e+004</X>
-    <Y>4.437146e+004</Y>
+    <X>5.941000e+004</X>
+    <Y>4.439000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138742,8 +138622,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.942211e+004</X>
-    <Y>4.438061e+004</Y>
+    <X>5.799000e+004</X>
+    <Y>4.351000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138757,22 +138637,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.795726e+004</X>
-    <Y>4.354791e+004</Y>
-   </Position>
-   <Orientation>0.000000e+000</Orientation>
-   <Flags>0</Flags>
-   <PlayerID>0</PlayerID>
-   <Health>-1</Health>
-   <Name></Name>
-   <ScriptCommandLine></ScriptCommandLine>
-   <AmbientSoundType></AmbientSoundType>
-   <Scale>1.000000e+000</Scale>
-  </Entity>
-  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
-   <Type>XD_GraveComplete7</Type>
-   <Position>
-    <X>5.792181e+004</X>
+    <X>5.791000e+004</X>
     <Y>4.380090e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
@@ -138787,8 +138652,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.768607e+004</X>
-    <Y>4.386958e+004</Y>
+    <X>5.769000e+004</X>
+    <Y>4.389000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138802,7 +138667,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.766946e+004</X>
+    <X>5.769000e+004</X>
     <Y>4.379761e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
@@ -138832,8 +138697,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.796313e+004</X>
-    <Y>4.336501e+004</Y>
+    <X>5.799000e+004</X>
+    <Y>4.339000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138847,8 +138712,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.815270e+004</X>
-    <Y>4.346281e+004</Y>
+    <X>5.819000e+004</X>
+    <Y>4.349000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138862,8 +138727,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.777521e+004</X>
-    <Y>4.355837e+004</Y>
+    <X>5.779000e+004</X>
+    <Y>4.359000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138877,8 +138742,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.735254e+004</X>
-    <Y>4.418643e+004</Y>
+    <X>5.739000e+004</X>
+    <Y>4.419000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138893,7 +138758,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>5.730022e+004</X>
-    <Y>4.438272e+004</Y>
+    <Y>4.439000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138907,8 +138772,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.735147e+004</X>
-    <Y>4.443654e+004</Y>
+    <X>5.739000e+004</X>
+    <Y>4.441000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138922,7 +138787,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.771973e+004</X>
+    <X>5.771000e+004</X>
     <Y>4.399021e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
@@ -138937,7 +138802,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.791580e+004</X>
+    <X>5.791000e+004</X>
     <Y>4.349830e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
@@ -138953,7 +138818,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>5.809053e+004</X>
-    <Y>4.295902e+004</Y>
+    <Y>4.299000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138967,8 +138832,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.811682e+004</X>
-    <Y>4.284359e+004</Y>
+    <X>5.811000e+004</X>
+    <Y>4.281000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138982,8 +138847,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.815339e+004</X>
-    <Y>4.278122e+004</Y>
+    <X>5.819000e+004</X>
+    <Y>4.279000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -138998,7 +138863,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>5.630807e+004</X>
-    <Y>4.278483e+004</Y>
+    <Y>4.279000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139013,7 +138878,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>5.660241e+004</X>
-    <Y>4.306499e+004</Y>
+    <Y>4.309000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139028,7 +138893,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>5.669269e+004</X>
-    <Y>4.278305e+004</Y>
+    <Y>4.279000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139042,8 +138907,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.668591e+004</X>
-    <Y>4.226331e+004</Y>
+    <X>5.669000e+004</X>
+    <Y>4.229000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139057,8 +138922,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.701336e+004</X>
-    <Y>4.165363e+004</Y>
+    <X>5.701000e+004</X>
+    <Y>4.169000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139072,8 +138937,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.728766e+004</X>
-    <Y>4.124042e+004</Y>
+    <X>5.729000e+004</X>
+    <Y>4.121000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139087,8 +138952,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.752899e+004</X>
-    <Y>4.081950e+004</Y>
+    <X>5.751000e+004</X>
+    <Y>4.081000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139103,7 +138968,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>5.749187e+004</X>
-    <Y>4.005839e+004</Y>
+    <Y>4.009000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139117,8 +138982,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.802344e+004</X>
-    <Y>3.947085e+004</Y>
+    <X>5.801000e+004</X>
+    <Y>3.949000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139132,8 +138997,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.808497e+004</X>
-    <Y>3.954164e+004</Y>
+    <X>5.809000e+004</X>
+    <Y>3.951000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139148,7 +139013,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>5.849688e+004</X>
-    <Y>3.926776e+004</Y>
+    <Y>3.929000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139162,8 +139027,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.876875e+004</X>
-    <Y>3.902225e+004</Y>
+    <X>5.879000e+004</X>
+    <Y>3.901000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139177,8 +139042,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.927201e+004</X>
-    <Y>3.847622e+004</Y>
+    <X>5.929000e+004</X>
+    <Y>3.849000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139192,8 +139057,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.931663e+004</X>
-    <Y>3.777379e+004</Y>
+    <X>5.931000e+004</X>
+    <Y>3.779000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139207,8 +139072,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.885855e+004</X>
-    <Y>3.785781e+004</Y>
+    <X>5.889000e+004</X>
+    <Y>3.789000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139223,7 +139088,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>5.850557e+004</X>
-    <Y>3.815747e+004</Y>
+    <Y>3.819000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139238,7 +139103,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>5.510475e+004</X>
-    <Y>3.927713e+004</Y>
+    <Y>3.929000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139252,8 +139117,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.553673e+004</X>
-    <Y>3.847588e+004</Y>
+    <X>5.551000e+004</X>
+    <Y>3.849000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139267,8 +139132,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.641091e+004</X>
-    <Y>3.764663e+004</Y>
+    <X>5.641000e+004</X>
+    <Y>3.761000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139282,8 +139147,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.731742e+004</X>
-    <Y>3.695184e+004</Y>
+    <X>5.731000e+004</X>
+    <Y>3.699000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139297,8 +139162,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.736643e+004</X>
-    <Y>3.634206e+004</Y>
+    <X>5.739000e+004</X>
+    <Y>3.631000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139312,8 +139177,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.612243e+004</X>
-    <Y>3.635354e+004</Y>
+    <X>5.611000e+004</X>
+    <Y>3.639000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139327,8 +139192,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.543726e+004</X>
-    <Y>3.715535e+004</Y>
+    <X>5.541000e+004</X>
+    <Y>3.719000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139342,8 +139207,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.502710e+004</X>
-    <Y>3.823495e+004</Y>
+    <X>5.501000e+004</X>
+    <Y>3.821000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139357,8 +139222,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.445427e+004</X>
-    <Y>3.925423e+004</Y>
+    <X>5.449000e+004</X>
+    <Y>3.929000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139373,7 +139238,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>5.470700e+004</X>
-    <Y>4.023286e+004</Y>
+    <Y>4.021000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139387,8 +139252,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.497186e+004</X>
-    <Y>4.044664e+004</Y>
+    <X>5.499000e+004</X>
+    <Y>4.041000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139403,7 +139268,7 @@
    <Type>XD_GraveComplete7</Type>
    <Position>
     <X>5.550028e+004</X>
-    <Y>4.052377e+004</Y>
+    <Y>4.051000e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
@@ -139417,7 +139282,7 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.597130e+004</X>
+    <X>5.599000e+004</X>
     <Y>4.080354e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
@@ -139432,8 +139297,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.755243e+004</X>
-    <Y>4.055251e+004</Y>
+    <X>5.759000e+004</X>
+    <Y>4.059000e+004</Y>
    </Position>
    <Orientation>3.027042e+002</Orientation>
    <Flags>0</Flags>
@@ -139447,8 +139312,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.772466e+004</X>
-    <Y>4.012975e+004</Y>
+    <X>5.771000e+004</X>
+    <Y>4.011000e+004</Y>
    </Position>
    <Orientation>3.027042e+002</Orientation>
    <Flags>0</Flags>
@@ -139462,8 +139327,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.798364e+004</X>
-    <Y>3.931119e+004</Y>
+    <X>5.799000e+004</X>
+    <Y>3.931000e+004</Y>
    </Position>
    <Orientation>3.027042e+002</Orientation>
    <Flags>0</Flags>
@@ -139477,8 +139342,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.827112e+004</X>
-    <Y>3.868593e+004</Y>
+    <X>5.829000e+004</X>
+    <Y>3.869000e+004</Y>
    </Position>
    <Orientation>3.027042e+002</Orientation>
    <Flags>0</Flags>
@@ -139492,8 +139357,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>5.858889e+004</X>
-    <Y>3.817314e+004</Y>
+    <X>5.859000e+004</X>
+    <Y>3.819000e+004</Y>
    </Position>
    <Orientation>3.027042e+002</Orientation>
    <Flags>0</Flags>
@@ -139522,8 +139387,8 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_GraveComplete7</Type>
    <Position>
-    <X>6.135515e+004</X>
-    <Y>4.297606e+004</Y>
+    <X>6.139000e+004</X>
+    <Y>4.299000e+004</Y>
    </Position>
    <Orientation>3.027042e+002</Orientation>
    <Flags>0</Flags>
@@ -178992,7 +178857,7 @@
    </Position>
    <Orientation>1.800000e+002</Orientation>
    <Flags>0</Flags>
-   <PlayerID>1</PlayerID>
+   <PlayerID>2</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -199962,7 +199827,7 @@
    </Position>
    <Orientation>2.700000e+002</Orientation>
    <Flags>0</Flags>
-   <PlayerID>8</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -215292,7 +215157,7 @@
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
-   <PlayerID>7</PlayerID>
+   <PlayerID>0</PlayerID>
    <Health>-1</Health>
    <Name></Name>
    <ScriptCommandLine></ScriptCommandLine>
@@ -255760,7 +255625,7 @@
     <X>3.548000e+004</X>
     <Y>4.972000e+004</Y>
    </Position>
-   <Orientation>9.612227e+001</Orientation>
+   <Orientation>9.612226e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -259390,7 +259255,7 @@
     <X>2.502633e+004</X>
     <Y>3.955451e+004</Y>
    </Position>
-   <Orientation>9.381509e+001</Orientation>
+   <Orientation>9.381508e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -260035,7 +259900,7 @@
     <X>2.729121e+004</X>
     <Y>3.788152e+004</Y>
    </Position>
-   <Orientation>8.589371e+001</Orientation>
+   <Orientation>8.589370e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -262150,7 +262015,7 @@
     <X>2.665866e+004</X>
     <Y>4.345923e+004</Y>
    </Position>
-   <Orientation>6.932582e+000</Orientation>
+   <Orientation>6.932581e+000</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -265165,7 +265030,7 @@
     <X>2.373484e+004</X>
     <Y>4.998084e+004</Y>
    </Position>
-   <Orientation>7.520368e+001</Orientation>
+   <Orientation>7.520367e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -265675,7 +265540,7 @@
     <X>2.344811e+004</X>
     <Y>5.262797e+004</Y>
    </Position>
-   <Orientation>8.220219e+001</Orientation>
+   <Orientation>8.220218e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -265870,7 +265735,7 @@
     <X>2.712516e+004</X>
     <Y>5.295535e+004</Y>
    </Position>
-   <Orientation>9.931941e+001</Orientation>
+   <Orientation>9.931940e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -266320,7 +266185,7 @@
     <X>3.309575e+004</X>
     <Y>5.034004e+004</Y>
    </Position>
-   <Orientation>9.454021e+001</Orientation>
+   <Orientation>9.454020e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -267100,7 +266965,7 @@
     <X>2.343693e+004</X>
     <Y>5.170495e+004</Y>
    </Position>
-   <Orientation>8.189456e+001</Orientation>
+   <Orientation>8.189455e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -269065,7 +268930,7 @@
     <X>3.157489e+004</X>
     <Y>4.013000e+004</Y>
    </Position>
-   <Orientation>9.675952e+001</Orientation>
+   <Orientation>9.675951e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -269200,7 +269065,7 @@
     <X>3.202092e+004</X>
     <Y>3.923052e+004</Y>
    </Position>
-   <Orientation>9.392495e+001</Orientation>
+   <Orientation>9.392494e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -269695,7 +269560,7 @@
     <X>3.234000e+004</X>
     <Y>3.766000e+004</Y>
    </Position>
-   <Orientation>8.594364e+001</Orientation>
+   <Orientation>8.594363e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -269800,7 +269665,7 @@
     <X>3.374000e+004</X>
     <Y>3.764149e+004</Y>
    </Position>
-   <Orientation>8.594364e+001</Orientation>
+   <Orientation>8.594363e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -271825,7 +271690,7 @@
     <X>3.535725e+004</X>
     <Y>3.964882e+004</Y>
    </Position>
-   <Orientation>8.617936e+001</Orientation>
+   <Orientation>8.617935e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -274510,7 +274375,7 @@
     <X>2.854779e+004</X>
     <Y>4.784252e+004</Y>
    </Position>
-   <Orientation>8.784504e+001</Orientation>
+   <Orientation>8.784503e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -275395,7 +275260,7 @@
     <X>3.097949e+004</X>
     <Y>4.404129e+004</Y>
    </Position>
-   <Orientation>8.532241e+001</Orientation>
+   <Orientation>8.532240e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -275500,7 +275365,7 @@
     <X>3.158192e+004</X>
     <Y>4.454955e+004</Y>
    </Position>
-   <Orientation>7.650012e+001</Orientation>
+   <Orientation>7.650011e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -275605,7 +275470,7 @@
     <X>3.355882e+004</X>
     <Y>4.430861e+004</Y>
    </Position>
-   <Orientation>7.243506e+001</Orientation>
+   <Orientation>7.243505e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -275905,7 +275770,7 @@
     <X>3.155745e+004</X>
     <Y>4.482566e+004</Y>
    </Position>
-   <Orientation>8.288337e+001</Orientation>
+   <Orientation>8.288336e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -276040,7 +275905,7 @@
     <X>3.190085e+004</X>
     <Y>4.569695e+004</Y>
    </Position>
-   <Orientation>7.845575e+001</Orientation>
+   <Orientation>7.845574e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -276100,7 +275965,7 @@
     <X>3.185959e+004</X>
     <Y>4.476554e+004</Y>
    </Position>
-   <Orientation>6.484327e+001</Orientation>
+   <Orientation>6.484326e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -276340,7 +276205,7 @@
     <X>3.148000e+004</X>
     <Y>4.427149e+004</Y>
    </Position>
-   <Orientation>9.637499e+001</Orientation>
+   <Orientation>9.637498e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -276835,7 +276700,7 @@
     <X>3.167774e+004</X>
     <Y>4.751543e+004</Y>
    </Position>
-   <Orientation>8.055420e+001</Orientation>
+   <Orientation>8.055419e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -277870,7 +277735,7 @@
     <X>3.590991e+004</X>
     <Y>4.105238e+004</Y>
    </Position>
-   <Orientation>7.245703e+001</Orientation>
+   <Orientation>7.245702e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -278125,7 +277990,7 @@
     <X>3.655963e+004</X>
     <Y>3.935399e+004</Y>
    </Position>
-   <Orientation>9.801201e+001</Orientation>
+   <Orientation>9.801200e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -278140,7 +278005,7 @@
     <X>3.662586e+004</X>
     <Y>3.936466e+004</Y>
    </Position>
-   <Orientation>6.677692e+001</Orientation>
+   <Orientation>6.677691e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -278200,7 +278065,7 @@
     <X>3.694455e+004</X>
     <Y>3.957902e+004</Y>
    </Position>
-   <Orientation>9.713307e+001</Orientation>
+   <Orientation>9.713306e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -278365,7 +278230,7 @@
     <X>3.628646e+004</X>
     <Y>4.094999e+004</Y>
    </Position>
-   <Orientation>9.216710e+001</Orientation>
+   <Orientation>9.216709e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -278515,7 +278380,7 @@
     <X>3.578209e+004</X>
     <Y>4.211701e+004</Y>
    </Position>
-   <Orientation>6.785361e+001</Orientation>
+   <Orientation>6.785360e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -279490,7 +279355,7 @@
     <X>3.688012e+004</X>
     <Y>3.951097e+004</Y>
    </Position>
-   <Orientation>7.135836e+001</Orientation>
+   <Orientation>7.135835e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -279520,7 +279385,7 @@
     <X>3.680536e+004</X>
     <Y>3.946362e+004</Y>
    </Position>
-   <Orientation>7.355569e+001</Orientation>
+   <Orientation>7.355568e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -280570,7 +280435,7 @@
     <X>2.377881e+004</X>
     <Y>5.727652e+004</Y>
    </Position>
-   <Orientation>4.340830e+001</Orientation>
+   <Orientation>4.340829e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -280675,7 +280540,7 @@
     <X>2.383560e+004</X>
     <Y>5.678000e+004</Y>
    </Position>
-   <Orientation>9.315591e+001</Orientation>
+   <Orientation>9.315590e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -280720,7 +280585,7 @@
     <X>2.421594e+004</X>
     <Y>5.630033e+004</Y>
    </Position>
-   <Orientation>9.348551e+001</Orientation>
+   <Orientation>9.348550e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -281485,7 +281350,7 @@
     <X>2.614607e+004</X>
     <Y>5.446818e+004</Y>
    </Position>
-   <Orientation>3.947508e+001</Orientation>
+   <Orientation>3.947507e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -281680,7 +281545,7 @@
     <X>1.607824e+004</X>
     <Y>5.788525e+004</Y>
    </Position>
-   <Orientation>9.280434e+001</Orientation>
+   <Orientation>9.280433e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -281725,7 +281590,7 @@
     <X>1.689883e+004</X>
     <Y>5.776372e+004</Y>
    </Position>
-   <Orientation>8.737692e+001</Orientation>
+   <Orientation>8.737691e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -281860,7 +281725,7 @@
     <X>1.776367e+004</X>
     <Y>5.844015e+004</Y>
    </Position>
-   <Orientation>6.442578e+001</Orientation>
+   <Orientation>6.442577e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -282040,7 +281905,7 @@
     <X>1.872056e+004</X>
     <Y>5.969312e+004</Y>
    </Position>
-   <Orientation>7.219336e+001</Orientation>
+   <Orientation>7.219335e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -282370,7 +282235,7 @@
     <X>2.108000e+004</X>
     <Y>6.068000e+004</Y>
    </Position>
-   <Orientation>7.647816e+001</Orientation>
+   <Orientation>7.647815e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -283075,7 +282940,7 @@
     <X>2.255155e+004</X>
     <Y>6.130493e+004</Y>
    </Position>
-   <Orientation>8.658589e+001</Orientation>
+   <Orientation>8.658588e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -283150,7 +283015,7 @@
     <X>2.277087e+004</X>
     <Y>6.142488e+004</Y>
    </Position>
-   <Orientation>7.274269e+001</Orientation>
+   <Orientation>7.274268e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -283495,7 +283360,7 @@
     <X>2.551148e+004</X>
     <Y>5.761261e+004</Y>
    </Position>
-   <Orientation>8.426770e+001</Orientation>
+   <Orientation>8.426769e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -283720,7 +283585,7 @@
     <X>2.230600e+004</X>
     <Y>5.895048e+004</Y>
    </Position>
-   <Orientation>9.289223e+001</Orientation>
+   <Orientation>9.289222e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -283795,7 +283660,7 @@
     <X>2.185937e+004</X>
     <Y>5.892000e+004</Y>
    </Position>
-   <Orientation>6.425000e+001</Orientation>
+   <Orientation>6.424999e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -284260,7 +284125,7 @@
     <X>2.327008e+004</X>
     <Y>6.212000e+004</Y>
    </Position>
-   <Orientation>4.848414e+001</Orientation>
+   <Orientation>4.848413e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -285220,7 +285085,7 @@
     <X>2.308000e+004</X>
     <Y>6.018000e+004</Y>
    </Position>
-   <Orientation>9.544113e+001</Orientation>
+   <Orientation>9.544112e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -285460,7 +285325,7 @@
     <X>2.500220e+004</X>
     <Y>5.937176e+004</Y>
    </Position>
-   <Orientation>4.145268e+001</Orientation>
+   <Orientation>4.145267e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -285550,7 +285415,7 @@
     <X>2.508368e+004</X>
     <Y>5.912789e+004</Y>
    </Position>
-   <Orientation>4.948393e+001</Orientation>
+   <Orientation>4.948392e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -285910,7 +285775,7 @@
     <X>1.755199e+004</X>
     <Y>5.940033e+004</Y>
    </Position>
-   <Orientation>8.681660e+001</Orientation>
+   <Orientation>8.681659e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -286180,7 +286045,7 @@
     <X>2.043610e+004</X>
     <Y>5.915161e+004</Y>
    </Position>
-   <Orientation>6.942472e+001</Orientation>
+   <Orientation>6.942471e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -286465,7 +286330,7 @@
     <X>2.166434e+004</X>
     <Y>6.064923e+004</Y>
    </Position>
-   <Orientation>9.284828e+001</Orientation>
+   <Orientation>9.284827e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -286765,7 +286630,7 @@
     <X>2.402000e+004</X>
     <Y>6.088942e+004</Y>
    </Position>
-   <Orientation>6.894131e+001</Orientation>
+   <Orientation>6.894130e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -287305,7 +287170,7 @@
     <X>2.641137e+004</X>
     <Y>5.766823e+004</Y>
    </Position>
-   <Orientation>9.633105e+001</Orientation>
+   <Orientation>9.633104e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -288190,7 +288055,7 @@
     <X>3.032000e+004</X>
     <Y>5.438508e+004</Y>
    </Position>
-   <Orientation>9.764946e+001</Orientation>
+   <Orientation>9.764945e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -288235,7 +288100,7 @@
     <X>3.068483e+004</X>
     <Y>5.453814e+004</Y>
    </Position>
-   <Orientation>9.703420e+001</Orientation>
+   <Orientation>9.703419e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -288520,7 +288385,7 @@
     <X>3.168040e+004</X>
     <Y>5.439709e+004</Y>
    </Position>
-   <Orientation>6.462355e+001</Orientation>
+   <Orientation>6.462354e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -288760,7 +288625,7 @@
     <X>3.282400e+004</X>
     <Y>5.415348e+004</Y>
    </Position>
-   <Orientation>8.444349e+001</Orientation>
+   <Orientation>8.444348e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -288820,7 +288685,7 @@
     <X>3.272000e+004</X>
     <Y>5.371614e+004</Y>
    </Position>
-   <Orientation>8.825586e+001</Orientation>
+   <Orientation>8.825585e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -288865,7 +288730,7 @@
     <X>3.260357e+004</X>
     <Y>5.276664e+004</Y>
    </Position>
-   <Orientation>7.129245e+001</Orientation>
+   <Orientation>7.129244e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -288970,7 +288835,7 @@
     <X>3.033879e+004</X>
     <Y>5.352632e+004</Y>
    </Position>
-   <Orientation>9.005767e+001</Orientation>
+   <Orientation>9.005766e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -289225,7 +289090,7 @@
     <X>3.388643e+004</X>
     <Y>5.265901e+004</Y>
    </Position>
-   <Orientation>8.743185e+001</Orientation>
+   <Orientation>8.743184e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -289345,7 +289210,7 @@
     <X>3.455303e+004</X>
     <Y>5.285388e+004</Y>
    </Position>
-   <Orientation>7.692861e+001</Orientation>
+   <Orientation>7.692860e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -289360,7 +289225,7 @@
     <X>3.519508e+004</X>
     <Y>5.501245e+004</Y>
    </Position>
-   <Orientation>8.904690e+001</Orientation>
+   <Orientation>8.904689e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -289570,7 +289435,7 @@
     <X>3.378000e+004</X>
     <Y>5.528393e+004</Y>
    </Position>
-   <Orientation>7.623645e+001</Orientation>
+   <Orientation>7.623644e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -290050,7 +289915,7 @@
     <X>3.508000e+004</X>
     <Y>5.301853e+004</Y>
    </Position>
-   <Orientation>9.786919e+001</Orientation>
+   <Orientation>9.786918e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -290065,7 +289930,7 @@
     <X>3.497858e+004</X>
     <Y>5.288309e+004</Y>
    </Position>
-   <Orientation>9.723196e+000</Orientation>
+   <Orientation>9.723195e+000</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -290140,7 +290005,7 @@
     <X>3.562948e+004</X>
     <Y>5.273152e+004</Y>
    </Position>
-   <Orientation>4.109012e+001</Orientation>
+   <Orientation>4.109011e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -290260,7 +290125,7 @@
     <X>3.733298e+004</X>
     <Y>5.314589e+004</Y>
    </Position>
-   <Orientation>7.630237e+001</Orientation>
+   <Orientation>7.630236e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -290740,7 +290605,7 @@
     <X>3.523197e+004</X>
     <Y>5.485901e+004</Y>
    </Position>
-   <Orientation>7.056733e+001</Orientation>
+   <Orientation>7.056732e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -290755,7 +290620,7 @@
     <X>3.543838e+004</X>
     <Y>5.480000e+004</Y>
    </Position>
-   <Orientation>6.876552e+001</Orientation>
+   <Orientation>6.876551e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -290995,7 +290860,7 @@
     <X>3.400380e+004</X>
     <Y>5.484103e+004</Y>
    </Position>
-   <Orientation>4.785790e+001</Orientation>
+   <Orientation>4.785789e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -291010,7 +290875,7 @@
     <X>3.376380e+004</X>
     <Y>5.506595e+004</Y>
    </Position>
-   <Orientation>9.378215e+001</Orientation>
+   <Orientation>9.378214e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -291430,7 +291295,7 @@
     <X>2.746799e+004</X>
     <Y>5.639248e+004</Y>
    </Position>
-   <Orientation>9.971495e+001</Orientation>
+   <Orientation>9.971494e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -292105,7 +291970,7 @@
     <X>4.054804e+004</X>
     <Y>5.869963e+004</Y>
    </Position>
-   <Orientation>7.927975e+001</Orientation>
+   <Orientation>7.927974e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -292465,7 +292330,7 @@
     <X>4.116243e+004</X>
     <Y>5.756077e+004</Y>
    </Position>
-   <Orientation>5.730643e+001</Orientation>
+   <Orientation>5.730642e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -292570,7 +292435,7 @@
     <X>3.933799e+004</X>
     <Y>5.340815e+004</Y>
    </Position>
-   <Orientation>5.383465e+000</Orientation>
+   <Orientation>5.383464e+000</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -292600,7 +292465,7 @@
     <X>3.940077e+004</X>
     <Y>5.370208e+004</Y>
    </Position>
-   <Orientation>9.586962e+001</Orientation>
+   <Orientation>9.586961e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -293230,7 +293095,7 @@
     <X>4.141989e+004</X>
     <Y>5.505570e+004</Y>
    </Position>
-   <Orientation>9.710012e+001</Orientation>
+   <Orientation>9.710011e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -293245,7 +293110,7 @@
     <X>4.101234e+004</X>
     <Y>5.478000e+004</Y>
    </Position>
-   <Orientation>8.681660e+001</Orientation>
+   <Orientation>8.681659e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -293425,7 +293290,7 @@
     <X>4.039061e+004</X>
     <Y>5.536741e+004</Y>
    </Position>
-   <Orientation>8.665181e+001</Orientation>
+   <Orientation>8.665180e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -294235,7 +294100,7 @@
     <X>3.954665e+004</X>
     <Y>5.528679e+004</Y>
    </Position>
-   <Orientation>8.860743e+001</Orientation>
+   <Orientation>8.860742e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -294340,7 +294205,7 @@
     <X>3.974230e+004</X>
     <Y>5.471602e+004</Y>
    </Position>
-   <Orientation>9.448530e+001</Orientation>
+   <Orientation>9.448529e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -294445,7 +294310,7 @@
     <X>3.871194e+004</X>
     <Y>5.504878e+004</Y>
    </Position>
-   <Orientation>7.912594e+001</Orientation>
+   <Orientation>7.912593e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -294700,7 +294565,7 @@
     <X>4.256047e+004</X>
     <Y>5.921512e+004</Y>
    </Position>
-   <Orientation>9.736381e+001</Orientation>
+   <Orientation>9.736380e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -294805,7 +294670,7 @@
     <X>4.269102e+004</X>
     <Y>5.778000e+004</Y>
    </Position>
-   <Orientation>9.795708e+001</Orientation>
+   <Orientation>9.795707e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -295075,7 +294940,7 @@
     <X>4.518950e+004</X>
     <Y>6.055750e+004</Y>
    </Position>
-   <Orientation>5.777886e+001</Orientation>
+   <Orientation>5.777885e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -295480,7 +295345,7 @@
     <X>4.626947e+004</X>
     <Y>5.938000e+004</Y>
    </Position>
-   <Orientation>7.813714e+001</Orientation>
+   <Orientation>7.813713e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -295615,7 +295480,7 @@
     <X>4.678000e+004</X>
     <Y>5.913740e+004</Y>
    </Position>
-   <Orientation>7.682973e+001</Orientation>
+   <Orientation>7.682972e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -296185,7 +296050,7 @@
     <X>4.608149e+004</X>
     <Y>5.861351e+004</Y>
    </Position>
-   <Orientation>5.031891e+000</Orientation>
+   <Orientation>5.031890e+000</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -296395,7 +296260,7 @@
     <X>4.499000e+004</X>
     <Y>5.949000e+004</Y>
    </Position>
-   <Orientation>8.893703e+001</Orientation>
+   <Orientation>8.893702e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -296620,7 +296485,7 @@
     <X>4.545911e+004</X>
     <Y>5.850582e+004</Y>
    </Position>
-   <Orientation>7.261085e+001</Orientation>
+   <Orientation>7.261084e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -296635,7 +296500,7 @@
     <X>4.594332e+004</X>
     <Y>5.833204e+004</Y>
    </Position>
-   <Orientation>6.780968e+001</Orientation>
+   <Orientation>6.780967e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -296980,7 +296845,7 @@
     <X>2.868000e+004</X>
     <Y>6.162000e+004</Y>
    </Position>
-   <Orientation>5.873470e+001</Orientation>
+   <Orientation>5.873469e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -297475,7 +297340,7 @@
     <X>2.949018e+004</X>
     <Y>6.182830e+004</Y>
    </Position>
-   <Orientation>9.971495e+001</Orientation>
+   <Orientation>9.971494e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -297745,7 +297610,7 @@
     <X>3.079773e+004</X>
     <Y>6.169978e+004</Y>
    </Position>
-   <Orientation>6.145939e+001</Orientation>
+   <Orientation>6.145938e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -298240,7 +298105,7 @@
     <X>3.040981e+004</X>
     <Y>5.866939e+004</Y>
    </Position>
-   <Orientation>6.534867e+001</Orientation>
+   <Orientation>6.534866e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -298435,7 +298300,7 @@
     <X>2.810521e+004</X>
     <Y>6.110024e+004</Y>
    </Position>
-   <Orientation>5.064851e+000</Orientation>
+   <Orientation>5.064850e+000</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -298495,7 +298360,7 @@
     <X>2.807293e+004</X>
     <Y>6.109726e+004</Y>
    </Position>
-   <Orientation>5.031891e+001</Orientation>
+   <Orientation>5.031890e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -298675,7 +298540,7 @@
     <X>3.702113e+004</X>
     <Y>6.088327e+004</Y>
    </Position>
-   <Orientation>7.786247e+001</Orientation>
+   <Orientation>7.786246e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -298735,7 +298600,7 @@
     <X>3.777781e+004</X>
     <Y>6.137787e+004</Y>
    </Position>
-   <Orientation>7.557725e+001</Orientation>
+   <Orientation>7.557724e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -298780,7 +298645,7 @@
     <X>3.820597e+004</X>
     <Y>6.153817e+004</Y>
    </Position>
-   <Orientation>7.434674e+001</Orientation>
+   <Orientation>7.434673e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -298840,7 +298705,7 @@
     <X>3.833691e+004</X>
     <Y>6.148024e+004</Y>
    </Position>
-   <Orientation>5.820733e+001</Orientation>
+   <Orientation>5.820732e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -299815,7 +299680,7 @@
     <X>3.576015e+004</X>
     <Y>6.284016e+004</Y>
    </Position>
-   <Orientation>5.240638e+000</Orientation>
+   <Orientation>5.240637e+000</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -299980,7 +299845,7 @@
     <X>3.528000e+004</X>
     <Y>6.252000e+004</Y>
    </Position>
-   <Orientation>9.548508e+001</Orientation>
+   <Orientation>9.548507e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -300055,7 +299920,7 @@
     <X>3.526221e+004</X>
     <Y>6.205118e+004</Y>
    </Position>
-   <Orientation>6.940275e+001</Orientation>
+   <Orientation>6.940274e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -300430,7 +300295,7 @@
     <X>3.139475e+004</X>
     <Y>6.292000e+004</Y>
    </Position>
-   <Orientation>6.585406e+001</Orientation>
+   <Orientation>6.585405e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -300640,7 +300505,7 @@
     <X>3.448000e+004</X>
     <Y>6.219983e+004</Y>
    </Position>
-   <Orientation>4.714377e+001</Orientation>
+   <Orientation>4.714376e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -300685,7 +300550,7 @@
     <X>3.198000e+004</X>
     <Y>6.091507e+004</Y>
    </Position>
-   <Orientation>9.863826e+001</Orientation>
+   <Orientation>9.863825e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -300760,7 +300625,7 @@
     <X>3.244474e+004</X>
     <Y>5.983783e+004</Y>
    </Position>
-   <Orientation>9.684743e+001</Orientation>
+   <Orientation>9.684742e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -301015,7 +300880,7 @@
     <X>3.750420e+004</X>
     <Y>6.214898e+004</Y>
    </Position>
-   <Orientation>9.657276e+000</Orientation>
+   <Orientation>9.657275e+000</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -301030,7 +300895,7 @@
     <X>3.738408e+004</X>
     <Y>6.211289e+004</Y>
    </Position>
-   <Orientation>9.181554e+001</Orientation>
+   <Orientation>9.181553e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -301060,7 +300925,7 @@
     <X>3.755950e+004</X>
     <Y>6.225857e+004</Y>
    </Position>
-   <Orientation>7.129245e+001</Orientation>
+   <Orientation>7.129244e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -301450,7 +301315,7 @@
     <X>2.797546e+004</X>
     <Y>6.206557e+004</Y>
    </Position>
-   <Orientation>7.548936e+001</Orientation>
+   <Orientation>7.548935e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -301630,7 +301495,7 @@
     <X>2.871863e+004</X>
     <Y>6.051491e+004</Y>
    </Position>
-   <Orientation>6.894131e+001</Orientation>
+   <Orientation>6.894130e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -301780,7 +301645,7 @@
     <X>2.938647e+004</X>
     <Y>5.958248e+004</Y>
    </Position>
-   <Orientation>6.510696e+001</Orientation>
+   <Orientation>6.510695e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -301855,7 +301720,7 @@
     <X>2.985769e+004</X>
     <Y>5.883190e+004</Y>
    </Position>
-   <Orientation>9.486983e+001</Orientation>
+   <Orientation>9.486982e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -301885,7 +301750,7 @@
     <X>2.990947e+004</X>
     <Y>5.891695e+004</Y>
    </Position>
-   <Orientation>8.612445e+001</Orientation>
+   <Orientation>8.612444e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -301915,7 +301780,7 @@
     <X>2.994245e+004</X>
     <Y>5.875422e+004</Y>
    </Position>
-   <Orientation>6.484328e+001</Orientation>
+   <Orientation>6.484327e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -302095,7 +301960,7 @@
     <X>3.176049e+004</X>
     <Y>5.828939e+004</Y>
    </Position>
-   <Orientation>9.997863e+000</Orientation>
+   <Orientation>9.997862e+000</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -302485,7 +302350,7 @@
     <X>3.249137e+004</X>
     <Y>5.969219e+004</Y>
    </Position>
-   <Orientation>9.866023e+001</Orientation>
+   <Orientation>9.866022e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -303625,7 +303490,7 @@
     <X>3.678373e+004</X>
     <Y>6.109438e+004</Y>
    </Position>
-   <Orientation>5.295571e+000</Orientation>
+   <Orientation>5.295570e+000</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -303865,7 +303730,7 @@
     <X>3.918530e+004</X>
     <Y>6.224643e+004</Y>
    </Position>
-   <Orientation>6.570024e+001</Orientation>
+   <Orientation>6.570023e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -303880,7 +303745,7 @@
     <X>3.922545e+004</X>
     <Y>6.222134e+004</Y>
    </Position>
-   <Orientation>9.652882e+001</Orientation>
+   <Orientation>9.652881e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -304090,7 +303955,7 @@
     <X>3.869402e+004</X>
     <Y>6.112150e+004</Y>
    </Position>
-   <Orientation>8.114749e+001</Orientation>
+   <Orientation>8.114748e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -304315,7 +304180,7 @@
     <X>3.614898e+004</X>
     <Y>6.007547e+004</Y>
    </Position>
-   <Orientation>9.355143e+001</Orientation>
+   <Orientation>9.355142e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -304360,7 +304225,7 @@
     <X>3.532102e+004</X>
     <Y>6.019530e+004</Y>
    </Position>
-   <Orientation>8.493789e+001</Orientation>
+   <Orientation>8.493788e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -304405,7 +304270,7 @@
     <X>3.533546e+004</X>
     <Y>6.018910e+004</Y>
    </Position>
-   <Orientation>9.284828e+001</Orientation>
+   <Orientation>9.284827e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -304675,7 +304540,7 @@
     <X>2.287826e+004</X>
     <Y>5.334925e+004</Y>
    </Position>
-   <Orientation>8.218023e+000</Orientation>
+   <Orientation>8.218022e+000</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -304705,7 +304570,7 @@
     <X>2.139188e+004</X>
     <Y>5.820747e+004</Y>
    </Position>
-   <Orientation>9.979185e+001</Orientation>
+   <Orientation>9.979184e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -304810,7 +304675,7 @@
     <X>1.696091e+004</X>
     <Y>5.601125e+004</Y>
    </Position>
-   <Orientation>8.881618e+001</Orientation>
+   <Orientation>8.881617e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -305620,7 +305485,7 @@
     <X>4.119516e+004</X>
     <Y>6.155391e+004</Y>
    </Position>
-   <Orientation>9.093661e+001</Orientation>
+   <Orientation>9.093660e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -306235,7 +306100,7 @@
     <X>5.409000e+004</X>
     <Y>5.139000e+004</Y>
    </Position>
-   <Orientation>9.424359e+001</Orientation>
+   <Orientation>9.424358e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -306640,7 +306505,7 @@
     <X>4.717208e+004</X>
     <Y>5.557332e+004</Y>
    </Position>
-   <Orientation>4.297183e+001</Orientation>
+   <Orientation>4.297182e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -307360,7 +307225,7 @@
     <X>4.522618e+004</X>
     <Y>5.526450e+004</Y>
    </Position>
-   <Orientation>6.978728e+001</Orientation>
+   <Orientation>6.978727e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -307915,7 +307780,7 @@
     <X>5.231835e+004</X>
     <Y>5.343670e+004</Y>
    </Position>
-   <Orientation>8.805810e+001</Orientation>
+   <Orientation>8.805809e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -309895,7 +309760,7 @@
     <X>3.441532e+004</X>
     <Y>5.912354e+004</Y>
    </Position>
-   <Orientation>5.024201e+001</Orientation>
+   <Orientation>5.024200e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -310630,7 +310495,7 @@
     <X>3.793796e+004</X>
     <Y>5.600821e+004</Y>
    </Position>
-   <Orientation>7.472029e+001</Orientation>
+   <Orientation>7.472028e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -310645,7 +310510,7 @@
     <X>3.811300e+004</X>
     <Y>5.607841e+004</Y>
    </Position>
-   <Orientation>4.270516e+001</Orientation>
+   <Orientation>4.270515e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -310810,7 +310675,7 @@
     <X>3.799366e+004</X>
     <Y>5.696866e+004</Y>
    </Position>
-   <Orientation>9.450727e+001</Orientation>
+   <Orientation>9.450726e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -310975,7 +310840,7 @@
     <X>3.743075e+004</X>
     <Y>5.772216e+004</Y>
    </Position>
-   <Orientation>9.936338e+001</Orientation>
+   <Orientation>9.936337e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -311020,7 +310885,7 @@
     <X>3.700224e+004</X>
     <Y>5.771780e+004</Y>
    </Position>
-   <Orientation>4.122196e+001</Orientation>
+   <Orientation>4.122195e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -311215,7 +311080,7 @@
     <X>3.682108e+004</X>
     <Y>5.631075e+004</Y>
    </Position>
-   <Orientation>6.152531e-001</Orientation>
+   <Orientation>6.152530e-001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -311260,7 +311125,7 @@
     <X>3.681421e+004</X>
     <Y>5.657160e+004</Y>
    </Position>
-   <Orientation>6.977629e+001</Orientation>
+   <Orientation>6.977628e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>
@@ -311320,7 +311185,7 @@
     <X>3.715207e+004</X>
     <Y>5.640958e+004</Y>
    </Position>
-   <Orientation>6.879848e+001</Orientation>
+   <Orientation>6.879847e+001</Orientation>
    <Flags>0</Flags>
    <PlayerID>0</PlayerID>
    <Health>-1</Health>

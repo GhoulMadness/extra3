@@ -39,7 +39,7 @@ function CreateArmies()
 			army.id	= data[i].id
 			army.position = data[i].position
 			army.rodeLength	= data[i].rodeLength
-			army.strength = round(data[i].strength * (1.5/gvDiffLVL))
+			army.strength = round(data[i].strength)
 			army.building = data[i].building
 			SetupArmy(army)
 			RefreshArmy(army.player, army.id, army.building)

@@ -3,9 +3,87 @@
 --
 -- Map: 	01_Nuamon
 -- Author: 	Ghoul
--- Status: 	done
+-- Status: 	complete
 ----------------------------------
 SetAdvancedCutsceneClipping()
+-----------------------------------------------------------------------------------------------------------------------
+--
+--	CUTSCENE: "INTRO"
+--
+-----------------------------------------------------------------------------------------------------------------------
+function Cutscene_Intro_Init()
+	Mission_InitMovie()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Intro_Start()
+	Cutscene_Intro_Init()
+end
+--------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Intro_Text1()
+	GUIAction_DisplayCinematicText("CM08_01_Nuamyr/Cutscene_Intro_Text1")
+end
+function Cutscene_Intro_Text2()
+	GUIAction_DisplayCinematicText("CM08_01_Nuamyr/Cutscene_Intro_Text1")
+end
+function Cutscene_Intro_Text3()
+	GUIAction_DisplayCinematicText("CM08_01_Nuamyr/Cutscene_Intro_Text1")
+end
+function Cutscene_Intro_Text4()
+	GUIAction_DisplayCinematicText("CM08_01_Nuamyr/Cutscene_Intro_Text2")
+end
+function Cutscene_Intro_Text5()
+	GUIAction_DisplayCinematicText("CM08_01_Nuamyr/Cutscene_Intro_Text2")
+end
+function Cutscene_Intro_Text6()
+	GUIAction_DisplayCinematicText("CM08_01_Nuamyr/Cutscene_Intro_Text2")
+end
+function Cutscene_Intro_Text7()
+	GUIAction_DisplayCinematicText("CM08_01_Nuamyr/Cutscene_Intro_Text2")
+end
+function Cutscene_Intro_Text8()
+	GUIAction_DisplayCinematicText("CM08_01_Nuamyr/Cutscene_Intro_Text2")
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Intro_Finished()
+	Mission_EndMovie()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_Intro_Cancel()
+	Mission_EndMovie()
+end
+-----------------------------------------------------------------------------------------------------------------------
+--
+--	CUTSCENE: "MOUNTAINPATH"
+--
+-----------------------------------------------------------------------------------------------------------------------
+function Cutscene_MountainPath_Init()
+	Mission_InitMovie()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_MountainPath_Start()
+	Cutscene_MountainPath_Init()
+end
+--------------------------------------------------------------------------------------------------------------------------
+function Cutscene_MountainPath_Text1()
+	GUIAction_DisplayCinematicText("CM08_01_Nuamyr/Cutscene_MountainPath_Text1")
+end
+function Cutscene_MountainPath_Text2()
+	GUIAction_DisplayCinematicText("CM08_01_Nuamyr/Cutscene_MountainPath_Text1")
+end
+function Cutscene_MountainPath_Text3()
+	GUIAction_DisplayCinematicText("CM08_01_Nuamyr/Cutscene_MountainPath_Text2")
+end
+function Cutscene_MountainPath_Text4()
+	GUIAction_DisplayCinematicText("CM08_01_Nuamyr/Cutscene_MountainPath_Text2")
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_MountainPath_Finished()
+	Mission_EndMovie()
+end
+-------------------------------------------------------------------------------------------------------------------------
+function Cutscene_MountainPath_Cancel()
+	Mission_EndMovie()
+end
 -----------------------------------------------------------------------------------------------------------------------
 --
 --	CUTSCENE: "NUAMON"
@@ -205,24 +283,14 @@ end
 -------------------------------------------------------------------------------------------------------------------------
 --*********************************************************************************************
 function Mission_InitMovie()
-
-	--local currGFX = GetCurrentWeatherGfxSet()
-	--local dummyGFX = 99
-	--Display.GfxSetCloneFogParams(dummyGFX, currGFX)
 	Display.SetRenderUseGfxSets(0)
-	--Display.SetRenderFog(0)
 	Display.SetFogStartAndEnd(500, 60000)
 	Display.SetFarClipPlaneMinAndMax(0, 60000)
 	Interface_SetCinematicMode(1)
 
 end
 function Mission_EndMovie()
-
-	--local currGFX = GetCurrentWeatherGfxSet()
-	--local dummyGFX = 99
-	--Display.GfxSetCloneFogParams(currGFX, dummyGFX)
 	Display.SetRenderUseGfxSets(1)
-	--Display.SetRenderFog(1)
 	Interface_SetCinematicMode(0)
 	Display.SetFarClipPlaneMinAndMax(0, 0)
 

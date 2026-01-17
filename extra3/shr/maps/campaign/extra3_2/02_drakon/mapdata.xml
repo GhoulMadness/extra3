@@ -422164,5 +422164,110 @@
    <AmbientSoundType></AmbientSoundType>
    <Scale>8.907132e-001</Scale>
   </Entity>
+  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
+   <Type>XD_ScriptEntity</Type>
+   <Position>
+    <X>5.483680e+004</X>
+    <Y>2.339429e+004</Y>
+   </Position>
+   <Orientation>0.000000e+000</Orientation>
+   <Flags>0</Flags>
+   <PlayerID>1</PlayerID>
+   <Health>-1</Health>
+   <Name>moveDario</Name>
+   <ScriptCommandLine></ScriptCommandLine>
+   <AmbientSoundType></AmbientSoundType>
+   <Scale>1.000000e+000</Scale>
+  </Entity>
+  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
+   <Type>XD_ScriptEntity</Type>
+   <Position>
+    <X>5.463614e+004</X>
+    <Y>2.313000e+004</Y>
+   </Position>
+   <Orientation>0.000000e+000</Orientation>
+   <Flags>0</Flags>
+   <PlayerID>1</PlayerID>
+   <Health>-1</Health>
+   <Name>moveAri</Name>
+   <ScriptCommandLine></ScriptCommandLine>
+   <AmbientSoundType></AmbientSoundType>
+   <Scale>1.000000e+000</Scale>
+  </Entity>
+  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
+   <Type>XD_ScriptEntity</Type>
+   <Position>
+    <X>5.496105e+004</X>
+    <Y>2.309401e+004</Y>
+   </Position>
+   <Orientation>0.000000e+000</Orientation>
+   <Flags>0</Flags>
+   <PlayerID>1</PlayerID>
+   <Health>-1</Health>
+   <Name>moveBow</Name>
+   <ScriptCommandLine></ScriptCommandLine>
+   <AmbientSoundType></AmbientSoundType>
+   <Scale>1.000000e+000</Scale>
+  </Entity>
+  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
+   <Type>XD_ScriptEntity</Type>
+   <Position>
+    <X>5.532788e+004</X>
+    <Y>2.306839e+004</Y>
+   </Position>
+   <Orientation>0.000000e+000</Orientation>
+   <Flags>0</Flags>
+   <PlayerID>1</PlayerID>
+   <Health>-1</Health>
+   <Name>moveSerf1</Name>
+   <ScriptCommandLine></ScriptCommandLine>
+   <AmbientSoundType></AmbientSoundType>
+   <Scale>1.000000e+000</Scale>
+  </Entity>
+  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
+   <Type>XD_ScriptEntity</Type>
+   <Position>
+    <X>5.519137e+004</X>
+    <Y>2.291265e+004</Y>
+   </Position>
+   <Orientation>0.000000e+000</Orientation>
+   <Flags>0</Flags>
+   <PlayerID>1</PlayerID>
+   <Health>-1</Health>
+   <Name>moveSerf2</Name>
+   <ScriptCommandLine></ScriptCommandLine>
+   <AmbientSoundType></AmbientSoundType>
+   <Scale>1.000000e+000</Scale>
+  </Entity>
+  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
+   <Type>XD_ScriptEntity</Type>
+   <Position>
+    <X>5.507301e+004</X>
+    <Y>2.277746e+004</Y>
+   </Position>
+   <Orientation>0.000000e+000</Orientation>
+   <Flags>0</Flags>
+   <PlayerID>1</PlayerID>
+   <Health>-1</Health>
+   <Name>moveSerf3</Name>
+   <ScriptCommandLine></ScriptCommandLine>
+   <AmbientSoundType></AmbientSoundType>
+   <Scale>1.000000e+000</Scale>
+  </Entity>
+  <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
+   <Type>XD_ScriptEntity</Type>
+   <Position>
+    <X>5.496719e+004</X>
+    <Y>2.259821e+004</Y>
+   </Position>
+   <Orientation>0.000000e+000</Orientation>
+   <Flags>0</Flags>
+   <PlayerID>1</PlayerID>
+   <Health>-1</Health>
+   <Name>moveSerf4</Name>
+   <ScriptCommandLine></ScriptCommandLine>
+   <AmbientSoundType></AmbientSoundType>
+   <Scale>1.000000e+000</Scale>
+  </Entity>
  </Entities>
 </root>

@@ -10,21 +10,21 @@ function CreateArmies()
 			{id = 0, position = GetPosition("ev_spawn1"), building = GetID("ev_tower1"),
 			troops = {}, rodeLength = 3500, strength = round(5-gvDiffLVL)},
 			{id = 1, position = GetPosition("ev_spawn2"), building = GetID("ev_tower2"),
-			troops = {}, rodeLength = 2600, strength = round(5-gvDiffLVL)},
+			troops = {}, rodeLength = 2900, strength = round(5-gvDiffLVL)},
 			{id = 2, position = GetPosition("ev_spawn3"), building = GetID("ev_tower3"),
-			troops = {}, rodeLength = 2500, strength = round(8-(2*gvDiffLVL))},
+			troops = {}, rodeLength = 2900, strength = round(8-(2*gvDiffLVL))},
 			{id = 3, position = GetPosition("ev_spawn4"), building = GetID("ev_tower4"),
-			troops = {}, rodeLength = 3200, strength = round(8-(1.5*gvDiffLVL))},
+			troops = {}, rodeLength = 3900, strength = round(8-(1.5*gvDiffLVL))},
 			{id = 4, position = GetPosition("ev_spawn5"), building = GetID("ev_tower5"),
-			troops = {}, rodeLength = 2400, strength = round(5-gvDiffLVL)},
+			troops = {}, rodeLength = 3200, strength = round(5-gvDiffLVL)},
 			{id = 5, position = GetPosition("ev_spawn6"), building = GetID("ev_tower6"),
 			troops = {}, rodeLength = 3000, strength = round(10-(2.5*gvDiffLVL))},
 			{id = 6, position = GetPosition("ev_spawn7"), building = GetID("ev_tower7"),
-			troops = {}, rodeLength = 2200, strength = round(8-(2*gvDiffLVL))},
+			troops = {}, rodeLength = 3200, strength = round(8-(2*gvDiffLVL))},
 			{id = 7, position = GetPosition("ev_spawn8"), building = GetID("ev_tower8"),
 			troops = {}, rodeLength = 3000, strength = round(8-(2*gvDiffLVL))},
 			{id = 8, position = GetPosition("ev_spawn9"), building = GetID("ev_tower9"),
-			troops = {}, rodeLength = 2500, strength = round(8-(2*gvDiffLVL))}
+			troops = {}, rodeLength = 3500, strength = round(8-(2*gvDiffLVL))}
 		}
 	}
 	for player, data in pairs(ArmyData) do

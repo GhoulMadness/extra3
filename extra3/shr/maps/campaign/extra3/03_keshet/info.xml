@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <root>
-  <NameKey>AO3MapDescription/CM07_03_Keshet_name</NameKey>
+ <NameKey>AO3MapDescription/CM07_03_Keshet_name</NameKey>
  <DescKey>AO3MapDescription/CM07_03_Keshet_desc</DescKey>
  <Name></Name>
  <Desc></Desc>
@@ -12,6 +12,6 @@
  <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\externalmap</MiniMapTextureName>
  <Key>3</Key>
  <GUID>
-  <Data>ed7b7480-920b-494f-a440-9d2747adcc7d</Data>
+  <Data>557fb907-8263-4290-bb3e-8a3c40a1ba12</Data>
  </GUID>
 </root>

@@ -75,7 +75,7 @@ function InitPlayerColorMapping()
 		"TopMainMenuTextButton", gvMapText ..
 		" @cr ".. DiffLVLToString(gvDiffLVL) .. " @cr @color:230,0,240 " .. gvMapVersion)
 	XGUIEng.ShowWidget(XGUIEng.GetWidgetID("CinematicBar00"),0)
-	XGUIEng.ShowWidget(XGUIEng.GetWidgetID("CinematicBar01"),1)
+	XGUIEng.ShowWidget(XGUIEng.GetWidgetID("CinematicBar01"),0)
 	XGUIEng.ShowWidget(XGUIEng.GetWidgetID("CinematicBar02"),1)
 	XGUIEng.ShowWidget(XGUIEng.GetWidgetID("CinematicFrame"),0)
 	XGUIEng.ShowWidget(XGUIEng.GetWidgetID("CinematicMiniMapOverlay"),0)
@@ -87,9 +87,10 @@ function InitPlayerColorMapping()
 	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("CinematicMC_Button2"),550,800,425,33)
 	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("CinematicMC_Headline"),120,642,500,80)
 	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("CinematicMC_Text"),100,669,850,48)
-	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("Cinematic_Headline"),120,642,500,80)
+	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("Cinematic_Headline"),100,640,500,30)
 	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("Cinematic_Text"),100,669,850,77)
-	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("CinematicBar02"),0,1000,1200,128)
+	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("CinematicBar02"), 0, 2400, 3200, 140)
+	XGUIEng.SetMaterialColor(XGUIEng.GetWidgetID("CinematicBar02"), 0, 0, 0, 0, 160)
 	XGUIEng.SetWidgetPositionAndSize(XGUIEng.GetWidgetID("CinematicBar01"),70,625,600,100)
 	FarbigeNamen()
 
@@ -350,7 +351,8 @@ function IntroNotes()
 	ASP("Stein",ment,"Achtet auch besonders auf Eure Helden. @cr Fällt einer von ihnen in Ohnmacht, habt ihr das Spiel automatisch verloren! @cr Habt ihr viele Missionen abgeschlossen und nähert Euch dem Endkampf, wird dies aufgehoben. @cr Und nun viel Spaß mit den folgenden Kampagnenkarten.", false)
 	briefing.finished = function()
 		DestroyEntity("fake_dario")
-		IntroCutscene()
+		StartCutscene("Intro", Prolog)
+		--IntroCutscene()
 	end
     StartBriefing(briefing)
     return true
@@ -395,7 +397,7 @@ end
 function Prolog()
 	local briefing = {}
 	local AP, ASP = AddPages(briefing);
-	ASP("Dario",dario,"Wirklich ein schönes Fleckchen Erde hier. @cr Ich muss wohl zukünftig dieser Provinz häufiger einen Besuch abstatten.", true)
+	ASP("Dario",dario,"Das ist wirklich ein schönes Fleckchen Erde hier. @cr Ich muss wohl zukünftig dieser Provinz häufiger einen Besuch abstatten.", true)
 	ASP("Dario",dario,"Das Bollwerk Nuamyr soll hier ganz in der Nähe sein. @cr Ich hatte Erec dort als Regenten installieren lassen. @cr Ich sollte ihn beizeiten gebührend begrüßen.", true)
 	AP{
 		title = dario,
@@ -497,8 +499,9 @@ function ControlVikingArmy(_player, _id)
 end
 function MountainPath()
 	if IsExisting("rock_barbarian") then
-		if IsNear("Dario","rock_barbarian",750) then
-			Cutscene_MountainPath()
+		if IsNear("Dario","rock_barbarian",950) then
+			StartCutscene("MountainPath", Path_Clearance_Brief)
+			--Cutscene_MountainPath()
 			return true
 		end
 	else

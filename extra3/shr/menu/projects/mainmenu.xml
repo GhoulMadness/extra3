@@ -37047,7 +37047,7 @@
                           <Name>AO3_03_Keshet_flag</Name>
                           <Rectangle>
                             <X>150</X>
-                            <Y>196</Y>
+                            <Y>182</Y>
                             <W>64</W>
                             <H>64</H>
                           </Rectangle>
@@ -37094,8 +37094,8 @@
                           <Name>AO3_01_Journey</Name>
                           <Rectangle>
                             <X>34</X>
-                            <Y>236</Y>
-                            <W>183</W>
+                            <Y>256</Y>
+                            <W>143</W>
                             <H>163</H>
                           </Rectangle>
                           <IsShown>True</IsShown>
@@ -37109,7 +37109,7 @@
                               <Name>AO3_01_Journey_Button</Name>
                               <Rectangle>
                                 <X>32</X>
-                                <Y>65</Y>
+                                <Y>45</Y>
                                 <W>44</W>
                                 <H>44</H>
                               </Rectangle>
@@ -37241,7 +37241,7 @@
                               <Name>AO3_01_Journey_BG</Name>
                               <Rectangle>
                                 <X>3</X>
-                                <Y>0</Y>
+                                <Y>-20</Y>
                                 <W>183</W>
                                 <H>163</H>
                               </Rectangle>
@@ -37375,8 +37375,8 @@
                           <Name>AO3_02_Kafarna</Name>
                           <Rectangle>
                             <X>155</X>
-                            <Y>269</Y>
-                            <W>282</W>
+                            <Y>289</Y>
+                            <W>202</W>
                             <H>170</H>
                           </Rectangle>
                           <IsShown>True</IsShown>
@@ -37390,7 +37390,7 @@
                               <Name>AO3_02_Kafarna_Button</Name>
                               <Rectangle>
                                 <X>100</X>
-                                <Y>51</Y>
+                                <Y>31</Y>
                                 <W>44</W>
                                 <H>44</H>
                               </Rectangle>
@@ -37522,7 +37522,7 @@
                               <Name>AO3_02_Kafarna_BG</Name>
                               <Rectangle>
                                 <X>-49</X>
-                                <Y>-12</Y>
+                                <Y>-32</Y>
                                 <W>282</W>
                                 <H>170</H>
                               </Rectangle>
@@ -37657,8 +37657,8 @@
                           <Rectangle>
                             <X>57</X>
                             <Y>187</Y>
-                            <W>254</W>
-                            <H>133</H>
+                            <W>234</W>
+                            <H>103</H>
                           </Rectangle>
                           <IsShown>True</IsShown>
                           <ZPriority>60</ZPriority>
@@ -37671,7 +37671,7 @@
                               <Name>AO3_03_Keshet_Button</Name>
                               <Rectangle>
                                 <X>81</X>
-                                <Y>44</Y>
+                                <Y>30</Y>
                                 <W>44</W>
                                 <H>44</H>
                               </Rectangle>

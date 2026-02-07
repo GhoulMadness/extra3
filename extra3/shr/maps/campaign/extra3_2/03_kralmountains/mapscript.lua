@@ -413,8 +413,6 @@ function Prolog()
 			Camera.RotSetFlipBack(0)
 		end
 	}
-	--ASP("Sicht",dario,"Wir werden diese brennende Ruine für den Bau unserer Siedlung benutzen.", true)
-	--ASP("Ari",dario,"Repariert die Burg und dann suchen wir nach Kerberos.", true)
 	ASP("Ruin_1",dario,"Ach ja und reißt die Ruinen ab, die sehen ja grässlich aus.", false)
 	ASP("Ari",ari,"Wir sollten dennoch Vorsicht walten lassen. Dies hier sind Landstriche die bereits unter Kerberos Kontrolle sind.",true)
     briefing.finished = function()
@@ -716,7 +714,7 @@ function Scout()
 	local BeiSc = {
 	EntityName = "Dario",
     TargetName = "Scout",
-    Distance = 500,
+    Distance = 300,
     Callback = function()
 		LookAt("Scout","Dario");LookAt("Dario","Scout")
 		DisableNpcMarker(GetEntityId("Scout"))
@@ -1289,8 +1287,7 @@ function CheckForDarioNearOutpostRuinKerberos()
 		briefing.finished = function()
 			Camera.RotSetAngle(-45)
 			Camera.RotSetFlipBack(1)
-			Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "InitRuinRepairing",1,{},{"outpost_repair_kerberos","OutpostRuinKerberos","OutpostRuinKerberos_rep1","OutpostRuinKerberos_rep2","OutpostRuinKerberos_rep3","OutpostRuinKerberos_rep4", Entities.PB_Outpost1, round(240*2/gvDiffLVL), 1200, 6})
-			StartSimpleJob("OutpostKerberos_Done")
+			Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "InitRuinRepairing",1,{},{"outpost_repair_kerberos","OutpostRuinKerberos","OutpostRuinKerberos_rep1","OutpostRuinKerberos_rep2","OutpostRuinKerberos_rep3","OutpostRuinKerberos_rep4", Entities.PB_Outpost1, round(240*2/gvDiffLVL), 1200, 6, OutpostKerberos_Done})
 		end
 		StartBriefing(briefing)
 		return true
@@ -1669,9 +1666,7 @@ function RuinQuest()
 	RuinQuest = quest.id
 end
 function Vorbereitung_3()
-	Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "InitRuinRepairing",1,{},{"church_repair","Ruine","ruin_church_rep1","ruin_church_rep2","ruin_church_rep3","ruin_church_rep4",Entities.PB_Monastery2,round(160*2/gvDiffLVL),1000,6})
-	StartSimpleJob("AbfrageKirche")
-	StartSimpleJob("Errichtet")
+	Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "InitRuinRepairing",1,{},{"church_repair","Ruine","ruin_church_rep1","ruin_church_rep2","ruin_church_rep3","ruin_church_rep4",Entities.PB_Monastery2,round(160*2/gvDiffLVL),1000,6,Errichtet})
 	ChangePlayer("Ruine",2)
 end
 --**

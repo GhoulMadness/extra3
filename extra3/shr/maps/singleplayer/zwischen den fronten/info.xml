@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>Zwischen den Fronten</Name>
+ <Desc>Krieg herrscht wieder einmal im Land. @cr Drei hochentwickelte Städte streiten sich um die Vorherrschaft über diese Steppen- und Moorregion. @cr Salim hat sich auf den Weg gemacht, um eine Lösung des Problems zu finden.</Desc>
+ <SizeX>545</SizeX>
+ <SizeY>545</SizeY>
+ <MPFlag>false</MPFlag>
+ <MPPlayerCount>1</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\Zwischen den Fronten</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>d6a4688b-5575-49a3-910a-a496406491d7</Data>
+ </GUID>
+</root>

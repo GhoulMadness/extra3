@@ -475,8 +475,7 @@ function CheckForDarioNearOutpostRuinVarg()
 		briefing.finished = function()
 			Camera.RotSetAngle(-45)
 			Camera.RotSetFlipBack(1)
-			Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "InitRuinRepairing",1,{},{"outpost_repair_varg","OutpostRuinVarg","OutpostRuinVarg_rep1","OutpostRuinVarg_rep2","OutpostRuinVarg_rep3","OutpostRuinVarg_rep4", Entities.PB_Outpost1, round(240*2/gvDiffLVL), 1200, 4})
-			StartSimpleJob("OutpostVarg_Done")
+			Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "InitRuinRepairing",1,{},{"outpost_repair_varg","OutpostRuinVarg","OutpostRuinVarg_rep1","OutpostRuinVarg_rep2","OutpostRuinVarg_rep3","OutpostRuinVarg_rep4", Entities.PB_Outpost1, round(240*2/gvDiffLVL), 1200, 4, OutpostVarg_Done})
 		end
 		StartBriefing(briefing)
 		return true
@@ -492,32 +491,33 @@ function OutpostVarg_Done()
 	end
 end
 function CheckForDarioNearOutpostRuinKerberos()
-	local pos = GetPosition("OutpostRuinKerberos")
-	if IsNear("Dario", "OutpostRuinKerberos", 700)
-	and not AreEntitiesOfCategoriesAndDiplomacyStateInArea(1, {EntityCategories.Leader, EntityCategories.Soldier, EntityCategories.Cannon}, pos, 3000, Diplomacy.Hostile) then
-		local briefing = {}
-		local AP, ASP = AddPages(briefing);
-		AP{
-			title = dario,
-			text = "Wir sollten diesen Außenposten für uns beanspruchen. @cr Wir sollten einige Arbeiter zur Restauration der Ruine abbestellen.",
-			position = GetPosition("Dario"),
-			dialogCamera = false,
-			action = function()
-				Camera.RotSetAngle(0)
-				Camera.RotSetFlipBack(0)
+	if Step1Done then
+		local pos = GetPosition("OutpostRuinKerberos")
+		if IsNear("Dario", "OutpostRuinKerberos", 700)
+		and not AreEntitiesOfCategoriesAndDiplomacyStateInArea(1, {EntityCategories.Leader, EntityCategories.Soldier, EntityCategories.Cannon}, pos, 3000, Diplomacy.Hostile) then
+			local briefing = {}
+			local AP, ASP = AddPages(briefing);
+			AP{
+				title = dario,
+				text = "Wir sollten diesen Außenposten für uns beanspruchen. @cr Wir sollten einige Arbeiter zur Restauration der Ruine abbestellen.",
+				position = GetPosition("Dario"),
+				dialogCamera = false,
+				action = function()
+					Camera.RotSetAngle(0)
+					Camera.RotSetFlipBack(0)
+				end
+			}
+			briefing.finished = function()
+				Camera.RotSetAngle(-45)
+				Camera.RotSetFlipBack(1)
+				Logic.CreateEffect(GGL_Effects.FXCrushBuildingLarge, posX, posY)
+				Logic.CreateEffect(GGL_Effects.FXExplosion, posX, posY)
+				SetHealth(GetID("KerberosBurg"), 0)
+				Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "InitRuinRepairing",1,{},{"outpost_repair_kerberos","OutpostRuinKerberos","OutpostRuinKerberos_rep1","OutpostRuinKerberos_rep2","OutpostRuinKerberos_rep3","OutpostRuinKerberos_rep4", Entities.PB_Outpost1, round(240*2/gvDiffLVL), 1200, 4, OutpostKerberos_Done})
 			end
-		}
-		briefing.finished = function()
-			Camera.RotSetAngle(-45)
-			Camera.RotSetFlipBack(1)
-			Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "InitRuinRepairing",1,{},{"outpost_repair_kerberos","OutpostRuinKerberos","OutpostRuinKerberos_rep1","OutpostRuinKerberos_rep2","OutpostRuinKerberos_rep3","OutpostRuinKerberos_rep4", Entities.PB_Outpost1, round(240*2/gvDiffLVL), 1200, 4})
-			StartSimpleJob("OutpostKerberos_Done")
-			Logic.CreateEffect(GGL_Effects.FXCrushBuildingLarge, posX, posY)
-			Logic.CreateEffect(GGL_Effects.FXExplosion, posX, posY)
-			SetHealth(GetID("KerberosBurg"), 0)
+			StartBriefing(briefing)
+			return true
 		end
-		StartBriefing(briefing)
-		return true
 	end
 end
 function OutpostKerberos_Done()
@@ -544,6 +544,7 @@ function Outpost_Ruin_Control()
 end
 function VictoryJob_Step1()
 	if GetEntityHealth("KerberosBurg") <= 20 then
+		Step1Done = true
 		ChangePlayer("KerberosBurg",4)
 		SetHealth("KerberosBurg",15)
 		Start_Step2()
@@ -1373,7 +1374,7 @@ function Control_Fisherman_Chest()
 			local amount = round(100 * gvDiffLVL + math.random(300) ^ (1 + Logic.GetTime()/ 36000))
 			local text = amount .. " Silber"
 			Logic.AddToPlayersGlobalResource(1, ResourceType.Silver, amount)
-			Message("@color:0,255,255 " .. UserTool_GetPlayerName(j) ..  " hat die Truhe des Fischers geplündert. Inhalt: " .. text )
+			Message("@color:0,255,255 " .. UserTool_GetPlayerName(1) ..  " hat die Truhe des Fischers geplündert. Inhalt: " .. text )
 			ReplaceEntity(id, Entities.XD_ChestOpen)
 			Logic.RemoveQuest(1, P5_FishMQ)
 			return true
@@ -1381,13 +1382,13 @@ function Control_Fisherman_Chest()
 	end
 end
 function Alchemist()
-	local npc = "alchemist"
-	local npcname = alch
 	local BeiAl = {
 	Heroes = true,
-	TargetName = npc,
+	TargetName = "alchemist",
 	Distance = 300,
 	Callback = function()
+		local npc = "alchemist"
+		local npcname = alch
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -1492,13 +1493,13 @@ function P5_Alch_Arrived_At_Ruins()
 end
 --
 function Vik_Settler1()
-	local npc = "vik_settler1"
-	local npcname = vk_set1
 	local BeiVk_s1 = {
 	Heroes = true,
-	TargetName = npc,
+	TargetName = "vik_settler1",
 	Distance = 300,
 	Callback = function()
+		local npc = "vik_settler1"
+		local npcname = vk_set1
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -1517,13 +1518,13 @@ function Vik_Settler1()
 	SetupExpedition(BeiVk_s1)
 end
 function Vik_Settler2()
-	local npc = "vik_settler2"
-	local npcname = vk_set2
 	local BeiVk_s2 = {
 	Heroes = true,
-	TargetName = npc,
+	TargetName = "vik_settler2",
 	Distance = 300,
 	Callback = function()
+		local npc = "vik_settler2"
+		local npcname = vk_set2
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -1612,13 +1613,13 @@ function P6_JarlQuest()
 	P6_JarlQ = quest.id
 end
 function Vik_Settler1_2()
-	local npc = "vik_settler1"
-	local npcname = vk_set1
 	local BeiVk_s1 = {
 	Heroes = true,
-	TargetName = npc,
+	TargetName = "vik_settler1",
 	Distance = 300,
 	Callback = function()
+		local npc = "vik_settler1"
+		local npcname = vk_set1
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -1639,13 +1640,13 @@ function Vik_Settler1_2()
 	SetupExpedition(BeiVk_s1)
 end
 function Vik_Settler3()
-	local npc = "vik_settler3"
-	local npcname = vk_set3
 	local BeiVk_s3 = {
 	Heroes = true,
-	TargetName = npc,
+	TargetName = "vik_settler3",
 	Distance = 300,
 	Callback = function()
+		local npc = "vik_settler3"
+		local npcname = vk_set3
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -1665,13 +1666,13 @@ function Vik_Settler3()
 	SetupExpedition(BeiVk_s3)
 end
 function Vik_Farmer1()
-	local npc = "vik_farmer1"
-	local npcname = vk_far1
 	local BeiVk_f1 = {
 	Heroes = true,
-	TargetName = npc,
+	TargetName = "vik_farmer1",
 	Distance = 300,
 	Callback = function()
+		local npc = "vik_farmer1"
+		local npcname = vk_far1
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -1691,13 +1692,13 @@ function Vik_Farmer1()
 	SetupExpedition(BeiVk_f1)
 end
 function Vik_Farmer2()
-	local npc = "vik_farmer2"
-	local npcname = vk_far2
 	local BeiVk_f2 = {
 	Heroes = true,
-	TargetName = npc,
+	TargetName = "vik_farmer2",
 	Distance = 300,
 	Callback = function()
+		local npc = "vik_farmer2"
+		local npcname = vk_far2
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -1717,13 +1718,13 @@ function Vik_Farmer2()
 	SetupExpedition(BeiVk_f2)
 end
 function Vik_Farmer3()
-	local npc = "vik_farmer3"
-	local npcname = vk_far3
 	local BeiVk_f3 = {
 	Heroes = true,
-	TargetName = npc,
+	TargetName = "vik_farmer3",
 	Distance = 300,
 	Callback = function()
+		local npc = "vik_farmer3"
+		local npcname = vk_far3
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -1745,13 +1746,13 @@ function Vik_Farmer3()
 	SetupExpedition(BeiVk_f3)
 end
 function Vik_Farmer4()
-	local npc = "vik_farmer4"
-	local npcname = vk_far4
 	local BeiVk_f4 = {
 	Heroes = true,
-	TargetName = npc,
+	TargetName = "vik_farmer4",
 	Distance = 300,
 	Callback = function()
+		local npc = "vik_farmer4"
+		local npcname = vk_far4
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -1790,13 +1791,17 @@ Vik_Data_ToNPCNameString = {
 	["farmer"] = "far"
 }
 function Generic_Vik_Villager_Firstborn_Dead_Brief(_villagerType, _index)
-	local npc = "vik_" .. _villagerType "" .. _index
-	local npcname = vk_ .. Vik_Data_ToNPCNameString[_villagerType] .. _index
 	local Brief = {
 	Heroes = true,
-	TargetName = npc,
+	TargetName = "vik_" .. _villagerType "" .. _index,
 	Distance = 300,
-	Callback = function()
+	villagerType = _villagerType
+	index = _index
+	Callback = function(_data)
+		local _villagerType = _data.villagerType
+		local _index = _data.index
+		local npc = "vik_" .. _villagerType "" .. _index
+		local npcname = vk_ .. Vik_Data_ToNPCNameString[_villagerType] .. _index
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)

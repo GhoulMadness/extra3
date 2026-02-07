@@ -1,4 +1,4 @@
-Script.Load("extra2/shr/maps/user/ems/tools/s5communitylib/comfort/table/copytable.lua")
+Script.Load("extra3/shr/maps/user/ems/tools/s5communitylib/comfort/table/copytable.lua")
 
 RandomMapAI = {}
 
@@ -39,7 +39,6 @@ RandomMapAI.FindValidRectangleCenter = function(_initialX, _initialY, _width, _l
     local searchRadius = 1
 	local time = XGUIEng.GetSystemTime()
     while true do
-        -- Um den Bereich systematisch zu erweitern (z.B. wie eine Spirale)
         for offsetX = -searchRadius, searchRadius do
             local checks = {
                 {math.max(math.min(_initialX + offsetX, maxX), 0), math.max(math.min(_initialY + searchRadius, maxX), 0)},
@@ -209,9 +208,15 @@ RandomMapAI.ConstructionPlanSnippets = {
 		{ type = Entities.PB_Tower1, pos = "inherit", dirty = true, level = 1 },
 		{ type = Entities.PB_Tower1, pos = "inherit", dirty = true, level = 1 }
 	},
-	["Beauty"] = {
-		{ type = Entities["PB_Beautification0" .. math.random(1,9)], pos = "base", dirty = true, level = 0 },
-		{ type = Entities["PB_Beautification0" .. math.random(1,9)], pos = "inherit", dirty = true, level = 0 },
+	["Beauty1"] = {
+		{ type = Entities["PB_Beautification0" .. math.random(1,5)], pos = "base", dirty = true, level = 0 },
+		{ type = Entities["PB_Beautification0" .. math.random(6,9)], pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities["PB_Beautification1" .. math.random(0,3)], pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities["PB_VictoryStatueET2" .. math.random(2,5)], pos = "inherit", dirty = true, level = 0 },
+	},
+	["Beauty2"] = {
+		{ type = Entities["PB_Beautification0" .. math.random(1,5)], pos = "base", dirty = true, level = 0 },
+		{ type = Entities["PB_Beautification0" .. math.random(6,9)], pos = "inherit", dirty = true, level = 0 },
 		{ type = Entities["PB_Beautification1" .. math.random(0,3)], pos = "inherit", dirty = true, level = 0 },
 		{ type = Entities["PB_VictoryStatueET2" .. math.random(2,5)], pos = "inherit", dirty = true, level = 0 },
 	},
@@ -223,7 +228,7 @@ RandomMapAI.ConstructionPlanSnippets = {
 		{ type = Entities["PB_Scaremonger0" .. math.random(1,6)], pos = "base", dirty = true, level = 0 }
 	},
 	["Industry1"] = {
-		{ type = Entities.PB_Market1, pos = "base", dirty = true, level = 0 },
+		{ type = Entities.PB_Market1, pos = "outer", dirty = true, level = 0 },
 		{ type = Entities.PB_Blacksmith1, pos = "inherit", dirty = true, level = 0 },
 		{ type = Entities.PB_Farm1, pos = "inherit", dirty = true, level = 0 },
 		{ type = Entities.PB_Residence1, pos = "inherit", dirty = true, level = 0 },
@@ -232,10 +237,11 @@ RandomMapAI.ConstructionPlanSnippets = {
 		{ type = Entities.PB_Residence1, pos = "inherit", dirty = true, level = 0 },
 		{ type = Entities.PB_Blacksmith1, pos = "inherit", dirty = true, level = 0 },
 		{ type = Entities.PB_Farm1, pos = "inherit", dirty = true, level = 0 },
-		{ type = Entities.PB_Residence1, pos = "inherit", dirty = true, level = 0 }
+		{ type = Entities.PB_Residence1, pos = "inherit", dirty = true, level = 0 },
+		{ type = Entities.PB_Blacksmith1, pos = "inherit", dirty = true, level = 0 }
 	},
 	["Industry2"] = {
-		{ type = Entities.PB_Market1, pos = "base", dirty = true, level = 0 },
+		{ type = Entities.PB_Market1, pos = "outer", dirty = true, level = 0 },
 		{ type = Entities.PB_Sawmill1, pos = "inherit", dirty = true, level = 0 },
 		{ type = Entities.PB_Farm1, pos = "inherit", dirty = true, level = 0 },
 		{ type = Entities.PB_Residence1, pos = "inherit", dirty = true, level = 0 },
@@ -247,7 +253,7 @@ RandomMapAI.ConstructionPlanSnippets = {
 		{ type = Entities.PB_Residence1, pos = "inherit", dirty = true, level = 0 }
 	},
 	["Industry3"] = {
-		{ type = Entities.PB_Market1, pos = "base", dirty = true, level = 0 },
+		{ type = Entities.PB_Market1, pos = "outer", dirty = true, level = 0 },
 		{ type = Entities.PB_Bank1, pos = "inherit", dirty = true, level = 0 },
 		{ type = Entities.PB_Farm1, pos = "inherit", dirty = true, level = 0 },
 		{ type = Entities.PB_Residence1, pos = "inherit", dirty = true, level = 0 },
@@ -264,8 +270,9 @@ RandomMapAI.ConstructionSnippetTypesToSnippetNames = {
 	["Industry"]		= {"Industry1", "Industry2", "Industry3"},
 	["Village"] 		= {"VillageCenter", "VillageHall", "Lighthouse"},
 	["Military"] 		= {"Barracks", "Archery", "Stables", "Foundry"},
-	["Civilization"] 	= {"Research", "Faith", "Market", "Entertainment"},
-	["Misc"] 			= {"Beauty", "VictoryStatue", "Scaremonger", "Wood", "Coal"}
+	["Civilization"] 	= {"Research", "Faith", "Entertainment"},
+	["Motivation"]		= {"Beauty1", "Beauty2"},
+	["Misc"] 			= {"VictoryStatue", "Scaremonger", "Wood", "Coal"}
 }
 RandomMapAI.SnippetTypesWithLimit = {
 	["Mines"] 	= true,
@@ -294,6 +301,7 @@ RandomMapAI.ConstructionSnippetTypesByPeacetime = {
 		"Military",
 		"Mines",
 		"Mines",
+		"Industry",
 		"Military",
 		"Mines",
 		"Village",
@@ -301,15 +309,15 @@ RandomMapAI.ConstructionSnippetTypesByPeacetime = {
 		"Civilization",
 		"Military",
 		"Mines",
-		"Misc",
+		"Motivation",
 		"Mines",
-		"Misc",
+		"Motivation",
 		"Military",
-		"Misc",
+		"Motivation",
 		"Mines",
-		"Misc",
+		"Motivation",
 		"Mines",
-		"Misc",
+		"Motivation",
 		"Mines",
 		"Village",
 		"Mines",
@@ -323,7 +331,10 @@ RandomMapAI.ConstructionSnippetTypesByPeacetime = {
 		"Industry",
 		"Misc",
 		"Industry",
-		"Misc"
+		"Misc",
+		"Industry",
+		"Industry",
+		"Industry"
 	},
 	[10] = {
 		"Mines",
@@ -340,19 +351,20 @@ RandomMapAI.ConstructionSnippetTypesByPeacetime = {
 		"Military",
 		"Mines",
 		"Mines",
+		"Industry",
 		"Civilization",
 		"Military",
 		"Mines",
-		"Misc",
+		"Motivation",
 		"Mines",
-		"Misc",
+		"Motivation",
 		"Military",
 		"Civilization",
-		"Misc",
+		"Motivation",
 		"Mines",
-		"Misc",
+		"Motivation",
 		"Mines",
-		"Misc",
+		"Motivation",
 		"Mines",
 		"Village",
 		"Mines",
@@ -366,7 +378,10 @@ RandomMapAI.ConstructionSnippetTypesByPeacetime = {
 		"Industry",
 		"Misc",
 		"Industry",
-		"Misc"
+		"Misc",
+		"Industry",
+		"Industry",
+		"Industry"
 	},
 	[20] = {
 		"Civilization",
@@ -383,19 +398,20 @@ RandomMapAI.ConstructionSnippetTypesByPeacetime = {
 		"Mines",
 		"Village",
 		"Mines",
+		"Industry",
 		"Civilization",
 		"Military",
 		"Mines",
-		"Misc",
+		"Motivation",
 		"Mines",
-		"Misc",
+		"Motivation",
 		"Civilization",
 		"Military",
-		"Misc",
+		"Motivation",
 		"Mines",
-		"Misc",
+		"Motivation",
 		"Mines",
-		"Misc",
+		"Motivation",
 		"Mines",
 		"Village",
 		"Mines",
@@ -411,6 +427,8 @@ RandomMapAI.ConstructionSnippetTypesByPeacetime = {
 		"Misc",
 		"Industry",
 		"Misc",
+		"Industry",
+		"Industry",
 		"Industry"
 	},
 	[30] = {
@@ -418,10 +436,6 @@ RandomMapAI.ConstructionSnippetTypesByPeacetime = {
 		"Mines",
 		"Village",
 		"Mines",
-		"Military",
-		"Military",
-		"Village",
-		"Military",
 		"Mines",
 		"Mines",
 		"Military",
@@ -432,15 +446,19 @@ RandomMapAI.ConstructionSnippetTypesByPeacetime = {
 		"Civilization",
 		"Military",
 		"Mines",
-		"Misc",
+		"Motivation",
 		"Mines",
-		"Misc",
 		"Military",
-		"Misc",
+		"Military",
+		"Village",
+		"Military",
+		"Motivation",
+		"Military",
+		"Motivation",
 		"Mines",
-		"Misc",
+		"Motivation",
 		"Mines",
-		"Misc",
+		"Motivation",
 		"Mines",
 		"Village",
 		"Mines",
@@ -456,15 +474,70 @@ RandomMapAI.ConstructionSnippetTypesByPeacetime = {
 		"Misc",
 		"Industry",
 		"Misc",
+		"Industry",
+		"Industry",
 		"Industry"
+	},
+	[40] = {
+		"Mines",
+		"Mines",
+		"Mines",
+		"Mines",
+		"Civilization",
+		"Village",
+		"Mines",
+		"Mines",
+		"Mines",
+		"Mines",
+		"Mines",
+		"Civilization",
+		"Mines",
+		"Village",
+		"Mines",
+		"Civilization",
+		"Mines",
+		"Motivation",
+		"Mines",
+		"Mines",
+		"Village",
+		"Motivation",
+		"Industry",
+		"Industry",
+		"Industry",
+		"Industry",
+		"Motivation",
+		"Industry",
+		"Motivation",
+		"Industry",
+		"Military",
+		"Military",
+		"Motivation",
+		"Motivation",
+		"Mines",
+		"Misc",
+		"Village",
+		"Misc",
+		"Military",
+		"Military",
+		"Village",
+		"Misc",
+		"Misc",
+		"Industry",
+		"Misc",
+		"Industry",
+		"Misc",
+		"Industry",
+		"Misc",
+		"Military",
+		"Industry",
+		"Military"
 	}
 }
-RandomMapAI.ConstructionSnippetTypesByPeacetime[40] = RandomMapAI.ConstructionSnippetTypesByPeacetime[30]
-RandomMapAI.ConstructionSnippetTypesByPeacetime[50] = RandomMapAI.ConstructionSnippetTypesByPeacetime[30]
-RandomMapAI.ConstructionSnippetTypesByPeacetime[60] = RandomMapAI.ConstructionSnippetTypesByPeacetime[30]
-RandomMapAI.ConstructionSnippetTypesByPeacetime[70] = RandomMapAI.ConstructionSnippetTypesByPeacetime[30]
-RandomMapAI.ConstructionSnippetTypesByPeacetime[80] = RandomMapAI.ConstructionSnippetTypesByPeacetime[30]
-RandomMapAI.ConstructionSnippetTypesByPeacetime[90] = RandomMapAI.ConstructionSnippetTypesByPeacetime[30]
+RandomMapAI.ConstructionSnippetTypesByPeacetime[50] = RandomMapAI.ConstructionSnippetTypesByPeacetime[40]
+RandomMapAI.ConstructionSnippetTypesByPeacetime[60] = RandomMapAI.ConstructionSnippetTypesByPeacetime[40]
+RandomMapAI.ConstructionSnippetTypesByPeacetime[70] = RandomMapAI.ConstructionSnippetTypesByPeacetime[40]
+RandomMapAI.ConstructionSnippetTypesByPeacetime[80] = RandomMapAI.ConstructionSnippetTypesByPeacetime[40]
+RandomMapAI.ConstructionSnippetTypesByPeacetime[90] = RandomMapAI.ConstructionSnippetTypesByPeacetime[40]
 --------------------------------------------------------------------------------------------------------------------------------
 RandomMapAI.StructNameToCurrIterationName = {
 	["ClayPit"] = "NumClayPits",
@@ -514,6 +587,9 @@ RandomMapAI.GenerateConstructionPlan = function(_AI)
 					snipplan[j].pos = pos
 				elseif snipplan[j].pos == "inherit" then
 					snipplan[j].pos = snipplan[j - 1].pos
+				elseif snipplan[j].pos == "outer" then
+					local mapSizeX = Logic.WorldGetSize()
+					snipplan[j].pos = GetCirclePosInBetween(pos, {X = mapSizeX/2, Y = mapSizeX/2})
 				elseif type(snipplan[j].pos) == "string" then
 					local typ = snipplan[j].pos
 					local itname = RandomMapAI.StructNameToCurrIterationName[typ]
@@ -571,19 +647,20 @@ RandomMapAI.ProcessConstructionPlan = function(_AIData, _cPlan, _index)
 		local width = dekaround(maxX - minX) + 400
 		local length = dekaround(maxY - minY) + 400
 
+		local mapSizeFactor = round(math.min((math.max(Logic.GetTime()/40, 20)), 70))
 		if etype == Entities.PB_CoalMine1 then
-			posX, posY, rot = EvaluateNearestUnblockedAreaWithAdditionalChecks(player, posX, posY, width, length, MapEditor_Armies[player].Sector, BlockingGrid.MaxSizeX * 30, false, true, false, true, true)
+			posX, posY, rot = EvaluateNearestUnblockedAreaWithAdditionalChecks(player, posX, posY, width, length, MapEditor_Armies[player].Sector, BlockingGrid.MaxSizeX * mapSizeFactor, false, true, false, true, true)
 		else
-			posX, posY = EvaluateNearestUnblockedAreaWithAdditionalChecks(player, posX, posY, width, length, MapEditor_Armies[player].Sector, BlockingGrid.MaxSizeX * 15, false, true, false, false, true)
+			posX, posY = EvaluateNearestUnblockedAreaWithAdditionalChecks(player, posX, posY, width, length, MapEditor_Armies[player].Sector, BlockingGrid.MaxSizeX * mapSizeFactor/2, false, true, false, false, true)
 		end
 		if not posX or not posY then
-			LuaDebugger.Log("measuring valid position failed!")
+			LuaDebugger.Log("measuring valid position for " .. Logic.GetEntityTypeName(etype) .. " player " .. player .. " failed!")
 			StartCountdown(1, RandomMapAI.ProcessConstructionPlan, false, "RandomMapAI_ProcessConstructionPlan_" .. player .. "_" .. _index + 1, _AIData, _cPlan, _index + 1)
 			return
 		end
 	end
 	local level = currTask.level
-	local secToNextProcess = MapEditor_Armies[player].description.rebuildData.delay + math.random(MapEditor_Armies[player].description.rebuildData.randomTime)
+	local secToNextProcess = MapEditor_Armies[player].description.constructionData.delay + math.random(MapEditor_Armies[player].description.constructionData.randomTime)
 	--
 	local csite = Logic.CreateConstructionSite(posX, posY, rot, etype, player)
 	if level > 0 then
@@ -722,7 +799,7 @@ RandomMapAI.UpgradeBuilding.UpgradeCommand = function(_AI)
 			(CSendEvent or SendEvent).UpgradeBuilding(eID)
 		end
 	end
-	StartCountdown((5+(15/_AI.Strength))*60+math.random(0,20), RandomMapAI.UpgradeBuilding.UpgradeCommand, false, nil, _AI)
+	StartCountdown((5+(10/_AI.Strength))*60+math.random(0,20), RandomMapAI.UpgradeBuilding.UpgradeCommand, false, nil, _AI)
 end
 ---------------------------------------------------------------------------------------------------
 RandomMapAI.Research = {}
@@ -879,7 +956,6 @@ RandomMapAI.CreateHeroArmy = function(_player, _position, _peaceTime, _heroes)
 	for i = 1, table.getn(_heroes) do
 		EnlargeArmy(army, {leaderType = _heroes[i]})
 	end
-	local peaceTime
 	Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "", "RandomMapAI_ControlGenericArmy", 1, {}, {_player, army.id, _peaceTime})
 end
 RandomMapAI_ControlGenericArmy = function(_player, _id, _peaceTime)
@@ -908,22 +984,47 @@ RandomMapAI.Init = function(_structData)
 	local AIData = RandomMapAI.GetAIConfigFromGDBData(_structData)
 	local numHeroes = GDB.GetValue("Singleplayer\\RandomMapData\\MapHeroes")
 	local mapsizeX = Logic.WorldGetSize()
+	local lowestPt = AIData[1].PeaceTime
 	local playerInTeam = {[1] = {1}}
 	for i = 1, table.getn(AIData) do
 		local currAI = AIData[i]
 		local strength = currAI.Strength
 		local player = currAI.PlayerID
-		MapEditor_SetupAI(player, strength, mapsizeX, currAI.TechLVL - 1, "HQP" .. player, 3, currAI.PeaceTime * 60, true, 5000)
+		local pt = currAI.PeaceTime
+		if pt < lowestPt then
+			lowestPt = pt
+		end
+		MapEditor_SetupAI(player, strength, mapsizeX, currAI.TechLVL - 1, "HQP" .. player, 3, pt * 60, true, 5000)
 		local description = MapEditor_GetArmyDefaultDescription(strength)
-		description.extracting = 1
+		description.extractResourcesData.active = true
 		description.rebuildData = {
-			delay		= 6*(6-strength),
-			randomTime	= 3*(6-strength)
+			delay		= 20*(5-strength),
+			randomTime	= 12*(5-strength)
+		}
+		description.serfLimit = 10 + strength
+		description.resources = {
+			gold		=	2500+strength*2500,
+			clay		=	1000+strength*1000,
+			iron		=	1250+strength*1250,
+			sulfur		=	1000+strength*1000,
+			stone		=	1000+strength*1000,
+			wood		=	1500+strength*1500
+		}
+		description.refresh = {
+			gold		=	300+strength*300,
+			clay		=	100+strength*100,
+			iron		=	200+strength*200,
+			sulfur		=	125+strength*125,
+			stone		=	100+strength*100,
+			wood		=	175+strength*175,
+			updateTime	=	math.floor(20+20/strength)
 		}
 		SetupPlayerAi(player, description)
 		MapEditor_Armies[player].description.rebuildData.delay = description.rebuildData.delay
 		MapEditor_Armies[player].description.rebuildData.randomTime = description.rebuildData.randomTime
-		StartCountdown((5/strength)*60+math.random(0,20), RandomMapAI.IncreaseSerfs, false, nil, player, strength, description.serfLimit)
+		MapEditor_Armies[player].description.constructionData = {delay = 15 - 2 * strength, randomTime = 6 - strength}
+		MapEditor_Armies[player].description.extractResourcesData.active = true
+		StartCountdown((3/strength)*60+math.random(0,20), RandomMapAI.IncreaseSerfs, false, nil, player, strength, description.serfLimit)
 		StartCountdown((5+(14/strength))*60+math.random(0,120), RandomMapAI.UpgradeBuilding.UpgradeCommand, false, nil, currAI)
 		StartCountdown((2+(3/strength))*60+math.random(0,120), RandomMapAI.Research.ResearchCommand, false, nil, currAI)
 		SetPlayerName(player, RandomMapAI.PlayerNames[player - 1])
@@ -945,8 +1046,17 @@ RandomMapAI.Init = function(_structData)
 				table.remove(possibleHeroes, rand)
 			end
 			--
-			RandomMapAI.CreateHeroArmy(player, GetPosition("HQP" .. player), currAI.PeaceTime, selectedHeroes)
+			RandomMapAI.CreateHeroArmy(player, GetPosition("HQP" .. player), pt, selectedHeroes)
 		end
+		-- AI should use coal for enhanced refining iron and gold when there are no silver pits
+		if Logic.GetNumberOfEntitiesOfType(Entities.XD_SilverPit1) == 0 then
+			gvCoal.Usage[player][Entities.PB_Blacksmith1] = true
+			gvCoal.Usage[player][Entities.PB_Blacksmith2] = true
+			gvCoal.Usage[player][Entities.PB_Blacksmith3] = true
+			gvCoal.Usage[player][Entities.CB_Mint1] = true
+		end
+		-- workaround so forester and woodcutters can spawn despite low village placed provided
+		CLogic.SetAttractionLimitOffset(player, 500)
 	end
 	-- Diplomacy stuff
 	local teams = {}
@@ -962,9 +1072,18 @@ RandomMapAI.Init = function(_structData)
 			end
 		end
 	end
+	-- show lowest peaceTime as timer
+	if lowestPt > 0 then
+		StartCountdown(lowestPt * 60, function()
+			Message("Die Friendenszeit eines oder mehrerer Spieler ist vorbei! Lasst die Kämpfe beginnen!");
+			Sound.PlayGUISound(Sounds.OnKlick_Select_kerberos, 200)
+		end, true)
+	end
 end
 function RandomMapAI.IncreaseSerfs(_player, _strength, _serfLimit)
-	local serfLimit = _serfLimit + 1
-	AI.Village_SetSerfLimit(_player, serfLimit)
-	StartCountdown((5/_strength)*60+math.random(0,20), RandomMapAI.IncreaseSerfs, false, nil, _player, _strength, serfLimit)
+	local serfLimit = _serfLimit + 5
+	if serfLimit < 40 + (20 * _strength) then
+		AI.Village_SetSerfLimit(_player, serfLimit)
+		StartCountdown((5/_strength)*60+math.random(0,20), RandomMapAI.IncreaseSerfs, false, nil, _player, _strength, serfLimit)
+	end
 end

@@ -983,6 +983,15 @@ function GetNearestBridge(_x, _y, _range)
 	return (bt[1] and bt[1].id)
 end
 
+-- function to get position in center of two circle nodes
+---@param _pos1 table position table
+---@param _pos2 table position table
+---@return table position table
+function GetCirclePosInBetween(_pos1, _pos2)
+	assert(type(_pos1) == "table" and type(_pos2) == "table" and _pos1.X and _pos1.X > 0 and _pos1.Y and _pos1.Y > 0 and _pos2.X and _pos2.X > 0 and _pos2.Y and _pos2.Y > 0, "invalid position input")
+	return {X = (_pos1.X + _pos2.X)/2, Y = (_pos1.Y + _pos2.Y)/2}
+end
+
 -- comfort to evaluate if number of entities of given playerID are in range of given Position
 ---@param _player integer playerID
 ---@param _entityType integer entityType
@@ -1346,7 +1355,7 @@ function GetNumberOfEnemiesInRange(_player, _ecats, _position, _range)
 	return 0
 end
 
--- Comfort to get the amount of entities of playerID based off entityCategories and range to given position
+-- Comfort to get the amount of entities of playerID based of entityCategories and range to given position
 ---@param _player integer playerID
 ---@param _ecats table entityCategories
 ---@param _position table positionTable
@@ -1363,6 +1372,19 @@ function GetNumberOfPlayerEntitiesByCatInRange(_player, _ecats, _position, _rang
 	end
 	return count
 end
+
+-- Comfort to get the amount of entities of playerID based of fitting entity class
+---@param _player integer playerID
+function GetNumberOfPlayerEntitiesByClass(_player, _class)
+	assert(type(_player) == "number" and _player > 0 and _player < 17, "invalid player ID")
+	assert(type(_class) == "number" and _class > 0, "invalid entity class")
+	local count = 0
+	for eID in CEntityIterator.Iterator(CEntityIterator.OfPlayerFilter(_player), CEntityIterator.OfClassFilter(_class)) do
+		count = count + 1
+	end
+	return count
+end
+
 
 -- Comfort to get the amount and entityIDs of entities of playerID based off entityCategories and range to given position
 ---@param _player integer playerID
@@ -4627,8 +4649,9 @@ function CheckForBetterTarget(_eID, _target, _range)
 			end
 			if target
 			and target == tab[_eID].currenttarget
-			and GetDistance(_eID, target) > maxrange
-			and Logic.GetTime() < tab[_eID].lasttime + 10 then
+			and GetDistance(_eID, target) >= maxrange
+			and Logic.GetTime() < tab[_eID].lasttime + 10
+			or GetNearestEnemyInRange(player, {X = posX, Y = posY}, maxrange) ~= nil then
 			else
 				res = target_eval(_target, target, _eID)
 			end
@@ -5181,7 +5204,7 @@ EvaluateNearestUnblockedAreaWithAdditionalChecks = function(_player, _posX, _pos
 	local function AdditionalPlacementChecks(_player, _posX, _posY, _rectWidth, _rectHeight, _sector, _step, _checkVision, _checkSector, _checkEnemies)
 		if (not _checkVision or Logic.IsMapPositionExplored(_player, _posX, _posY) == 1)
 		and (not _checkSector or _sector == EvaluateNearestUnblockedSector(_posX, _posY, _rectWidth + _rectHeight, _step))
-		and (not _checkEnemies or not AreEntitiesOfCategoriesAndDiplomacyStateInArea(_player, {EntityCategories.Leader, EntityCategories.Soldier, EntityCategories.Cannon, EntityCategories.Hero}, {X = _posX, Y = _posY}, BS.EnemyBuildBlockRange/2, Diplomacy.Hostile))
+		and (not _checkEnemies or not AreEntitiesOfCategoriesAndDiplomacyStateInArea(_player, {EntityCategories.Leader, EntityCategories.Soldier, EntityCategories.Cannon, EntityCategories.Hero}, {X = _posX, Y = _posY}, BS.EnemyBuildBlockRange, Diplomacy.Hostile))
 		then
 			return true
 		end
@@ -5382,7 +5405,10 @@ EvaluateNearestUnblockedSector = function(_posX, _posY, _offset, _step)
 	else
 		local id = Logic.GetEntityAtPosition(_posX, _posY)
 		if id > 0 then
-			return Logic.GetSector(id)
+			sector = Logic.GetSector(id)
+			if sector > 0 then
+				return sector
+			end
 		end
 	end
 	for y_ = _posY - _offset, _posY + _offset, _step do
@@ -5949,7 +5975,7 @@ ChestRandomPositions_ChestControl = function(...)
 	end
 end
 
-function InitRuinRepairing(_name, _center, _slot1, _slot2, _slot3, _slot4, _newentity, _progress, _searchRange, _sitePlayer)
+function InitRuinRepairing(_name, _center, _slot1, _slot2, _slot3, _slot4, _newentity, _progress, _searchRange, _sitePlayer, _callback)
 	RuinRepairingData = RuinRepairingData or {}
 	RuinRepairingData[_name] = RuinRepairingData[_name] or {}
 	RuinRepairingData[_name].repairprogress = RuinRepairingData[_name].repairprogress or 0
@@ -5992,6 +6018,9 @@ function InitRuinRepairing(_name, _center, _slot1, _slot2, _slot3, _slot4, _newe
 			for i = 1,4 do
 				Logic.SetTaskList(RuinRepairingData[_name].serfs[i], TaskLists.TL_SERF_BUILD)
 				Logic.SetEntitySelectableFlag(RuinRepairingData[_name].serfs[i], 1)
+			end
+			if _callback then
+				_callback()
 			end
 			return true
 		end

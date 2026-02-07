@@ -77,6 +77,7 @@ BS.MapList = {
 		["(3) koop die erstuermung der wartburg"] = true,
 		["(3) koop zu dunkler stunde"] = true,
 		["(3) koop die schwarze festung"] = true,
+		["(3) koop friedensbruch"] = true,
 		["(3) der lachende dritte"] = true,
 		["(3) eingekesselt"] = true,
 		["(3) hochland"] = true,
@@ -120,7 +121,8 @@ BS.MapList = {
 		["(4) osterfieber"] = true,
 		["(4) gezeiten"] = true,
 		["(4) easterville"] = true,
-		["(4) im zeichen ostaras"] = true
+		["(4) im zeichen ostaras"] = true,
+		["(4) osterhain"] = true
 	},
 	[5] = {
 		["(5) koop der grosse aufstand"] = true,
@@ -627,15 +629,17 @@ Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_HURT_ENTITY, "", "AITower_Redir
 Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_DESTROYED, "", "LocalMusic_Spectator_TriggerSettlerKilled", 1)
 ----------------------------------- loading GUI and special scripts (various for EMS and cooperation Maps) ----------------------------------
 if not gvEMSFlag then
-	Script.Load("data\\script\\maptools\\tools\\Sync.lua")
-	function Sync.Send(_str)
-		if CNetwork then
-			XNetwork.Chat_SendMessageToAll(_str)
-		else
-			MPGame_ApplicationCallback_ReceivedChatMessage(_str, 0, GUI.GetPlayerID())
+	if CNetwork then
+		Script.Load("data\\script\\maptools\\tools\\Sync.lua")
+		function Sync.Send(_str)
+			if CNetwork then
+				XNetwork.Chat_SendMessageToAll(_str)
+			else
+				MPGame_ApplicationCallback_ReceivedChatMessage(_str, 0, GUI.GetPlayerID())
+			end
 		end
+		Sync.Init()
 	end
-	Sync.Init()
 	--
 	BS.EnemyBuildBlockRange = 2500
 	-- register AI in statistics
@@ -663,7 +667,9 @@ if BS.ValidateTextureQuality() ~= true then
 	end
 	GUI.AddStaticNote(text)
 end
-BS.VersionCheck.Setup()
+if CNetwork then
+	BS.VersionCheck.Setup()
+end
 -- asynchronous check for achievements
 BS.CheckForAchievements(GUI.GetPlayerID())
 -- check for temporarily disabled technologies

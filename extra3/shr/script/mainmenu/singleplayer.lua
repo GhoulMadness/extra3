@@ -74,7 +74,7 @@ end
 ----------------------------------------------------------------------------------------------------
 SPMenu.S21_AISettings = {
 	["Strength"] 	= {"Schwach", "Mittel", "Stark"},
-	["TechLVL"]		= {"Niedrig", "Mittel", "Hoch", "Sehr hoch"},
+	["TechLVL"]		= {"Sehr niedrig", "Niedrig", "Mittel", "Hoch"},
 	["Peacetime"]	= {0, 10, 20, 30, 40, 50, 60, 70, 80, 90},
 	["Team"]		= {1, 2, 3, 4, 5, 6, 7, 8}
 }
@@ -131,7 +131,35 @@ SPMenu.S21_SettingDefaultIndex = {
 	["MapResources"]		= 2,
 	["MapResourceWealth"]	= 3,
 	["MapStart"]			= 2,
-	["MapWeather"]			= 3
+	["MapWeather"]			= 3,
+	["MapAI_1_Strength"]	= 2,
+	["MapAI_1_TechLVL"]		= 3,
+	["MapAI_1_Peacetime"]	= 5,
+	["MapAI_1_Team"]		= 2,
+	["MapAI_2_Strength"]	= 2,
+	["MapAI_2_TechLVL"]		= 3,
+	["MapAI_2_Peacetime"]	= 5,
+	["MapAI_2_Team"]		= 3,
+	["MapAI_3_Strength"]	= 2,
+	["MapAI_3_TechLVL"]		= 3,
+	["MapAI_3_Peacetime"]	= 5,
+	["MapAI_3_Team"]		= 4,
+	["MapAI_4_Strength"]	= 2,
+	["MapAI_4_TechLVL"]		= 3,
+	["MapAI_4_Peacetime"]	= 5,
+	["MapAI_4_Team"]		= 5,
+	["MapAI_5_Strength"]	= 2,
+	["MapAI_5_TechLVL"]		= 3,
+	["MapAI_5_Peacetime"]	= 5,
+	["MapAI_5_Team"]		= 6,
+	["MapAI_6_Strength"]	= 2,
+	["MapAI_6_TechLVL"]		= 3,
+	["MapAI_6_Peacetime"]	= 5,
+	["MapAI_6_Team"]		= 7,
+	["MapAI_7_Strength"]	= 2,
+	["MapAI_7_TechLVL"]		= 3,
+	["MapAI_7_Peacetime"]	= 5,
+	["MapAI_7_Team"]		= 8
 }
 -- indexed by category (general settings, ai1, ai2, ...)
 -- sorted by number of possibilities (largest to smallest num)

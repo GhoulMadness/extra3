@@ -567,13 +567,13 @@ function MercTowerLowHP()
 	end
 end
 function MtKegoMiner()
-	local npc = "mountKegoMiner"
-	local npc_title = mtKM
 	local NPCData = {
 	Heroes = true,
-    TargetName = npc,
+    TargetName = "mountKegoMiner",
     Distance = 300,
     Callback = function()
+		local npc = "mountKegoMiner"
+		local npc_title = mtKM
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -597,13 +597,13 @@ function mountKegoNVDownJob()
 	end
 end
 function MtKegoMiner2()
-	local npc = "mountKegoMiner"
-	local npc_title = mtKM
 	local NPCData = {
 	Heroes = true,
-    TargetName = npc,
+    TargetName = "mountKegoMiner",
     Distance = 300,
     Callback = function()
+		local npc = "mountKegoMiner"
+		local npc_title = mtKM
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -623,13 +623,13 @@ function MtKegoMiner2()
 	SetupExpedition(NPCData)
 end
 function MtRokuHermit()
-	local npc = "mountRokuHermit"
-	local npc_title = mtRH
 	local NPCData = {
 	Heroes = true,
-    TargetName = npc,
+    TargetName = "mountRokuHermit",
     Distance = 300,
     Callback = function()
+		local npc = "mountRokuHermit"
+		local npc_title = mtRH
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -1640,13 +1640,13 @@ function NVTotem()
 	end
 end
 function Farmer_P2()
-	local npc = "farmer_p2"
-	local npc_title = fap2
 	local NPCData = {
 	Heroes = true,
-    TargetName = npc,
+    TargetName = "farmer_p2",
     Distance = 300,
     Callback = function()
+		local npc = "farmer_p2"
+		local npc_title = fap2
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -1753,13 +1753,13 @@ function SheepReturnedJob(_index)
 	end
 end
 function Farmer_P2_2()
-	local npc = "farmer_p2"
-	local npc_title = fap2
 	local NPCData = {
 	Heroes = true,
-    TargetName = npc,
+    TargetName = "farmer_p2",
     Distance = 300,
     Callback = function()
+		local npc = "farmer_p2"
+		local npc_title = fap2
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -2379,13 +2379,13 @@ function Major2()
 	SetupExpedition(BeiMa2)
 end
 function Settler_P3()
-	local npc = "settler_p3"
-	local npc_title = sep3
 	local NPCData = {
 	Heroes = true,
-    TargetName = npc,
+    TargetName = "settler_p3",
     Distance = 300,
     Callback = function()
+		local npc = "settler_p3"
+		local npc_title = sep3
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -2406,13 +2406,13 @@ function Settler_P3()
 	SetupExpedition(NPCData)
 end
 function Monk_P3()
-	local npc = "monk_p3"
-	local npc_title = mop3
 	local NPCData = {
 	Heroes = true,
-    TargetName = npc,
+    TargetName = "monk_p3",
     Distance = 300,
     Callback = function()
+		local npc = "monk_p3"
+		local npc_title = mop3
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -2593,13 +2593,13 @@ function MP3_CheckForAllTributesPayed()
 	end
 end
 function Miner_P3()
-	local npc = "miner_p3"
-	local npc_title = mip3
 	local NPCData = {
 	Heroes = true,
-    TargetName = npc,
+    TargetName = "miner_p3",
     Distance = 300,
     Callback = function()
+		local npc = "miner_p3"
+		local npc_title = mip3
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -2670,7 +2670,7 @@ function MiP3_LacesApproached()
 end
 function MiP3_BoozeApproached()
 	local pos = GetPosition("MiP3_Booze")
-	local id = GetNearestEntityOfPlayerAndCategoryInArea(1, pos.X, pos.Y, 500, EntityCategories.Hero)
+	local id = GetNearestEntityOfPlayerAndCategoryInArea(1, pos.X, pos.Y, 300, EntityCategories.Hero)
 	if id then
 		local briefing = {}
 		local AP, ASP = AddPages(briefing)
@@ -2709,13 +2709,13 @@ function MiP3_AllObjectivesSecured()
 	end
 end
 function Miner_P3_2()
-	local npc = "miner_p3"
-	local npc_title = mip3
 	local NPCData = {
 	Heroes = true,
-    TargetName = npc,
+    TargetName = "miner_p3",
     Distance = 300,
     Callback = function()
+		local npc = "miner_p3"
+		local npc_title = mip3
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -2870,6 +2870,10 @@ function MiP3_CheckForSmugglerNearDeath(_heroID)
 		return true
 	end
 end
+gvMinerIndexToText = {
+	"Der Schmuggler ist nicht mehr. @cr Als wir ihm auf die Schliche kam, griff er seine Waffe und wir erschlugen ihn im Kampf. @cr Das Schmugglerversteck haben wir von oben bis unten durchsucht, konnten jedoch keine Hinweise auf Komplizen finden. Die Waren haben wir natürlich mitgenommen.",
+	"Der Schmuggler wurde nervös, als wir ihn mit Fragen überschütteten und griff seine Waffe. @cr Wir überwältigten ihn und nahmen ihn in Gewahrsam. @cr Er zeigte jedoch keine wirkliche Reue, daher haben wir ihn in das dreckigste Loch geworfen und das Schmugglerversteck gesprengt."
+}
 function MiP3_CheckForSmugglerDead()
 	if IsDead("smuggler") then
 		local briefing = {}
@@ -2877,7 +2881,7 @@ function MiP3_CheckForSmugglerDead()
 		ASP("ye_olde_watchtower",dario,"Der Verbrecher hat für seine Schandtaten gebüßt. @cr Nun, wir sollten den Schmugglerturm durchsuchen und dem Bergmann berichten.", false)
 		briefing.finished = function()
 			EnableNpcMarker(GetID("miner_p3"))
-			Miner_P3_3(1)
+			Miner_P3_3(gvMinerIndexToText[1])
 			Logic.RemoveQuest(1, MiP3_2_Quest)
 		end
 		StartBriefing(briefing)
@@ -2898,23 +2902,21 @@ function MiP3_BlowRuinIntoThinAir()
 	ASP("ye_olde_watchtower",dario,"Der Verbrecher wurde eingekerkert und das alte Schmugglerversteck liegt in Schutt und Asche. @cr Wir sollten dem Bergmann berichten.", false)
 	briefing.finished = function()
 		EnableNpcMarker(GetID("miner_p3"))
-		Miner_P3_3(2)
+		Miner_P3_3(gvMinerIndexToText[2])
 		Logic.RemoveQuest(1, MiP3_2_Quest)
 	end
 	StartBriefing(briefing)
 end
-function Miner_P3_3(_index)
-	local indexToText = {
-		"Der Schmuggler ist nicht mehr. @cr Als wir ihm auf die Schliche kam, griff er seine Waffe und wir erschlugen ihn im Kampf. @cr Das Schmugglerversteck haben wir von oben bis unten durchsucht, konnten jedoch keine Hinweise auf Komplizen finden. Die Waren haben wir natürlich mitgenommen.",
-		"Der Schmuggler wurde nervös, als wir ihn mit Fragen überschütteten und griff seine Waffe. @cr Wir überwältigten ihn und nahmen ihn in Gewahrsam. @cr Er zeigte jedoch keine wirkliche Reue, daher haben wir ihn in das dreckigste Loch geworfen und das Schmugglerversteck gesprengt."
-	}
-	local npc = "miner_p3"
-	local npc_title = mip3
+function Miner_P3_3(_text)
 	local NPCData = {
 	Heroes = true,
-    TargetName = npc,
+    TargetName = "miner_p3",
     Distance = 300,
-    Callback = function()
+	Text = _text,
+    Callback = function(_data)
+		local _text = _data.Text
+		local npc = "miner_p3"
+		local npc_title = mip3
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -2927,7 +2929,7 @@ function Miner_P3_3(_index)
 		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Eure sogenannten Bergkobolde waren Schmuggler. @cr Ihr wart wohl nicht mehr ganz bei Sinnen, als ihr auf dem Rückweg an dem alten Schmugglerversteck vorbei kamt.", true)
 		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Nun, einer der Schmuggler nutze euren ...ähem ...Zustand aus und raubte euch aus. @cr Das lief wohl schon häufiger so ab, denn große Teile von deren Inventar bestand aus eurem Schluck.", true)
 		ASP(npc,npc_title,"Ohweh. @cr Nun, habt ihr den Schmuggler ordentlich bestraft?", true)
-		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."",indexToText[_index], true)
+		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."",_text, true)
 		ASP(npc,npc_title,"Oh, da bin ich aber beruhigt. @cr Dann kann ich die nächsten nächtlichen Wanderungen wieder unberschwert genießen. @cr Hier nehmt zum Dank eine meiner Spezialtechniken, mit der ihr mehr Siedler anlocken könnt. Ihr habt es mehr als verdient!", true)
 		briefing.finished = function()
 			CLogic.SetAttractionLimitOffset(1, round(40 + 20 * gvDiffLVL))
@@ -3095,13 +3097,13 @@ function Major4()
 	SetupExpedition(BeiMa4)
 end
 function Guard_P4()
-	local npc = "guard_p4"
-	local npc_title = gup4
 	local NPCData = {
 	Heroes = true,
-    TargetName = npc,
+    TargetName = "guard_p4",
     Distance = 300,
     Callback = function()
+		local npc = "guard_p4"
+		local npc_title = gup4
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -3140,13 +3142,13 @@ function MurkalTributePayed()
 	StartBriefing(briefing)
 end
 function Miner_P4()
-	local npc = "miner_p4"
-	local npc_title = mip4
 	local NPCData = {
 	Heroes = true,
-    TargetName = npc,
+    TargetName = "miner_p4",
     Distance = 300,
     Callback = function()
+		local npc = "miner_p4"
+		local npc_title = mip4
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)
@@ -3239,13 +3241,13 @@ function MiP4_ArrivedAtMineJob()
 	end
 end
 function Miner_P4_2()
-	local npc = "miner_p4"
-	local npc_title = mip4
 	local NPCData = {
 	Heroes = true,
-    TargetName = npc,
+    TargetName = "miner_p4",
     Distance = 300,
     Callback = function()
+		local npc = "miner_p4"
+		local npc_title = mip4
 		local posX, posY = Logic.GetEntityPosition(GetID(npc))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npc,id);LookAt(id,npc)

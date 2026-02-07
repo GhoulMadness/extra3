@@ -662,7 +662,7 @@ function Erec()
 	local BeiEr = {
 	EntityName = "Dario",
     TargetName = "Erec",
-    Distance = 500,
+    Distance = 300,
     Callback = function()
 		LookAt("Erec","Dario");LookAt("Dario","Erec")
 		DisableNpcMarker(GetEntityId("Erec"))
@@ -750,7 +750,7 @@ function Thief()
 	local BeiTh = {
 	EntityName = "Dario",
     TargetName = "thief",
-    Distance = 500,
+    Distance = 300,
     Callback = function()
 		LookAt("thief","Dario");LookAt("Dario","thief")
 		DisableNpcMarker(GetEntityId("thief"))
@@ -800,7 +800,7 @@ function Trader()
 	local BeiTr = {
 	EntityName = "Dario",
     TargetName = "trader",
-    Distance = 500,
+    Distance = 300,
     Callback = function()
 		LookAt("trader","Dario");LookAt("Dario","trader")
 		DisableNpcMarker(GetEntityId("trader"))
@@ -882,7 +882,7 @@ function Miner()
 	local BeiMi = {
 	EntityName = "Dario",
     TargetName = "miner",
-    Distance = 500,
+    Distance = 300,
     Callback = function()
 		LookAt("miner","Dario");LookAt("Dario","miner")
 		DisableNpcMarker(GetEntityId("miner"))
@@ -902,7 +902,7 @@ function Hermit()
 	local BeiHe = {
 	EntityName = "Dario",
     TargetName = "hermit",
-    Distance = 500,
+    Distance = 300,
     Callback = function()
 		LookAt("hermit","Dario");LookAt("Dario","hermit")
 		DisableNpcMarker(GetEntityId("hermit"))
@@ -923,7 +923,7 @@ function Smelter()
 	local BeiSm = {
 	EntityName = "Dario",
     TargetName = "smelter",
-    Distance = 500,
+    Distance = 300,
     Callback = function()
 		LookAt("smelter","Dario");LookAt("Dario","smelter")
 		DisableNpcMarker(GetEntityId("smelter"))
@@ -1143,7 +1143,7 @@ function PrincessFather()
 	local BeiPF = {
 	EntityName = "Dario",
     TargetName = "PrincessFather",
-    Distance = 500,
+    Distance = 300,
     Callback = function()
 		LookAt("PrincessFather","Dario");LookAt("Dario","PrincessFather")
 		DisableNpcMarker(GetEntityId("PrincessFather"))
@@ -1217,7 +1217,7 @@ function PrincessFatherSuccess()
 	local BeiPrin = {
 	EntityName = "Dario",
     TargetName = "princess",
-    Distance = 500,
+    Distance = 300,
     Callback = function()
 		LookAt("princess","Dario");LookAt("Dario","princess")
 		DisableNpcMarker(GetEntityId("princess"))
@@ -1290,7 +1290,7 @@ function Afraid_Miner()
 	local BeiAfM = {
 	EntityName = "Dario",
     TargetName = "afraid_miner",
-    Distance = 500,
+    Distance = 300,
     Callback = function()
 		LookAt("afraid_miner","Dario");LookAt("Dario","afraid_miner")
 		DisableNpcMarker(GetEntityId("afraid_miner"))
@@ -1401,7 +1401,7 @@ function Afraid_Miner_Done_Brief()
 	local BeiMi = {
 	EntityName = "Dario",
     TargetName = "afraid_miner",
-    Distance = 500,
+    Distance = 300,
     Callback = function()
 		LookAt("afraid_miner","Dario");LookAt("Dario","afraid_miner")
 		DisableNpcMarker(GetEntityId("afraid_miner"))
@@ -1771,7 +1771,7 @@ function Mystic_NPC()
 	local BeiMN = {
 	EntityName = "Dario",
     TargetName = "mystic_npc",
-    Distance = 500,
+    Distance = 300,
     Callback = function()
 		TalkedToMNPC1 = true
 		LookAt("mystic_npc","Dario");LookAt("Dario","mystic_npc")
@@ -1842,7 +1842,7 @@ function Mystic_NPC2()
 	local BeiMN2 = {
 	EntityName = "Dario",
     TargetName = "mystic_npc",
-    Distance = 500,
+    Distance = 300,
     Callback = function()
 		TalkedToMNPC2 = true
 		LookAt("mystic_npc","Dario");LookAt("Dario","mystic_npc")
@@ -1962,7 +1962,7 @@ function Mystic_NPC3()
 	local BeiMN3 = {
 	EntityName = "Dario",
     TargetName = "mystic_npc",
-    Distance = 500,
+    Distance = 300,
     Callback = function()
 		TalkedToMNPC3 = true
 		LookAt("mystic_npc","Dario");LookAt("Dario","mystic_npc")

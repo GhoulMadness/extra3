@@ -1528,7 +1528,7 @@
             <Radius>0</Radius>
             <Damage>0</Damage>
             <GravityFactor>800.0f</GravityFactor>
-            <HeightOffsetStart>420.0</HeightOffsetStart>
+            <HeightOffsetStart>680.0</HeightOffsetStart>
             <HeightOffsetTarget>0.0</HeightOffsetTarget>
             <ImpactEffectID>FXExplosion</ImpactEffectID>
         </Logic>
@@ -1547,7 +1547,7 @@
             <Radius>0</Radius>
             <Damage>0</Damage>
             <GravityFactor>800.0f</GravityFactor>
-            <HeightOffsetStart>420.0</HeightOffsetStart>
+            <HeightOffsetStart>600.0</HeightOffsetStart>
             <HeightOffsetTarget>0.0</HeightOffsetTarget>
             <ImpactEffectID>FXExplosion</ImpactEffectID>
         </Logic>
@@ -2527,11 +2527,11 @@
 		<Display classname="GD::CEffectSnowProps">
 			<Class>GD::CEffectSnow</Class>
 			<Texture>Effects/SnowFlake</Texture>
-			<MaxParticlesNum>5000</MaxParticlesNum>
-			<NewParticlesPerSecond>80</NewParticlesPerSecond>
-			<DeletedParticlesPerSecond>600</DeletedParticlesPerSecond>
+			<MaxParticlesNum>3000</MaxParticlesNum>
+			<NewParticlesPerSecond>50</NewParticlesPerSecond>
+			<DeletedParticlesPerSecond>500</DeletedParticlesPerSecond>
 			<ParticleSize>12</ParticleSize>
-			<ParticleZSpeedMin>-80</ParticleZSpeedMin>
+			<ParticleZSpeedMin>-100</ParticleZSpeedMin>
 			<ParticleZSpeedMax>-150</ParticleZSpeedMax>
 			<CylinderRadius>2000</CylinderRadius>
 			<CylinderZMin>-2000</CylinderZMin>

@@ -113,7 +113,7 @@ function FirstMapAction()
 	IncludeLocals("armies")
 	LocalMusic.UseSet = MEDITERANEANMUSIC
 
-	Logic.SetCurrentMaxNumWorkersInBuilding(Logic.GetEntityIDByName("sulfurmine"), 1)
+	Logic.SetCurrentMaxNumWorkersInBuilding(Logic.GetEntityIDByName("kafarnaSM"), 1)
 
 	TagNachtZyklus(28,0,0,0,1)
 	CreateArmies()
@@ -207,31 +207,31 @@ function ArrivedAtBridgeCheck()
 		return true
 	end
 end
+
 function Guard1()
-	local NPCName = "guard1"
-	local NPCTitle = gu1
 	local NPC = {
-	--EntityName = "Dario",
-	Heroes = true,
-	TargetName = NPCName,
-	Distance = 300,
-	Callback = function()
-		local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
-		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-		LookAt(NPCName,id);LookAt(id,NPCName)
-		DisableNpcMarker(GetID(NPCName))
-		local briefing = {}
-		local AP, ASP = AddPages(briefing)
-		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Lasst uns passieren. @cr Wir müssen möglichst schnell weiter gen Osten.", true)
-		ASP(NPCName,NPCTitle,"Nicht den Hauch einer Chance, dass sich dieses Tor öffnen wird. @cr Auf Befehl unseres Königs bleibt dieses Tor geschlossen!", false)
-		briefing.finished = function()
-			DarioQuest_2()
-			--
-			EnableNpcMarker(GetID("guard2"))
-			Guard2()
+		Heroes = true,
+		TargetName = "guard1",
+		Distance = 300,
+		Callback = function()
+			local NPCName = "guard1"
+			local NPCTitle = gu1
+			local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+			local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+			LookAt(NPCName,id);LookAt(id,NPCName)
+			DisableNpcMarker(GetID(NPCName))
+			local briefing = {}
+			local AP, ASP = AddPages(briefing)
+			ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Lasst uns passieren. @cr Wir müssen möglichst schnell weiter gen Osten.", true)
+			ASP(NPCName,gu1,"Nicht den Hauch einer Chance, dass sich dieses Tor öffnen wird. @cr Auf Befehl unseres Königs bleibt dieses Tor geschlossen!", false)
+			briefing.finished = function()
+				DarioQuest_2()
+				--
+				EnableNpcMarker(GetID("guard2"))
+				Guard2()
+			end
+			StartBriefing(briefing)
 		end
-		StartBriefing(briefing)
-	end
 	}
 	SetupExpedition(NPC)
 end
@@ -256,28 +256,27 @@ function DarioQuest_2_Finished()
 	DarioQID_2 = quest.id
 end
 function Guard2()
-	local NPCName = "guard2"
-	local NPCTitle = gu2
 	local NPC = {
-	--EntityName = "Dario",
-	Heroes = true,
-	TargetName = NPCName,
-	Distance = 300,
-	Callback = function()
-		local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
-		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-		LookAt(NPCName,id);LookAt(id,NPCName)
-		DisableNpcMarker(GetID(NPCName))
-		local briefing = {}
-		local AP, ASP = AddPages(briefing)
-		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Lasst uns hindurch. @cr Wir müssen auf dringende Mission weiter gen Osten.", true)
-		ASP(NPCName,NPCTitle,"Müssen? @cr Da seid ihr hier falsch! @cr Eher werden hier die Flüsse gefrieren, als dass ich dieses Tor öffnen werde!", false)
-		briefing.finished = function()
-			StartCountdown(20, DarioMonologue, false)
-			DefeatCounterID = StartCountdown(2*60, Defeat, true)
+		Heroes = true,
+		TargetName = "guard2",
+		Distance = 300,
+		Callback = function()
+			local NPCName = "guard2"
+			local NPCTitle = gu2
+			local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+			local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+			LookAt(NPCName,id);LookAt(id,NPCName)
+			DisableNpcMarker(GetID(NPCName))
+			local briefing = {}
+			local AP, ASP = AddPages(briefing)
+			ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Lasst uns hindurch. @cr Wir müssen auf dringende Mission weiter gen Osten.", true)
+			ASP(NPCName,NPCTitle,"Müssen? @cr Da seid ihr hier falsch! @cr Eher werden hier die Flüsse gefrieren, als dass ich dieses Tor öffnen werde!", false)
+			briefing.finished = function()
+				StartCountdown(20, DarioMonologue, false)
+				DefeatCounterID = StartCountdown(2*60, Defeat, true)
+			end
+			StartBriefing(briefing)
 		end
-		StartBriefing(briefing)
-	end
 	}
 	SetupExpedition(NPC)
 end
@@ -332,34 +331,35 @@ function StoneBarrierReached()
 end
 function Settler()
 	if not KafarnaHostile then
-		local NPCName = "settler"
-		local NPCTitle = set
 		local NPC = {
-		--EntityName = "Dario",
-		Heroes = true,
-		TargetName = NPCName,
-		Distance = 300,
-		Callback = function()
-			local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
-			local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-			LookAt(NPCName,id);LookAt(id,NPCName)
-			DisableNpcMarker(GetID(NPCName))
-			local briefing = {}
-			local AP, ASP = AddPages(briefing)
-			ASP(NPCName,NPCTitle,"Einst hatte ich hier eine prachtvolle Hütte am Hang des Berges. @cr Doch vor einiger Zeit kam es hier zu einem verheerenden Bergrutsch... @cr Ich verlor alles... @cr Mein Haus, mein Leben, einfach alles...", false)
-			ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Das ist sehr traurig. @cr Doch nun sagt, guter Herr: Gibt es hier einen anderen Weg nach Osten?", true)
-			ASP(NPCName,NPCTitle,"Nun, ich fürchte nein. @cr Es gibt hier nur zwei Wege. @cr Diesen Weg, der nun ja leider verschüttet ist und dann noch den Weg über die alte Brücke. @cr Seit sich die beiden Brüder verstritten haben, ist das Tor in die Nachbarstadt jedoch verschlossen...", true)
-			briefing.finished = function()
-				Logic.RemoveQuest(1, DarioQID_3)
-				DarioQuest_3_Finished()
-				DarioQuest_4()
-				EnableNpcMarker(GetID("alchemist"))
-				Alchemist()
+			Heroes = true,
+			TargetName = "settler",
+			Distance = 300,
+			Callback = function()
+				local NPCName = "settler"
+				local NPCTitle = set
+				local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+				local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+				LookAt(NPCName,id);LookAt(id,NPCName)
+				DisableNpcMarker(GetID(NPCName))
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				ASP(NPCName,NPCTitle,"Einst hatte ich hier eine prachtvolle Hütte am Hang des Berges. @cr Doch vor einiger Zeit kam es hier zu einem verheerenden Bergrutsch... @cr Ich verlor alles... @cr Mein Haus, mein Leben, einfach alles...", false)
+				ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Das ist sehr traurig. @cr Doch nun sagt, guter Herr: Gibt es hier einen anderen Weg nach Osten?", true)
+				ASP(NPCName,NPCTitle,"Nun, ich fürchte nein. @cr Es gibt hier nur zwei Wege. @cr Diesen Weg, der nun ja leider verschüttet ist und dann noch den Weg über die alte Brücke. @cr Seit sich die beiden Brüder verstritten haben, ist das Tor in die Nachbarstadt jedoch verschlossen...", true)
+				briefing.finished = function()
+					Logic.RemoveQuest(1, DarioQID_3)
+					DarioQuest_3_Finished()
+					DarioQuest_4()
+					EnableNpcMarker(GetID("alchemist"))
+					Alchemist()
+				end
+				StartBriefing(briefing)
 			end
-			StartBriefing(briefing)
-		end
 		}
 		SetupExpedition(NPC)
+	else
+		DisableNpcMarker(GetID("settler"))
 	end
 end
 function DarioQuest_4()
@@ -384,33 +384,34 @@ function DarioQuest_4_Finished()
 end
 function Alchemist()
 	if not KafarnaHostile then
-		local NPCName = "alchemist"
-		local NPCTitle = al
 		local NPC = {
-		--EntityName = "Dario",
-		Heroes = true,
-		TargetName = NPCName,
-		Distance = 300,
-		Callback = function()
-			local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
-			local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-			LookAt(NPCName,id);LookAt(id,NPCName)
-			DisableNpcMarker(GetID(NPCName))
-			local briefing = {}
-			local AP, ASP = AddPages(briefing)
-			ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Ihr seht aus wie ein fachkundiger Alchemist. @cr Versteht ihr etwas von Sprengstoff?", true)
-			ASP(NPCName,NPCTitle,"Guten Tag, der Herr. @cr Aber natürlich verstehe ich etwas von Sprengstoff. @cr Viele wissen, woraus Sprengstoff besteht, aber nur die wenigsten kennen das Mischungsverhältnis. @cr Und es kommt NUR auf die Mischung an...", true)
-			ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Äh ja, so genau wollte ich das gar nicht wissen. @cr Könntet ihr uns dabei helfen, einen verschütteten Weg mithilfe von Sprengstoff wieder frei zu räumen.", true)
-			ASP(NPCName,NPCTitle,"Ob ich dazu instande bin? @cr Aber ja doch. Ihr meint sicherlich die massiven Felsblöcke, die beim letzten Erdrutsch bis zum Fluss heruntergepurzelt sind. @cr Für solch massive Felsblöcke benötige ich jedoch große Mengen an Schwefel und Kohle...", true)
-			ASP(NPCName,NPCTitle,"Sobald ihr mir die nötigen Ressourcen geschickt habt, kann ich mit der Herstellung des Sprengstoffs beginnen. @cr Und legt noch einige Goldmünzen oben drauf. @cr Auch meine Dienste sind nicht gratis...", true)
-			briefing.finished = function()
-				StartCountdown(20, DarioMonologue_2, false)
-				AlchemistTribute()
+			Heroes = true,
+			TargetName = "alchemist",
+			Distance = 300,
+			Callback = function()
+				local NPCName = "alchemist"
+				local NPCTitle = al
+				local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+				local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+				LookAt(NPCName,id);LookAt(id,NPCName)
+				DisableNpcMarker(GetID(NPCName))
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Ihr seht aus wie ein fachkundiger Alchemist. @cr Versteht ihr etwas von Sprengstoff?", true)
+				ASP(NPCName,NPCTitle,"Guten Tag, der Herr. @cr Aber natürlich verstehe ich etwas von Sprengstoff. @cr Viele wissen, woraus Sprengstoff besteht, aber nur die wenigsten kennen das Mischungsverhältnis. @cr Und es kommt NUR auf die Mischung an...", true)
+				ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Äh ja, so genau wollte ich das gar nicht wissen. @cr Könntet ihr uns dabei helfen, einen verschütteten Weg mithilfe von Sprengstoff wieder frei zu räumen.", true)
+				ASP(NPCName,NPCTitle,"Ob ich dazu instande bin? @cr Aber ja doch. Ihr meint sicherlich die massiven Felsblöcke, die beim letzten Erdrutsch bis zum Fluss heruntergepurzelt sind. @cr Für solch massive Felsblöcke benötige ich jedoch große Mengen an Schwefel und Kohle...", true)
+				ASP(NPCName,NPCTitle,"Sobald ihr mir die nötigen Ressourcen geschickt habt, kann ich mit der Herstellung des Sprengstoffs beginnen. @cr Und legt noch einige Goldmünzen oben drauf. @cr Auch meine Dienste sind nicht gratis...", true)
+				briefing.finished = function()
+					StartCountdown(20, DarioMonologue_2, false)
+					AlchemistTribute()
+				end
+				StartBriefing(briefing)
 			end
-			StartBriefing(briefing)
-		end
 		}
 		SetupExpedition(NPC)
+	else
+		DisableNpcMarker(GetID("alchemist"))
 	end
 end
 function DarioMonologue_2()
@@ -612,147 +613,151 @@ function ReachedVictoryPos()
 end
 function GuardP8_1()
 	if not KafarnaHostile then
-		local NPCName = "guardP8_1"
-		local NPCTitle = gup8_1
 		local NPC = {
-		--EntityName = "Dario",
-		Heroes = true,
-		TargetName = NPCName,
-		Distance = 300,
-		Callback = function()
-			local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
-			local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-			LookAt(NPCName,id);LookAt(id,NPCName)
-			DisableNpcMarker(GetID(NPCName))
-			local briefing = {}
-			local AP, ASP = AddPages(briefing)
-			AP{
-				title = NPCTitle,
-				text = "Heh, ihr da. @cr Seht ihr nicht, dass das Tor geschlossen ist? @cr Hier ist für Euch kein Durchkommen!",
-				position = GetPosition(NPCName),
-				dialogCamera = true,
-				action = function()
-					CustomizeBriefingParams(100, 22, 1700)
+			Heroes = true,
+			TargetName = "guardP8_1",
+			Distance = 300,
+			Callback = function()
+				local NPCName = "guardP8_1"
+				local NPCTitle = gup8_1
+				local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+				local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+				LookAt(NPCName,id);LookAt(id,NPCName)
+				DisableNpcMarker(GetID(NPCName))
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				AP{
+					title = NPCTitle,
+					text = "Heh, ihr da. @cr Seht ihr nicht, dass das Tor geschlossen ist? @cr Hier ist für Euch kein Durchkommen!",
+					position = GetPosition(NPCName),
+					dialogCamera = true,
+					action = function()
+						CustomizeBriefingParams(100, 22, 1700)
+					end
+				}
+				ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Wir müssen schnell zu eurem Bürgermeister. @cr So lasst uns doch passieren!", true)
+				ASP(NPCName,NPCTitle,"Auf Befehl des Königs bleibt das Tor geschlossen!", true)
+				briefing.finished = function()
+					TalkedToGuards = TalkedToGuards + 1
+					SetCameraDefaultParams()
 				end
-			}
-			ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Wir müssen schnell zu eurem Bürgermeister. @cr So lasst uns doch passieren!", true)
-			ASP(NPCName,NPCTitle,"Auf Befehl des Königs bleibt das Tor geschlossen!", true)
-			briefing.finished = function()
-				TalkedToGuards = TalkedToGuards + 1
-				SetCameraDefaultParams()
+				StartBriefing(briefing)
 			end
-			StartBriefing(briefing)
-		end
 		}
 		SetupExpedition(NPC)
+	else
+		DisableNpcMarker(GetID("guardP8_1"))
 	end
 end
 function GuardP8_2()
 	if not KafarnaHostile then
-		local NPCName = "guardP8_2"
-		local NPCTitle = gup8_2
 		local NPC = {
-		--EntityName = "Dario",
-		Heroes = true,
-		TargetName = NPCName,
-		Distance = 300,
-		Callback = function()
-			local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
-			local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-			LookAt(NPCName,id);LookAt(id,NPCName)
-			DisableNpcMarker(GetID(NPCName))
-			local briefing = {}
-			local AP, ASP = AddPages(briefing)
-			AP{
-				title = ""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."",
-				text = "Lasst uns durch. @cr Wir haben Wichtiges mit eurem Bürgermeister zu besprechen.",
-				position = GetPosition(id),
-				dialogCamera = true,
-				action = function()
-					CustomizeBriefingParams(135, 25, 1200)
+			Heroes = true,
+			TargetName = "guardP8_2",
+			Distance = 300,
+			Callback = function()
+				local NPCName = "guardP8_2"
+				local NPCTitle = gup8_2
+				local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+				local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+				LookAt(NPCName,id);LookAt(id,NPCName)
+				DisableNpcMarker(GetID(NPCName))
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				AP{
+					title = ""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."",
+					text = "Lasst uns durch. @cr Wir haben Wichtiges mit eurem Bürgermeister zu besprechen.",
+					position = GetPosition(id),
+					dialogCamera = true,
+					action = function()
+						CustomizeBriefingParams(135, 25, 1200)
+					end
+				}
+				ASP(NPCName,NPCTitle,"Der König hat strikt verordnet, dass die Tore zur oberen Ebene Kafarnas bis auf wenige Ausnahmen geschlossen bleiben! Und ihr steht hier nicht auf der Liste. @cr Eher friert die Hölle zu, als dass ich Euch hier passiere lasse!", true)
+				briefing.finished = function()
+					TalkedToGuards = TalkedToGuards + 1
+					SetCameraDefaultParams()
 				end
-			}
-			ASP(NPCName,NPCTitle,"Der König hat strikt verordnet, dass die Tore zur oberen Ebene Kafarnas bis auf wenige Ausnahmen geschlossen bleiben! Und ihr steht hier nicht auf der Liste. @cr Eher friert die Hölle zu, als dass ich Euch hier passiere lasse!", true)
-			briefing.finished = function()
-				TalkedToGuards = TalkedToGuards + 1
-				SetCameraDefaultParams()
+				StartBriefing(briefing)
 			end
-			StartBriefing(briefing)
-		end
 		}
 		SetupExpedition(NPC)
+	else
+		DisableNpcMarker(GetID("guardP8_2"))
 	end
 end
 function GuardP8_3()
 	if not KafarnaHostile then
-		local NPCName = "guardP8_3"
-		local NPCTitle = gup8_3
 		local NPC = {
-		--EntityName = "Dario",
-		Heroes = true,
-		TargetName = NPCName,
-		Distance = 300,
-		Callback = function()
-			local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
-			local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-			LookAt(NPCName,id);LookAt(id,NPCName)
-			DisableNpcMarker(GetID(NPCName))
-			local briefing = {}
-			local AP, ASP = AddPages(briefing)
-			AP{
-				title = NPCTitle,
-				text = "Heh, ihr da? @cr Was habt ihr hier zu suchen? @cr Seht ihr nicht, dass das Tor geschlossen ist?",
-				position = GetPosition(NPCName),
-				dialogCamera = true,
-				action = function()
-					CustomizeBriefingParams(105, 22, 1700)
+			Heroes = true,
+			TargetName = "guardP8_3",
+			Distance = 300,
+			Callback = function()
+				local NPCName = "guardP8_3"
+				local NPCTitle = gup8_3
+				local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+				local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+				LookAt(NPCName,id);LookAt(id,NPCName)
+				DisableNpcMarker(GetID(NPCName))
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				AP{
+					title = NPCTitle,
+					text = "Heh, ihr da? @cr Was habt ihr hier zu suchen? @cr Seht ihr nicht, dass das Tor geschlossen ist?",
+					position = GetPosition(NPCName),
+					dialogCamera = true,
+					action = function()
+						CustomizeBriefingParams(105, 22, 1700)
+					end
+				}
+				ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Warum das denn? @cr So macht uns auf die Tore! @cr Wir haben mit eurem Bürgermeister zu sprechen.", true)
+				ASP(NPCName,NPCTitle,"Auf königlichen Erlass sollen wir hier niemanden durchlassen, der keinen Passierschein hat. @cr Und ich riskiere doch nicht, dass man mich einen Kopf kürzer macht...", true)
+				briefing.finished = function()
+					TalkedToGuards = TalkedToGuards + 1
+					SetCameraDefaultParams()
 				end
-			}
-			ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Warum das denn? @cr So macht uns auf die Tore! @cr Wir haben mit eurem Bürgermeister zu sprechen.", true)
-			ASP(NPCName,NPCTitle,"Auf königlichen Erlass sollen wir hier niemanden durchlassen, der keinen Passierschein hat. @cr Und ich riskiere doch nicht, dass man mich einen Kopf kürzer macht...", true)
-			briefing.finished = function()
-				TalkedToGuards = TalkedToGuards + 1
-				SetCameraDefaultParams()
+				StartBriefing(briefing)
 			end
-			StartBriefing(briefing)
-		end
 		}
 		SetupExpedition(NPC)
+	else
+		DisableNpcMarker(GetID("guardP8_3"))
 	end
 end
 function GuardP8_4()
 	if not KafarnaHostile then
-		local NPCName = "guardP8_4"
-		local NPCTitle = gup8_4
 		local NPC = {
-		--EntityName = "Dario",
-		Heroes = true,
-		TargetName = NPCName,
-		Distance = 300,
-		Callback = function()
-			local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
-			local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-			LookAt(NPCName,id);LookAt(id,NPCName)
-			DisableNpcMarker(GetID(NPCName))
-			local briefing = {}
-			local AP, ASP = AddPages(briefing)
-			AP{
-				title = ""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."",
-				text = "Das Tor. So macht es schon auf. @cr Wir sind auf wichtiger Mission unterwegs!",
-				position = GetPosition(id),
-				dialogCamera = true,
-				action = function()
+			Heroes = true,
+			TargetName = "guardP8_4",
+			Distance = 300,
+			Callback = function()
+				local NPCName = "guardP8_4"
+				local NPCTitle = gup8_4
+				local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+				local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+				LookAt(NPCName,id);LookAt(id,NPCName)
+				DisableNpcMarker(GetID(NPCName))
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				AP{
+					title = ""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."",
+					text = "Das Tor. So macht es schon auf. @cr Wir sind auf wichtiger Mission unterwegs!",
+					position = GetPosition(id),
+					dialogCamera = true,
+					action = function()
+					end
+				}
+				ASP(NPCName,NPCTitle,"Auf wichtiger Mission? @cr Pah, wir brauchen hier keine Missionare. Die Zeiten sind längst vorbei. @cr Ihr bleibt draußen!", true)
+				briefing.finished = function()
+					TalkedToGuards = TalkedToGuards + 1
+					SetCameraDefaultParams()
 				end
-			}
-			ASP(NPCName,NPCTitle,"Auf wichtiger Mission? @cr Pah, wir brauchen hier keine Missionare. Die Zeiten sind längst vorbei. @cr Ihr bleibt draußen!", true)
-			briefing.finished = function()
-				TalkedToGuards = TalkedToGuards + 1
-				SetCameraDefaultParams()
+				StartBriefing(briefing)
 			end
-			StartBriefing(briefing)
-		end
 		}
 		SetupExpedition(NPC)
+	else
+		DisableNpcMarker(GetID("guardP8_4"))
 	end
 end
 function TalkedToAllGuardsJob()
@@ -792,31 +797,32 @@ function GuardsQuest_Finished()
 end
 function Thief()
 	if not KafarnaHostile then
-		local NPCName = "thief"
-		local NPCTitle = thi
 		local NPC = {
-		--EntityName = "Dario",
-		Heroes = true,
-		TargetName = NPCName,
-		Distance = 300,
-		Callback = function()
-			local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
-			local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-			LookAt(NPCName,id);LookAt(id,NPCName)
-			DisableNpcMarker(GetID(NPCName))
-			local briefing = {}
-			local AP, ASP = AddPages(briefing)
-			ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Ihr seht doch aus wie jemand, der für einen kleinen Obelus ein paar zwielichtige Geschäfte für uns erledigt.", true)
-			ASP(NPCName,NPCTitle,"Ich bin ganz Ohr. @cr Um welche Geschäfte mag es sich da handeln?", true)
-			ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Könnt ihr uns einen Passierschein für die obere Ebene Kafarnas besorgen?", true)
-			ASP(NPCName,NPCTitle,"Oh, da möchte jemand noch weit hinaus. @cr Aber nichts leichter als das. @cr Das wird Euch aber einiges kosten!", true)
-			briefing.finished = function()
-				ThiefTribute()
+			Heroes = true,
+			TargetName = "thief",
+			Distance = 300,
+			Callback = function()
+				local NPCName = "thief"
+				local NPCTitle = thi
+				local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+				local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+				LookAt(NPCName,id);LookAt(id,NPCName)
+				DisableNpcMarker(GetID(NPCName))
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Ihr seht doch aus wie jemand, der für einen kleinen Obelus ein paar zwielichtige Geschäfte für uns erledigt.", true)
+				ASP(NPCName,NPCTitle,"Ich bin ganz Ohr. @cr Um welche Geschäfte mag es sich da handeln?", true)
+				ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Könnt ihr uns einen Passierschein für die obere Ebene Kafarnas besorgen?", true)
+				ASP(NPCName,NPCTitle,"Oh, da möchte jemand noch weit hinaus. @cr Aber nichts leichter als das. @cr Das wird Euch aber einiges kosten!", true)
+				briefing.finished = function()
+					ThiefTribute()
+				end
+				StartBriefing(briefing)
 			end
-			StartBriefing(briefing)
-		end
 		}
 		SetupExpedition(NPC)
+	else
+		DisableNpcMarker(GetID("thief"))
 	end
 end
 function ThiefTribute()
@@ -844,137 +850,140 @@ function ThiefTributePayed()
 end
 function GuardP8_3_2()
 	if not KafarnaHostile then
-		local NPCName = "guardP8_3"
-		local NPCTitle = gup8_3
 		local NPC = {
-		--EntityName = "Dario",
-		Heroes = true,
-		TargetName = NPCName,
-		Distance = 300,
-		Callback = function()
-			local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
-			local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-			LookAt(NPCName,id);LookAt(id,NPCName)
-			DisableNpcMarker(GetID(NPCName))
-			local briefing = {}
-			local AP, ASP = AddPages(briefing)
-			AP{
-				title = NPCTitle,
-				text = "Was wollt ihr denn schon wieder hier? @cr Ich sagte Euch doch bereits, dass hier niemand ohne Passierschein hindurch darf!",
-				position = GetPosition(NPCName),
-				dialogCamera = true,
-				action = function()
-					CustomizeBriefingParams(105, 22, 1700)
+			Heroes = true,
+			TargetName = "guardP8_3",
+			Distance = 300,
+			Callback = function()
+				local NPCName = "guardP8_3"
+				local NPCTitle = gup8_3
+				local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+				local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+				LookAt(NPCName,id);LookAt(id,NPCName)
+				DisableNpcMarker(GetID(NPCName))
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				AP{
+					title = NPCTitle,
+					text = "Was wollt ihr denn schon wieder hier? @cr Ich sagte Euch doch bereits, dass hier niemand ohne Passierschein hindurch darf!",
+					position = GetPosition(NPCName),
+					dialogCamera = true,
+					action = function()
+						CustomizeBriefingParams(105, 22, 1700)
+					end
+				}
+				ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Nun, wie der Zufall so will haben wir aber einen Passierschein. @cr Hier bitte. Und nun lasst uns durch!", true)
+				ASP(NPCName,NPCTitle,"<<Schaut sich den Passierschein an, berät sich kurz mit seinem Kollegen und kommt dann nach einer Weile wieder zurück>> @cr ... Ihr dürft passieren, Sire. @cr Aber zeigt den Schein beim nächsten Mal am besten direkt vor!", true)
+				briefing.finished = function()
+					ReplaceEntity("gateP8_3", Entities.XD_WallStraightGate)
+					SetCameraDefaultParams()
 				end
-			}
-			ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Nun, wie der Zufall so will haben wir aber einen Passierschein. @cr Hier bitte. Und nun lasst uns durch!", true)
-			ASP(NPCName,NPCTitle,"<<Schaut sich den Passierschein an, berät sich kurz mit seinem Kollegen und kommt dann nach einer Weile wieder zurück>> @cr ... Ihr dürft passieren, Sire. @cr Aber zeigt den Schein beim nächsten Mal am besten direkt vor!", true)
-			briefing.finished = function()
-				ReplaceEntity("gateP8_3", Entities.XD_WallStraightGate)
-				SetCameraDefaultParams()
+				StartBriefing(briefing)
 			end
-			StartBriefing(briefing)
-		end
 		}
 		SetupExpedition(NPC)
+	else
+		DisableNpcMarker(GetID("guardP8_3"))
 	end
 end
 function Major()
 	if not KafarnaHostile then
-		local NPCName = "major"
-		local NPCTitle = mj
 		local NPC = {
-		--EntityName = "Dario",
-		Heroes = true,
-		TargetName = NPCName,
-		Distance = 300,
-		Callback = function()
-			local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
-			local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-			LookAt(NPCName,id);LookAt(id,NPCName)
-			DisableNpcMarker(GetID(NPCName))
-			local briefing = {}
-			local AP, ASP = AddPages(briefing)
-			AP{
-				title = NPCTitle,
-				text = "Fremde hier, in dieser Gegend? @cr Nun, das sieht man auch nicht alle Tage. @cr In den Straßen erzählt man sich so einige Gerüchte über euch...",
-				position = GetPosition(NPCName),
-				dialogCamera = true,
-				action = function()
-					CustomizeBriefingParams(20, 29, 2900)
+			Heroes = true,
+			TargetName = "major",
+			Distance = 300,
+			Callback = function()
+				local NPCName = "major"
+				local NPCTitle = mj
+				local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+				local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+				LookAt(NPCName,id);LookAt(id,NPCName)
+				DisableNpcMarker(GetID(NPCName))
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				AP{
+					title = NPCTitle,
+					text = "Fremde hier, in dieser Gegend? @cr Nun, das sieht man auch nicht alle Tage. @cr In den Straßen erzählt man sich so einige Gerüchte über euch...",
+					position = GetPosition(NPCName),
+					dialogCamera = true,
+					action = function()
+						CustomizeBriefingParams(20, 29, 2900)
+					end
+				}
+				ASP(NPCName,NPCTitle,"Nun, sind diese Gerüchte übertrieben? @cr Man erzählt sich, ihr stammt aus einem fernen Königreich im Westen. @cr Und, dass ihr die Räuberbanden vor unserer Stadt aufgerieben und verschleppte Bürger heimgebracht habt.", true)
+				ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Nun, was man sich über uns erzählt - das entspricht der Wahrheit. @cr Wir sind ein wenig in Eile und müssen so schnell es möglich ist nach Osten vorstoßen. @cr Doch die Nachbarstadt lässt uns nicht passieren und der Pfad entlang des Flusses ist verschüttet...", true)
+				ASP(NPCName,NPCTitle,"Nach Osten? @cr Nachbarstadt? @cr Nun, da habt ihr kein leichtes Unterfangen vor euch.", true)
+				ASP("p7_view",NPCTitle,"Die Nachbarstadt im Osten, Lesthortho, hat ihre westlichen Tore gänzlich verriegelt. @cr Einst lebten wir in Harmonie. @cr Wir, die Handelsstadt und das Tor nach Westen und Lesthortho, das Juwel des alten Königreichs.", false)
+				ASP(NPCName,NPCTitle,"Doch dann starb unser allseits beliebter und weiser König. @cr Vier seiner Söhne waren berüchtigt dafür, enorm machthungrig zu sein. @cr Daher überließ der König das Reich seinem jünsten Sohn, Theredhal.", true)
+				ASP(NPCName,NPCTitle,"Ihr könnt euch sicherlich denken, was dann geschah...", true)
+				ASP(NPCName,NPCTitle,"Die vier verschmähten Söhne schmiedeten einen Komplett und ließen den jungen König ermorden. @cr Auf das darauf hervorgehende Machtvakuum war niemand vorbereitet...", true)
+				ASP(NPCName,NPCTitle,"Die Prinzen wollten allesamt Alleinherrscher über das Reich werden. @cr Ein Krieg war unausweichlich. @cr Doch keiner der vier Prinzen ging siegreich hervor.", true)
+				ASP(NPCName,NPCTitle,"Und nun liegt das Reich in Scherben... @cr Jeder der vier Söhne nennt sich selbst König und wahrt seinen eigenen Einflussbereich.", true)
+				ASP(NPCName,NPCTitle,"Thorodin, der jüngste der Könige, floh in die Berge des Nordens. @cr Niemand weiß, wo genau er sich aufhält, da er sich seit einigen Mordversuchen versteckt hält. @cr Er soll jedoch aus dem Untergrund große Macht ausüben, seit also vorsichtig, wenn ihr gen Norden reist.", true)
+				ASP(NPCName,NPCTitle,"Der zweitjüngste - Khanghir - ist unser König. @cr Er hat die Stadt wacker gegen Leartes, den König Lesthorthos, verteidigt. @cr Wir können wohl froh sein, denn Leartes hat es wohl aufgegeben und die Angriffe auf unsere Siedlung gehören bereits der Vergangenheit an.", true)
+				ASP(NPCName,NPCTitle,"Der älteste der Könige - Fhafnir - hat seine Einflusssphäre ganz im Osten des alten Reiches. @cr Er soll derjenige sein, der den Mord auf den jungen König geplant hatte. @cr Er ist wohl der machthungrigste und erbarmungsloseste der vier Könige.", true)
+				ASP(NPCName,NPCTitle,"Gerüchten zufolge versammelt er im Osten eine gewaltige Armee aus Söldnern, um die alte Hauptstadt - Lesthortho - zu belagern.", true)
+				ASP(NPCName,NPCTitle,"Nun, das ist jetzt aber genug in Geschichtskunde dieses Landes. @cr Ihr seid doch bestimmt aus einem Grund zu mir persönlich gekommen...", true)
+				ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Natürlich. @cr Um den verschütteten Pfad nahe des Flusses freizusprengen, benötigen wir große Mengen an Schwefel und Kohle. @cr Ihr könnt euch aber sicherlich denken, dass wir diese Ressourcen auf unserer Reise nicht mit uns herumschleppen. @cr Könnt ihr uns da ein wenig unterstützen?", true)
+				ASP(NPCName,NPCTitle,"Ressourcen kann ich euch keine einfach so zur Verfügung stellen. @cr Allerdings sind die Gerüchte, dass ihr Dörfler befreit habt, bis zu unserem König getragen wurden.", true)
+				ASP("HQP1",NPCTitle,"Als Belohnung für eure Taten stellt er euch einen alten Außenposten in den Bergen zur Verfügung. @cr Ihr könnt dort eure Siedlung aufschlagen. @cr Doch bedenkt, dass die Ressourcen der Gegend karg sind.", false)
+				briefing.finished = function()
+					SetCameraDefaultParams()
+					ChangePlayer("HQP1", 1)
+					ChangePlayer("VCP1", 1)
+					EnableNpcMarker(GetID("hermit"))
+					Hermit()
+					EnableNpcMarker(GetID("miner"))
+					Miner()
+					EnableNpcMarker(GetID("afraid_serf"))
+					AfraidSerf()
+					EnableNpcMarker(GetID("merchant"))
+					Merchant()
+					EnableNpcMarker(GetID("guardP8_5"))
+					GuardP8_5()
+					EnableNpcMarker(GetID("stone_miner"))
+					StoneMiner()
+					Logic.RemoveQuest(1, DarioQID_5)
+					DarioQuest_5_Finished()
+					--
+					AI.Village_SetSerfLimit(8,8)
+					--
+					SetPlayerName(7, "Lesthortho")
 				end
-			}
-			ASP(NPCName,NPCTitle,"Nun, sind diese Gerüchte übertrieben? @cr Man erzählt sich, ihr stammt aus einem fernen Königreich im Westen. @cr Und, dass ihr die Räuberbanden vor unserer Stadt aufgerieben und verschleppte Bürger heimgebracht habt.", true)
-			ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Nun, was man sich über uns erzählt - das entspricht der Wahrheit. @cr Wir sind ein wenig in Eile und müssen so schnell es möglich ist nach Osten vorstoßen. @cr Doch die Nachbarstadt lässt uns nicht passieren und der Pfad entlang des Flusses ist verschüttet...", true)
-			ASP(NPCName,NPCTitle,"Nach Osten? @cr Nachbarstadt? @cr Nun, da habt ihr kein leichtes Unterfangen vor euch.", true)
-			ASP("p7_view",NPCTitle,"Die Nachbarstadt im Osten, Lesthortho, hat ihre westlichen Tore gänzlich verriegelt. @cr Einst lebten wir in Harmonie. @cr Wir, die Handelsstadt und das Tor nach Westen und Lesthortho, das Juwel des alten Königreichs.", false)
-			ASP(NPCName,NPCTitle,"Doch dann starb unser allseits beliebter und weiser König. @cr Vier seiner Söhne waren berüchtigt dafür, enorm machthungrig zu sein. @cr Daher überließ der König das Reich seinem jünsten Sohn, Theredhal.", true)
-			ASP(NPCName,NPCTitle,"Ihr könnt euch sicherlich denken, was dann geschah...", true)
-			ASP(NPCName,NPCTitle,"Die vier verschmähten Söhne schmiedeten einen Komplett und ließen den jungen König ermorden. @cr Auf das darauf hervorgehende Machtvakuum war niemand vorbereitet...", true)
-			ASP(NPCName,NPCTitle,"Die Prinzen wollten allesamt Alleinherrscher über das Reich werden. @cr Ein Krieg war unausweichlich. @cr Doch keiner der vier Prinzen ging siegreich hervor.", true)
-			ASP(NPCName,NPCTitle,"Und nun liegt das Reich in Scherben... @cr Jeder der vier Söhne nennt sich selbst König und wahrt seinen eigenen Einflussbereich.", true)
-			ASP(NPCName,NPCTitle,"Thorodin, der jüngste der Könige, floh in die Berge des Nordens. @cr Niemand weiß, wo genau er sich aufhält, da er sich seit einigen Mordversuchen versteckt hält. @cr Er soll jedoch aus dem Untergrund große Macht ausüben, seit also vorsichtig, wenn ihr gen Norden reist.", true)
-			ASP(NPCName,NPCTitle,"Der zweitjüngste - Khanghir - ist unser König. @cr Er hat die Stadt wacker gegen Leartes, den König Lesthorthos, verteidigt. @cr Wir können wohl froh sein, denn Leartes hat es wohl aufgegeben und die Angriffe auf unsere Siedlung gehören bereits der Vergangenheit an.", true)
-			ASP(NPCName,NPCTitle,"Der älteste der Könige - Fhafnir - hat seine Einflusssphäre ganz im Osten des alten Reiches. @cr Er soll derjenige sein, der den Mord auf den jungen König geplant hatte. @cr Er ist wohl der machthungrigste und erbarmungsloseste der vier Könige.", true)
-			ASP(NPCName,NPCTitle,"Gerüchten zufolge versammelt er im Osten eine gewaltige Armee aus Söldnern, um die alte Hauptstadt - Lesthortho - zu belagern.", true)
-			ASP(NPCName,NPCTitle,"Nun, das ist jetzt aber genug in Geschichtskunde dieses Landes. @cr Ihr seid doch bestimmt aus einem Grund zu mir persönlich gekommen...", true)
-			ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Natürlich. @cr Um den verschütteten Pfad nahe des Flusses freizusprengen, benötigen wir große Mengen an Schwefel und Kohle. @cr Ihr könnt euch aber sicherlich denken, dass wir diese Ressourcen auf unserer Reise nicht mit uns herumschleppen. @cr Könnt ihr uns da ein wenig unterstützen?", true)
-			ASP(NPCName,NPCTitle,"Ressourcen kann ich euch keine einfach so zur Verfügung stellen. @cr Allerdings sind die Gerüchte, dass ihr Dörfler befreit habt, bis zu unserem König getragen wurden.", true)
-			ASP("HQP1",NPCTitle,"Als Belohnung für eure Taten stellt er euch einen alten Außenposten in den Bergen zur Verfügung. @cr Ihr könnt dort eure Siedlung aufschlagen. @cr Doch bedenkt, dass die Ressourcen der Gegend karg sind.", false)
-			briefing.finished = function()
-				SetCameraDefaultParams()
-				ChangePlayer("HQP1", 1)
-				ChangePlayer("VCP1", 1)
-				EnableNpcMarker(GetID("hermit"))
-				Hermit()
-				EnableNpcMarker(GetID("miner"))
-				Miner()
-				EnableNpcMarker(GetID("afraid_serf"))
-				AfraidSerf()
-				EnableNpcMarker(GetID("merchant"))
-				Merchant()
-				EnableNpcMarker(GetID("guardP8_5"))
-				GuardP8_5()
-				EnableNpcMarker(GetID("stone_miner"))
-				StoneMiner()
-				Logic.RemoveQuest(1, DarioQID_5)
-				DarioQuest_5_Finished()
-				--
-				AI.Village_SetSerfLimit(8,8)
-				--
-				SetPlayerName(7, "Lesthortho")
+				StartBriefing(briefing)
 			end
-			StartBriefing(briefing)
-		end
 		}
 		SetupExpedition(NPC)
+	else
+		DisableNpcMarker(GetID("major"))
 	end
 end
 function GuardP8_5()
 	if not KafarnaHostile then
-		local NPCName = "guardP8_5"
-		local NPCTitle = gup8_5
 		local NPC = {
-		--EntityName = "Dario",
-		Heroes = true,
-		TargetName = NPCName,
-		Distance = 300,
-		Callback = function()
-			local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
-			local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-			LookAt(NPCName,id);LookAt(id,NPCName)
-			DisableNpcMarker(GetID(NPCName))
-			local briefing = {}
-			local AP, ASP = AddPages(briefing)
-			ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Heh, ihr da! @cr Öffnet das Tor! @cr Uns wurde der alte Bergfried oben in den Bergen überlassen. Lasst unsere Siedler passieren.", true)
-			ASP(NPCName,NPCTitle,"So lauten nicht meine Befehle vom König. @cr Davon steht hier zumindest nichts. @cr Für ein paar Talerchen hingegen...", true)
-			briefing.finished = function()
-				GuardTribute()
+			Heroes = true,
+			TargetName = "guardP8_5",
+			Distance = 300,
+			Callback = function()
+				local NPCName = "guardP8_5"
+				local NPCTitle = gup8_5
+				local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+				local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+				LookAt(NPCName,id);LookAt(id,NPCName)
+				DisableNpcMarker(GetID(NPCName))
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Heh, ihr da! @cr Öffnet das Tor! @cr Uns wurde der alte Bergfried oben in den Bergen überlassen. Lasst unsere Siedler passieren.", true)
+				ASP(NPCName,NPCTitle,"So lauten nicht meine Befehle vom König. @cr Davon steht hier zumindest nichts. @cr Für ein paar Talerchen hingegen...", true)
+				briefing.finished = function()
+					GuardTribute()
+				end
+				StartBriefing(briefing)
 			end
-			StartBriefing(briefing)
-		end
 		}
 		SetupExpedition(NPC)
+	else
+		DisableNpcMarker(GetID("guardP8_5"))
 	end
 end
 function GuardTribute()
@@ -999,136 +1008,142 @@ function GuardTributePayed()
 end
 function Hermit()
 	if not KafarnaHostile then
-		local NPCName = "hermit"
-		local NPCTitle = herm
 		local NPC = {
-		--EntityName = "Dario",
-		Heroes = true,
-		TargetName = NPCName,
-		Distance = 300,
-		Callback = function()
-			local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
-			local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-			LookAt(NPCName,id);LookAt(id,NPCName)
-			DisableNpcMarker(GetID(NPCName))
-			local briefingData = {}
-			if GDB.GetValue("myths\\journeysulfurstored") > 0 then
-				briefingData[1] = {pos = NPCName, name = NPCTitle, text = "Ah, ihr seid es wieder. @cr Ich habe Euren Schwefel trocken eingelagert.", dialogCamera = true}
-				briefingData[2] = {pos = id, name = ""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."", text = "Sehr gut. @cr Nun brauchen wir den Schwefel tatsächlich, um einen alten Steinschlag freizulegen. @cr Könnt ihr uns den Schwefel aushändigen, weiser Mann?", dialogCamera = true}
-				briefingData[3] = {pos = NPCName, name = NPCTitle, text = "Natürlich. @cr Der weise Mann scheint ihr zu sein. @cr Es war klug, sich auf spätere Engpässe vorzubereiten.", dialogCamera = true}
-			else
-				briefingData[1] = {pos = id, name = ""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."", text = "Sagt, weiser Mann: Könnt ihr uns bei unserem Schwefelproblem helfen? @cr Ihr habt doch sicherlich Weisheiten kundzutun.", dialogCamera = true}
-				briefingData[2] = {pos = NPCName, name = NPCTitle, text = "Nun, zaubern kann ich nicht. @cr Wärt ihr klug gewesen, hättet ihr bereits früher Schwefel angehortet. @cr Nun kann ich Euch auch nicht mehr helfen...", dialogCamera = true}
-				briefingData[3] = {pos = NPCName, name = NPCTitle, text = "Ich fürchte, ihr habt den weiten Weg umsonst auf Euch genommen.", dialogCamera = true}
-			end
-			local briefing = {}
-			local AP, ASP = AddPages(briefing)
-			for i = 1, table.getn(briefingData) do
-				ASP(briefingData[i].pos, briefingData[i].name, briefingData[i].text, briefingData[i].dialogCamera)
-			end
-			briefing.finished = function()
+			Heroes = true,
+			TargetName = "hermit",
+			Distance = 300,
+			Callback = function()
+				local NPCName = "hermit"
+				local NPCTitle = herm
+				local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+				local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+				LookAt(NPCName,id);LookAt(id,NPCName)
+				DisableNpcMarker(GetID(NPCName))
+				local briefingData = {}
 				if GDB.GetValue("myths\\journeysulfurstored") > 0 then
-					AddSulfur(1, GDB.GetValue("myths\\journeysulfurstored"))
+					briefingData[1] = {pos = NPCName, name = NPCTitle, text = "Ah, ihr seid es wieder. @cr Ich habe Euren Schwefel trocken eingelagert.", dialogCamera = true}
+					briefingData[2] = {pos = id, name = ""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."", text = "Sehr gut. @cr Nun brauchen wir den Schwefel tatsächlich, um einen alten Steinschlag freizulegen. @cr Könnt ihr uns den Schwefel aushändigen, weiser Mann?", dialogCamera = true}
+					briefingData[3] = {pos = NPCName, name = NPCTitle, text = "Natürlich. @cr Der weise Mann scheint ihr zu sein. @cr Es war klug, sich auf spätere Engpässe vorzubereiten.", dialogCamera = true}
+				else
+					briefingData[1] = {pos = id, name = ""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."", text = "Sagt, weiser Mann: Könnt ihr uns bei unserem Schwefelproblem helfen? @cr Ihr habt doch sicherlich Weisheiten kundzutun.", dialogCamera = true}
+					briefingData[2] = {pos = NPCName, name = NPCTitle, text = "Nun, zaubern kann ich nicht. @cr Wärt ihr klug gewesen, hättet ihr bereits früher Schwefel angehortet. @cr Nun kann ich Euch auch nicht mehr helfen...", dialogCamera = true}
+					briefingData[3] = {pos = NPCName, name = NPCTitle, text = "Ich fürchte, ihr habt den weiten Weg umsonst auf Euch genommen.", dialogCamera = true}
 				end
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				for i = 1, table.getn(briefingData) do
+					ASP(briefingData[i].pos, briefingData[i].name, briefingData[i].text, briefingData[i].dialogCamera)
+				end
+				briefing.finished = function()
+					if GDB.GetValue("myths\\journeysulfurstored") > 0 then
+						AddSulfur(1, GDB.GetValue("myths\\journeysulfurstored"))
+					end
+				end
+				StartBriefing(briefing)
 			end
-			StartBriefing(briefing)
-		end
 		}
 		SetupExpedition(NPC)
+	else
+		DisableNpcMarker(GetID("hermit"))
 	end
 end
 function Miner()
 	if not KafarnaHostile then
-		local NPCName = "miner"
-		local NPCTitle = mine
 		local NPC = {
-		--EntityName = "Dario",
-		Heroes = true,
-		TargetName = NPCName,
-		Distance = 300,
-		Callback = function()
-			local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
-			local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-			LookAt(NPCName,id);LookAt(id,NPCName)
-			DisableNpcMarker(GetID(NPCName))
-			local briefing = {}
-			local AP, ASP = AddPages(briefing)
-			ASP(NPCName,NPCTitle,"Einst führte hier ein schmaler Wanderpfad tiefer durch die Berge bis hin zum großen Strom, der das östliche vom westlichen Gefilde trennt.", true)
-			ASP(NPCName,NPCTitle,"Einige Händler ließen dort sogar ihre Karren nach Larina langfahren, als das Gebiet im Nordwesten zeitweise von Räubern heimgesucht wurde.", true)
-			ASP("ev_spawn1",NPCTitle,"Seit das Nebelvolk sich in den Bergen breit gemacht hat, ist dieser Pfad jedoch sehr gefährlich geworden.", false)
-			ASP(NPCName,NPCTitle,"Ich habe sicherheitshalber diese Barrikade aus verdorrten Bäumen errichtet, damit die nicht noch auf den Gedanken kommen, meine Hütte hier einzureißen.", false)
-			briefing.finished = function()
+			Heroes = true,
+			TargetName = "miner",
+			Distance = 300,
+			Callback = function()
+				local NPCName = "miner"
+				local NPCTitle = mine
+				local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+				local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+				LookAt(NPCName,id);LookAt(id,NPCName)
+				DisableNpcMarker(GetID(NPCName))
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				ASP(NPCName,NPCTitle,"Einst führte hier ein schmaler Wanderpfad tiefer durch die Berge bis hin zum großen Strom, der das östliche vom westlichen Gefilde trennt.", true)
+				ASP(NPCName,NPCTitle,"Einige Händler ließen dort sogar ihre Karren nach Larina langfahren, als das Gebiet im Nordwesten zeitweise von Räubern heimgesucht wurde.", true)
+				ASP("ev_spawn1",NPCTitle,"Seit das Nebelvolk sich in den Bergen breit gemacht hat, ist dieser Pfad jedoch sehr gefährlich geworden.", false)
+				ASP(NPCName,NPCTitle,"Ich habe sicherheitshalber diese Barrikade aus verdorrten Bäumen errichtet, damit die nicht noch auf den Gedanken kommen, meine Hütte hier einzureißen.", false)
+				briefing.finished = function()
+				end
+				StartBriefing(briefing)
 			end
-			StartBriefing(briefing)
-		end
 		}
 		SetupExpedition(NPC)
+	else
+		DisableNpcMarker(GetID("miner"))
 	end
 end
 function AfraidSerf()
 	if not KafarnaHostile then
-		local NPCName = "afraid_serf"
-		local NPCTitle = afserf
 		local NPC = {
-		--EntityName = "Dario",
-		Heroes = true,
-		TargetName = NPCName,
-		Distance = 300,
-		Callback = function()
-			local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
-			local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-			LookAt(NPCName,id);LookAt(id,NPCName)
-			DisableNpcMarker(GetID(NPCName))
-			local briefing = {}
-			local AP, ASP = AddPages(briefing)
-			ASP(NPCName,NPCTitle,"W..W..Wilde. @cr Eine ganze Horde von denen...", true)
-			ASP("view1",NPCTitle,"Geht hier vorne bloß nicht weiter. @cr Ich konnte meine Haut grade noch retten. @cr Mein Kollege hatte weniger Glück...", false)
-			ASP("ev_spawn9",NPCTitle,"Ich fürchte, der ist mittlerweile einem ihrer Rituale zum Opfer gefallen.", false)
-			briefing.finished = function()
-				Tools.ExploreArea(3700, 18500, 10)
-				StartCountdown(20*60, KafarnaChiefPrep, false)
+			Heroes = true,
+			TargetName = "afraid_serf",
+			Distance = 300,
+			Callback = function()
+				local NPCName = "afraid_serf"
+				local NPCTitle = afserf
+				local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+				local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+				LookAt(NPCName,id);LookAt(id,NPCName)
+				DisableNpcMarker(GetID(NPCName))
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				ASP(NPCName,NPCTitle,"W..W..Wilde. @cr Eine ganze Horde von denen...", true)
+				ASP("view1",NPCTitle,"Geht hier vorne bloß nicht weiter. @cr Ich konnte meine Haut grade noch retten. @cr Mein Kollege hatte weniger Glück...", false)
+				ASP("ev_spawn9",NPCTitle,"Ich fürchte, der ist mittlerweile einem ihrer Rituale zum Opfer gefallen.", false)
+				briefing.finished = function()
+					Tools.ExploreArea(3700, 18500, 10)
+					StartCountdown(20*60, KafarnaChiefPrep, false)
+				end
+				StartBriefing(briefing)
 			end
-			StartBriefing(briefing)
-		end
 		}
 		SetupExpedition(NPC)
+	else
+		DisableNpcMarker(GetID("afraid_serf"))
 	end
 end
 function KafarnaChiefPrep()
-	EnableNpcMarker(GetID("chief"))
-	Chief()
+	if not KafarnaHostile then
+		EnableNpcMarker(GetID("chief"))
+		Chief()
+	end
 end
 function Chief()
 	if not KafarnaHostile then
-		local NPCName = "chief"
-		local NPCTitle = chi
 		local NPC = {
-		--EntityName = "Dario",
-		Heroes = true,
-		TargetName = NPCName,
-		Distance = 300,
-		Callback = function()
-			local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
-			local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-			LookAt(NPCName,id);LookAt(id,NPCName)
-			DisableNpcMarker(GetID(NPCName))
-			local briefing = {}
-			local AP, ASP = AddPages(briefing)
-			ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Ihr seht aus wie der Anführer dieser Truppe. @cr Könnt ihr mir erzählen, wieso hier eine ganze Armee versammelt ist, während sich vor den Toren das Nebelvolk tümmelt? @cr Wieso räuchert ihr die Wilden nicht aus?", true)
-			ASP(NPCName,NPCTitle,"Wenn das doch so einfach wäre... @cr Unser letzter Angriff schlug kläglich fehl, wir hatten viele Verluste zu beklagen...", true)
-			ASP("ev_tower6",NPCTitle,"Diese Behausungen der Wilden sich einfach zu mächtig, unsere Schwerter, Speere, Pfeile und Kugeln sind dagegen machtlos @cr Ohne Kanonenfeuer haben wir keine Chance.", false)
-			ASP(NPCName,NPCTitle,"Ich opfere meine Männer nicht, einen sinnlosen Tod zu sterben. @cr Vernichtet für uns mindestens drei ihrer Behausungen und wir reden weiter. @cr Zeigt uns Eure Macht und wir können gemeinsam vorrücken!", true)
-			briefing.finished = function()
-				ChiefQuest()
-				EvilCampsDestroyed = 0
-				EvilCampsToDestroy = 3
-				ActivateEvilCampsQuestGUI()
-				Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_DESTROYED, "", "EvilCampsDestroyedJob", 1)
+			Heroes = true,
+			TargetName = "chief",
+			Distance = 300,
+			Callback = function()
+				local NPCName = "chief"
+				local NPCTitle = chi
+				local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+				local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+				LookAt(NPCName,id);LookAt(id,NPCName)
+				DisableNpcMarker(GetID(NPCName))
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Ihr seht aus wie der Anführer dieser Truppe. @cr Könnt ihr mir erzählen, wieso hier eine ganze Armee versammelt ist, während sich vor den Toren das Nebelvolk tümmelt? @cr Wieso räuchert ihr die Wilden nicht aus?", true)
+				ASP(NPCName,NPCTitle,"Wenn das doch so einfach wäre... @cr Unser letzter Angriff schlug kläglich fehl, wir hatten viele Verluste zu beklagen...", true)
+				ASP("ev_tower6",NPCTitle,"Diese Behausungen der Wilden sich einfach zu mächtig, unsere Schwerter, Speere, Pfeile und Kugeln sind dagegen machtlos @cr Ohne Kanonenfeuer haben wir keine Chance.", false)
+				ASP(NPCName,NPCTitle,"Ich opfere meine Männer nicht, einen sinnlosen Tod zu sterben. @cr Vernichtet für uns mindestens drei ihrer Behausungen und wir reden weiter. @cr Zeigt uns Eure Macht und wir können gemeinsam vorrücken!", true)
+				briefing.finished = function()
+					ChiefQuest()
+					EvilCampsDestroyed = 0
+					EvilCampsToDestroy = 3
+					ActivateEvilCampsQuestGUI()
+					Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_DESTROYED, "", "EvilCampsDestroyedJob", 1)
+				end
+				StartBriefing(briefing)
 			end
-			StartBriefing(briefing)
-		end
 		}
 		SetupExpedition(NPC)
+	else
+		DisableNpcMarker(GetID("chief"))
 	end
 end
 function ChiefQuest()
@@ -1191,39 +1206,40 @@ function EvilCampsDestroyedJob()
 end
 function Merchant()
 	if not KafarnaHostile then
-		local NPCName = "merchant"
-		local NPCTitle = merch
 		local NPC = {
-		--EntityName = "Dario",
-		Heroes = true,
-		TargetName = NPCName,
-		Distance = 300,
-		Callback = function()
-			local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
-			local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-			LookAt(NPCName,id);LookAt(id,NPCName)
-			DisableNpcMarker(GetID(NPCName))
-			local briefing = {}
-			local AP, ASP = AddPages(briefing)
-			AP{
-				title = ""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."",
-				text = "Wir sind auf der Suche nach größeren Mengen Schwefel. @cr Ihr habt nicht zufällig Schwefel in eurem Angebot?",
-				position = GetPosition(id),
-				dialogCamera = true,
-				action = function()
-					CustomizeBriefingParams(100, 29, 2900)
+			Heroes = true,
+			TargetName = "merchant",
+			Distance = 300,
+			Callback = function()
+				local NPCName = "merchant"
+				local NPCTitle = merch
+				local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+				local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+				LookAt(NPCName,id);LookAt(id,NPCName)
+				DisableNpcMarker(GetID(NPCName))
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				AP{
+					title = ""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."",
+					text = "Wir sind auf der Suche nach größeren Mengen Schwefel. @cr Ihr habt nicht zufällig Schwefel in eurem Angebot?",
+					position = GetPosition(id),
+					dialogCamera = true,
+					action = function()
+						CustomizeBriefingParams(100, 29, 2900)
+					end
+				}
+				ASP(NPCName,NPCTitle,"Schwefel? @cr Nun, viel bekommen wir hier leider nicht herein. @cr Das Schwefelbergwerk Kafarnas wurde in letzter Zeit des Häufigeren überfallen oder gar vernichtet.", true)
+				ASP("ev_spawn5",NPCTitle,"Ein Großteil des abgebauten Schwefels wird direkt in Maßnahmen gegen das erstarkende Nebelvolk investiert. @cr Ich fürchte, ich werde Euch keinen guten Preis machen können...", false)
+				briefing.finished = function()
+					SetCameraDefaultParams()
+					MerchantTribute1()
 				end
-			}
-			ASP(NPCName,NPCTitle,"Schwefel? @cr Nun, viel bekommen wir hier leider nicht herein. @cr Das Schwefelbergwerk Kafarnas wurde in letzter Zeit des Häufigeren überfallen oder gar vernichtet.", true)
-			ASP("ev_spawn5",NPCTitle,"Ein Großteil des abgebauten Schwefels wird direkt in Maßnahmen gegen das erstarkende Nebelvolk investiert. @cr Ich fürchte, ich werde Euch keinen guten Preis machen können...", false)
-			briefing.finished = function()
-				SetCameraDefaultParams()
-				MerchantTribute1()
+				StartBriefing(briefing)
 			end
-			StartBriefing(briefing)
-		end
 		}
 		SetupExpedition(NPC)
+	else
+		DisableNpcMarker(GetID("merchant"))
 	end
 end
 function MerchantTribute1()
@@ -1287,29 +1303,30 @@ function MerchantTribute3Payed()
 end
 function StoneMiner()
 	if not KafarnaHostile then
-		local NPCName = "stone_miner"
-		local NPCTitle = sminer
 		local NPC = {
-		--EntityName = "Dario",
-		Heroes = true,
-		TargetName = NPCName,
-		Distance = 300,
-		Callback = function()
-			local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
-			local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
-			LookAt(NPCName,id);LookAt(id,NPCName)
-			DisableNpcMarker(GetID(NPCName))
-			local briefing = {}
-			local AP, ASP = AddPages(briefing)
-			ASP(NPCName,NPCTitle,"Auf der Suche nach Steinen? @cr Ich bin hier der Vorarbeiter des Steinbergwerkviertels und mache Euch gute Preise. Die besten Steine weit und breit.", true)
-			ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Nun, ich werde darüber nachdenken.", true)
-			briefing.finished = function()
-				StoneMinerTribute()
+			Heroes = true,
+			TargetName = "stone_miner",
+			Distance = 300,
+			Callback = function()
+				local NPCName = "stone_miner"
+				local NPCTitle = sminer
+				local posX, posY = Logic.GetEntityPosition(GetID(NPCName))
+				local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
+				LookAt(NPCName,id);LookAt(id,NPCName)
+				DisableNpcMarker(GetID(NPCName))
+				local briefing = {}
+				local AP, ASP = AddPages(briefing)
+				ASP(NPCName,NPCTitle,"Auf der Suche nach Steinen? @cr Ich bin hier der Vorarbeiter des Steinbergwerkviertels und mache Euch gute Preise. Die besten Steine weit und breit.", true)
+				ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Nun, ich werde darüber nachdenken.", true)
+				briefing.finished = function()
+					StoneMinerTribute()
+				end
+				StartBriefing(briefing)
 			end
-			StartBriefing(briefing)
-		end
 		}
 		SetupExpedition(NPC)
+	else
+		DisableNpcMarker(GetID("stone_miner"))
 	end
 end
 function StoneMinerTribute()
@@ -1355,6 +1372,7 @@ function KafarnaObserverBrief()
 		Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_HURT_ENTITY, "", "OnKafarnaBuildingDamagedAgain", 1)
 		SetHealth("kafarnaVC", 100)
 		SetHealth("kafarnaSM", 100)
+		SetHealth("kafarnaIM", 100)
 	end
 	StartBriefing(briefing)
 end
@@ -1363,7 +1381,7 @@ function OnKafarnaBuildingDamagedAgain()
 	local target = Event.GetEntityID2()
 	if GetPlayer(attacker) == 6 and GetPlayer(target) == 8 and Logic.IsBuilding(target) then
 		gvKafarnaBuildingDamageTaken = gvKafarnaBuildingDamageTaken + CEntity.TriggerGetDamage()
-		if gvKafarnaBuildingDamageTaken >= 2000 then
+		if gvKafarnaBuildingDamageTaken >= 1000 then
 			KafarnaObserverBrief2()
 			return true
 		end

@@ -128,6 +128,7 @@ function Prolog()
 		Logic.SetGlobalInvulnerability(1)
 		StartSimpleJob("CheckForRobbersSpotted")
 		HeroesDeadJob = StartSimpleJob("DefeatJob")
+		LarinaDeadJob = StartSimpleJob("DefeatJobHQ")
 		--
 		InitAchievementChecks()
 	end
@@ -152,6 +153,19 @@ function DefeatJob()
 		ASP("dario",ment,"Warum habt Ihr Eure Helden nicht beschützt?", false)
 		ASP("erec",ment,"Jetzt habt Ihr sie verloren und damit auch das Spiel verloren.", false)
 		ASP("ari",ment,"Versucht es noch mal und macht es dann besser.", false)
+		briefing.finished = function()
+			Defeat()
+		end
+		StartBriefing(briefing);
+		return true
+	end
+end
+function DefeatJobHQ()
+	if IsDestroyed("HQP1")
+	or (IsDestroyed("VCP1") and (Logic.GetNumberOfEntitiesOfTypeOfPlayer(8, Entities.PU_Serf) + Logic.GetNumberOfEntitiesOfTypeOfPlayer(8, Entities.PU_BattleSerf) == 0)) then
+		local briefing = {}
+		local AP, ASP = AddPages(briefing);
+		ASP("LarinaMjPos",ment,"Larina ist gefallen... @cr Ihr hättet der Stadt zur Hilfe eilen müssen. @cr Nun ist jegliche Hoffnung vergebens...", false)
 		briefing.finished = function()
 			Defeat()
 		end
@@ -235,6 +249,7 @@ function LarinaFreedJob()
 			LarinaMjVisitQuest()
 			EnableNpcMarker(id)
 			LarinaMajor()
+			EndJob(LarinaDeadJob)
 		end
 		StartBriefing(briefing)
 		return true
@@ -277,6 +292,7 @@ function LarinaMajor()
 		ASP("IronPitView",mjP8,"Und die wenigen Rohstoffschächte in der Gegend liegen allesamt im Einzugsgebiet der Räuber. @cr Ihr werdet also zunächst Handel mit den Städten im Westen treiben müssen. @cr Und das wird sogleich teuer als auch gefährlich, da die Räuber auch diese Route regelmäßig überfallen...", false)
 		ASP("BanditSpawn2",mjP8,"Ihr seht schon. @cr Es läuft alles darauf hinaus, dass diese Räuber vernichtet werden müssen. @cr Erst, wenn Euch dies gelungen ist, könnt Ihr Euch Gedanken machen, weiter gen Osten reisen zu können.", false)
 		briefing.finished = function()
+			gvTimeLarinaFreed = Logic.GetTime()
 			Logic.RemoveQuest(1, LarinaMjVisitQID)
 			RobbersQuest1()
 			StartSimpleJob("RobbersDefeatedJob1")
@@ -401,13 +417,12 @@ function WandererBrief()
 	SetupExpedition(BeiWan)
 end
 function P8Settler()
-	local npcname = "p8settler"
 	local BeiSet = {
-	--EntityName = "Dario",
 	Heroes = true,
-    TargetName = npcname,
+    TargetName = "p8settler",
     Distance = 300,
     Callback = function()
+		local npcname = "p8settler"
 		local posX, posY = Logic.GetEntityPosition(GetID(npcname))
 		local id = GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 300, EntityCategories.Hero)
 		LookAt(npcname,id);LookAt(id,npcname)
@@ -418,9 +433,8 @@ function P8Settler()
 		ASP("yeoldbridge", p8se, "Nun, sie sollten aber auch gute Schwimmer sein. @cr Die Strömung kann tückisch sein und es muss viel Schutt inmitten des Flussbettes geräumt werden.", false)
 		briefing.finished = function()
 			if not BridgeBlownIntoTheAir then
-				InitRuinRepairing("LargeBridgeRuinRepairing", "yeoldbridge", "oldbridge1", "oldbridge2", "oldbridge3", "oldbridge4", Entities.PB_Bridge3, 2000 - round(200*gvDiffLVL), 2000, 0)
+				Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"", "InitRuinRepairing",1,{},{"LargeBridgeRuinRepairing", "yeoldbridge", "oldbridge1", "oldbridge2", "oldbridge3", "oldbridge4", Entities.PB_Bridge3, 2000 - round(200*gvDiffLVL), 2000, 0, LargeBridgeFullyRestored})
 				StartSimpleJob("LargeBridgeRuinRepairingSerfDrowned")
-				StartSimpleJob("CheckForLargeBridgeFullyRestored")
 			end
 		end
 		StartBriefing(briefing)
@@ -438,6 +452,7 @@ function LargeBridgeRuinRepairingSerfDrowned()
 		local rng = math.random(1, 12 + (3*gvDiffLVL))
 		if rng == 1 then
 			Message("Einer Eurer Arbeiter ist bei Bauarbeiten im Fluss ertrunken...")
+			SetHealth(id1, 0)
 			Sound.PlayFeedbackSound(Sounds.VoicesMentor_ATTACK_UnitsDrowned_rnd_01, 170)
 		elseif rng == 2 then
 			rng = math.random(1, 5 + gvDiffLVL)
@@ -448,19 +463,16 @@ function LargeBridgeRuinRepairingSerfDrowned()
 		end
 	end
 end
-function CheckForLargeBridgeFullyRestored()
-	if Logic.GetNumberOfEntitiesOfType(Entities.PB_Bridge3) > 0 then
-		local briefing = {}
-		local AP, ASP = AddPages(briefing)
-		ASP("yeoldbridge", ment, "Sehr gut. @cr Die alte Brücke wurde vollständig restauriert. @cr Ihr solltet nun schleunigst weiter nach Osten aufbrechen. @cr Doch gebt Acht: Das Land jenseits dieses Flusses gehört bereits zu einem fremden Königreich.", false)
-		briefing.finished = function()
-			Logic.RemoveQuest(1, BridgeRestoreQID)
-			Logic.RemoveTribute(1, BridgeDestroyTribute)
-			BridgeFullyRestored = true
-		end
-		StartBriefing(briefing)
-		return true
+function LargeBridgeFullyRestored()
+	local briefing = {}
+	local AP, ASP = AddPages(briefing)
+	ASP("yeoldbridge", ment, "Sehr gut. @cr Die alte Brücke wurde vollständig restauriert. @cr Ihr solltet nun schleunigst weiter nach Osten aufbrechen. @cr Doch gebt Acht: Das Land jenseits dieses Flusses gehört bereits zu einem fremden Königreich.", false)
+	briefing.finished = function()
+		Logic.RemoveQuest(1, BridgeRestoreQID)
+		Logic.RemoveTribute(1, BridgeDestroyTribute)
+		BridgeFullyRestored = true
 	end
+	StartBriefing(briefing)
 end
 function BridgeRestoreQuest()
 	local quest	= {
@@ -484,7 +496,8 @@ function BridgeDestroyTributePayed()
 	BridgeRemoveEtypes = {Entities.XD_RuinHouse1, Entities.XD_RuinHouse2, Entities.XD_RuinResidence1, Entities.XD_RuinResidence2, Entities.XD_LargeCampFire,
 		Entities.XD_GeyserEvelance1, Entities.XD_RuinSmallTower1, Entities.XD_RuinSmallTower2, Entities.XD_RuinWall1, Entities.XD_RuinTower2,
 		Entities.XD_RuinFragment1, Entities.XD_RuinFragment2, Entities.XD_RuinFragment3, Entities.XD_RuinFragment4, Entities.XD_RuinFragment5,
-		Entities.XD_RuinFragment6, Entities.XD_Rock6, Entities.XD_Rock7, Entities.XD_Willow1, Entities.XD_AppleTree2, Entities.XD_Stone1, Entities.XD_WoodenFence02
+		Entities.XD_RuinFragment6, Entities.XD_Rock6, Entities.XD_Rock7, Entities.XD_Willow1, Entities.XD_AppleTree2, Entities.XD_Stone1, Entities.XD_WoodenFence02,
+		Entities.XD_Corn1, Entities.XD_WaterPlant1, Entities.XD_WaterPlant2, Entities.XD_Reed1, Entities.XD_Rape1, Entities.XD_Fog2, Entities.XD_Fog3
 	}
 	local posX, posY = Logic.GetEntityPosition(GetID("yeoldbridge"))
 	for eID in CEntityIterator.Iterator(CEntityIterator.OfAnyTypeFilter(unpack(BridgeRemoveEtypes)), CEntityIterator.InCircleFilter(posX, posY, 2300)) do
@@ -544,7 +557,14 @@ end
 function NewBridgeFund()
 	local posX, posY = 20913.80, 25422.80
 	Logic.SetTerrainNodeHeight(round(posX/100), round(posY/100), 580)
+	Logic.UpdateBlocking(round(posX/100) - 1, round(posY/100) - 1, round(posX/100) + 1, round(posY/100) + 1)
 	Logic.CreateEntity(Entities.XD_NeutralBridge3, posX, posY, 0, 0)
+	local x, y = Logic.GetEntityPosition(GetID("oldbridge2"))
+	for eID in CEntityIterator.Iterator(CEntityIterator.OfPlayerFilter(1), CEntityIterator.OfTypeFilter(Entities.PU_Serf), CEntityIterator.InCircleFilter(x, y, 800)) do
+		local posX, posY = Logic.GetEntityPosition(eID)
+		TeleportSettler(eID, posX - 1200, posY)
+	end
+	TeleportSettler(GetID("wanderer"), 18900, 24300)
 	StartSimpleJob("NewBridgeBuilt")
 end
 function NewBridgeBuilt()
@@ -564,7 +584,6 @@ end
 function LarinaMajorBrief2()
 	EnableNpcMarker(GetID("MajorP8"))
 	local BeiLM = {
-	--EntityName = "Dario",
 	Heroes = true,
     TargetName = "MajorP8",
     Distance = 300,
@@ -593,7 +612,7 @@ function LarinaMajorBrief2()
 end
 function LarinaToPlayer()
 	Logic.ChangeAllEntitiesPlayerID(8, 1)
-	local baseamount = 200+round(200*gvDiffLVL + (500 - (Logic.GetTime()/2)))
+	local baseamount = 200+round(200*gvDiffLVL + (500 - (gvTimeLarinaFreed/2)))
 	AddGold(baseamount)
 	AddWood(round(baseamount * 0.75))
 	AddClay(round(baseamount * 0.85))
@@ -606,7 +625,6 @@ function LarinaToPlayer()
 end
 function TraderBrief()
 	local BeiTr = {
-	--EntityName = "Dario",
 	Heroes = true,
     TargetName = "TraderP8",
     Distance = 300,
@@ -730,7 +748,6 @@ function KafarnaDiscovered()
 end
 function Myst_NPC1()
 	local BeiMyst = {
-	--EntityName = "Dario",
 	Heroes = true,
     TargetName = "Weirdo",
     Distance = 300,
@@ -840,7 +857,6 @@ function ControlRiddle2Job()
 end
 function Riddle2DoneBrief()
 	local BeiMyst = {
-	--EntityName = "Dario",
 	Heroes = true,
     TargetName = "Weirdo",
     Distance = 300,
@@ -866,7 +882,7 @@ end
 
 function ArrivedAtOtherKingdownJob()
 	local posX, posY = Logic.GetEntityPosition(GetID("eastern_side"))
-	if Logic.GetPlayerEntitiesInArea(1, 0, posX, posY, 1200, 1) > 0 then
+	if GetNearestEntityOfPlayerAndCategoryInArea(1, posX, posY, 1200, EntityCategories.Hero) then
 		StartCutscene("EasternSide", ArrivedAtOtherKingdownBrief)
 		return true
 	end
@@ -887,7 +903,6 @@ function ArrivedAtOtherKingdownBrief()
 end
 function Guard1()
 	local BeiGu1 = {
-	--EntityName = "Dario",
 	Heroes = true,
     TargetName = "guard1",
     Distance = 300,
@@ -922,7 +937,6 @@ function Guard1()
 end
 function Guard2()
 	local BeiGu2 = {
-	--EntityName = "Dario",
 	Heroes = true,
     TargetName = "guard2",
     Distance = 300,
@@ -1142,7 +1156,6 @@ end
 function HiddenWanderer()
 
 	local BeiHWa = {
-	--EntityName = "Dario",
 	Heroes = true,
 	TargetName = "hiddenwanderer",
 	Distance = 300,
@@ -1204,7 +1217,6 @@ function ControlRiddle3Job()
 end
 function HiddenWanderer2()
 	local BeiHWa = {
-	--EntityName = "Dario",
 	Heroes = true,
 	TargetName = "hiddenwanderer",
 	Distance = 300,
@@ -1290,7 +1302,6 @@ function randomRiddle(_hero)
 end
 function Hermit()
 	local BeiHer = {
-	--EntityName = "Dario",
 	Heroes = true,
 	TargetName = "hermit",
 	Distance = 300,
@@ -1321,7 +1332,7 @@ function HermitSulfurTribute()
 	BridgeDestroyTributeTID = AddTribute( tribute )
 end
 function HermitSulfurTributePayed()
-	if not Caravan_On_Its_Way then
+	if not Caravan_On_Its_Way and caravan_step > round(2.5*gvDiffLVL) then
 		local num_caravan = round(2 + gvDiffLVL)
 		for i = 1, num_caravan do
 			CreateEntity(8,Entities.PU_Travelling_Salesman,GetPosition("LarinaMjPos"),"caravan_s_" .. i)

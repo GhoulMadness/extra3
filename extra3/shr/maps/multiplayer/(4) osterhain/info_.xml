@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>Volcano</NameKey>
+ <DescKey>Volcano</DescKey>
+ <Name>(4) Osterhain</Name>
+ <Desc>Inspiriert von traditionellen Osterfestivitäten und der Farbenpracht der Natur, bietet diese Map eine Vielzahl an Erkundungsmöglichkeiten und Herausforderungen für die vier Kontrahenten dieser europäischen Landschaft. @cr Überall sprießen bunte Blumen und frisches Gras. @cr Sucht die überall auf den Wiesen verteilten bunten Ostereier für spezielle Belohnungen.</Desc>
+ <SizeX>577</SizeX>
+ <SizeY>577</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>4</MPPlayerCount>
+ <MPGameOptionFlagSet>35</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\(4) osterhain</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>d96022e1-937c-468b-89ec-8d3d53ca6dee</Data>
+ </GUID>
+</root>

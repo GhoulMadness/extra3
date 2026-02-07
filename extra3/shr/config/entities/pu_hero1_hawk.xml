@@ -9,9 +9,8 @@
 <root>
 	<Display classname="ED::CDisplayEntityProps">
 		<Class>GD::CDisplaySettler</Class>
-		<Model>XA_Seagull</Model>
-		<Anim>XA_Seagull_Fly1</Anim>
-		<Anim>XA_Seagull_Fly2</Anim>
+		<Model>XA_Hawk</Model>
+		<Anim>XA_Hawk_Fly</Anim>
 	</Display>
 	<Logic classname="GGL::CGLAnimalProps">
 		<Class>GGL::CAnimal</Class>
@@ -39,11 +38,11 @@
 		<Logic classname="GGL::CGLAnimationBehaviorExProps">
 			<Class>GGL::CGLBehaviorAnimationEx</Class>
 		<!-- animation to be used when entity is suspended -->
-			<SuspensionAnimation>XA_Seagull_Fly1</SuspensionAnimation>
+			<SuspensionAnimation>XA_Hawk_Fly</SuspensionAnimation>
 			<!--
 			    I presume there will be an animation set for each type of soldier
 			-->
-			<AnimSet>SET_SEAGULL</AnimSet>
+			<AnimSet>SET_HAWK</AnimSet>
 		</Logic>
 		<Display classname="ED::CBehaviorProps">
 			<Class>ED::CDisplayBehaviorAnimation</Class>

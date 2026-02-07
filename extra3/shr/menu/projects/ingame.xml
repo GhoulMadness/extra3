@@ -76168,12 +76168,12 @@
                                 </ShortCutString>
                               </ButtonHelper>
                               <Materials>
-                                <Texture>graphics\textures\gui\b_civil_church.png</Texture>
+                                <Texture>graphics\textures\gui\b_civil_university.png</Texture>
                                 <TextureCoordinates>
                                   <X>0.25</X>
-                                  <Y>0.125</Y>
+                                  <Y>0.34375</Y>
                                   <W>0.25</W>
-                                  <H>0.125</H>
+                                  <H>0.03125</H>
                                 </TextureCoordinates>
                                 <Color>
                                   <Red>255</Red>
@@ -76183,12 +76183,12 @@
                                 </Color>
                               </Materials>
                               <Materials>
-                                <Texture>graphics\textures\gui\b_civil_church.png</Texture>
+                                <Texture>graphics\textures\gui\b_civil_university.png</Texture>
                                 <TextureCoordinates>
                                   <X>0.25</X>
-                                  <Y>0.125</Y>
+                                  <Y>0.34375</Y>
                                   <W>0.25</W>
-                                  <H>0.125</H>
+                                  <H>0.03125</H>
                                 </TextureCoordinates>
                                 <Color>
                                   <Red>255</Red>
@@ -76198,12 +76198,12 @@
                                 </Color>
                               </Materials>
                               <Materials>
-                                <Texture>graphics\textures\gui\b_civil_church.png</Texture>
+                                <Texture>graphics\textures\gui\b_civil_university.png</Texture>
                                 <TextureCoordinates>
-                                  <X>0</X>
-                                  <Y>0.125</Y>
+                                  <X>0.5</X>
+                                  <Y>0.34375</Y>
                                   <W>0.25</W>
-                                  <H>0.125</H>
+                                  <H>0.03125</H>
                                 </TextureCoordinates>
                                 <Color>
                                   <Red>255</Red>
@@ -76213,12 +76213,12 @@
                                 </Color>
                               </Materials>
                               <Materials>
-                                <Texture>graphics\textures\gui\b_civil_church.png</Texture>
+                                <Texture>graphics\textures\gui\b_civil_university.png</Texture>
                                 <TextureCoordinates>
-                                  <X>0.515625</X>
-                                  <Y>0.125</Y>
+                                  <X>0.5</X>
+                                  <Y>0.34375</Y>
                                   <W>0.25</W>
-                                  <H>0.125</H>
+                                  <H>0.03125</H>
                                 </TextureCoordinates>
                                 <Color>
                                   <Red>255</Red>
@@ -76228,12 +76228,12 @@
                                 </Color>
                               </Materials>
                               <Materials>
-                                <Texture>graphics\textures\gui\b_civil_church.png</Texture>
+                                <Texture>graphics\textures\gui\b_civil_university.png</Texture>
                                 <TextureCoordinates>
                                   <X>0.75</X>
-                                  <Y>0.125</Y>
+                                  <Y>0.34375</Y>
                                   <W>0.25</W>
-                                  <H>0.125</H>
+                                  <H>0.03125</H>
                                 </TextureCoordinates>
                                 <Color>
                                   <Red>255</Red>

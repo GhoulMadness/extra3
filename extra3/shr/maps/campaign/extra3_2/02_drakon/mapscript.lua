@@ -480,9 +480,9 @@ function Briefing_VillageApproached()
 		MakeInvulnerable("thief")
 		Move("thief","bridge_pos")
 		StartSimpleJob("BridgeApproached")
-		SetupPlayerAi( 8, {constructing = true, extracting = 1, repairing = true, serfLimit = 9} )
-		AI.Village_EnableConstructing(8, 1)
-		AI.Entity_ActivateRebuildBehaviour(8,30,5)
+		SetupPlayerAi( 8, {constructing = false, extracting = 1, repairing = true, serfLimit = 9} )
+		--AI.Village_EnableConstructing(8, 1)
+		--AI.Entity_ActivateRebuildBehaviour(8,30,5)
 		AI.Village_LimitExpansionRadius(8, 5000)
 		AI.Village_SetResourceFocus(8,ResourceType.Wood)
 		AddGold(round(500*gvDiffLVL))
@@ -843,7 +843,6 @@ function ScoutBrief_1()
 end
 function ClayTrader()
 	local BeiCT = {
-	--EntityName = "Dario",
 	Heroes = true,
     TargetName = "ClayTrader",
     Distance = 300,
@@ -881,7 +880,6 @@ function TributePaidClay1()
 end
 function TraderP8()
 	local BeiTP8 = {
-	--EntityName = "Dario",
 	Heroes = true,
     TargetName = "Trader",
     Distance = 300,
@@ -1428,7 +1426,7 @@ function MajorP5_1()
 			ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Guten Tag, der Herr...", true)
 			ASP("MajorP5",mjP5,"Gut?.. Guuut?!?! Bis ihr hier aufgetaucht seid, war er das vielleicht.. Doch jetzt...", true)
 			briefing.finished = function()
-				StartCutscene("Ehernberg", EhernbergCutsceneDone)
+				StartCutscene("Gueldfurt", GueldfurtCutsceneDone)
 				--Cutscene_P5(id)
 			end;
 			StartBriefing(briefing)
@@ -1483,7 +1481,7 @@ function Cutscene_P5(_id)
 	}
 	Start_Cutscene(cutsceneTable)
 end
-function EhernbergCutsceneDone()
+function GueldfurtCutsceneDone()
 	if MtVillagesDiploCheck(5) == true then
 		EnableNpcMarker(GetEntityId("serf_p5"))
 		EnableNpcMarker(GetEntityId("settler_p5"))
@@ -2016,7 +2014,7 @@ function MajorP6_1()
 		ASP("MajorP6",mjP6,"... Und es lief in letzter Zeit nicht allzu gut für uns. @cr Schlechte Auftragslage... @cr Missernten ... @cr Keine Beute mehr zu holen ...", false)
 		ASP("MajorP6",mjP6,"Kommt den Bitten unsrer Dörfler nach und wir überdenken Euer Ansinnen.", true)
 		briefing.finished = function()
-			StartCutscene("Gueldfurt", GueldfurtCutsceneDone)
+			StartCutscene("Ehernberg", EhernbergCutsceneDone)
 			--Cutscene_P6()
 		end;
 		StartBriefing(briefing)
@@ -2068,7 +2066,7 @@ function Cutscene_P6()
 	}
 	Start_Cutscene(cutsceneTable)
 end
-function GueldfurtCutsceneDone()
+function EhernbergCutsceneDone()
 	if MtVillagesDiploCheck(6) == true then
 		EnableNpcMarker(GetEntityId("guard_p6"))
 		EnableNpcMarker(GetEntityId("settler_p6"))
@@ -3216,7 +3214,7 @@ function DrakeBrief_2()
 		ASP("Comm",dr,"Ihr findet ihn beim südlichen Tor zu unserer Festungsanlage.", true)
 		briefing.finished = function()
 			EnableNpcMarker(GetEntityId("Comm"))
-			ConnectLeaderWithArmy(GetID("Drake"), ArmyTable[8][1])
+			CreateDrakeArmy()
 			MakeVulnerable("Drake")
 			KommandantBrief_1()
 		end;

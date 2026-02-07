@@ -16,18 +16,13 @@
 -- check player config compatibility
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
 RMG = {}
-s5CommunityLibPath = "extra2\\shr\\maps\\user\\EMS\\tools\\s5CommunityLib"
 s5CommunityLibPathEx3 = "extra3\\shr\\maps\\user\\EMS\\tools\\s5CommunityLib"
 RMGPath = "extra3\\shr\\maps\\user\\EMS\\RMG"
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
-Script.Load( s5CommunityLibPath .. "\\fixes\\TriggerFix.lua" )
-Script.Load( s5CommunityLibPath .. "\\comfort\\math\\SimplexNoise.lua" )
-Script.Load( s5CommunityLibPath .. "\\comfort\\math\\astar.lua" )
+Script.Load( s5CommunityLibPathEx3 .. "\\comfort\\math\\SimplexNoise.lua" )
+Script.Load( s5CommunityLibPathEx3 .. "\\comfort\\math\\astar.lua" )
 Script.Load( s5CommunityLibPathEx3 .. "\\tables\\TerrainTypes.lua" )
-Script.Load( s5CommunityLibPath .. "\\tables\\WaterTypes.lua" )
-Script.Load( s5CommunityLibPath .. "\\comfort\\number\\round.lua" )
-Script.Load( s5CommunityLibPath .. "\\comfort\\entity\\CreateWoodPile.lua" )
-Script.Load( s5CommunityLibPath .. "\\mapeditor\\MirrorMapTools.lua" )
+Script.Load( s5CommunityLibPathEx3 .. "\\tables\\WaterTypes.lua" )
 Script.Load( RMGPath .. "\\texturesets.lua" )
 Script.Load( RMGPath .. "\\vertexcolorsets.lua" )
 Script.Load( RMGPath .. "\\entitysets.lua" )
@@ -46,7 +41,10 @@ function RMG.Callback_OnGenerationFinished()
 	--
 	LocalMusic.UseSet = RMG.MusicSetByLandscapeSetKey[RMG.GenerationData.LandscapeSetKey]
 	local weatherdata = RMG.WeatherSpecsByWeatherEnum[GDB.GetValue("Singleplayer\\RandomMapData\\MapWeather")]
-	TagNachtZyklus(unpack(weatherdata), 1)
+	TagNachtZyklus(unpack(weatherdata))
+	--
+	RMG = nil
+	collectgarbage()
 end
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- ex3 sp menu21 random map creator custom stuff
@@ -71,13 +69,13 @@ function RMG.GetPlayerConfigByGDBData()
 end
 -- duration, rainflag, snowflag, bonuscount (rain/snow)
 RMG.WeatherSpecsByWeatherEnum = {
-	[1] = {12, 1, 1, 6},
-	[2] = {18, 1, 1, 3},
-	[3] = {24, 1, 1, 0},
-	[4] = {24, 1, 1, -3},
-	[5] = {32, 0, 0, 0},
-	[6] = {32, 1, 0, 12},
-	[7] = {32, 0, 1, 12}
+	[1] = {12, 1, 1, 6, 1},
+	[2] = {18, 1, 1, 3, 1},
+	[3] = {24, 1, 1, 0, 1},
+	[4] = {24, 1, 1, -3, 0},
+	[5] = {32, 0, 0, 0, 1},
+	[6] = {32, 1, 0, 12, 1},
+	[7] = {32, 0, 1, 12, 1}
 }
 RMG.MusicSetByLandscapeSetKey = {
 	["Normal"] = EUROPEMUSIC,
@@ -92,7 +90,8 @@ RMG.MusicSetByLandscapeSetKey = {
 RMG.StartResourcesByEnum = {
 	[1] = {500, 1000, 800, 600, 0, 0},
 	[2] = {1000, 1800, 1500, 800, 50, 50},
-	[3] = {1500, 2500, 2000, 1200, 200, 200}
+	[3] = {1500, 2500, 2000, 1200, 200, 200},
+	[4] = {3000, 4000, 3200, 2500, 1500, 1000}
 }
 RMG.ResPitValByTypeAndEnum = {
 	["Normal"] = {[1] = 1, [2] = 2, [3] = 2},
@@ -253,14 +252,6 @@ end
 ---@param _PlayerStruct table
 function RMG.SetCameraStart(_PlayerStruct)
 	Camera.ScrollSetLookAt(_PlayerStruct.X * 100, _PlayerStruct.Y * 100)
-end
---++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
--- overrides for compatibility
-function AStar.GetPathCost(_nodeA, _nodeB)
-	return AStar.GetDistance(_nodeA.X, _nodeA.Y, _nodeB.X, _nodeB.Y)
-end
-function AStar.GetHeuristicCostEstimate(_nodeA, _nodeB)
-	return AStar.GetDistance(_nodeA.X, _nodeA.Y, _nodeB.X, _nodeB.Y)
 end
 --++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
 function RMG.SetupLandscapeNormal()
@@ -468,9 +459,10 @@ function RMG.InitGenerationData2(_GenerationData)
 		_GenerationData.MirrorOffset = 0
 	end
 
-	-- TODO: depend on number of players and teams
-	local sizeX = Logic.WorldGetSize()
-	_GenerationData.PlayerDistanceToMiddle = math.min(0.4 + (_GenerationData.NumberOfPlayers/8 / (sizeX/20000)), 0.95) -- in percent
+	-- depends on number of players and teams
+	local sizeX = Logic.WorldGetSize()/100
+	--_GenerationData.PlayerDistanceToMiddle = math.max(math.min((_GenerationData.NumberOfPlayers * math.sqrt(_GenerationData.NumberOfTeams)) / (sizeX^2/10000), 1-(50000/sizeX^2)), 0.6) -- in percent
+	_GenerationData.PlayerDistanceToMiddle = math.max(math.min(((sizeX^0.3)/9) + (_GenerationData.NumberOfPlayers + _GenerationData.NumberOfTeams)/100, 0.95), 0.65)
 
 	-- build misc structure tables
 	local waterheight = _GenerationData.WaterBaseHeight + 200
@@ -1309,7 +1301,7 @@ function RMG.FillPlayerStruct(_GenerationData)
 	currentindex = RMG.AddResourcePitToPlayerStruct(_GenerationData.AmountVillageCenter - 1, "NeutralVillageCenter", 0, "", maxdist - 5, maxdist - 5, resoff, _GenerationData.TerrainBaseHeight, heightmin, heightmax, currentindex)
 
 	-- village hall
-	currentindex = RMG.AddResourcePitToPlayerStruct(_GenerationData.amountVillageHall, "NeutralVillageHall", 0, "", maxdist - 5, maxdist - 5, resoff, _GenerationData.TerrainBaseHeight, heightmin, heightmax, currentindex)
+	currentindex = RMG.AddResourcePitToPlayerStruct(_GenerationData.amountVillageHall, "NeutralVillageHall", 0, "", maxdist, maxdist + 5, resoff, _GenerationData.TerrainBaseHeight, heightmin, heightmax, currentindex)
 
 	-- Lighthouse
 	currentindex = RMG.AddResourcePitToPlayerStruct(_GenerationData.amountLighthouse, "NeutralLighthouse", 0, "", maxdist - 20, maxdist - 20, resoff, _GenerationData.ThresholdCoast, 0, heightmax, currentindex)
@@ -1344,13 +1336,13 @@ function RMG.FillPlayerStruct(_GenerationData)
 	end
 
 	-- gold
-	currentindex, woodpileindexbuffer = RMG.AddResourcePitToPlayerStruct(_GenerationData.AmountGoldPit, "GoldPit", 0, nil, maxdist - 0, maxdist, resoff, _GenerationData.ThresholdHill, 0, heightmax, currentindex)
+	currentindex, woodpileindexbuffer = RMG.AddResourcePitToPlayerStruct(_GenerationData.AmountGoldPit, "GoldPit", 0, nil, maxdist - 5, maxdist + 5, resoff, _GenerationData.ThresholdHill, 0, heightmax, currentindex)
 	for _,v in ipairs(woodpileindexbuffer) do
 		table.insert(possiblewoodpileindices, v)
 	end
 
 	-- silver
-	currentindex, woodpileindexbuffer = RMG.AddResourcePitToPlayerStruct(_GenerationData.AmountSilverPit, "SilverPit", _GenerationData.AmountSilverPile, "SilverPile", maxdist - 5, maxdist - 5, resoff, _GenerationData.ThresholdHill, 0, heightmax, currentindex)
+	currentindex, woodpileindexbuffer = RMG.AddResourcePitToPlayerStruct(_GenerationData.AmountSilverPit, "SilverPit", _GenerationData.AmountSilverPile, "SilverPile", maxdist + 5, maxdist + 15, resoff/2, _GenerationData.TerrainBaseHeight, heightmin, heightmax, currentindex)
 	for _,v in ipairs(woodpileindexbuffer) do
 		table.insert(possiblewoodpileindices, v)
 	end
@@ -1783,7 +1775,7 @@ function RMG.Mirror(_GenerationData, _x, _y, _sourceindex, _targetindex, _mapsiz
 	end
 
 	-- do not round the outcome
-	--_x, _y = Round(_x), Round(_y)
+	--_x, _y = round(_x), round(_y)
 
 	return _x, _y
 end
@@ -2196,7 +2188,7 @@ function RMG.AddRiverNode(_GenerationData, _x, _y, _targetradian, _height, _heig
 
 	_x, _y = _x - maphalf, _y - maphalf
 	_x, _y = RMG.GetMirrorPosition(math.sqrt(_x ^ 2 + _y ^ 2), 0, _targetradian, math.atan2(_y, _x), maphalf, 0)
-	_x, _y = Round(_x), Round(_y)
+	_x, _y = round(_x), round(_y)
 
 	table.insert(_GenerationData.Rivers.Nodes, {X = _x, Y = _y})
 
@@ -2882,7 +2874,7 @@ function RMG.GenerateStructure(_GenerationData)
 					local targetradian = composition[mirror].Slize * _GenerationData.MirrorRadian + offset
 					local mx, my = RMG.MirrorNode(_GenerationData, x, y, sourceradian, targetradian, composition[mirror].AxisMirrorFlag)
 
-					RMG.CreateStructure(_GenerationData, struct, Round(mx), Round(my), _GenerationData.Players[mirror])
+					RMG.CreateStructure(_GenerationData, struct, round(mx), round(my), _GenerationData.Players[mirror])
 				end
 			end
 		end
@@ -3207,7 +3199,7 @@ function RMG.GetRandomPosition(_GenerationData, _struct, _parent, _grid)
 		for y = y1, y2, step do
 
 			-- is inside outer area ?
-			local nx, ny = Round(x + _parent.X), Round(y + _parent.Y)
+			local nx, ny = round(x + _parent.X), round(y + _parent.Y)
 			if (isrect1 or IsInRangeSq(0, 0, x, y, areasq1)) and SimpleGetDistance(nx, ny, maphalf, maphalf) <= maphalf - blocking then --IsValidMapIndex(0, xn, yn) and
 
 				-- is outside inner area ?

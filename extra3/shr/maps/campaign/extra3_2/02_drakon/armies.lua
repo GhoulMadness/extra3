@@ -583,6 +583,20 @@ function AttachNoArmyDefendersToNewArmy()
 	end
 	Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","ControlRespawningArmies",1,{},{army.player, army.id, army.building, 0, army.respawnDelay, unpack(army.types)})
 end
+function CreateDrakeArmy()
+	local army 			= {}
+	army.player 		= 8
+	army.id 			= GetFirstFreeArmySlot(8)
+	army.position		= GetPosition("DrakonZit")
+	army.rodeLength 	= 6400
+	army.strength		= 1
+	SetupArmy(army)
+	--
+	ConnectLeaderWithArmy(GetID("Drake"), army)
+	--
+	Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND,"","ControlGenericArmies",1,nil,{army.player, army.id})
+end
+
 function ControlRespawningArmies(_player, _id, _building, _behaviortype, _delay, ...)
 	local army = ArmyTable[_player][_id + 1]
 	if IsDead(army) and IsDestroyed(_building) then

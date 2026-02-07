@@ -87,6 +87,7 @@ end
 
 function GameCallback_UpdateProgressBar()
 
+	gvLastTimeLoadScreenChanged = gvLastTimeLoadScreenChanged or XGUIEng.GetSystemTime()
 	-- Update network
 	do
 
@@ -112,9 +113,17 @@ function GameCallback_UpdateProgressBar()
 			end
 
 		end
-
+		--[[
+		if gvLastTimeLoadScreenChanged < XGUIEng.GetSystemTime() + 5 then
+			local PictureNumber = 1 + XGUIEng.GetRandom( 6 )
+			local PictureName = "data\\graphics\\textures\\gui\\mainmenu\\loadscreen0" .. PictureNumber .. ".png"
+			XGUIEng.SetMaterialTexture(XGUIEng.GetWidgetID("LoadScreenPic01"), 0, PictureName)
+			--
+			gvLastTimeLoadScreenChanged = XGUIEng.GetSystemTime()
+		end
+		]]
+		collectgarbage(math.ceil(({gcinfo()})[2]/2))
 	end
-	collectgarbage(math.ceil(({gcinfo()})[2]/2))
 end
 
 

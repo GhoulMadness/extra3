@@ -713,6 +713,22 @@ MapEditor_GetArmyDefaultDescription = function(_strength)
 	local description = {
 		serfLimit		=	(_strength^2)+2,
 		extracting		=	false,
+		extractResourcesData = {
+			active = false,
+			priorityOrder = {
+				-- not gonna work because there are no resource trees before clicking on any tree...
+				{entityType = Entities.XD_ResourceTree, resourceType = ResourceType.WoodRaw},
+				{entityType = Entities.XD_Silver1, resourceType = ResourceType.SilverRaw},
+				{entityType = Entities.XD_Clay1, resourceType = ResourceType.ClayRaw},
+				{entityType = Entities.XD_Stone1, resourceType = ResourceType.StoneRaw},
+				{entityType = Entities.XD_Stone_BlockPath, resourceType = ResourceType.StoneRaw},
+				{entityType = Entities.XD_Stone_BlockPath_Med, resourceType = ResourceType.StoneRaw},
+				{entityType = Entities.XD_Iron1, resourceType = ResourceType.IronRaw},
+				{entityType = Entities.XD_Sulfur1, resourceType = ResourceType.SulfurRaw}
+			},
+			searchRange = 2000,
+			idleTreshold = 12
+		},
 		resources = {
 			gold		=	_strength*15000,
 			clay		=	_strength*12500,
@@ -818,6 +834,7 @@ MapEditor_SetupAI = function(_playerId, _strength, _range, _techlevel, _position
 		MapEditor_Armies[_playerId].ControlHomeSectorTriggerID = Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "", "MapEditor_Armies_RefreshHomeSector", 1, {}, {_playerId, _position})
 		MapEditor_Armies[_playerId].RebuildTriggerID = Trigger.RequestTrigger(Events.LOGIC_EVENT_ENTITY_DESTROYED, "", "MapEditor_Armies_BuildingDestroyed", 1, {}, {_playerId})
 		MapEditor_Armies[_playerId].CSiteSerfControlTriggerID = Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "", "MapEditor_Armies_AttachSerfsToCSites", 1, {}, {_playerId})
+		MapEditor_Armies[_playerId].SerfExtractingControlTriggerID = Trigger.RequestTrigger(Events.LOGIC_EVENT_EVERY_SECOND, "", "MapEditor_Armies_SendSerfsToResourceExtracting", 1, {}, {_playerId})
 	end
 
 	-- ulan only on tech lvl 3
@@ -1085,17 +1102,58 @@ MapEditor_Armies_UpgradeForRebuildNeeded = function(_id, _level, _name)
 	end
 end
 MapEditor_Armies_AttachSerfsToCSites = function(_playerId)
-	if Counter.Tick2("MapEditor_Armies_AttachSerfsToCSites_" .. _playerId, 10) then
-		for eID in CEntityIterator.Iterator(CEntityIterator.OfPlayerFilter(_playerId), CEntityIterator.OfTypeFilter(Entities.PU_Serf)) do
-			if Logic.GetCurrentTaskList(eID) == "TL_SERF_IDLE" or Logic.GetCurrentTaskList(eID) == "TL_SERF_EXTRACT_RESOURCE" then
-				for csite in CEntityIterator.Iterator(CEntityIterator.OfPlayerFilter(_playerId), CEntityIterator.OfClassFilter(7798844)) do
-					local attach = CEntity.GetAttachedEntities(csite)
-					local curr = attach and (attach[19] and table.getn(attach[19])) or 0
-					local building = CEntity.GetReversedAttachedEntities(csite)[20][1]
-					local max = GetBuildingTypeBuilderSlotsAmount(Logic.GetEntityType(building))
-					if curr < max then
-						(SendEvent or CSendEvent).SerfConstructBuilding(eID, building)
-					end
+	if Counter.Tick2("MapEditor_Armies_AttachSerfsToCSites_" .. _playerId, 5) then
+		for csite in CEntityIterator.Iterator(CEntityIterator.OfPlayerFilter(_playerId), CEntityIterator.OfClassFilter(7798844)) do
+			local attach = CEntity.GetAttachedEntities(csite)
+			local curr = attach and (attach[19] and table.getn(attach[19])) or 0
+			local building = CEntity.GetReversedAttachedEntities(csite)[20][1]
+			local max = GetBuildingTypeBuilderSlotsAmount(Logic.GetEntityType(building))
+			if curr < max then
+				local serf = 0
+				for i = 1, max - curr do
+					serf = Logic.GetNextIdleSerf(_playerId, serf);
+					(SendEvent or CSendEvent).SerfConstructBuilding(serf, building)
+				end
+			end
+
+		end
+	end
+end
+MapEditor_Armies_SendSerfsToResourceExtracting = function(_playerId)
+	if Counter.Tick2("MapEditor_Armies_SendSerfsToResourceExtracting_" .. _playerId, 8) then
+		if MapEditor_Armies[_playerId].description.extractResourcesData.active then
+			local numSerfs = Logic.GetNumberOfEntitiesOfTypeOfPlayer(_playerId, Entities.PU_Serf)
+			local numIdleSerfs = Logic.GetNumberOfIdleSerfs(_playerId)
+			local treshold = MapEditor_Armies[_playerId].description.extractResourcesData.idleTreshold
+			if numIdleSerfs > treshold then
+				local numCsites = GetNumberOfPlayerEntitiesByClass(_playerId, 7798844)
+				local serf = 0
+				for i = 1, numIdleSerfs - treshold do
+					serf = Logic.GetNextIdleSerf(_playerId, serf);
+					MapEditor_Armies_SendSerfToResourceExtracting(_playerId, serf)
+				end
+			end
+		end
+	end
+end
+MapEditor_Armies_SendSerfToResourceExtracting = function(_playerId, serf)
+	if IsValid(serf) then
+		local posX, posY = Logic.GetEntityPosition(serf)
+		local data = MapEditor_Armies[_playerId].description.extractResourcesData
+		-- search for resources according to priority list
+		for i = 1, table.getn(data.priorityOrder) do
+			if data.priorityOrder[i].entityType == Entities.XD_ResourceTree then
+				for eID in CEntityIterator.Iterator(CEntityIterator.OfAnyTypeFilter(unpack(WCutter.TreeTypes)), CEntityIterator.InCircleFilter(posX, posY, data.searchRange)) do
+					local x, y = Logic.GetEntityPosition(eID);
+					(SendEvent or CSendEvent).SerfExtractResource(serf, data.priorityOrder[i].resourceType, x, y)
+					break
+				end
+			else
+				local num, id = Logic.GetEntitiesInArea(data.priorityOrder[i].entityType, posX, posY, data.searchRange, 1)
+				if num > 0 then
+					local x, y = Logic.GetEntityPosition(id);
+					(SendEvent or CSendEvent).SerfExtractResource(serf, data.priorityOrder[i].resourceType, x, y)
+					break
 				end
 			end
 		end
@@ -1227,30 +1285,42 @@ AITroopGenerator_Action = function(_player)
 		local eTyp, id = AITroopGenerator_EvaluateMilitaryBuildingsPriority(_player, _army.ForbiddenTypes)
 
 		if eTyp then
-			if _army.techLVL == 3 then
-				if eTyp == Entities.PV_Cannon1 then
-					if silver >= 100 and coal >= 500 then
-						eTyp = Entities.PV_Cannon5
-					else
-						eTyp = Entities.PV_Cannon3
-					end
-				elseif eTyp == Entities.PV_Cannon2 then
-					if silver >= 150 and coal >= 500 then
-						eTyp = Entities.PV_Cannon6
-					else
-						eTyp = Entities.PV_Cannon4
-					end
+			-- no leader only spam allowed; instead check resources + some spare for soldiers
+			local cost = {}
+			local enough = true
+			Logic.FillLeaderCostsTable(_player, IsCannonType(eTyp) and Logic.LeaderGetUpgradeCategoryFromSoldierType(_player, eTyp) or eTyp, cost)
+			for k, v in pairs(cost) do
+				if Logic.GetPlayersGlobalResource(_player, k) + Logic.GetPlayersGlobalResource(_player, k + 1) < v * 4 then
+					enough = false
+					break
 				end
 			end
-
-			if _army.multiTraining and id then
-				if IsCannonType(eTyp) then
-					(SendEvent or CSendEvent).BuyCannon(id, eTyp)
-				else
-					Logic.BarracksBuyLeader(id, eTyp)
+			if enough then
+				if _army.techLVL == 3 then
+					if eTyp == Entities.PV_Cannon1 then
+						if silver >= 100 and coal >= 500 then
+							eTyp = Entities.PV_Cannon5
+						else
+							eTyp = Entities.PV_Cannon3
+						end
+					elseif eTyp == Entities.PV_Cannon2 then
+						if silver >= 150 and coal >= 500 then
+							eTyp = Entities.PV_Cannon6
+						else
+							eTyp = Entities.PV_Cannon4
+						end
+					end
 				end
-			else
-				AI.Army_BuyLeader(_player, _army.id, eTyp)
+
+				if _army.multiTraining and id then
+					if IsCannonType(eTyp) then
+						(SendEvent or CSendEvent).BuyCannon(id, eTyp)
+					else
+						Logic.BarracksBuyLeader(id, eTyp)
+					end
+				else
+					AI.Army_BuyLeader(_player, _army.id, eTyp)
+				end
 			end
 		end
 	end
@@ -1300,7 +1370,7 @@ AITroopGenerator_CheckForIdle = function(_player, _id, _spec)
 		return true
 	end
 	local tab = MapEditor_Armies[_player][_spec][_id]
-	if tab.HomespotReached == true then
+	if tab.HomespotReached then
 		return true
 	end
 	if Logic.GetCurrentTaskList(_id) == "TL_MILITARY_IDLE"
@@ -1315,10 +1385,12 @@ AITroopGenerator_CheckForIdle = function(_player, _id, _spec)
 			if Logic.IsConstructionComplete(MilitaryBuildingID) == 1 then
 				if Logic.IsEntityInCategory(_id, EntityCategories.Cannon) == 1
 				or (Logic.LeaderGetNumberOfSoldiers(_id) == Logic.LeaderGetMaxNumberOfSoldiers(_id) and AreAllSoldiersOfLeaderDetachedFromMilitaryBuilding(_id)) then
-					tab.FormationType = math.random(1, 7)
-					Logic.LeaderChangeFormationType(_id, tab.FormationType)
+					if not tab.FormationType then
+						tab.FormationType = math.random(1, 7)
+						Logic.LeaderChangeFormationType(_id, tab.FormationType)
+						tab.RecruitmentComplete = true
+					end
 					Logic.GroupAttackMove(_id, anchor.X, anchor.Y, math.random(360))
-					tab.RecruitmentComplete = true
 				else
 					if CEntity.GetReversedAttachedEntities(_id)[42] then
 						Logic.DestroyEntity(_id)

@@ -327,7 +327,7 @@ function Attack_2()
 	SnowyDays_Start()
 
 	for i = 1,3 do
-		ForbidTechnology(Technologies.T_MakeSnow,i)
+		ForbidTechnology(Technologies.T_MakeSummer,i)
 	end
 end
 function SnowyDays_Start()

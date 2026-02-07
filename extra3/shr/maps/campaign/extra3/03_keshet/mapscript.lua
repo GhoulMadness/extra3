@@ -5,7 +5,7 @@
 --
 --------------------------------------------------------------------------------
 gvMapText = ""..
-		"@color:0,0,0,0 ........... @color:255,0,10   Men¸ @cr "..
+		"@color:0,0,0,0 ........... @color:255,0,10   Men√º @cr "..
 		" @cr @cr @color:150,0,255 Ghoul @color:230,0,240 @cr Das Keshet-Gebirge @cr "
 gvMapVersion = " v1.00"
 -- Include main function
@@ -66,12 +66,15 @@ function InitPlayerColorMapping()
 	FarbigeNamen()
 
 	Display.SetPlayerColorMapping(2, ROBBERS_COLOR)
+	Display.SetPlayerColorMapping(4, 10)
 	Display.SetPlayerColorMapping(7, NPC_COLOR)
 	Display.SetPlayerColorMapping(8, EVIL_GOVERNOR_COLOR)
 	--
-	SetPlayerName(2, "R‰uber")
+	SetPlayerName(2, "R√§uber")
 	SetPlayerName(3, "???")
 	--SetPlayerName(3, "Begona")
+	SetPlayerName(4, "???")
+	--SetPlayerName(4, "Highfall")
 	SetPlayerName(7, "Lesthortho")
 	SetPlayerName(8, "Nebelvolk")
 end
@@ -93,12 +96,15 @@ function FirstMapAction()
 	IncludeGlobals("Cutscene")
 	-- Include Cutscene control
 	IncludeLocals("Cutscene_Control")
-	--IncludeLocals("armies")
+	IncludeLocals("armies")
 	LocalMusic.UseSet = MEDITERANEANMUSIC
 
 	TagNachtZyklus(28,0,0,0,1)
-	--CreateArmies()
+	CreateArmies()
 	ActivateBriefingsExpansion()
+	Move("dario", "moveDario")
+	Move("ari", "moveAri")
+	Move("erec", "moveErec")
 	StartCutscene("Intro", Prolog)
 end
 function Prolog()
@@ -106,8 +112,8 @@ function Prolog()
 	local AP, ASP = AddPages(briefing);
 	ASP("dario",dario,"Meine Freunde. @cr Wir sollten uns beeilen und weiter nach Osten aufbrechen.", true)
 	ASP("dario",dario,"Kafarna scheint uns freundlich gesinnt. @cr Wir sollten dennoch nicht allzu lange hier verweilen...", true)
-    ASP("erec",erec,"Ich stimme dir zu, Dario. @cr Lasst uns dennoch nicht unachtsam werden. @cr Wir befinden uns hier nicht mehr im alten Reich Kerons. @cr Wer weiﬂ, was uns hier noch erwartet...", true)
-	ASP("ari",ari,"Auch hier wird es Ausgestoﬂene und Vertriebene geben, die ich zur Not zur Unterst¸tzung rufen kann. @cr Aber ich stimme dir zu, Erec. @cr Wir sollten bei all unserer Eile die Vorsichtsmaﬂnahmen nicht zu kurz kommen lassen. @cr Dario, mein Liebster, du solltest deinen Falken gen Osten schicken und schauen, ob der Weg sicher ist.", true)
+    ASP("erec",erec,"Ich stimme dir zu, Dario. @cr Lasst uns dennoch nicht unachtsam werden. @cr Wir befinden uns hier nicht mehr im alten Reich Kerons. @cr Wer wei√ü, was uns hier noch erwartet...", true)
+	ASP("ari",ari,"Auch hier wird es Ausgesto√üene und Vertriebene geben, die ich zur Not zur Unterst√ºtzung rufen kann. @cr Aber ich stimme dir zu, Erec. @cr Wir sollten bei all unserer Eile die Vorsichtsma√ünahmen nicht zu kurz kommen lassen. @cr Dario, mein Liebster, du solltest deinen Falken gen Osten schicken und schauen, ob der Weg sicher ist.", true)
 	briefing.finished = function()
 		Truhen()
 		--DarioQuest()
@@ -118,7 +124,7 @@ function Prolog()
     StartBriefing(briefing)
 end
 function Truhen()
-	gvTotalChestAmount = 11
+	gvTotalChestAmount = 1
 	for i = 1, gvTotalChestAmount do
 		if math.random(1,3) == 1 then
 			CreateRandomGoldChest(GetPosition("chest"..i))

@@ -2490,7 +2490,6 @@ end
 
 function MajorP7_1()
 	local BeiMj7_1 = {
-	--EntityName = "Dario",
 	Heroes = true,
     TargetName = "MajorP7",
     Distance = 300,
@@ -2501,14 +2500,22 @@ function MajorP7_1()
 		DisableNpcMarker(GetEntityId("MajorP7"))
 		local briefing = {}
 		local AP, ASP = AddPages(briefing)
-		ASP(id,""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."","Werter Herr. @cr Wir ersuchen eure Unterstützung gegen die wiederaufflackernde Bedrohung der dunklen Horden. @cr Varg, Mary und Kerberos Horden belagern Drakon und wir benötigen eure Hilfe.", false)
+		AP{
+			title = ""..orange.."" .. GetNPCDefaultNameByID(id) .. ""..weiss.."",
+			text = "Werter Herr. @cr Wir ersuchen eure Unterstützung gegen die wiederaufflackernde Bedrohung durch die dunklen Horden. @cr Varg, Mary und Kerberos Horden belagern Drakon und wir benötigen eure Hilfe.",
+			position = GetPosition(id),
+			dialogCamera = true,
+			action = function()
+				CustomizeBriefingParams(140, 29, 2900)
+			end
+		}
 		ASP("MajorP7",mjP7,"Soso unsere Hilfe wird vom edlen Herr erbeten. @cr Nun, das wird nicht ganz günstig werden, so viel ist wohl klar.", true)
 		ASP("MajorP7",mjP7,"Wir wurden von unseren Nachbarn - und ja, auch von Drakon - im Laufe der letzten Konflikte tiefer in die Berge verdrängt. @cr Dabei verloren wir fast sämtliche Rohstoffansprüche naher Ländereien.", false)
 		ASP("MajorP7",mjP7,"Diese fordern wir wieder ein. @cr Aber redet für die Einzelheiten mit den zuständigen Dörflern. @cr Ihr werdet alle ihre Aufgaben erfüllen müssen, damit wir an Eurer Seite kämpfen werden.", true)
 
 		briefing.finished = function()
+			SetCameraDefaultParams()
 			StartCutscene("Hohenberge", HohenbergeCutsceneDone)
-			--Cutscene_P7()
 		end;
 		StartBriefing(briefing)
 	end}
@@ -3596,6 +3603,210 @@ function CheckForAllVillagesConvinced()
 	end
 end
 --**********Abschnitt  Comfortfunctionen:**********--
+Briefing = function(_page,_firstPage)
+
+	--	by default
+
+	--	disable following camera
+
+	Camera.FollowEntity(0)
+
+	--	quest activated?
+
+	if _page.quest ~= nil then
+
+		assert(_page.quest.id 		~= nil)
+		assert(_page.quest.type 	~= nil)
+		assert(_page.quest.title 	~= nil)
+		assert(_page.quest.text 	~= nil)
+
+		-- position to quest
+		if _page.position ~= nil and _page.noScrolling ~= true then
+
+			Logic.AddQuestEx(
+				1,
+				_page.quest.id,
+				_page.quest.type,
+				_page.quest.title,
+				_page.quest.text,
+				_page.position.X,
+				_page.position.Y,
+				1
+			)
+
+		else
+
+			Logic.AddQuest(
+				1,
+				_page.quest.id,
+				_page.quest.type,
+				_page.quest.title,
+				_page.quest.text,
+				1
+			)
+
+		end
+	end
+
+	--	exploration activated?
+
+	if _page.explore ~= nil then
+		assert(_page.position ~= nil)
+		assert(_page.exploreId == nil)
+		_page.exploreId = GlobalMissionScripting.ExploreArea(_page.position.X,_page.position.Y,_page.explore / 100)
+		Logic.ForceFullExplorationUpdate()
+		assert(_page.exploreId ~= 0)
+	end
+
+	--	create minimap marker?
+
+	if _page.marker ~= nil then
+
+		if type(_page.marker) == "table" then
+
+			table.foreach(_page.marker, function(_,_marker) ShowBriefingMarker(_marker) end)
+
+		else
+
+			ShowBriefingMarker(_page)
+
+		end
+
+	end
+
+	--	position available?
+
+	if _page.position ~= nil then
+
+		--	deploy the camera directly, for the first page of the briefing report
+
+		if _page.noScrolling == nil then
+
+			if _page.dialogCamera == true then
+
+				Camera.ZoomSetDistance(DIALOG_ZOOMDISTANCE)
+				Camera.ZoomSetAngle(DIALOG_ZOOMANGLE)
+
+			else
+
+				Camera.ZoomSetDistance(BRIEFING_ZOOMDISTANCE)
+				Camera.ZoomSetAngle(BRIEFING_ZOOMANGLE)
+
+			end
+
+			Camera.ScrollSetLookAt(_page.position.X,_page.position.Y)
+
+		end
+
+		--	deploy minimap signal
+
+		GUI.ScriptSignal(_page.position.X,_page.position.Y,0)
+
+	end
+
+	--	npc available?
+
+	if _page.npc ~= nil then
+
+		if _page.npc.id ~= nil then
+
+			if _page.npc.isObserved == true then
+
+				Camera.FollowEntity(_page.npc.id)
+
+
+				if _page.dialogCamera == true then
+
+					Camera.ZoomSetDistance(DIALOG_ZOOMDISTANCE)
+					Camera.ZoomSetAngle(DIALOG_ZOOMANGLE)
+
+				else
+
+					Camera.ZoomSetDistance(BRIEFING_ZOOMDISTANCE)
+					Camera.ZoomSetAngle(BRIEFING_ZOOMANGLE)
+
+				end
+
+			end
+
+			EnableNpcMarker(_page.npc.id)
+
+		end
+
+	end
+
+	if _page.follow ~= nil then
+		Camera.FollowEntity(_page.follow)
+
+		if not _firstPage then
+			Camera.InitCameraFlight()
+			Camera.FlyToLookAt(_page.position.X, _page.position.Y, BRIEFING_CAMERA_FLYTIME)
+		end
+	end
+
+	--	pointer available?
+
+	if _page.pointer ~= nil then
+
+		_page.pointerId = Logic.CreateEffect(GGL_Effects.FXTerrainPointer,_page.pointer.X,_page.pointer.Y,GUI.GetPlayerID())
+
+	end
+
+	--	stop speech
+	Stream.Stop()
+
+	-- external function
+	if Briefing_Extra ~= nil then
+		Briefing_Extra(_page, _firstPage)
+	end
+
+	--	title available?
+
+	if _page.title ~= nil then
+
+		local Title = GetBriefingTextFromStringKey(_page.title)
+
+		PrintBriefingHeadline("@color:255,250,200 "..Title)
+
+	end
+
+	--	text available?
+
+	if _page.text ~= nil then
+
+		if type(_page.text) == "table" then
+
+			briefingText = ""
+
+			table.foreach	(
+								_page.text,
+								function(_,_value)
+									local Text = GetBriefingTextFromStringKey(_value)
+
+									briefingText = briefingText..Text.."\n"
+								end
+							)
+
+			PrintBriefingText(briefingText)
+		else
+
+			local Text = GetBriefingTextFromStringKey(_page.text)
+
+			PrintBriefingText(Text)
+
+			--	start speech one tick after displaying text
+			Trigger.RequestTrigger(	Events.LOGIC_EVENT_EVERY_TURN,
+									nil,
+									"StartSpeech_Action",
+									1,
+									nil,
+									{_page.text})
+
+		end
+
+	end
+
+end
 function GetQuestId()
     gvMission.QuestId = (gvMission.QuestId or 0) + 1
     return gvMission.QuestId

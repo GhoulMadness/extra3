@@ -1795,8 +1795,8 @@ function Generic_Vik_Villager_Firstborn_Dead_Brief(_villagerType, _index)
 	Heroes = true,
 	TargetName = "vik_" .. _villagerType "" .. _index,
 	Distance = 300,
-	villagerType = _villagerType
-	index = _index
+	villagerType = _villagerType,
+	index = _index,
 	Callback = function(_data)
 		local _villagerType = _data.villagerType
 		local _index = _data.index

@@ -383515,7 +383515,7 @@
     <X>5.900000e+003</X>
     <Y>4.430000e+004</Y>
    </Position>
-   <Orientation>0.000000e+000</Orientation>
+   <Orientation>1.800000e+002</Orientation>
    <Flags>0</Flags>
    <PlayerID>7</PlayerID>
    <Health>-1</Health>
@@ -408487,14 +408487,14 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_ScriptEntity</Type>
    <Position>
-    <X>5.171723e+004</X>
-    <Y>2.469375e+004</Y>
+    <X>5.087685e+004</X>
+    <Y>2.501177e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
    <PlayerID>2</PlayerID>
    <Health>-1</Health>
-   <Name>Wegelagerer2</Name>
+   <Name>Wegelagerer1</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>
@@ -408502,14 +408502,14 @@
   <Entity classname="EGL::CGLEEntityCreator" classid="0x0753286d">
    <Type>XD_ScriptEntity</Type>
    <Position>
-    <X>5.198769e+004</X>
-    <Y>2.457512e+004</Y>
+    <X>5.060639e+004</X>
+    <Y>2.513040e+004</Y>
    </Position>
    <Orientation>0.000000e+000</Orientation>
    <Flags>0</Flags>
    <PlayerID>2</PlayerID>
    <Health>-1</Health>
-   <Name>Wegelagerer1</Name>
+   <Name>Wegelagerer2</Name>
    <ScriptCommandLine></ScriptCommandLine>
    <AmbientSoundType></AmbientSoundType>
    <Scale>1.000000e+000</Scale>

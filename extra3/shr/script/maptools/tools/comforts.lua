@@ -5988,7 +5988,10 @@ function InitRuinRepairing(_name, _center, _slot1, _slot2, _slot3, _slot4, _newe
 		if serfs[1] == 4 then
 			RuinRepairingData[_name].serfs = {serfs[2], serfs[3], serfs[4], serfs[5]}
 			if not RuinRepairingData[_name].site then
-				RuinRepairingData[_name].site = Logic.CreateConstructionSite(centerpos.X, centerpos.Y, 0, _newentity, _sitePlayer or 6)
+				RuinRepairingData[_name].site = Logic.CreateConstructionSite(centerpos.X, centerpos.Y, 0, _newentity, _sitePlayer)
+			end
+			if not RuinRepairingData[_name].dummyBuilding then
+				RuinRepairingData[_name].dummyBuilding = CEntity.GetReversedAttachedEntities(RuinRepairingData[_name].site)[20][1]
 			end
 		end
 	else
@@ -6000,10 +6003,10 @@ function InitRuinRepairing(_name, _center, _slot1, _slot2, _slot3, _slot4, _newe
 					Logic.SetTaskList(RuinRepairingData[_name].serfs[i], TaskLists.TL_SERF_BUILD)
 					Logic.SetEntitySelectableFlag(RuinRepairingData[_name].serfs[i], 0)
 				elseif Logic.GetCurrentTaskList(RuinRepairingData[_name].serfs[i]) == "TL_SERF_BUILD" then
-					if GetWood(1) >= 30 and GetClay(1) >= 20 and GetStone(1) >= 30 then
-						AddWood(1,-30)
-						AddClay(1,-20)
-						AddStone(1,-30)
+					if GetWood(1) >= 20 and GetClay(1) >= 15 and GetStone(1) >= 20 then
+						AddWood(1,-20)
+						AddClay(1,-15)
+						AddStone(1,-20)
 						RuinRepairingData[_name].repairprogress = RuinRepairingData[_name].repairprogress + 1
 						Logic.CreateEffect(GGL_Effects.FXBuildingSmokeMedium, pos.X, pos.Y)
 					end
@@ -6013,10 +6016,13 @@ function InitRuinRepairing(_name, _center, _slot1, _slot2, _slot3, _slot4, _newe
 			end
 		end
 		if RuinRepairingData[_name].repairprogress >= _progress then
-			DestroyEntity(RuinRepairingData[_name].site)
-			ReplaceEntity(_center, _newentity)
+			DestroyEntity(RuinRepairingData[_name].dummyBuilding)
+			local id = ReplaceEntity(_center, _newentity)
+			if GetPlayer(id) ~= _sitePlayer then
+				ChangePlayer(id, _sitePlayer)
+			end
 			for i = 1,4 do
-				Logic.SetTaskList(RuinRepairingData[_name].serfs[i], TaskLists.TL_SERF_BUILD)
+				Logic.SetTaskList(RuinRepairingData[_name].serfs[i], TaskLists.TL_SERF_IDLE)
 				Logic.SetEntitySelectableFlag(RuinRepairingData[_name].serfs[i], 1)
 			end
 			if _callback then

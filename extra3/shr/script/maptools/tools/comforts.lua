@@ -5985,13 +5985,23 @@ function InitRuinRepairing(_name, _center, _slot1, _slot2, _slot3, _slot4, _newe
 	local centerpos = GetPosition(_center)
 	if not RuinRepairingData[_name].serfs then
 		local serfs = {Logic.GetPlayerEntitiesInArea(1, Entities.PU_Serf, centerpos.X, centerpos.Y, _searchRange or 1000, 4)}
-		if serfs[1] == 4 then
-			RuinRepairingData[_name].serfs = {serfs[2], serfs[3], serfs[4], serfs[5]}
-			if not RuinRepairingData[_name].site then
-				RuinRepairingData[_name].site = Logic.CreateConstructionSite(centerpos.X, centerpos.Y, 0, _newentity, _sitePlayer)
+		if serfs[1] >= 4 then
+			for k, v in pairs(RuinRepairingData) do
+				for i = 1, serfs[1] do
+					if table_findvalue(v and v.serfs, serfs[i+1]) ~= 0 then
+						serfs[1] = 0
+						break
+					end
+				end
 			end
-			if not RuinRepairingData[_name].dummyBuilding then
-				RuinRepairingData[_name].dummyBuilding = CEntity.GetReversedAttachedEntities(RuinRepairingData[_name].site)[20][1]
+			if serfs[1] >= 4 then
+				RuinRepairingData[_name].serfs = {serfs[2], serfs[3], serfs[4], serfs[5]}
+				if not RuinRepairingData[_name].site then
+					RuinRepairingData[_name].site = Logic.CreateConstructionSite(centerpos.X, centerpos.Y, 0, _newentity, _sitePlayer)
+				end
+				if not RuinRepairingData[_name].dummyBuilding then
+					RuinRepairingData[_name].dummyBuilding = CEntity.GetReversedAttachedEntities(RuinRepairingData[_name].site)[20][1]
+				end
 			end
 		end
 	else
@@ -6028,6 +6038,7 @@ function InitRuinRepairing(_name, _center, _slot1, _slot2, _slot3, _slot4, _newe
 			if _callback then
 				_callback()
 			end
+			RuinRepairingData[_name] = nil
 			return true
 		end
 	end

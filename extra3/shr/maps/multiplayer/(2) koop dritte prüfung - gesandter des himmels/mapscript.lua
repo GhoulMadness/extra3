@@ -10,7 +10,7 @@ gvDiffLVL = 0
 gvMapText = ""..
 		"@color:0,0,0,0 .......... @color:255,0,10   Menü @cr "..
 		" @cr @cr @cr @color:150,0,255 Ghoul @color:230,0,240 @cr (2) Dritte Prüfung - Gesandter des Himmels "
-gvMapVersion = " v1.21"
+gvMapVersion = " v1.22"
 AttackTarget = {X = 49100,
 				Y = 39200}
 -- Include main function
@@ -517,7 +517,7 @@ function ChestControl()
 								Message("@color:0,255,255 " .. UserTool_GetPlayerName(j) ..  " hat eine Schatztruhe geplündert. Inhalt: " .. randomEventAmount.." Taler" )
 								Sound.PlayGUISound(Sounds.Misc_Chat2,100)
 								Chests[i] = false
-								ReplacingEntity("Chest"..i, Entities.XD_ChestOpen)
+								ReplaceEntity("Chest"..i, Entities.XD_ChestOpen)
 							end
 						end
 					end
@@ -532,7 +532,7 @@ function ChestControl()
 								Message("@color:0,255,255 " .. UserTool_GetPlayerName(j) ..  " hat eine Schatztruhe geplündert. Inhalt: " .. randomEventAmount.." Silber" )
 								Sound.PlayGUISound(Sounds.Misc_Chat2,100)
 								Chests[i] = false
-								ReplacingEntity("Chest"..i, Entities.XD_ChestOpen)
+								ReplaceEntity("HiddenChest", Entities.XD_ChestOpen)
 								StartCountdown(10, ColeshillChestPlundered, false)
 							end
 						end

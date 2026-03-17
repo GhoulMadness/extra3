@@ -1163,7 +1163,7 @@ function PrincessFather()
 		briefing.finished = function()
 			PrincessFatherQuest()
 			PrincessFatherTribute()
-			StartSimpleJob("PrincessFatherJob")
+			PFJobID = StartSimpleJob("PrincessFatherJob")
 		end
 		StartBriefing(briefing)
 	end
@@ -1189,6 +1189,7 @@ function PrincessFatherTribute()
 	TPF = AddTribute(TrPF)
 end
 function TributePaid_PF()
+	EndJob(PFJobID)
 	DestroyEntity("PFgrid")
 	DisableNpcMarker(GetEntityId("princess"))
 	StartSimpleJob("PrincessArriveJob")
@@ -1540,6 +1541,7 @@ function ControlAlchAssistent()
 				end
 			end
 			StartCountdown(3, function() Script.Load(Folders.Map .. "mountain_path.lua") end, false)
+			StartCountdown(4, function() DestroyEntity("alch_assistent") end, false)
 		end
 		StartBriefing(briefing)
 		return true
@@ -1568,8 +1570,8 @@ function Gewonnen()
 			BRIEFING_TIMER_PER_CHAR = 1.0
 			local AP, ASP = AddPages(briefing);
 			ASP("FinalSpawn",erec,"Perfekt, die Feinde wurden vernichtet und die ursprüngliche Idylle kann wieder aufleben.", false)
-			ASP("Haupt",dario,"Die Siedler der Bergdörfer redeten von einem bald bevorstehenden Machtwechsel im Norden, hmmm.", true)
-			ASP("Haupt",dario,"Wir sollten wohl besser in den Norden reisen, um zu überprüfen, ob da was dran ist.", true)
+			ASP("Dario",dario,"Die Siedler der Bergdörfer redeten von einem bald bevorstehenden Machtwechsel im Norden, hmmm.", false)
+			ASP("Dario",dario,"Wir sollten wohl besser in den Norden reisen, um zu überprüfen, ob da was dran ist.", false)
 			ASP("Erec",dario,"Erec du bleibst hier und lässt deine Verletzungen versorgen, du hast ganz schön was abgekriegt. @cr Ich frage mal Ari, ob sie mich begleitet. @cr In Sachen schnelles Überprüfen von Gerede macht ihr so schnell niemand etwas vor.", false)
 			briefing.finished = function()
 				Logic.RemoveQuest(1,EreQuest)
@@ -1740,7 +1742,16 @@ function mystic_npc_Check()
 			Mystic_NPC()
 			StartSimpleJob("mystic_npc_Check_Disappear")
 			return true
+		else
+			StartSimpleJob("mystic_npc_Check_Approach")
+			return true
 		end
+	end
+end
+function mystic_npc_Check_Approach()
+	if GetDistance("Dario", {X = 66400, Y = 11600}) > 800 then
+		StartSimpleJob("mystic_npc_Check")
+		return true
 	end
 end
 function mystic_npc_Check_Disappear()
@@ -1758,7 +1769,7 @@ function CheckForTime()
 	local secondsperday = gvDayTimeSeconds or 1440
 	local daytimefactor = secondsperday/86400
 	local TimeMinutes = math.floor(GameTime/(3600*daytimefactor))
-	local currenthour = 8+(TimeMinutes/60)
+	local currenthour = 8+TimeMinutes
 	while currenthour > 12 do
 		currenthour = currenthour - 12
 	end

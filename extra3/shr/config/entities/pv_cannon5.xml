@@ -97,9 +97,9 @@
 	        <BattleWalkAnim>PV_Cannon5_Drive</BattleWalkAnim>
 	        
 	        <DamageClass>DC_Strike</DamageClass>
-	        <DamageAmount>34</DamageAmount>
-	        <MaxRandomDamageBonus>4</MaxRandomDamageBonus>
-	        <DamageRange>450</DamageRange>
+	        <DamageAmount>35</DamageAmount>
+	        <MaxRandomDamageBonus>5</MaxRandomDamageBonus>
+	        <DamageRange>480</DamageRange>
 	        
 	        <BattleWaitUntil>3500</BattleWaitUntil>
 	        <ProjectileEffectID>FXCannonBallGatling_Barrel1</ProjectileEffectID>

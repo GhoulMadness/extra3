@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+ <NameKey>AO2exMapDescription/CM08_04_NorthernSea_name</NameKey>
+ <DescKey>AO2exMapDescription/CM08_04_NorthernSea_desc</DescKey>
+ <Name>(8) Koop Nieder mit dem dunklen Herrscher</Name>
+ <Desc></Desc>
+ <SizeX>769</SizeX>
+ <SizeY>769</SizeY>
+ <MPFlag>true</MPFlag>
+ <MPPlayerCount>8</MPPlayerCount>
+ <MPGameOptionFlagSet>3</MPGameOptionFlagSet>
+ <MiniMapTextureName>data\graphics\Textures\GUI\MapPics\externalmap</MiniMapTextureName>
+ <Key>3</Key>
+ <GUID>
+  <Data>08a214b7-e228-491e-b320-04977b354c1d</Data>
+ </GUID>
+</root>
